@@ -2,6 +2,7 @@
 
 class SiteController extends Controller
 {
+	public $layout='//layouts/userOnline';
 	/**
 	 * Declares class-based actions.
 	 */
@@ -92,7 +93,25 @@ class SiteController extends Controller
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
+			{
+				
+				//把登录用户信息添加到tbl_useronline表上
+				$tbl_useron = new UserOnline();
+				$tbl_useron->online_name = Yii::app()->user->name;
+				$tbl_useron->online_time_now = date("YmdHis");
+				$tbl_useron->online_from_time = date("YmdHis");
+				$tbl_useron->save();
+				
+				
+				$user = Yii::app()->user->name;
+				$namefrom = $user;
+				$nameto = "【系统消息】";
+				$content = $user."进入了聊天室!";
+			//	$this->render('test', array('para'=>$content));
+				$this->addToTblChatcont($namefrom, $nameto, $content);
 				$this->redirect(Yii::app()->user->returnUrl);
+			//	$this->render('test', array('para'=>"HHHHHHHHH"));
+			}	
 		}
 		// display the login form
 		$this->render('login',array('model'=>$model));
@@ -103,7 +122,222 @@ class SiteController extends Controller
 	 */
 	public function actionLogout()
 	{
+		$user = Yii::app()->user->name;
 		Yii::app()->user->logout();
+		//TblUseronline::delete(Yii::app()->user->name);
+		$tbl_useron = new UserOnline();
+		$tbl_useron->deleteAll("online_name='$user'");
+		//$this->render('test', array('na'=>$na));
+		
+		$namefrom = $user;
+		$nameto = "【系统消息】";
+		$content = $user."离开了聊天室!";
+		$this->addToTblChatcont($namefrom, $nameto, $content);
 		$this->redirect(Yii::app()->homeUrl);
 	}
+	
+	
+	public function actionTalk() {
+		if(Yii::app()->user->isGuest)
+       		 throw new CHttpException(iconv('gb2312', 'utf-8', "请先登录"));
+        
+		$user = Yii::app()->user->name;
+		$modelarray = $this->getTalkLog();
+		$tmp = "";
+		foreach($modelarray as $model) {
+			if($model->message_reciever == iconv("gb2312","utf-8", "所有人")) {
+				$model->message_reciever = iconv("gb2312","utf-8", "【闲聊】");
+				$model->message_content = iconv("gb2312","utf-8", "说:").$model->message_content;
+			}
+			else {
+				$model->message_sender = "";
+			}
+			$tmp .= $model->message_reciever.$model->message_sender.$model->message_content."\n";
+		}
+		$model = new Message;
+		$model->message_content = $tmp;
+		$model1 = new Message;
+		
+		//$model为TblUseronline
+		if(isset($_POST['Message']))
+		{
+			$model1->attributes=$_POST['Message'];
+			$model1->message_sender = $user;
+			$model1->message_reciever =iconv("gb2312","utf-8", "所有人");
+			$model1->message_time = date("YmdHis");
+			$model1->save();
+		}
+		
+		$array = array("HHHHH");
+		$this->render('talkIndex',array(
+			'model'=>$model,
+			'model1'=>$model1, 
+			'data'=>$array
+		));
+	}
+
+	/**
+	 * function:动态刷新聊天窗口，供ajax调用
+	 */
+	public function actionUpdateAjax() {
+		
+		$user = Yii::app()->user->name;
+		$modelarray = $this->getTalkLog();
+		$tmp = "";
+		foreach($modelarray as $model) {
+			if($model->message_reciever == iconv("gb2312","utf-8", "所有人")) {
+				$model->message_reciever = iconv("gb2312","utf-8", "【闲聊】");
+				$model->message_content = iconv("gb2312","utf-8", "说:").$model->message_content;
+			}
+			else {
+				$model->message_sender = "";
+			}
+			$tmp .= $model->message_reciever.$model->message_sender.$model->message_content."\n";
+		}
+		$model = new Message;
+		$model->message_content = $tmp;
+		
+		$this->renderPartial('_talklog', array('model'=>$model));
+		//$this->renderPartial('test', array('para'=>"HHHHHHHHHH"));	
+	}
+	
+	public function actionUpdateUseronline() {
+		$model = new UserOnline;
+		$modelArray = $model->findAll();
+		
+		foreach($modelArray as $mod) {
+		/*	$this->menu=array(
+				array('label'=>$mod->name),
+			);*/
+			array_push($this->menu, array('label'=>$mod->name));
+		}
+		$this->renderPartial('//layouts/userOnline');	
+		//$this->renderPartial('test', array('para'=>$this->menu));	
+	}
+	
+	//npc任务模式
+	public function actionNpc() {
+		$this->render('npc/npcLocation');
+	}
+	
+	public function actionNpcTaskList() {
+		$dataProvider=new CActiveDataProvider('Task', array( 
+			'criteria'=>array(
+		        'condition'=>'npc_id=1',
+		    ),
+		));
+		//$this->render('test', array('para'=>$dataProvider));
+		$this->renderPartial('npc/npcTaskList',array(
+			'dataProvider'=>$dataProvider,
+		));
+	}
+	
+	public function actionLookThoughMyTask() {
+		$this->render("npc/LookThoughMyTask");
+	}
+	
+	/**
+	 * @property integer $user_task_id
+ 	 * @property integer $user_task_task_id
+  	 * @property integer $user_task_user_id
+ 	 * @property integer $user_task_status
+	 */
+	public function actionGetTask($id) {
+		//$this->render("test");	
+		$model = new UserTask();
+		$model->user_task_task_id = $id;
+		$model->user_task_user_id = yii::app()->user->id;
+		$model->user_task_status = 0; //未完成
+		$model->save();
+		$this->render("getTaskSuccess");
+	}
+	
+	public function actionLookThoughUndo() {
+		$undo = new CActiveDataProvider('UserTask', array(
+			'criteria'=>array(
+		        'condition'=>'user_task_status=0',
+		    ),
+		));
+		//$this->render("test");
+		$this->renderPartial("npc/undoPar", array('undo'=>$undo));
+	}
+	
+	public function actionLookThoughFinish() {
+		$finish = new CActiveDataProvider('UserTask', array(
+			'criteria'=>array(
+		        'condition'=>'user_task_status=1',
+		    ),
+		));
+		$this->renderPartial("npc/finishPar", array('finish'=>$finish));		
+	}
+	
+	/**
+	 * funciton:处理任务
+	 */
+	public function actionDealWithTask() {
+		$this->render("npc/dealWithTask");
+	}
+	
+	//得到需要显示的聊天内容 
+	private function getTalkLog() {
+		$model = $this->getFromtime();
+		$time = $model->online_from_time;
+		$timer = $this->dotimer($time);
+		
+		$model = new Message();
+		$res = $model->findAll("message_time > $timer");
+		return $res; //array
+	}
+
+	public function af() {
+		return "哈哈test";
+	}
+	
+	public function actionTest() {
+		$this->render("test");
+	}
+	
+	//得到用户的显示聊天内容的起始时间
+	private function getFromtime() {
+		$user = Yii::app()->user->name;
+		$tbl_useronline = new UserOnline();
+		$res = $tbl_useronline->find("online_name='$user'");
+		return $res;
+	}
+	
+	//chang the string time to double time 
+	private function dotimer($timer) {
+		$timer = str_replace("-", "", $timer);
+		$timer = str_replace(":", "", $timer);
+		$timer = str_replace(" ", "", $timer);
+		$timer = chop($timer);		
+		return doubleval($timer);
+	}
+	
+	/**
+	 * function:插入数据到$sigma_message_content
+	 * para:发送者 接受者  内容
+	 */
+	 private function addToTblChatcont($namefrom, $nameto, $content) {
+		$tbl_userChatcontent = new Message();
+		$tbl_userChatcontent->message_time = date("YmdHis")+1;
+		$tbl_userChatcontent->message_sender = iconv("gb2312","utf-8", $namefrom);
+		$tbl_userChatcontent->message_reciever = iconv("gb2312","utf-8", $nameto);
+		$tbl_userChatcontent->message_content = iconv("gb2312","utf-8", $content);
+		$tbl_userChatcontent->save();
+	 }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

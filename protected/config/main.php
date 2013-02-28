@@ -1,11 +1,25 @@
 <?php
+define('BETA_CONFIG_ROOT', dirname(__FILE__));
+require(BETA_CONFIG_ROOT . DS . 'define.php');
 
-// uncomment the following to define a path alias
-// Yii::setPathOfAlias('local','path/to/local-folder');
+try {
+    $params = require(BETA_CONFIG_ROOT . DS . 'params.php');
+    $defaultSetting = require(BETA_CONFIG_ROOT . DS . 'setting.php');
+    $params = array_merge($defaultSetting, $params);
+    $cachefile = $defaultSetting['dataPath'] . DS . 'setting.config.php';
+    if (file_exists($cachefile)) {
+        $customSetting = require($cachefile);
+        $params = array_merge($params, $customSetting);
+    }
+    
+}
+catch (Exception $e) {
+    echo $e->getMessage();
+    exit(0);
+}
 
-// This is the main Web application configuration. Any writable
-// CWebApplication properties can be configured here.
 return array(
+	'language'=>'zh_cn',
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'My Web Application',
 
@@ -18,12 +32,12 @@ return array(
 		'application.components.*',
 	),
 
-	'modules'=>array(					//GII模块
+	'modules'=>array(
 		// uncomment the following to enable the Gii tool
 		
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'jiangliwu',
+			'password'=>'123',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
@@ -37,26 +51,25 @@ return array(
 			'allowAutoLogin'=>true,
 		),
 		// uncomment the following to enable URLs in path-format
-		/*
+		
 		'urlManager'=>array(
 			'urlFormat'=>'path',
+			'showScriptName'=>false,
 			'rules'=>array(
-				'<controller:\w+>/<id:\d+>'=>'<controller>/view',
+			    '<controller:\w+>/<id:\d+>'=>'<controller>/view',
 				'<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-			),
+  		     ),
+  			 'urlSuffix'=>'.html',
 		),
-		*/
-		/*
+		
 		'db'=>array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),
-		*/
-
 		// uncomment the following to use a MySQL database
-		//mysql的连接
+		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=vainner',
+			'connectionString' => 'mysql:host=localhost;dbname=sigma_platform',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',
@@ -86,8 +99,5 @@ return array(
 
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
-	'params'=>array(
-		// this is used in contact page
-		'adminEmail'=>'webmaster@example.com',
-	),
+	'params'=> $params,
 );

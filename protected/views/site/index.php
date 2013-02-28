@@ -2,9 +2,16 @@
 /* @var $this SiteController */
 
 $this->pageTitle=Yii::app()->name;
+
 ?>
 
 <h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
+
+<h3><?php echo CHtml::link("Test", array("Test")) ?></h3>
+<h3><?php echo CHtml::link("WelcomeToTalk", array("Talk")) ?></h3>
+<h3><?php echo CHtml::link("WlecomeToNpc", array("Npc")) ?></h3>
+<h3><?php echo CHtml::link("myTask", array("LookThoughMyTask")) ?></h3>
+
 
 <p>Congratulations! You have successfully created your Yii application.</p>
 

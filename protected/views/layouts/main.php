@@ -1,59 +1,71 @@
-<?php /* @var $this Controller */ ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="language" content="en" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>text</title>
+</head> 
 
-	<!-- blueprint CSS framework -->
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/screen.css" media="screen, projection" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/print.css" media="print" />
-	<!--[if lt IE 8]>
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/ie.css" media="screen, projection" />
-	<![endif]-->
+<body onresize="changeSizeAuto()">
+    <div id ="topMenu">
+        <span id ="logo">Sigma</span>     
+        <?php echo l('主页', aurl('task/index'), array('class'=>'topButton', 'style'=>"margin-left:200px"));?>
+        <?php echo l('快速入口', aurl('task/index'), array('class'=>'topButton', 'onmousemove'=>"showDivQuick()"));?>
+        <?php echo l('设置', aurl('task/index'), array('class'=>'topButton'));?>
+        <?php echo l('退出', aurl('task/index'), array('class'=>'topButton'));?>
+    </div>
+    
+    <div id ="mainBox">
+        <div id ="leftMenu">
+            <div id="userDataFrame">
+                <div id="userPhoto">
+                	<img src="http://localhost/sigma_local/resources/images/ID33707.png" />
+                </div>
+            </div>
 
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/main.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/css/form.css" />
+            <div id="userMessage" class="leftMenuBox">
+                <img src="http://localhost/sigma_local/resources/images/icon/pecial.png" />
+            </div>
+            
+            <div id="userNotice" class="leftMenuBox">
+                <img src="http://localhost/sigma_local/resources/images/icon/volume.png" />
+            </div>
+             
+            <div id="userMail" class="leftMenuBox" onclick="showDivMessage()">
+                <img class="box3" src="http://localhost/sigma_local/resources/images/icon/message.png" />
+                <span style="float:right; margin-right:30px; margin-top:10px;"> +2</span>
+            </div>
 
-	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
-</head>
+            <div id="userComment" class="leftMenuBox">
+                <img src="http://localhost/sigma_local/resources/images/icon/comment.png" />
+            </div>
 
-<body>
+            <div id="userFriend" class="leftMenuBox">
+                <img src="http://localhost/sigma_local/resources/images/icon/user.png" />
+            </div>
+        </div>
 
-<div class="container" id="page">
-
-	<div id="header">
-		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
-	</div><!-- header -->
-
-	<div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-			),
-		)); ?>
-	</div><!-- mainmenu -->
-	<?php if(isset($this->breadcrumbs)):?>
-		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-			'links'=>$this->breadcrumbs,
-		)); ?><!-- breadcrumbs -->
-	<?php endif?>
-
-	<?php echo $content; ?>
-
-	<div class="clear"></div>
-
-	<div id="footer">
-		Copyright &copy; <?php echo date('Y'); ?> by My Company.<br/>
-		All Rights Reserved.<br/>
-		<?php echo Yii::powered(); ?>
-	</div><!-- footer -->
-
-</div><!-- page -->
-
-</body>
+        <div id="rightMenu">
+            <div id ="map"></div>
+        </div>
+    </div>
+ </body>     
+    <script type="text/javascript">
+        changeSizeAuto();
+    </script>
 </html>
+
+<?php// echo $content ?>
+
+<?php
+cs()->registerCssFile(sbu('style/mainpage.css'))
+    ->registerCoreScript('jquery')
+    ->registerScriptFile(sbu('libs/kinetic-v4.3.1.min.js'), CClientScript::POS_END)
+    ->registerScriptFile(sbu('libs/modernizr-1.6.min.js'), CClientScript::POS_END)
+    ->registerScriptFile(sbu('script/divContral.js'), CClientScript::POS_END)
+    ->registerScriptFile(sbu('script/map.js'), CClientScript::POS_END)
+    ->registerScriptFile(sbu('script/mapApp.js'), CClientScript::POS_END)
+    ->registerScriptFile(sbu('script/message.js'), CClientScript::POS_END)
+    ->registerScriptFile(sbu('script/NPC.js'), CClientScript::POS_END)
+    ->registerScriptFile(sbu('script/pageOnload.js'), CClientScript::POS_END)
+    ->registerScriptFile(sbu('script/User.js'), CClientScript::POS_END);
+?>

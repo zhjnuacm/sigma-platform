@@ -1,13 +1,20 @@
 <?php
+/**
+ * This is the bootstrap file for test application.
+ * This file should be removed when the application is deployed for production.
+ */
 
 // change the following paths if necessary
-$yii=dirname(__FILE__).'/yii/yii.php'; 				//框架目录
-$config=dirname(__FILE__).'/protected/config/main.php';  //程序目录
+$yii=dirname(__FILE__).'/library/framework/yii.php';
+$config=dirname(__FILE__).'/protected/config/test.php';
+$shortcut = dirname(__FILE__).'/library/shortcut.php';
 
-// remove the following lines when in production mode
-defined('YII_DEBUG') or define('YII_DEBUG',true);			//是否开启debug
-// specify how many levels of call stack should be shown in each log message
-defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL',3);	
+// remove the following line when in production mode
+defined('YII_DEBUG') or define('YII_DEBUG',true);
+defined('DS') or define('DS', DIRECTORY_SEPARATOR);
+define('BETA_WEBROOT', dirname(__FILE__));
 
 require_once($yii);
-Yii::createWebApplication($config)->run(); 
+require_once($shortcut);
+
+Yii::createWebApplication($config)->run();
