@@ -13,7 +13,7 @@
         //engineDir:'../cocos2d/',
         SingleEngineFile:prefix+'Cocos2d-html5-v2.1.1.min.js',
        appFiles:[
-            prefix+'src/resource.js',
+            prefix + 'src/resource.js',
             prefix+'src/myApp.js',
             prefix+'src/core/Mediator.js',
             prefix+'src/core/ChatPanel.js',
@@ -31,7 +31,9 @@
             prefix+'src/common/FriendList.js',
             prefix+'src/common/TextBox.js',
             prefix+'src/common/InputPanel.js',
-            prefix+'src/common/ViewPanel.js'
+            prefix + 'src/common/ViewPanel.js',
+            prefix + 'src/common/Button.js',
+            prefix+'src/common/Dialog.js'
         ]
     };
     window.addEventListener('DOMContentLoaded', function () {
