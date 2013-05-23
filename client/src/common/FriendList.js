@@ -1,104 +1,101 @@
 ﻿//由于源码的关系。这里只能使用左下角为原点。
 
+//var TapMenu = cc.Sprite.extend({
 
-var TapMenu = cc.Sprite.extend({
+//    ctor: function () {
+//        this._super();
+//    },
+    
+//    init: function (s_l, s_p, page) {
+//        this._super();
+//        this._viewPage = page;
+//        this.initWithFile(s_l);
+//        this.setAnchorPoint(cc.p(0.5, 0));
+//        this.point = cc.Sprite.create(s_p);
+//        this.point.setAnchorPoint(cc.p(0.5, 0.5));
+//        this.addChild(this.point);
+//        this.point.setPosition(cc.p(2, 102));
+//        return true;
+    
+//    },
 
-
-    ctor: function () {
-        this._super();
-    },
+//    onEnter: function () {
+//        cc.Director.getInstance().getTouchDispatcher().addStandardDelegate(this, 0);
+//        this._touchEnabled = true;
+//        this._super();
+//    },
 
     
-    init: function (s_l, s_p, page) {
-        this._super();
-        this._viewPage = page;
-        this.initWithFile(s_l);
-        this.setAnchorPoint(cc.p(0.5, 0));
-        this.point = cc.Sprite.create(s_p);
-        this.point.setAnchorPoint(cc.p(0.5, 0.5));
-        this.addChild(this.point);
-        this.point.setPosition(cc.p(2, 102));
-        return true;
-    
-    },
-
-    onEnter: function () {
-        cc.Director.getInstance().getTouchDispatcher().addStandardDelegate(this, 0);
-        this._touchEnabled = true;
-        this._super();
-    },
+//    onExit: function () {
+//        cc.Director.getInstance().getTouchDispatcher().removeDelegate(this);
+//        this._touchEnabled = false;
+//        this._super();
+//    },
 
     
-    onExit: function () {
-        cc.Director.getInstance().getTouchDispatcher().removeDelegate(this);
-        this._touchEnabled = false;
-        this._super();
-    },
-
-    
-    touchRect: function () {
-        return this.getBoundingBoxToWorld();
-    },
+//    touchRect: function () {
+//        return this.getBoundingBoxToWorld();
+//    },
 
         
-    setTouchEnabled: function (enable) {
-        if (enable && !this._touchEnabled) {
-            cc.Director.getInstance().getTouchDispatcher().addStandardDelegate(this, 0);
-            this._touchEnabled = true;
-        }
+//    setTouchEnabled: function (enable) {
+//        if (enable && !this._touchEnabled) {
+//            cc.Director.getInstance().getTouchDispatcher().addStandardDelegate(this, 0);
+//            this._touchEnabled = true;
+//        }
         
-        else if (!enable && this._touchEnabled) {
-            cc.Director.getInstance().getTouchDispatcher().removeDelegate(this);
-            this._touchEnabled = false;
-        }
-    },
+//        else if (!enable && this._touchEnabled) {
+//            cc.Director.getInstance().getTouchDispatcher().removeDelegate(this);
+//            this._touchEnabled = false;
+//        }
+//    },
 
         
-    onTouchesBegan: function (touches, event) {
-        if (cc.Rect.CCRectContainsPoint(this.touchRect(), touches[0].getLocation())) {
-            this._touchBegan = true;
+//    onTouchesBegan: function (touches, event) {
+//        if (cc.Rect.CCRectContainsPoint(this.touchRect(), touches[0].getLocation())) {
+//            this._touchBegan = true;
   
-            var touch = touches[0].getLocation();
-            var pButten = this.point.getPositionY() + 64;
-            this._tx = touch.y - this.point.getPosition().y;
-            if (touch.y >= pButten && touch.y <= pButten + 7) {
-                this._touchDraw = true;
-            } else {
-            }
-        }
-    },
+//            var touch = touches[0].getLocation();
+//            var pButten = this.point.getPositionY() + 64;
+//            this._tx = touch.y - this.point.getPosition().y;
+//            if (touch.y >= pButten && touch.y <= pButten + 7) {
+//                this._touchDraw = true;
+//            } else {
+//            }
+//        }
+//    },
        
-    onTouchesMoved: function (touches, event) {           
-        if (this._touchDraw) {             
-            var y = touches[0].getLocation().y;            
+//    onTouchesMoved: function (touches, event) {           
+//        if (this._touchDraw) {             
+//            var y = touches[0].getLocation().y;            
             
-            if (y <= 170 && y > 70) {
-                this.point.setPositionY(y - this._tx);
-                this._viewPage.setPositionInpercent(170 - y);             
-            }       
-        }       
-    },
+//            if (y <= 170 && y > 70) {
+//                this.point.setPositionY(y - this._tx);
+//                this._viewPage.setPositionInpercent(170 - y);             
+//            }       
+//        }       
+//    },
 
      
-    onTouchesEnded: function (touches, event) {        
-        if (this._touchBegan) {          
-            this._touchBegan = false;         
-            this._touchDraw = false;        
-        }
-     },
+//    onTouchesEnded: function (touches, event) {        
+//        if (this._touchBegan) {          
+//            this._touchBegan = false;         
+//            this._touchDraw = false;        
+//        }
+//     },
     
-    setButtom: function () {
-        this.point.setPositionY(2);   
-    } 
-});
+//    setButtom: function () {
+//        this.point.setPositionY(2);   
+//    } 
+//});
 
-TapMenu.create = function (filename, tapname, bg, size) {
-    var retObj = new TapMenu();
-    if (retObj && retObj.init(tapname, bg, size)) {
-        return retObj;
-    }
-    return null;
-}
+//TapMenu.create = function (filename, tapname, bg, size) {
+//    var retObj = new TapMenu();
+//    if (retObj && retObj.init(tapname, bg, size)) {
+//        return retObj;
+//    }
+//    return null;
+//}
 
 
 var FriendViewCell = cc.TableViewCell.extend({

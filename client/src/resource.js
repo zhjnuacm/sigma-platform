@@ -28,7 +28,55 @@ var s_Friend_r          = "client/res/friend_right.png";
 var s_FriendList_t      = "client/res/friend_list_top.png";
 var s_yahei             = "Microsoft YaHei";
 var s_Friendseach       = "client/res/friend_seach.png";
+var s_npc_1             = "client/res/npc_1.png";
 var s_map_res           = "client/res/map/smapRule.png";
+var s_extensions_buttonBackground = "client/res/buttonBackground.png";
+var s_extensions_button = "client/res/button.png";
+var s_extensions_buttonHighlighted = "client/res/buttonHighlighted.png";
+
+var s_dlg = [
+    {
+        type: "close_normal",
+        res: "client/res/dlg_close_normal.png"
+    },
+    {
+        type: "close_select",
+        res: "client/res/dlg_close_select.png"
+    },
+    {
+        type: "corner_bottom",
+        res: "client/res/dlg_corner_bottom.png"
+    },
+    {
+        type: "corner_left",
+        res: "client/res/dlg_corner_left.png"
+    },
+    {
+        type: "corner_leftbottom",
+        res: "client/res/dlg_corner_leftbottom.png"
+    },
+    {
+        type: "corner_lefttop",
+        res: "client/res/dlg_corner_lefttop.png"
+    },
+    {
+        type: "corner_right",
+        res: "client/res/dlg_corner_right.png"
+    },
+    {
+        type: "corner_rightbottom",
+        res: "client/res/dlg_corner_rightbottom.png"
+    },
+    {
+        type: "corner_righttop",
+        res: "client/res/dlg_corner_righttop.png"
+    },
+    {
+        type: "corner_top",
+        res: "client/res/dlg_corner_top.png"
+    },
+];
+
 //tmx map 
 var s_smap 				= "client/res/map/map1.tmx";
 
@@ -64,6 +112,7 @@ var g_ressources = [
     { type: "image", src: s_Friend_l },
     { type: "image", src: s_FriendList_t },
     { type: "image", src: s_Friendseach },
+    { type: "image", src: s_npc_1 },
 
 
     {type:"image", src:s_map_res},
