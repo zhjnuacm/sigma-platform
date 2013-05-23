@@ -42,4 +42,15 @@ class ChatController extends Controller
 			$this->renderPartial("_push",array("to"=>$to));
 		}
 	}
+	
+	public function actionTalk() {
+		
+	}
 }
+
+
+
+
+
+
+
