@@ -1,2 +1,2 @@
 <?php
-echo "i am hungry!";
+echo  $info;

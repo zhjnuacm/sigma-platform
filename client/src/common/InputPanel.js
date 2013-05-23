@@ -80,7 +80,7 @@ var InputPanel = cc.Layer
 				this.view.setPosition(cc.p(5, 33));
 				this.addChild(this.view);
 				this.view.setVisible(this._isOpen);
-				this.schedule(this.step,1);
+				this.schedule(this.step,2);
 				return true;
 			},
 
@@ -91,10 +91,12 @@ var InputPanel = cc.Layer
 					url : genPullMessageUrl(),
 					success : function(data) {
 						// cc.log(data);
-						self.view.addWord("系统",data);
+						if(data != "@@")
+							self.view.addWord("系统",data);
 					}
 				});
 			},
+			
 			showFace : function() {
 				alert("sdsd");
 			},
@@ -105,7 +107,7 @@ var InputPanel = cc.Layer
 					type : "GET",
 					url : genPushMessageUrl("all", 0, str),
 					success : function(data) {
-						// cc.log(data);
+						 cc.log(data);
 					}
 				});
 

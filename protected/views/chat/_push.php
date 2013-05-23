@@ -1,2 +1,2 @@
 <?php
-echo $to;
+echo $msg;
