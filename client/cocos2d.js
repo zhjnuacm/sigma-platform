@@ -31,7 +31,9 @@
             prefix+'src/common/FriendList.js',
             prefix+'src/common/TextBox.js',
             prefix+'src/common/InputPanel.js',
-            prefix+'src/common/ViewPanel.js'
+            prefix+'src/common/ViewPanel.js',
+            prefix+'src/common/Tools.js',
+            prefix+'jquery-2.0.0.min.js'
         ]
     };
     window.addEventListener('DOMContentLoaded', function () {

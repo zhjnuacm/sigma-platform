@@ -37,18 +37,20 @@ function Mediator() {
 	    //this._input = InputPanel.create();
 	    //this._mainLayer.addChild(this._input, 2);
 	    //this._input.adaptPoistion();
-		inputD = InputPanel.create();
-		this._mainLayer.addChild(inputD, 2);
-		inputD.adaptPoistion();
+		
 
 
 		//var mes = new Message();
-		//mes.init2("ÎÒ½ñÌìÀ­ÊººÃ¸ßÐËºÃ¿ªÐÄ°¡¸ÐÌ¾ºÅÄØ£¿£¡ÓÐË­ÄÜ·ÖÏíÎÒµÄÏ²ÔÃ¡£", 26);
+		//mes.init2("ï¿½Ò½ï¿½ï¿½ï¿½ï¿½ï¿½Êºï¿½Ã¸ï¿½ï¿½ËºÃ¿ï¿½ï¿½Ä°ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½Ø£ï¿½ï¿½ï¿½ï¿½ï¿½Ë­ï¿½Ü·ï¿½ï¿½ï¿½ï¿½Òµï¿½Ï²ï¿½Ã¡ï¿½", 26);
 		//var tb = TextBox.create(mes, 1);
 		//this._mainLayer.addChild(tb);
 		//tb.setPosition(cc.p(400, 300));
 
-
+		/**/
+		inputD = InputPanel.create();
+		this._mainLayer.addChild(inputD, 2);
+		inputD.adaptPoistion();
+		
 	    var friend = FriendList.create(cc.c4(236,236, 236, 255), 180, 288);
 	    friend.setPosition(cc.p(this._size.width - 200, 220));
 	    this._mainLayer.addChild(friend);

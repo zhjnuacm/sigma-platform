@@ -98,3 +98,202 @@ Stack trace:
 #5 {main}
 REQUEST_URI=/sigma/index.php?r=chat/game
 ---
+2013/05/23 04:48:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "send".' in H:\xampp\htdocs\sigma-platform\yii\web\CController.php:484
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CController.php(271): CController->missingAction('send')
+#1 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('send')
+#2 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/send')
+#3 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#4 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/sigma-platform/index.php?r=chat/send
+---
+2013/05/23 04:48:41 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in H:\xampp\htdocs\sigma-platform\yii\web\CController.php:337
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 H:\xampp\htdocs\sigma-platform\yii\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 H:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('pull')
+#4 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/pull')
+#5 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#6 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+---
+2013/05/23 04:48:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "send".' in H:\xampp\htdocs\sigma-platform\yii\web\CController.php:484
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CController.php(271): CController->missingAction('send')
+#1 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('send')
+#2 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/send')
+#3 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#4 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/sigma-platform/index.php?r=chat/send
+---
+2013/05/23 05:00:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "push?to=11".' in H:\xampp\htdocs\sigma-platform\yii\web\CController.php:484
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CController.php(271): CController->missingAction('push?to=11')
+#1 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('push?to=11')
+#2 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/push?to=11')
+#3 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#4 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/sigma-platform/index.php?r=chat/push?to=11&type=sd&mes=a
+---
+2013/05/23 05:00:38 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in H:\xampp\htdocs\sigma-platform\yii\web\CController.php:337
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 H:\xampp\htdocs\sigma-platform\yii\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 H:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('push')
+#4 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/push')
+#5 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#6 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/sigma-platform/index.php?r=chat/push&to=11&type=sd&mes=a
+---
+2013/05/23 05:25:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
+#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=char/push&to=all&type=0&msg=%E6%96%87%E5%AD%97%E4%BD%8D%E7%BD%AE
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=site/game
+---
+2013/05/23 05:25:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
+#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=char/push&to=all&type=0&msg=%E6%96%87%E5%AD%97%E4%BD%8D%E7%BD%AE
+---
+2013/05/23 05:26:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
+#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=char/push&to=all&type=0&msg=%E6%96%87%E5%AD%97%E4%BD%8D%E7%BD%AE
+---
+2013/05/23 05:26:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
+#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=char/push&to=all&type=0&msg=1
+---
+2013/05/23 05:26:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
+#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=char/push
+---
+2013/05/23 05:27:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
+#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=char/push&to=all&type=0&msg=%E6%96%87%E5%AD%97%E4%BD%8D%E7%BD%AE
+---
+2013/05/23 05:28:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
+#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=char/push&to=all&type=0&msg=123
+---
+2013/05/23 05:28:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
+#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=char/push&to=1&type=0&msg=123
+---
+2013/05/23 05:28:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
+#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=char/push&to=1&type=2&msg=123
+---
+2013/05/23 05:28:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
+#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=char/push&to=1&type=asd&msg=123
+---
+2013/05/23 05:28:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
+#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=char/push&to=1213&type=asd&msg=123
+---
+2013/05/23 05:29:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
+#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=char/push&to=1213&type=asd&msg=123
+---
+2013/05/23 05:29:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
+#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=char/push&to=1213&type=asd&msg=123
+---
+2013/05/23 05:29:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
+#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=char/push&to=1213&type=asd&msg=123
+---
+2013/05/23 05:29:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
+#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=char/push
+---
+2013/05/23 05:29:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
+#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=char/push&id=1
+---
+2013/05/23 05:29:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
+#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=char/push&id=1&type=2
+---
+2013/05/23 05:29:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+Stack trace:
+#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
+#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=char/push&id=1&type=2&msg=2
+---
