@@ -297,3 +297,370 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/sigma-platform/index.php?r=char/push&id=1&type=2&msg=2
 ---
+2013/05/23 20:01:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "taskDag".' in D:\xampp\htdocs\sigma-platform\yii\web\CController.php:484
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(271): CController->missingAction('taskDag')
+#1 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('taskDag')
+#2 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('task/taskDag')
+#3 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=site/index
+---
+2013/05/23 20:02:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "taskDag".' in D:\xampp\htdocs\sigma-platform\yii\web\CController.php:484
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(271): CController->missingAction('taskDag')
+#1 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('taskDag')
+#2 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('task/taskDag')
+#3 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=site/index
+---
+2013/05/23 20:19:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "taskDag".' in D:\xampp\htdocs\sigma-platform\yii\web\CController.php:484
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(271): CController->missingAction('taskDag')
+#1 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('taskDag')
+#2 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('task/taskDag')
+#3 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/admin
+---
+2013/05/23 20:46:04 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\htdocs\sigma-platform\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('taskDag')
+#8 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('task/taskDag')
+#9 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/admin
+---
+2013/05/23 20:46:33 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\htdocs\sigma-platform\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('taskDag')
+#8 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('task/taskDag')
+#9 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/admin
+---
+2013/05/23 20:48:34 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\htdocs\sigma-platform\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('taskDag')
+#8 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('task/taskDag')
+#9 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/admin
+---
+2013/05/23 20:48:51 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\htdocs\sigma-platform\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('taskDag')
+#8 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('task/taskDag')
+#9 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/admin
+---
+2013/05/23 20:49:26 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\htdocs\sigma-platform\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('taskDag')
+#8 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('task/taskDag')
+#9 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/admin
+---
+2013/05/23 20:50:58 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\htdocs\sigma-platform\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('taskDag')
+#8 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('task/taskDag')
+#9 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/admin
+---
+2013/05/23 20:51:23 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\htdocs\sigma-platform\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('taskDag')
+#8 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('task/taskDag')
+#9 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/admin
+---
+2013/05/23 20:51:28 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\htdocs\sigma-platform\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('taskDag')
+#8 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('task/taskDag')
+#9 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/admin
+---
+2013/05/23 20:52:42 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\htdocs\sigma-platform\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('taskDag')
+#8 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('task/taskDag')
+#9 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/admin
+---
+2013/05/23 20:57:58 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\htdocs\sigma-platform\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('taskDag')
+#8 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('task/taskDag')
+#9 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/admin
+---
+2013/05/23 20:58:07 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\htdocs\sigma-platform\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('taskDag')
+#8 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('task/taskDag')
+#9 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/admin
+---
+2013/05/23 20:58:37 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\htdocs\sigma-platform\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('taskDag')
+#8 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('task/taskDag')
+#9 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/admin
+---
+2013/05/23 20:59:29 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\htdocs\sigma-platform\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('taskDag')
+#8 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('task/taskDag')
+#9 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/admin
+---
+2013/05/23 22:20:53 [error] [exception.CException] exception 'CException' with message 'Property "TaskController.viewData" is not defined.' in D:\xampp\htdocs\sigma-platform\yii\base\CComponent.php:131
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php(13): CComponent->__get('viewData')
+#1 D:\xampp\htdocs\sigma-platform\yii\web\CBaseController.php(127): require('D:\xampp\htdocs...')
+#2 D:\xampp\htdocs\sigma-platform\yii\web\CBaseController.php(96): CBaseController->renderInternal('D:\xampp\htdocs...', Array, true)
+#3 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(870): CBaseController->renderFile('D:\xampp\htdocs...', Array, true)
+#4 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(783): CController->renderPartial('taskDag', Array, true)
+#5 D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php(183): CController->render('taskDag', Array)
+#6 D:\xampp\htdocs\sigma-platform\yii\web\actions\CInlineAction.php(50): TaskController->actionTaskDag()
+#7 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilter.php(41): CFilterChain->run()
+#10 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 D:\xampp\htdocs\sigma-platform\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(292): CFilterChain->run()
+#14 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('taskDag')
+#16 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('task/taskDag')
+#17 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#18 D:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/admin
+---
+2013/05/23 22:26:31 [error] [php] Invalid argument supplied for foreach() (D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php:12)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(870): TaskController->renderFile()
+#1 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(783): TaskController->renderPartial()
+#2 D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php(183): TaskController->render()
+#3 D:\xampp\htdocs\sigma-platform\yii\web\actions\CInlineAction.php(50): TaskController->actionTaskDag()
+#4 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(134): TaskController->runAction()
+#6 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilter.php(41): CFilterChain->run()
+#7 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(1146): CAccessControlFilter->filter()
+#8 D:\xampp\htdocs\sigma-platform\yii\web\filters\CInlineFilter.php(59): TaskController->filterAccessControl()
+#9 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(292): CFilterChain->run()
+#11 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): TaskController->runActionWithFilters()
+#12 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): TaskController->run()
+#13 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#14 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\sigma-platform\index.php(13): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+in D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php (12)
+in D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php (183)
+in D:\xampp\htdocs\sigma-platform\index.php (13)
+2013/05/23 22:27:03 [error] [php] Invalid argument supplied for foreach() (D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php:12)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(870): TaskController->renderFile()
+#1 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(783): TaskController->renderPartial()
+#2 D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php(183): TaskController->render()
+#3 D:\xampp\htdocs\sigma-platform\yii\web\actions\CInlineAction.php(50): TaskController->actionTaskDag()
+#4 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(134): TaskController->runAction()
+#6 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilter.php(41): CFilterChain->run()
+#7 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(1146): CAccessControlFilter->filter()
+#8 D:\xampp\htdocs\sigma-platform\yii\web\filters\CInlineFilter.php(59): TaskController->filterAccessControl()
+#9 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(292): CFilterChain->run()
+#11 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): TaskController->runActionWithFilters()
+#12 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): TaskController->run()
+#13 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#14 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\sigma-platform\index.php(13): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+in D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php (12)
+in D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php (183)
+in D:\xampp\htdocs\sigma-platform\index.php (13)
+2013/05/23 22:27:06 [error] [php] Invalid argument supplied for foreach() (D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php:12)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(870): TaskController->renderFile()
+#1 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(783): TaskController->renderPartial()
+#2 D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php(183): TaskController->render()
+#3 D:\xampp\htdocs\sigma-platform\yii\web\actions\CInlineAction.php(50): TaskController->actionTaskDag()
+#4 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(134): TaskController->runAction()
+#6 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilter.php(41): CFilterChain->run()
+#7 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(1146): CAccessControlFilter->filter()
+#8 D:\xampp\htdocs\sigma-platform\yii\web\filters\CInlineFilter.php(59): TaskController->filterAccessControl()
+#9 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(292): CFilterChain->run()
+#11 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): TaskController->runActionWithFilters()
+#12 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): TaskController->run()
+#13 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#14 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\sigma-platform\index.php(13): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+in D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php (12)
+in D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php (183)
+in D:\xampp\htdocs\sigma-platform\index.php (13)
+2013/05/23 22:27:19 [error] [php] Invalid argument supplied for foreach() (D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php:11)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(870): TaskController->renderFile()
+#1 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(783): TaskController->renderPartial()
+#2 D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php(183): TaskController->render()
+#3 D:\xampp\htdocs\sigma-platform\yii\web\actions\CInlineAction.php(50): TaskController->actionTaskDag()
+#4 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(134): TaskController->runAction()
+#6 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilter.php(41): CFilterChain->run()
+#7 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(1146): CAccessControlFilter->filter()
+#8 D:\xampp\htdocs\sigma-platform\yii\web\filters\CInlineFilter.php(59): TaskController->filterAccessControl()
+#9 D:\xampp\htdocs\sigma-platform\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(292): CFilterChain->run()
+#11 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): TaskController->runActionWithFilters()
+#12 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): TaskController->run()
+#13 D:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#14 D:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\sigma-platform\index.php(13): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
+in D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php (11)
+in D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php (183)
+in D:\xampp\htdocs\sigma-platform\index.php (13)
