@@ -1,302 +1,1307 @@
-2013/05/22 07:39:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "gameHallPull".' in H:\xampp\htdocs\sigma\yii\web\CController.php:484
+2013/05/23 15:52:00 [error] [exception.CDbException] exception 'CDbException' with message 'Column name must be either a string or an array.' in D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php:701
 Stack trace:
-#0 H:\xampp\htdocs\sigma\yii\web\CController.php(271): CController->missingAction('gameHallPull')
-#1 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(283): CController->run('gameHallPull')
-#2 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/gameHallPu...')
-#3 H:\xampp\htdocs\sigma\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#4 H:\xampp\htdocs\sigma\index.php(13): CApplication->run()
-#5 {main}
-REQUEST_URI=/sigma/index.php?r=chat/gameHallPull
----
-2013/05/22 07:40:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "game".' in H:\xampp\htdocs\sigma\yii\web\CController.php:484
-Stack trace:
-#0 H:\xampp\htdocs\sigma\yii\web\CController.php(271): CController->missingAction('game')
-#1 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(283): CController->run('game')
-#2 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/game')
-#3 H:\xampp\htdocs\sigma\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#4 H:\xampp\htdocs\sigma\index.php(13): CApplication->run()
-#5 {main}
-REQUEST_URI=/sigma/index.php?r=chat/game
----
-2013/05/22 07:40:27 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "game".' in H:\xampp\htdocs\sigma\yii\web\CController.php:484
-Stack trace:
-#0 H:\xampp\htdocs\sigma\yii\web\CController.php(271): CController->missingAction('game')
-#1 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(283): CController->run('game')
-#2 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/game')
-#3 H:\xampp\htdocs\sigma\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#4 H:\xampp\htdocs\sigma\index.php(13): CApplication->run()
-#5 {main}
-REQUEST_URI=/sigma/index.php?r=chat/game
----
-2013/05/22 07:40:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "game".' in H:\xampp\htdocs\sigma\yii\web\CController.php:484
-Stack trace:
-#0 H:\xampp\htdocs\sigma\yii\web\CController.php(271): CController->missingAction('game')
-#1 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(283): CController->run('game')
-#2 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/game')
-#3 H:\xampp\htdocs\sigma\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#4 H:\xampp\htdocs\sigma\index.php(13): CApplication->run()
-#5 {main}
-REQUEST_URI=/sigma/index.php?r=chat/game
----
-2013/05/22 07:40:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "game".' in H:\xampp\htdocs\sigma\yii\web\CController.php:484
-Stack trace:
-#0 H:\xampp\htdocs\sigma\yii\web\CController.php(271): CController->missingAction('game')
-#1 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(283): CController->run('game')
-#2 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/game')
-#3 H:\xampp\htdocs\sigma\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#4 H:\xampp\htdocs\sigma\index.php(13): CApplication->run()
-#5 {main}
-REQUEST_URI=/sigma/index.php?r=chat/game
----
-2013/05/22 07:40:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "game".' in H:\xampp\htdocs\sigma\yii\web\CController.php:484
-Stack trace:
-#0 H:\xampp\htdocs\sigma\yii\web\CController.php(271): CController->missingAction('game')
-#1 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(283): CController->run('game')
-#2 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/game')
-#3 H:\xampp\htdocs\sigma\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#4 H:\xampp\htdocs\sigma\index.php(13): CApplication->run()
-#5 {main}
-REQUEST_URI=/sigma/index.php?r=chat/game
----
-2013/05/22 07:40:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "game".' in H:\xampp\htdocs\sigma\yii\web\CController.php:484
-Stack trace:
-#0 H:\xampp\htdocs\sigma\yii\web\CController.php(271): CController->missingAction('game')
-#1 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(283): CController->run('game')
-#2 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/game')
-#3 H:\xampp\htdocs\sigma\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#4 H:\xampp\htdocs\sigma\index.php(13): CApplication->run()
-#5 {main}
-REQUEST_URI=/sigma/index.php?r=chat/game
----
-2013/05/22 07:40:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "game".' in H:\xampp\htdocs\sigma\yii\web\CController.php:484
-Stack trace:
-#0 H:\xampp\htdocs\sigma\yii\web\CController.php(271): CController->missingAction('game')
-#1 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(283): CController->run('game')
-#2 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/game')
-#3 H:\xampp\htdocs\sigma\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#4 H:\xampp\htdocs\sigma\index.php(13): CApplication->run()
-#5 {main}
-REQUEST_URI=/sigma/index.php?r=chat/game
----
-2013/05/22 07:40:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "game".' in H:\xampp\htdocs\sigma\yii\web\CController.php:484
-Stack trace:
-#0 H:\xampp\htdocs\sigma\yii\web\CController.php(271): CController->missingAction('game')
-#1 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(283): CController->run('game')
-#2 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/game')
-#3 H:\xampp\htdocs\sigma\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#4 H:\xampp\htdocs\sigma\index.php(13): CApplication->run()
-#5 {main}
-REQUEST_URI=/sigma/index.php?r=chat/game
----
-2013/05/22 07:40:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "game".' in H:\xampp\htdocs\sigma\yii\web\CController.php:484
-Stack trace:
-#0 H:\xampp\htdocs\sigma\yii\web\CController.php(271): CController->missingAction('game')
-#1 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(283): CController->run('game')
-#2 H:\xampp\htdocs\sigma\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/game')
-#3 H:\xampp\htdocs\sigma\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#4 H:\xampp\htdocs\sigma\index.php(13): CApplication->run()
-#5 {main}
-REQUEST_URI=/sigma/index.php?r=chat/game
----
-2013/05/23 04:48:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "send".' in H:\xampp\htdocs\sigma-platform\yii\web\CController.php:484
-Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CController.php(271): CController->missingAction('send')
-#1 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('send')
-#2 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/send')
-#3 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#4 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#5 {main}
-REQUEST_URI=/sigma-platform/index.php?r=chat/send
----
-2013/05/23 04:48:41 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in H:\xampp\htdocs\sigma-platform\yii\web\CController.php:337
-Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
-#1 H:\xampp\htdocs\sigma-platform\yii\web\CController.php(287): CController->runAction(Object(CInlineAction))
-#2 H:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#3 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('pull')
-#4 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/pull')
-#5 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#6 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#7 {main}
+#0 D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php(498): CDbCommandBuilder->createInCondition(Object(CMysqlTableSchema), NULL, Array, NULL)
+#1 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1683): CDbCommandBuilder->createPkCriteria(Object(CMysqlTableSchema), NULL, '', Array)
+#2 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1064): CActiveRecord->updateByPk(NULL, Array)
+#3 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(796): CActiveRecord->update(NULL)
+#4 D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php(32): CActiveRecord->save()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): ChatController->actionPull()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('pull')
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/pull')
+#11 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#12 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#13 {main}
 REQUEST_URI=/sigma-platform/index.php?r=chat/pull
----
-2013/05/23 04:48:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "send".' in H:\xampp\htdocs\sigma-platform\yii\web\CController.php:484
-Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CController.php(271): CController->missingAction('send')
-#1 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('send')
-#2 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/send')
-#3 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#4 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#5 {main}
-REQUEST_URI=/sigma-platform/index.php?r=chat/send
----
-2013/05/23 05:00:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "push?to=11".' in H:\xampp\htdocs\sigma-platform\yii\web\CController.php:484
-Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CController.php(271): CController->missingAction('push?to=11')
-#1 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('push?to=11')
-#2 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/push?to=11')
-#3 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#4 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#5 {main}
-REQUEST_URI=/sigma-platform/index.php?r=chat/push?to=11&type=sd&mes=a
----
-2013/05/23 05:00:38 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in H:\xampp\htdocs\sigma-platform\yii\web\CController.php:337
-Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
-#1 H:\xampp\htdocs\sigma-platform\yii\web\CController.php(287): CController->runAction(Object(CInlineAction))
-#2 H:\xampp\htdocs\sigma-platform\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
-#3 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(283): CController->run('push')
-#4 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/push')
-#5 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#6 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#7 {main}
-REQUEST_URI=/sigma-platform/index.php?r=chat/push&to=11&type=sd&mes=a
----
-2013/05/23 05:25:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
-Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
-#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/sigma-platform/index.php?r=char/push&to=all&type=0&msg=%E6%96%87%E5%AD%97%E4%BD%8D%E7%BD%AE
 HTTP_REFERER=http://localhost/sigma-platform/index.php?r=site/game
 ---
-2013/05/23 05:25:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+2013/05/23 15:52:01 [error] [exception.CDbException] exception 'CDbException' with message 'Column name must be either a string or an array.' in D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php:701
 Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
-#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/sigma-platform/index.php?r=char/push&to=all&type=0&msg=%E6%96%87%E5%AD%97%E4%BD%8D%E7%BD%AE
+#0 D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php(498): CDbCommandBuilder->createInCondition(Object(CMysqlTableSchema), NULL, Array, NULL)
+#1 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1683): CDbCommandBuilder->createPkCriteria(Object(CMysqlTableSchema), NULL, '', Array)
+#2 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1064): CActiveRecord->updateByPk(NULL, Array)
+#3 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(796): CActiveRecord->update(NULL)
+#4 D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php(32): CActiveRecord->save()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): ChatController->actionPull()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('pull')
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/pull')
+#11 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#12 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#13 {main}
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=site/game
 ---
-2013/05/23 05:26:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+2013/05/23 15:52:02 [error] [exception.CDbException] exception 'CDbException' with message 'Column name must be either a string or an array.' in D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php:701
 Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
-#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/sigma-platform/index.php?r=char/push&to=all&type=0&msg=%E6%96%87%E5%AD%97%E4%BD%8D%E7%BD%AE
+#0 D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php(498): CDbCommandBuilder->createInCondition(Object(CMysqlTableSchema), NULL, Array, NULL)
+#1 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1683): CDbCommandBuilder->createPkCriteria(Object(CMysqlTableSchema), NULL, '', Array)
+#2 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1064): CActiveRecord->updateByPk(NULL, Array)
+#3 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(796): CActiveRecord->update(NULL)
+#4 D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php(32): CActiveRecord->save()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): ChatController->actionPull()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('pull')
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/pull')
+#11 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#12 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#13 {main}
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=site/game
 ---
-2013/05/23 05:26:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+2013/05/23 15:52:03 [error] [exception.CDbException] exception 'CDbException' with message 'Column name must be either a string or an array.' in D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php:701
 Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
-#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/sigma-platform/index.php?r=char/push&to=all&type=0&msg=1
+#0 D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php(498): CDbCommandBuilder->createInCondition(Object(CMysqlTableSchema), NULL, Array, NULL)
+#1 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1683): CDbCommandBuilder->createPkCriteria(Object(CMysqlTableSchema), NULL, '', Array)
+#2 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1064): CActiveRecord->updateByPk(NULL, Array)
+#3 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(796): CActiveRecord->update(NULL)
+#4 D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php(32): CActiveRecord->save()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): ChatController->actionPull()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('pull')
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/pull')
+#11 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#12 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#13 {main}
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=site/game
 ---
-2013/05/23 05:26:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+2013/05/23 15:52:04 [error] [exception.CDbException] exception 'CDbException' with message 'Column name must be either a string or an array.' in D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php:701
 Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
-#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/sigma-platform/index.php?r=char/push
+#0 D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php(498): CDbCommandBuilder->createInCondition(Object(CMysqlTableSchema), NULL, Array, NULL)
+#1 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1683): CDbCommandBuilder->createPkCriteria(Object(CMysqlTableSchema), NULL, '', Array)
+#2 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1064): CActiveRecord->updateByPk(NULL, Array)
+#3 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(796): CActiveRecord->update(NULL)
+#4 D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php(32): CActiveRecord->save()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): ChatController->actionPull()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('pull')
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/pull')
+#11 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#12 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#13 {main}
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=site/game
 ---
-2013/05/23 05:27:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+2013/05/23 16:04:43 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
 Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
-#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/sigma-platform/index.php?r=char/push&to=all&type=0&msg=%E6%96%87%E5%AD%97%E4%BD%8D%E7%BD%AE
----
-2013/05/23 05:28:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:04:45 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
 Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
-#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/sigma-platform/index.php?r=char/push&to=all&type=0&msg=123
----
-2013/05/23 05:28:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:04:48 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
 Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
-#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/sigma-platform/index.php?r=char/push&to=1&type=0&msg=123
----
-2013/05/23 05:28:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:04:50 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
 Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
-#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/sigma-platform/index.php?r=char/push&to=1&type=2&msg=123
----
-2013/05/23 05:28:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:04:52 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
 Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
-#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/sigma-platform/index.php?r=char/push&to=1&type=asd&msg=123
----
-2013/05/23 05:28:57 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:04:55 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
 Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
-#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/sigma-platform/index.php?r=char/push&to=1213&type=asd&msg=123
----
-2013/05/23 05:29:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:04:57 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
 Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
-#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/sigma-platform/index.php?r=char/push&to=1213&type=asd&msg=123
----
-2013/05/23 05:29:37 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:04:59 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
 Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
-#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/sigma-platform/index.php?r=char/push&to=1213&type=asd&msg=123
----
-2013/05/23 05:29:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:01 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
 Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
-#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/sigma-platform/index.php?r=char/push&to=1213&type=asd&msg=123
----
-2013/05/23 05:29:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:03 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
 Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
-#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/sigma-platform/index.php?r=char/push
----
-2013/05/23 05:29:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:08 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
 Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
-#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/sigma-platform/index.php?r=char/push&id=1
----
-2013/05/23 05:29:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:11 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
 Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
-#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/sigma-platform/index.php?r=char/push&id=1&type=2
----
-2013/05/23 05:29:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "char/push".' in H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php:287
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:13 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
 Stack trace:
-#0 H:\xampp\htdocs\sigma-platform\yii\web\CWebApplication.php(142): CWebApplication->runController('char/push')
-#1 H:\xampp\htdocs\sigma-platform\yii\base\CApplication.php(162): CWebApplication->processRequest()
-#2 H:\xampp\htdocs\sigma-platform\index.php(13): CApplication->run()
-#3 {main}
-REQUEST_URI=/sigma-platform/index.php?r=char/push&id=1&type=2&msg=2
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:16 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:19 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:21 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:23 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:25 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:28 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:31 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:33 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:35 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:37 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:39 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:41 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:44 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:47 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:49 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:51 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:53 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:55 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:57 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:05:59 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:02 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:04 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:07 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:09 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:11 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:13 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:17 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:21 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:24 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:27 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:29 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:32 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:34 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:36 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:38 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:41 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:43 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:46 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:49 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:51 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:53 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:55 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:06:57 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:00 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:02 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:05 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:07 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:09 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:11 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:13 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:15 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:18 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:20 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:23 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:25 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:27 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:29 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:31 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:33 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:36 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:38 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:41 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:43 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:45 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:07:47 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 16:12:10 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:14:06 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:14:08 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:14:10 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:34)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (34)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:14:11 [error] [php] Creating default object from empty value (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:46)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/Test
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (46)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:19:22 [error] [php] Trying to get property of non-object (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:47)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/Test
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (47)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:20:42 [error] [php] Trying to get property of non-object (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:50)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/Test
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (50)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:21:52 [error] [exception.CDbException] exception 'CDbException' with message 'Column name must be either a string or an array.' in D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php:701
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php(498): CDbCommandBuilder->createInCondition(Object(CMysqlTableSchema), NULL, Array, NULL)
+#1 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1683): CDbCommandBuilder->createPkCriteria(Object(CMysqlTableSchema), NULL, '', Array)
+#2 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1064): CActiveRecord->updateByPk(NULL, Array)
+#3 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(796): CActiveRecord->update(NULL)
+#4 D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php(51): CActiveRecord->save()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): ChatController->actionTest()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('Test')
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/Test')
+#11 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#12 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#13 {main}
+REQUEST_URI=/sigma-platform/index.php?r=chat/Test
 ---
+2013/05/23 22:23:27 [error] [exception.CDbException] exception 'CDbException' with message 'Column name must be either a string or an array.' in D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php:701
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php(498): CDbCommandBuilder->createInCondition(Object(CMysqlTableSchema), NULL, Array, NULL)
+#1 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1683): CDbCommandBuilder->createPkCriteria(Object(CMysqlTableSchema), NULL, '', Array)
+#2 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1064): CActiveRecord->updateByPk(NULL, Array)
+#3 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(796): CActiveRecord->update(NULL)
+#4 D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php(54): CActiveRecord->save()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): ChatController->actionTest()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('Test')
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/Test')
+#11 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#12 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#13 {main}
+REQUEST_URI=/sigma-platform/index.php?r=chat/Test
+---
+2013/05/23 22:23:30 [error] [exception.CDbException] exception 'CDbException' with message 'Column name must be either a string or an array.' in D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php:701
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php(498): CDbCommandBuilder->createInCondition(Object(CMysqlTableSchema), NULL, Array, NULL)
+#1 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1683): CDbCommandBuilder->createPkCriteria(Object(CMysqlTableSchema), NULL, '', Array)
+#2 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1064): CActiveRecord->updateByPk(NULL, Array)
+#3 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(796): CActiveRecord->update(NULL)
+#4 D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php(54): CActiveRecord->save()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): ChatController->actionTest()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('Test')
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/Test')
+#11 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#12 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#13 {main}
+REQUEST_URI=/sigma-platform/index.php?r=chat/Test
+---
+2013/05/23 22:23:56 [error] [exception.CDbException] exception 'CDbException' with message 'Column name must be either a string or an array.' in D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php:701
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php(498): CDbCommandBuilder->createInCondition(Object(CMysqlTableSchema), NULL, Array, NULL)
+#1 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1683): CDbCommandBuilder->createPkCriteria(Object(CMysqlTableSchema), NULL, '', Array)
+#2 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1064): CActiveRecord->updateByPk(NULL, Array)
+#3 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(796): CActiveRecord->update(NULL)
+#4 D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php(54): CActiveRecord->save()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): ChatController->actionTest()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('Test')
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/Test')
+#11 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#12 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#13 {main}
+REQUEST_URI=/sigma-platform/index.php?r=chat/Test
+---
+2013/05/23 22:36:35 [error] [php] Trying to get property of non-object (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:60)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/Test
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (60)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:52:23 [error] [php] Undefined variable: info (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:28)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (28)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:52:25 [error] [php] Undefined variable: info (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:28)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (28)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:52:28 [error] [php] Undefined variable: info (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:26)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (26)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:52:30 [error] [php] Undefined variable: info (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:26)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (26)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:52:32 [error] [php] Undefined variable: info (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:26)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (26)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:52:34 [error] [php] Undefined variable: info (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:26)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (26)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:52:36 [error] [php] Undefined variable: info (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:26)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (26)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:52:39 [error] [php] Undefined variable: info (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:26)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (26)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:52:40 [error] [php] Undefined variable: info (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:26)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (26)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:52:42 [error] [php] Undefined variable: info (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:26)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (26)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:52:44 [error] [php] Undefined variable: info (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:26)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (26)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:52:46 [error] [php] Undefined variable: info (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:26)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (26)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:52:47 [error] [php] Undefined variable: info (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:26)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (26)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:52:49 [error] [php] Undefined variable: info (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:26)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (26)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 22:52:51 [error] [php] Undefined variable: info (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:26)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (26)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 23:02:39 [error] [php] Trying to get property of non-object (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:56)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (56)
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (17)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/23 23:13:32 [error] [php] Trying to get property of non-object (D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:56)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): ChatController->runAction()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): ChatController->runActionWithFilters()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): ChatController->run()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#6 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (56)
+in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (17)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
 2013/05/23 20:01:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "taskDag".' in D:\xampp\htdocs\sigma-platform\yii\web\CController.php:484
 Stack trace:
 #0 D:\xampp\htdocs\sigma-platform\yii\web\CController.php(271): CController->missingAction('taskDag')
