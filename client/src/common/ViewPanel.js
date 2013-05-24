@@ -54,8 +54,6 @@ ViewPanel.create = function (color, w, h) {
     return null;
 };
 
-
-
 //里面信息的那个层，负责更新信息位置，添加删除信息，处理滚动操作
 var CharPage = cc.Layer.extend({
     _y: null,

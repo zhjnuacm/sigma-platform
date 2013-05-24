@@ -6,7 +6,8 @@ var Map = cc.Layer.extend({
 	_tileSize:null,
 	_mapSize:null,
 	_mapConfig:null,
-	_groundLayer:null,
+	_groundLayer: null,
+    _npcLayer:null,
 	/**
 	 * [_mapLength 地图大菱形的长度]
 	 * @type {[double]}
@@ -46,6 +47,8 @@ var Map = cc.Layer.extend({
 		this._tileSize = this._tmxMap.getTileSize();
 		this._mapSize = this._tmxMap.getContentSize();
 		this.mapMoveByHeroPosition(HeroPosition);		//根据英雄的位置初始化地图的位置
+
+
 		
 
 		this._mapConfig = this.getSingleMapConfigByName(HeroMap);		//读出了地图配置文件
@@ -63,7 +66,6 @@ var Map = cc.Layer.extend({
 
 		this._groundLayer = this._tmxMap.getLayer(this._mapConfig.ground);		//初始化地图floor层
 
-
 		
 		this._mapLength = Math.sqrt(this._mapSize.width*this._mapSize.width + 
 			this._mapSize.height*this._mapSize.height)/2;
@@ -73,8 +75,6 @@ var Map = cc.Layer.extend({
 			-this._mapSize.height*0.5/this._mapLength);
 		this._tileLength = Math.sqrt(this._tileSize.width*this._tileSize.width + 
 			this._tileSize.height*this._tileSize.height)/2;
-
-		
 		
 		return true;
 	},
@@ -181,8 +181,6 @@ var Map = cc.Layer.extend({
 		
 	}
 });
-
-
 
 
 

@@ -35,6 +35,7 @@ class SiteController extends Controller
 	{
 		$this->render("game");
 	}
+	
 	/**
 	 * This is the action to handle external exceptions.
 	 */
@@ -95,7 +96,23 @@ class SiteController extends Controller
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
-			$this->redirect(Yii::app()->user->returnUrl);
+			{
+				
+				//把登录用户信息添加到tbl_useronline表上
+				$tbl_useron = new UserOnline();
+				$tbl_useron->online_name = Yii::app()->user->name;
+				$tbl_useron->online_time_now = date("YmdHis");
+				$tbl_useron->online_from_time = date("YmdHis");
+				$tbl_useron->save();
+				
+				$user = Yii::app()->user->name;
+				$namefrom = $user;
+				$nameto = "【系统消息】";
+				$content = $user."进入了聊天室!";
+			//	$this->render('test', array('para'=>$content));
+				$this->addToTblChatcont($namefrom, $nameto, $content);
+				$this->redirect(Yii::app()->user->returnUrl);
+			}	
 		}
 		// display the login form
 		$this->render('login',array('model'=>$model));
@@ -106,7 +123,37 @@ class SiteController extends Controller
 	 */
 	public function actionLogout()
 	{
+		$user = Yii::app()->user->name;
 		Yii::app()->user->logout();
+		//TblUseronline::delete(Yii::app()->user->name);
+		$tbl_useron = new UserOnline();
+		$tbl_useron->deleteAll("online_name='$user'");
+		//$this->render('test', array('na'=>$na));
+		
+		$namefrom = $user;
+		$nameto = "【系统消息】";
+		$content = $user."离开了聊天室!";
+		$this->addToTblChatcont($namefrom, $nameto, $content);
 		$this->redirect(Yii::app()->homeUrl);
 	}
+	
+	/**
+	 * function:插入数据到$sigma_message_content
+	 * para:发送者 接受者  内容
+	 */
+	private function addToTblChatcont($namefrom, $nameto, $content) {
+		$tbl_userChatcontent = new Message();
+		$tbl_userChatcontent->message_time = date("YmdHis")+1;
+		$tbl_userChatcontent->message_sender = $namefrom;
+		$tbl_userChatcontent->message_reciever = $nameto;
+		$tbl_userChatcontent->message_content = $content;
+		$tbl_userChatcontent->save();
+	}
+	
 }
+
+
+
+
+
+

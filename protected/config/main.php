@@ -23,7 +23,7 @@ return array(
 		
 		'gii'=>array(
 			'class'=>'system.gii.GiiModule',
-			'password'=>'jiangliwu',
+			'password'=>'123',
 			// If removed, Gii defaults to localhost only. Edit carefully to taste.
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
@@ -52,11 +52,12 @@ return array(
 			'connectionString' => 'sqlite:'.dirname(__FILE__).'/../data/testdrive.db',
 		),
 		*/
+			
 
 		// uncomment the following to use a MySQL database
 		//mysql的连接
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=vainner',
+			'connectionString' => 'mysql:host=localhost;dbname=sigma_local',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',

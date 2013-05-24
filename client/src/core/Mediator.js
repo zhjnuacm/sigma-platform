@@ -11,6 +11,8 @@ function Mediator() {
 	this._size;
 	this._tipsManage;
 	this._input;
+	this._npcLayer;
+	this._npc1;
 
 
 	this.init = function(mainLayer) {
@@ -26,17 +28,22 @@ function Mediator() {
 		this._map = Map.create(cc.p(5,6),'map1');
 		this._mainLayer.addChild(this._map);
 
+
+	    // npc add npclayer into maplayer
+		this._npcLayer = cc.Layer.create();
+		this._npc1 = Npc.create();
+		this._npcLayer.addChild(this._npc1);
+		this._map.addChild(this._npcLayer);
 		
+ 
+
 		this._hero = Hero.create(
 			cc.p(this._map.tilePositionToWorldLocation(cc.p(5,6)) + this._map.getPosition())
 			);
 
 		this._mainLayer.addChild(this._hero.getSprite());
 
-	    //
-	    //this._input = InputPanel.create();
-	    //this._mainLayer.addChild(this._input, 2);
-	    //this._input.adaptPoistion();
+        //�����
 		
 
 
@@ -54,6 +61,7 @@ function Mediator() {
 	    var friend = FriendList.create(cc.c4(236,236, 236, 255), 180, 288);
 	    friend.setPosition(cc.p(this._size.width - 200, 220));
 	    this._mainLayer.addChild(friend);
+		
 		
 		friendList = FriendList.create();
 		this._mainLayer.addChild(friendList);
