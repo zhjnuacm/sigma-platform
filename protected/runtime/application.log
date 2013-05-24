@@ -1302,3 +1302,43 @@ REQUEST_URI=/sigma-platform/index.php?r=chat/pull
 in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (56)
 in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php (17)
 in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/24 00:27:47 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'test3' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `sigma_user_online` (`online_name`, `online_time_now`, `online_from_time`) VALUES (:yp0, :yp1, :yp2).
+in D:\xampp\htdocs\sigma-platform\protected\controllers\SiteController.php (106)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/24 00:27:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'test3' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `sigma_user_online` (`online_name`, `online_time_now`, `online_from_time`) VALUES (:yp0, :yp1, :yp2)' in D:\xampp\htdocs\sigma-platform\library\yii\db\CDbCommand.php:354
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 D:\xampp\htdocs\sigma-platform\protected\controllers\SiteController.php(106): CActiveRecord->save()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('login')
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#9 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/sigma-platform/index.php?r=site/login
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=site/login
+---
+2013/05/24 00:28:03 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'test1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `sigma_user_online` (`online_name`, `online_time_now`, `online_from_time`) VALUES (:yp0, :yp1, :yp2).
+in D:\xampp\htdocs\sigma-platform\protected\controllers\SiteController.php (106)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/24 00:28:03 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'test1' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `sigma_user_online` (`online_name`, `online_time_now`, `online_from_time`) VALUES (:yp0, :yp1, :yp2)' in D:\xampp\htdocs\sigma-platform\library\yii\db\CDbCommand.php:354
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 D:\xampp\htdocs\sigma-platform\protected\controllers\SiteController.php(106): CActiveRecord->save()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('login')
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#9 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/sigma-platform/index.php?r=site/login
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=site/login
+---
