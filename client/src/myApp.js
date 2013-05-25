@@ -67,7 +67,7 @@ var mainLayer = cc.Layer.extend({
     },
     
     onKeyDown: function(key) {
-        cc.log(key)
+    	this._mediator.onKeyDown(key); 
     },
 //    onKeyUp: function(key) {},
 //    onMouseDown: function(event) { 
