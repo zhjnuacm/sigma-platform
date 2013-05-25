@@ -1,5 +1,4 @@
-var Npc = cc.Sprite
-		.extend({
+var Npc = cc.Sprite.extend({
 
 			_title : null,
 			_touchBegan : false,
@@ -63,10 +62,8 @@ var Npc = cc.Sprite
 			onTouchBegan : function(touch, event) {
 				// alert("npc");
 				// 如果点击在npc上，则弹出对话框，并返回true，截断touch， 否则，返回false，响应下层touch
-				if (cc.Rect.CCRectContainsPoint(this.touchRect(), touch
-						.getLocation())) {
+				if (cc.Rect.CCRectContainsPoint(this.touchRect(), touch.getLocation())) {
 					this._touchBegan = true;
-					
 					
 					var dialog = NpcDialog.create(touch.getLocation(),this._priority,0);
 					this.addChild(dialog._dialogView);

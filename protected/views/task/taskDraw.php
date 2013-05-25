@@ -43,6 +43,7 @@
 Your browser does not support the canvas element.
 </canvas>
 
- <script src="client/drawDAG.js"> </script>
+<script src="javascript/drawArrow.js"> </script>  
+<script src="javascript/drawTask.js"> </script>
 
 

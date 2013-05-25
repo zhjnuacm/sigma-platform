@@ -98,18 +98,16 @@ var DialogView = cc.Layer.extend({
     },
 
     onCloseMyself: function () {
-
         this.removeFromParent(true);
     },
+    
     boundaryDetect: function() {
     	var size = cc.Director.getInstance().getWinSize();
     	var starx = this._oPoint.x + this.getPositionX() - 22, stary = this._oPoint.y + this.getPositionY() - 32;
         var endx = this._oPoint.x + this.getPositionX() + this._width - 22, endy = this._oPoint.y + this.getPositionY() + this._height - 32;
-        
-        
     },
+    
     addClose: function () {
-
         this.closeItem = cc.MenuItemImage.create(s_dlg[0]["res"], s_dlg[1]["res"], this.onCloseMyself, this);
         //closeItem.setAnchorPoint(cc.p(0.5, 0.5));
         this.closeButton = myButton.create(this.closeItem);
@@ -153,8 +151,8 @@ var DialogView = cc.Layer.extend({
     	menu.alignItemsHorizontallyWithPadding(this.layer._width*0.2);
     	menu.setPosition(cc.p(this.layer._width*0.5,30));
     	this.addChild(menu,2);
-    	
     },
+    
     setPosition: function (point) {
         this._super(point);
     },

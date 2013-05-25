@@ -36,7 +36,7 @@ class TaskController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','taskDag'),
+				'actions'=>array('admin','delete','taskShow'),
 				'users'=>array('@'),
 			),
 			 array('deny',  // deny all users
@@ -175,10 +175,10 @@ class TaskController extends Controller
 	 * Dispaly the Task diagram
 	 *
 	 */
-	public function actionTaskDag()
+	public function actionTaskShow()
 	{
 		$dataProvider=new CActiveDataProvider('Task');
-		$this->render('taskDag',array(
+		$this->render('taskDraw',array(
 			'dataProvider'=>$dataProvider,
 		));
 	}

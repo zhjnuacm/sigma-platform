@@ -2058,3 +2058,263 @@ Stack trace:
 REQUEST_URI=/sigma-platform/index.php?r=task/create
 HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/create
 ---
+2013/05/25 20:56:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "TaskDag".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php:484
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(271): CController->missingAction('TaskDag')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('TaskDag')
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('task/TaskDag')
+#3 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/TaskDag
+---
+2013/05/25 20:56:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "TaskDag".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php:484
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(271): CController->missingAction('TaskDag')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('TaskDag')
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('task/TaskDag')
+#3 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/TaskDag
+---
+2013/05/25 20:56:07 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\htdocs\sigma-platform\library\yii\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('TaskShow')
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('task/TaskShow')
+#9 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/TaskShow
+---
+2013/05/26 00:20:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskshow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskshow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskshow
+---
+2013/05/26 00:20:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:20:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:20:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:20:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:20:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:20:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:20:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:20:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:20:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:20:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:20:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:20:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:20:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:21:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:21:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:21:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:21:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:21:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:21:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "taskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('taskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=taskShow
+---
+2013/05/26 00:21:26 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "TaskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('TaskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=TaskShow
+---
+2013/05/26 00:21:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "TaskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('TaskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=TaskShow
+---
+2013/05/26 00:21:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "TaskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('TaskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=TaskShow
+---
+2013/05/26 00:21:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "TaskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('TaskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=TaskShow
+---
+2013/05/26 00:21:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "TaskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('TaskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=TaskShow
+---
+2013/05/26 00:21:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "TaskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('TaskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=TaskShow
+---
+2013/05/26 00:21:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "TaskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('TaskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=TaskShow
+---
+2013/05/26 00:21:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "TaskShow".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php:287
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('TaskShow')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#3 {main}
+REQUEST_URI=/sigma-platform/index.php?r=TaskShow
+---

@@ -29,9 +29,9 @@ function NpcDialog () {
 		taskDescriptionViewPanel.setString(content);
 		self._dialogView.addChild(taskDescriptionViewPanel);
 
-		
 		return true;
 	}
+	
 	this.getTaskDescription = function()
 	{
 		// ajax
