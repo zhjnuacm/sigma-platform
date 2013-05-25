@@ -37,11 +37,11 @@ class TaskController extends Controller
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete','taskDag'),
-				'users'=>array('admin'),
+				'users'=>array('@'),
 			),
-			array('deny',  // deny all users
+			 array('deny',  // deny all users
 				'users'=>array('*'),
-			),
+			), 
 		);
 	}
 
@@ -183,3 +183,7 @@ class TaskController extends Controller
 		));
 	}
 }
+
+
+
+

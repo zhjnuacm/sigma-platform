@@ -16,7 +16,7 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'task_id'); ?>
+		<?php echo $form->labelEx($model,'task_id&nbsp;&nbsp;&nbsp;(start from 1)'); ?>
 		<?php echo $form->textField($model,'task_id'); ?>
 		<?php echo $form->error($model,'task_id'); ?>
 	</div>

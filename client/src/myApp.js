@@ -49,7 +49,6 @@ var mainLayer = cc.Layer.extend({
             cc.canvas.height = document.documentElement.clientHeight - margin;
         }
 
-
         var xScale = cc.canvas.width / cc.originalCanvasSize.width; //这里是等比缩放的
         var yScale = cc.canvas.height / cc.originalCanvasSize.height;
         if (xScale > yScale) {
@@ -65,7 +64,6 @@ var mainLayer = cc.Layer.extend({
         cc.renderContext.translate(0, cc.canvas.height);
         cc.renderContext.scale(xScale, xScale);
         cc.Director.getInstance().setContentScaleFactor(xScale);
-
     },
     
     onKeyDown: function(key) {

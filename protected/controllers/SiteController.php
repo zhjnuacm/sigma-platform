@@ -149,7 +149,6 @@ class SiteController extends Controller
 		$tbl_userChatcontent->message_content = $content;
 		$tbl_userChatcontent->save();
 	}
-	
 }
 
 
