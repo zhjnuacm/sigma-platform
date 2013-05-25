@@ -91,6 +91,7 @@ var DialogView = cc.Layer.extend({
         this.layer = DialogBackground.create(pw, ph);
         this.setTouchEnabled(true);
         this.setMouseEnabled(true);
+        this.setKeyboardEnabled(true);
         this.addClose();
         this.addChild(this.layer);
         return true;
@@ -100,7 +101,13 @@ var DialogView = cc.Layer.extend({
 
         this.removeFromParent(true);
     },
-
+    boundaryDetect: function() {
+    	var size = cc.Director.getInstance().getWinSize();
+    	var starx = this._oPoint.x + this.getPositionX() - 22, stary = this._oPoint.y + this.getPositionY() - 32;
+        var endx = this._oPoint.x + this.getPositionX() + this._width - 22, endy = this._oPoint.y + this.getPositionY() + this._height - 32;
+        
+        
+    },
     addClose: function () {
 
         this.closeItem = cc.MenuItemImage.create(s_dlg[0]["res"], s_dlg[1]["res"], this.onCloseMyself, this);
@@ -175,11 +182,13 @@ var DialogView = cc.Layer.extend({
     onEnter: function () {
         this._super();
         cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, this.getTouchPriority(), true);
+        //cc.KeyboardDispatcher.getInstance().addDelegate(this);
         //alert(this.getTouchPriority());
     },
 
     onExit: function () {
         cc.Director.getInstance().getTouchDispatcher().removeDelegate(this);
+        //cc.KeyboardDispatcher.getInstance().removeDelegate(this);
         this._super();
     },
 
@@ -188,6 +197,14 @@ var DialogView = cc.Layer.extend({
         //this.removeFromParent(true);
         this.runAction(this.actionShake);
     },
+    onKeyDown: function (key){
+    	if(key == 27)
+    	{
+    		this.onCloseMyself();
+    		return true;
+    	}
+    	return false;
+    }
 });
 
 
