@@ -1,4 +1,4 @@
-2013/05/23 15:52:00 [error] [exception.CDbException] exception 'CDbException' with message 'Column name must be either a string or an array.' in D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php:701
+2013/05/24 19:26:18 [error] [exception.CHttpException.请先登录] exception 'CHttpException' in D:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:15
 Stack trace:
 #0 D:\xampp\htdocs\sigma-platform\library\yii\db\schema\CDbCommandBuilder.php(498): CDbCommandBuilder->createInCondition(Object(CMysqlTableSchema), NULL, Array, NULL)
 #1 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1683): CDbCommandBuilder->createPkCriteria(Object(CMysqlTableSchema), NULL, '', Array)

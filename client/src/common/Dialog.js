@@ -91,6 +91,7 @@ var DialogView = cc.Layer.extend({
         this.layer = DialogBackground.create(pw, ph);
         this.setTouchEnabled(true);
         this.setMouseEnabled(true);
+        this.setKeyboardEnabled(true);
         this.addClose();
         this.addChild(this.layer);
         return true;
@@ -100,7 +101,13 @@ var DialogView = cc.Layer.extend({
 
         this.removeFromParent(true);
     },
-
+    boundaryDetect: function() {
+    	var size = cc.Director.getInstance().getWinSize();
+    	var starx = this._oPoint.x + this.getPositionX() - 22, stary = this._oPoint.y + this.getPositionY() - 32;
+        var endx = this._oPoint.x + this.getPositionX() + this._width - 22, endy = this._oPoint.y + this.getPositionY() + this._height - 32;
+        
+        
+    },
     addClose: function () {
 
         this.closeItem = cc.MenuItemImage.create(s_dlg[0]["res"], s_dlg[1]["res"], this.onCloseMyself, this);
@@ -129,28 +136,42 @@ var DialogView = cc.Layer.extend({
         this.addChild(this.closeItem);
 
         this.closeItem.addTargetWithActionForControlEvent(this, this.onCloseMyself, cc.CONTROL_EVENT_TOUCH_DOWN);
-
     },
-
+    
+    addButtons : function (title,select_callback,target)
+    {
+    	var t1 = cc.LabelTTF.create(title,s_yahei, 18);
+    	t1.setColor(cc.c3b(0,255,0));
+    	var p1 = cc.MenuItemLabel.create(t1,select_callback,target);
+    	
+    	var t2 = cc.LabelTTF.create("取消",s_yahei, 18);
+    	t2.setColor(cc.c3b(255,0,0));
+    	var p2 = cc.MenuItemLabel.create(t2,this.onCloseMyself,this);
+    	
+    	var menu = cc.Menu.create(p1,p2);
+    	
+    	menu.alignItemsHorizontallyWithPadding(this.layer._width*0.2);
+    	menu.setPosition(cc.p(this.layer._width*0.5,30));
+    	this.addChild(menu,2);
+    	
+    },
     setPosition: function (point) {
         this._super(point);
     },
 
     onTouchBegan: function (touch, event) {
 
-        var starx = this._oPoint.x + this.getPositionX(), stary = this._oPoint.y + this.getPositionY()-90;
-        var endx = this._oPoint.x + this.getPositionX() + this._width, endy = this._oPoint.y + this.getPositionY() + this._height-90;
+        var starx = this._oPoint.x + this.getPositionX() - 22, stary = this._oPoint.y + this.getPositionY() - 32;
+        var endx = this._oPoint.x + this.getPositionX() + this._width - 22, endy = this._oPoint.y + this.getPositionY() + this._height - 32;
         var x = touch.getLocation().x, y = touch.getLocation().y;
 
 
-        //alert(starx + ' ' + endx + '\n' + stary + ' ' + endy);
-        //alert(this._oPoint.x + ' ' + this._oPoint.y);
-        //alert(this.getPositionX() + ' ' + this.getPositionY());
-        //alert(touch.getLocation().x + "  " + touch.getLocation().y);
+        //alert(starx + ' ' + endx + '\n' + stary + ' ' + endy + '\n' + x + ' '  + y + '\n' + this._oPoint.x + ' ' + this._oPoint.y
+        //		+ '\n' + this.getPositionX() + ' ' + this.getPositionY());
 
         if (x >= starx && x <= endx && y >= stary && y <= endy) {
             //对话框内容
-            alert("Yes!");
+            //alert("Yes!");
         }
         else {
             this.onShake();
@@ -161,11 +182,13 @@ var DialogView = cc.Layer.extend({
     onEnter: function () {
         this._super();
         cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, this.getTouchPriority(), true);
+        //cc.KeyboardDispatcher.getInstance().addDelegate(this);
         //alert(this.getTouchPriority());
     },
 
     onExit: function () {
         cc.Director.getInstance().getTouchDispatcher().removeDelegate(this);
+        //cc.KeyboardDispatcher.getInstance().removeDelegate(this);
         this._super();
     },
 
@@ -174,6 +197,14 @@ var DialogView = cc.Layer.extend({
         //this.removeFromParent(true);
         this.runAction(this.actionShake);
     },
+    onKeyDown: function (key){
+    	if(key == 27)
+    	{
+    		this.onCloseMyself();
+    		return true;
+    	}
+    	return false;
+    }
 });
 
 

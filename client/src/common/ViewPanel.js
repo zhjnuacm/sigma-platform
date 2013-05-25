@@ -34,7 +34,8 @@
     addWord: function (user, String) {
         //加入信息到page里面
         var mes = new Message();
-        String = "[" + user + "]：" + String;
+        //String = "[" + user + "]：" + String;
+        String = user;
         mes.init(String, 52);
         this._page.addMessage(mes);
         this._sLine.setButtom();

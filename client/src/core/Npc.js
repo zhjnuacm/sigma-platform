@@ -1,98 +1,103 @@
-var Npc = cc.Sprite.extend({
+var Npc = cc.Sprite
+		.extend({
 
-    _title:null,
-    _touchBegan: false,
-    _touchEnabled: true,
-    _touchDraw: false,
-    _priority:null,
-    _x:null,
-    _y: null,
+			_title : null,
+			_touchBegan : false,
+			_touchEnabled : true,
+			_touchDraw : false,
+			_priority : null,
+			_x : null,
+			_y : null,
+			_id : null,
+			ctor : function() {
+				this._super();
+			},
 
-    ctor: function () {
-        this._super();
-    },
+			init : function() {
+				this._super();
+				this.initWithFile(s_npc_1);
+				this.setAnchorPoint(cc.p(0.5, 0.5));
+				this.setPosition(cc.p(1750, 900));
+				// //title
+				// this._title = cc.LabelTTF.create("����ɵ��");
+				// this._title.setAnchorPoint(cc.p(0.5, 0.5));
+				// this._title.setPosition(cc.p(1750, 900 - 50));
+				// this._title.setFontSize(11);
+				// this.addChild(this._title);
 
-    init: function () {
-        this._super();
-        this.initWithFile(s_npc_1);
-        this.setAnchorPoint(cc.p(0.5, 0.5));
-        this.setPosition(cc.p(1750, 900));
-        this._priority = 10,
-        this._x += 200;
-        this._y += 200;
-        ////title
-        //this._title = cc.LabelTTF.create("����ɵ��");
-        //this._title.setAnchorPoint(cc.p(0.5, 0.5));
-        //this._title.setPosition(cc.p(1750, 900 - 50));
-        //this._title.setFontSize(11);
-        //this.addChild(this._title);
+				return true;
+			},
+			setPriority : function(priority) {
+				this._priority = priority;
+			},
+			onEnter : function() {
+				cc.Director.getInstance().getTouchDispatcher()
+						.addTargetedDelegate(this, this._priority, true);
+				this._touchEnabled = true;
+				this._super();
+			},
 
-        return true;
-    },
+			onExit : function() {
+				cc.Director.getInstance().getTouchDispatcher().removeDelegate(
+						this);
+				this._touchEnabled = false;
+				this._super();
+			},
 
-    onEnter: function () {
-        cc.Director.getInstance().getTouchDispatcher().addStandardDelegate(this, 0);
-        this._touchEnabled = true;
-        this._super();
-    },
+			touchRect : function() {
+				return this.getBoundingBoxToWorld();
+			},
 
-    onExit: function () {
-        cc.Director.getInstance().getTouchDispatcher().removeDelegate(this);
-        this._touchEnabled = false;
-        this._super();
-    },
+			setTouchEnabled : function(enable) {
+				if (enable && !this._touchEnabled) {
+					cc.Director.getInstance().getTouchDispatcher()
+							.addTargetedDelegate(this, this._priority, true);
+					this._touchEnabled = true;
+				} else if (!enable && this._touchEnabled) {
+					cc.Director.getInstance().getTouchDispatcher()
+							.removeDelegate(this);
+					this._touchEnabled = false;
+				}
+			},
 
+			onTouchBegan : function(touch, event) {
+				// alert("npc");
+				// 如果点击在npc上，则弹出对话框，并返回true，截断touch， 否则，返回false，响应下层touch
+				if (cc.Rect.CCRectContainsPoint(this.touchRect(), touch
+						.getLocation())) {
+					this._touchBegan = true;
+					
+					
+					var dialog = NpcDialog.create(touch.getLocation(),this._priority,0);
+					this.addChild(dialog._dialogView);
+					return true;
+				}
+				return false;
+			},
 
-    touchRect: function () {
-        return this.getBoundingBoxToWorld();
-    },
+			onTouchMoved : function(touches, event) {
+				if (this._touchDraw) {
+				}
+			},
 
-    setTouchEnabled: function (enable) {
-        if (enable && !this._touchEnabled) {
-            cc.Director.getInstance().getTouchDispatcher().addStandardDelegate(this, 0);
-            this._touchEnabled = true;
-        }
-        else if (!enable && this._touchEnabled) {
-            cc.Director.getInstance().getTouchDispatcher().removeDelegate(this);
-            this._touchEnabled = false;
-        }
-    },
+			onTouchEnded : function(touch, event) {
 
-    onTouchesBegan: function (touches, event) {
-        if (cc.Rect.CCRectContainsPoint(this.touchRect(), touches[0].getLocation())) {
-            this._touchBegan = true;
+				if (this._touchBegan
+						&& (cc.Rect.CCRectContainsPoint(this.touchRect(), touch
+								.getLocation()))) {
+					this._touchBegan = false;
+					this._touchDraw = false;
+				}
+			},
 
-            var dig = DialogView.create(400, 200, touches[0].getLocation());
-            dig.setTouchPriority(this._priority - 1);
-            this.addChild(dig);
-            this._priority -= 2;
-            this._x += 20;
-            this._y += 20;
-        }
-    },
+			setButtom : function() {
+				// this.point.setPositionY(2);
+			}
+		});
 
-
-    onTouchesMoved: function (touches, event) {
-        if (this._touchDraw) {
-        }
-    },
-
-    onTouchesEnded: function (touches, event) {
-
-        if (this._touchBegan && (cc.Rect.CCRectContainsPoint(this.touchRect(), touches[0].getLocation()))) {
-            this._touchBegan = false;
-            this._touchDraw = false;
-        }
-    },
-
-    setButtom: function () {
-      //  this.point.setPositionY(2);
-    }
-});
-
-
-Npc.create = function () {
-    var ret = new Npc();
-    if (ret && ret.init()) return ret;
-    return null;
+Npc.create = function() {
+	var ret = new Npc();
+	if (ret && ret.init())
+		return ret;
+	return null;
 };

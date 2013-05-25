@@ -32,17 +32,16 @@ function Mediator() {
 	    // npc add npclayer into maplayer
 		this._npcLayer = cc.Layer.create();
 		this._npc1 = Npc.create();
+		this._npc1.setPriority(this._map.getTouchPriority() - 1);
 		this._npcLayer.addChild(this._npc1);
 		this._map.addChild(this._npcLayer);
+		//alert(this._mainLayer.getTouchPriority() + "    " + (this._map.getTouchPriority() - 1));
 		
- 
-
+		//alert(this._npcLayer.getTouchPriority());
 		this._hero = Hero.create(
 			cc.p(this._map.tilePositionToWorldLocation(cc.p(5,6)) + this._map.getPosition())
 			);
-
 		this._mainLayer.addChild(this._hero.getSprite());
-
         //�����
 		
 
@@ -54,22 +53,22 @@ function Mediator() {
 		//tb.setPosition(cc.p(400, 300));
 
 		/**/
-		inputD = InputPanel.create();
-		this._mainLayer.addChild(inputD, 2);
-		inputD.adaptPoistion();
+//		inputD = InputPanel.create();
+//		this._mainLayer.addChild(inputD, 2);
+//		inputD.adaptPoistion();
 		
-	    var friend = FriendList.create(cc.c4(236,236, 236, 255), 180, 288);
-	    friend.setPosition(cc.p(this._size.width - 200, 220));
-	    this._mainLayer.addChild(friend);
-		
-		
-		friendList = FriendList.create();
-		this._mainLayer.addChild(friendList);
+//	    var friend = FriendList.create(cc.c4(236,236, 236, 255), 180, 288);
+//	    friend.setPosition(cc.p(this._size.width - 200, 220));
+//	    this._mainLayer.addChild(friend);
+//		
+//		
+//		friendList = FriendList.create();
+//		this._mainLayer.addChild(friendList);
 
 		return true;
 	},
-
-	this.onMouseDown = function(event) {
+    
+	this.onTouchBegan = function(event) {
 		var toTilePosition = this._map.locationToTilePosition(event.getLocation());
 		var moveAble = this._map.isMoveAble(toTilePosition);
 		
@@ -79,15 +78,13 @@ function Mediator() {
 		}
 		else this._tipsManage.addTip(moveAble);
 		
-		
 	},
-    this.onMouseDragged = function(event) {
+
+    this.onTouchMoved = function(event) {
         //this._map.mapDragged(event);
     },
-    this.onMouseMoved = function(event) {
-
-    },
-    this.onMouseUp =  function(event) {	
+    
+    this.onTouchEnd =  function(event) {	
     };
 }
 
