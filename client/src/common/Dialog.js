@@ -129,9 +129,25 @@ var DialogView = cc.Layer.extend({
         this.addChild(this.closeItem);
 
         this.closeItem.addTargetWithActionForControlEvent(this, this.onCloseMyself, cc.CONTROL_EVENT_TOUCH_DOWN);
-
     },
-
+    
+    addButtons : function (title,select_callback,target)
+    {
+    	var t1 = cc.LabelTTF.create(title,s_yahei, 18);
+    	t1.setColor(cc.c3b(0,255,0));
+    	var p1 = cc.MenuItemLabel.create(t1,select_callback,target);
+    	
+    	var t2 = cc.LabelTTF.create("取消",s_yahei, 18);
+    	t2.setColor(cc.c3b(255,0,0));
+    	var p2 = cc.MenuItemLabel.create(t2,this.onCloseMyself,this);
+    	
+    	var menu = cc.Menu.create(p1,p2);
+    	
+    	menu.alignItemsHorizontallyWithPadding(this.layer._width*0.2);
+    	menu.setPosition(cc.p(this.layer._width*0.5,30));
+    	this.addChild(menu,2);
+    	
+    },
     setPosition: function (point) {
         this._super(point);
     },
@@ -148,7 +164,7 @@ var DialogView = cc.Layer.extend({
 
         if (x >= starx && x <= endx && y >= stary && y <= endy) {
             //对话框内容
-            alert("Yes!");
+            //alert("Yes!");
         }
         else {
             this.onShake();

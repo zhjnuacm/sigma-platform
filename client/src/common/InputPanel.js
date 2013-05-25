@@ -168,7 +168,7 @@ var Message = function() {
 			if (realLength > k) {
 				newStr += String.substring(b, i);
 				newStr += "\n    ";
-				alert(newStr);
+				//alert(newStr);
 				realLength += 4;
 				b = i;
 				k += maxLenth;

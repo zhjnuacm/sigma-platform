@@ -34,9 +34,10 @@
             prefix+'src/common/ViewPanel.js',
             prefix+'src/common/Tools.js',
             prefix+'jquery-2.0.0.min.js',
-            prefix + 'src/common/ViewPanel.js',
-            prefix + 'src/common/Button.js',
-            prefix+'src/common/Dialog.js'
+            prefix+'src/common/ViewPanel.js',
+            prefix+'src/common/Button.js',
+            prefix+'src/common/Dialog.js',
+            prefix+'src/core/NpcDialog.js'
         ]
     };
     window.addEventListener('DOMContentLoaded', function () {
