@@ -75,7 +75,7 @@ var Map = cc.Layer.extend({
 			-this._mapSize.height*0.5/this._mapLength);
 		this._tileLength = Math.sqrt(this._tileSize.width*this._tileSize.width + 
 			this._tileSize.height*this._tileSize.height)/2;
-		
+
 		return true;
 	},
 
@@ -179,7 +179,8 @@ var Map = cc.Layer.extend({
 			this.setPosition(diff);
 		}
 		
-	}
+	},
+	
 });
 
 

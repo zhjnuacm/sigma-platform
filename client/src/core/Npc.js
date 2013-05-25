@@ -17,11 +17,8 @@ var Npc = cc.Sprite.extend({
         this.initWithFile(s_npc_1);
         this.setAnchorPoint(cc.p(0.5, 0.5));
         this.setPosition(cc.p(1750, 900));
-        this._priority = 10,
-        this._x += 200;
-        this._y += 200;
         ////title
-        //this._title = cc.LabelTTF.create("����ɵ��");
+        //this._title = cc.LabelTTF.create("����ɵ��");
         //this._title.setAnchorPoint(cc.p(0.5, 0.5));
         //this._title.setPosition(cc.p(1750, 900 - 50));
         //this._title.setFontSize(11);
@@ -29,9 +26,11 @@ var Npc = cc.Sprite.extend({
 
         return true;
     },
-
+    setPriority: function(priority) {
+    	this._priority = priority;
+    },
     onEnter: function () {
-        cc.Director.getInstance().getTouchDispatcher().addStandardDelegate(this, 0);
+        cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, this._priority, true);
         this._touchEnabled = true;
         this._super();
     },
@@ -49,7 +48,7 @@ var Npc = cc.Sprite.extend({
 
     setTouchEnabled: function (enable) {
         if (enable && !this._touchEnabled) {
-            cc.Director.getInstance().getTouchDispatcher().addStandardDelegate(this, 0);
+            cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, this._priority, true);
             this._touchEnabled = true;
         }
         else if (!enable && this._touchEnabled) {
@@ -58,28 +57,28 @@ var Npc = cc.Sprite.extend({
         }
     },
 
-    onTouchesBegan: function (touches, event) {
-        if (cc.Rect.CCRectContainsPoint(this.touchRect(), touches[0].getLocation())) {
+    onTouchBegan: function (touch, event) {
+    	//alert("npc");
+    	//如果点击在npc上，则弹出对话框，并返回true，截断touch， 否则，返回false，响应下层touch
+        if (cc.Rect.CCRectContainsPoint(this.touchRect(), touch.getLocation())) {
             this._touchBegan = true;
-
-            var dig = DialogView.create(400, 200, touches[0].getLocation());
+            var dig = DialogView.create(400, 200, touch.getLocation());
             dig.setTouchPriority(this._priority - 1);
             this.addChild(dig);
-            this._priority -= 2;
-            this._x += 20;
-            this._y += 20;
+            return true;
         }
+        return false;
     },
 
 
-    onTouchesMoved: function (touches, event) {
+    onTouchMoved: function (touches, event) {
         if (this._touchDraw) {
         }
     },
 
-    onTouchesEnded: function (touches, event) {
+    onTouchEnded: function (touch, event) {
 
-        if (this._touchBegan && (cc.Rect.CCRectContainsPoint(this.touchRect(), touches[0].getLocation()))) {
+        if (this._touchBegan && (cc.Rect.CCRectContainsPoint(this.touchRect(), touch.getLocation()))) {
             this._touchBegan = false;
             this._touchDraw = false;
         }

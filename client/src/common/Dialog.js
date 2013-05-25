@@ -138,15 +138,13 @@ var DialogView = cc.Layer.extend({
 
     onTouchBegan: function (touch, event) {
 
-        var starx = this._oPoint.x + this.getPositionX(), stary = this._oPoint.y + this.getPositionY()-90;
-        var endx = this._oPoint.x + this.getPositionX() + this._width, endy = this._oPoint.y + this.getPositionY() + this._height-90;
+        var starx = this._oPoint.x + this.getPositionX() - 22, stary = this._oPoint.y + this.getPositionY() - 32;
+        var endx = this._oPoint.x + this.getPositionX() + this._width - 22, endy = this._oPoint.y + this.getPositionY() + this._height - 32;
         var x = touch.getLocation().x, y = touch.getLocation().y;
 
 
-        //alert(starx + ' ' + endx + '\n' + stary + ' ' + endy);
-        //alert(this._oPoint.x + ' ' + this._oPoint.y);
-        //alert(this.getPositionX() + ' ' + this.getPositionY());
-        //alert(touch.getLocation().x + "  " + touch.getLocation().y);
+        //alert(starx + ' ' + endx + '\n' + stary + ' ' + endy + '\n' + x + ' '  + y + '\n' + this._oPoint.x + ' ' + this._oPoint.y
+        //		+ '\n' + this.getPositionX() + ' ' + this.getPositionY());
 
         if (x >= starx && x <= endx && y >= stary && y <= endy) {
             //对话框内容
