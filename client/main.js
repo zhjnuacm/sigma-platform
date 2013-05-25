@@ -43,9 +43,8 @@ var cocos2dApp = cc.Application.extend({
     applicationDidFinishLaunching:function () {
         // initialize director
         var director = cc.Director.getInstance();
-
         // enable High Resource Mode(2x, such as iphone4) and maintains low resource on other devices.
-//     director->enableRetinaDisplay(true);
+ //     director->enableRetinaDisplay(true);
 
         // turn on display FPS
         director.setDisplayStats(this.config['showFPS']);
@@ -61,4 +60,5 @@ var cocos2dApp = cc.Application.extend({
         return true;
     }
 });
+
 var myApp = new cocos2dApp(SgimaScene);

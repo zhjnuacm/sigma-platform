@@ -1709,3 +1709,352 @@ REQUEST_URI=/sigma-platform/index.php?r=task/taskDag
 in D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php (11)
 in D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php (183)
 in D:\xampp\htdocs\sigma-platform\index.php (13)
+2013/05/24 17:03:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+' in D:\xampp\htdocs\sigma-platform\library\yii\db\CDbConnection.php:382
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\db\CDbConnection.php(331): CDbConnection->open()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 D:\xampp\htdocs\sigma-platform\library\yii\base\CModule.php(388): CDbConnection->init()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(431): CModule->getComponent('db')
+#4 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(624): CApplication->getDb()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(2311): CActiveRecord->getDbConnection()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(388): CActiveRecordMetaData->__construct(Object(Task))
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CActiveDataProvider.php(75): CActiveRecord::model('Task')
+#8 D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php(125): CActiveDataProvider->__construct('Task')
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): TaskController->actionIndex()
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilter.php(41): CFilterChain->run()
+#13 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(292): CFilterChain->run()
+#17 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('index')
+#19 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('task/index')
+#20 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#21 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#22 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/index
+HTTP_REFERER=http://localhost/sigma-platform/
+---
+2013/05/24 17:03:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it.
+' in D:\xampp\htdocs\sigma-platform\library\yii\db\CDbConnection.php:382
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\db\CDbConnection.php(331): CDbConnection->open()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 D:\xampp\htdocs\sigma-platform\library\yii\base\CModule.php(388): CDbConnection->init()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(431): CModule->getComponent('db')
+#4 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(624): CApplication->getDb()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(2311): CActiveRecord->getDbConnection()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(388): CActiveRecordMetaData->__construct(Object(User))
+#7 D:\xampp\htdocs\sigma-platform\protected\models\User.php(27): CActiveRecord::model('User')
+#8 D:\xampp\htdocs\sigma-platform\protected\components\UserIdentity.php(23): User::model()
+#9 D:\xampp\htdocs\sigma-platform\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#10 D:\xampp\htdocs\sigma-platform\library\yii\validators\CInlineValidator.php(43): LoginForm->authenticate('password', Array)
+#11 D:\xampp\htdocs\sigma-platform\library\yii\validators\CValidator.php(214): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#12 D:\xampp\htdocs\sigma-platform\library\yii\base\CModel.php(158): CValidator->validate(Object(LoginForm), NULL)
+#13 D:\xampp\htdocs\sigma-platform\protected\controllers\SiteController.php(98): CModel->validate()
+#14 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#15 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#16 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#17 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('login')
+#19 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#20 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#21 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#22 {main}
+REQUEST_URI=/sigma-platform/index.php?r=site/login
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=site/login
+---
+2013/05/24 19:43:00 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'test3' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `sigma_user_online` (`online_name`, `online_time_now`, `online_from_time`) VALUES (:yp0, :yp1, :yp2).
+in D:\xampp\htdocs\sigma-platform\protected\controllers\SiteController.php (106)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/24 19:43:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'test3' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `sigma_user_online` (`online_name`, `online_time_now`, `online_from_time`) VALUES (:yp0, :yp1, :yp2)' in D:\xampp\htdocs\sigma-platform\library\yii\db\CDbCommand.php:354
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 D:\xampp\htdocs\sigma-platform\protected\controllers\SiteController.php(106): CActiveRecord->save()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('login')
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#9 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/sigma-platform/index.php?r=site/login
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=site/login
+---
+2013/05/25 09:28:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "getTask".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php:484
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(271): CController->missingAction('getTask')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('getTask')
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('site/getTask')
+#3 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/sigma-platform/index.php?r=site/getTask&id=1
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/view&id=1
+---
+2013/05/25 09:30:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "DealWithTask".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php:484
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(271): CController->missingAction('DealWithTask')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('DealWithTask')
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('site/DealWithTa...')
+#3 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#5 {main}
+REQUEST_URI=/sigma-platform/index.php?r=site/DealWithTask&id=1
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/view&id=1
+---
+2013/05/25 09:33:12 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`sigma_local`.`sigma_task`, CONSTRAINT `task_prerequisite` FOREIGN KEY (`task_pretask`) REFERENCES `sigma_task` (`task_id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `sigma_task` (`task_type`, `task_pretask`, `task_id`, `task_problem_id`, `task_name`, `npc_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5).
+in D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php (73)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/25 09:33:12 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`sigma_local`.`sigma_task`, CONSTRAINT `task_prerequisite` FOREIGN KEY (`task_pretask`) REFERENCES `sigma_task` (`task_id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `sigma_task` (`task_type`, `task_pretask`, `task_id`, `task_problem_id`, `task_name`, `npc_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5)' in D:\xampp\htdocs\sigma-platform\library\yii\db\CDbCommand.php:354
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php(73): CActiveRecord->save()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): TaskController->actionCreate()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilter.php(41): CFilterChain->run()
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(292): CFilterChain->run()
+#11 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('create')
+#13 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('task/create')
+#14 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#16 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/create
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/create
+---
+2013/05/25 09:33:20 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`sigma_local`.`sigma_task`, CONSTRAINT `task_prerequisite` FOREIGN KEY (`task_pretask`) REFERENCES `sigma_task` (`task_id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `sigma_task` (`task_type`, `task_pretask`, `task_id`, `task_problem_id`, `task_name`, `npc_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5).
+in D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php (73)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/25 09:33:20 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`sigma_local`.`sigma_task`, CONSTRAINT `task_prerequisite` FOREIGN KEY (`task_pretask`) REFERENCES `sigma_task` (`task_id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `sigma_task` (`task_type`, `task_pretask`, `task_id`, `task_problem_id`, `task_name`, `npc_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5)' in D:\xampp\htdocs\sigma-platform\library\yii\db\CDbCommand.php:354
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php(73): CActiveRecord->save()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): TaskController->actionCreate()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilter.php(41): CFilterChain->run()
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(292): CFilterChain->run()
+#11 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('create')
+#13 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('task/create')
+#14 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#16 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/create
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/create
+---
+2013/05/25 10:00:47 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\htdocs\sigma-platform\library\yii\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('TaskDag')
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('task/TaskDag')
+#9 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#11 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/TaskDag
+---
+2013/05/25 10:48:21 [error] [php] Object of class Task could not be converted to string (D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php:15)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(870): TaskController->renderFile()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(783): TaskController->renderPartial()
+#2 D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php(183): TaskController->render()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): TaskController->actionTaskDag()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(134): TaskController->runAction()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilter.php(41): CFilterChain->run()
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(1146): CAccessControlFilter->filter()
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CInlineFilter.php(59): TaskController->filterAccessControl()
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(292): CFilterChain->run()
+#11 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): TaskController->runActionWithFilters()
+#12 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): TaskController->run()
+#13 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#14 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=task/TaskDag
+in D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php (15)
+in D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php (183)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/25 15:42:50 [error] [php] Array to string conversion (D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php:20)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(870): TaskController->renderFile()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(783): TaskController->renderPartial()
+#2 D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php(183): TaskController->render()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): TaskController->actionTaskDag()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(134): TaskController->runAction()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilter.php(41): CFilterChain->run()
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(1146): CAccessControlFilter->filter()
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CInlineFilter.php(59): TaskController->filterAccessControl()
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(292): CFilterChain->run()
+#11 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): TaskController->runActionWithFilters()
+#12 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): TaskController->run()
+#13 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#14 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=task/TaskDag
+in D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php (20)
+in D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php (183)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/25 15:49:47 [error] [php] Array to string conversion (D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php:22)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(870): TaskController->renderFile()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(783): TaskController->renderPartial()
+#2 D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php(183): TaskController->render()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): TaskController->actionTaskDag()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(134): TaskController->runAction()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilter.php(41): CFilterChain->run()
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(1146): CAccessControlFilter->filter()
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CInlineFilter.php(59): TaskController->filterAccessControl()
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(292): CFilterChain->run()
+#11 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): TaskController->runActionWithFilters()
+#12 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): TaskController->run()
+#13 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#14 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=task/TaskDag
+in D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php (22)
+in D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php (183)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/25 16:00:35 [error] [php] array_push() expects parameter 1 to be array, null given (D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php:18)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CBaseController.php(96): TaskController->renderInternal()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(870): TaskController->renderFile()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(783): TaskController->renderPartial()
+#3 D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php(183): TaskController->render()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): TaskController->actionTaskDag()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(134): TaskController->runAction()
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilter.php(41): CFilterChain->run()
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(1146): CAccessControlFilter->filter()
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CInlineFilter.php(59): TaskController->filterAccessControl()
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#11 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(292): CFilterChain->run()
+#12 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): TaskController->runActionWithFilters()
+#13 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): TaskController->run()
+#14 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#15 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=task/TaskDag
+in D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php (18)
+in D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php (183)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/25 16:00:59 [error] [php] array_push() expects parameter 1 to be array, null given (D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php:18)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CBaseController.php(96): TaskController->renderInternal()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(870): TaskController->renderFile()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(783): TaskController->renderPartial()
+#3 D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php(183): TaskController->render()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): TaskController->actionTaskDag()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(134): TaskController->runAction()
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilter.php(41): CFilterChain->run()
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(1146): CAccessControlFilter->filter()
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CInlineFilter.php(59): TaskController->filterAccessControl()
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#11 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(292): CFilterChain->run()
+#12 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): TaskController->runActionWithFilters()
+#13 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): TaskController->run()
+#14 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#15 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=task/TaskDag
+in D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php (18)
+in D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php (183)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/25 16:01:01 [error] [php] array_push() expects parameter 1 to be array, null given (D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php:18)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CBaseController.php(96): TaskController->renderInternal()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(870): TaskController->renderFile()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(783): TaskController->renderPartial()
+#3 D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php(183): TaskController->render()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): TaskController->actionTaskDag()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(134): TaskController->runAction()
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilter.php(41): CFilterChain->run()
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(1146): CAccessControlFilter->filter()
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CInlineFilter.php(59): TaskController->filterAccessControl()
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#11 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(292): CFilterChain->run()
+#12 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): TaskController->runActionWithFilters()
+#13 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): TaskController->run()
+#14 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#15 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=task/TaskDag
+in D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php (18)
+in D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php (183)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/25 16:06:36 [error] [php] array_push() expects parameter 1 to be array, null given (D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php:22)
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CBaseController.php(96): TaskController->renderInternal()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(870): TaskController->renderFile()
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(783): TaskController->renderPartial()
+#3 D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php(183): TaskController->render()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): TaskController->actionTaskDag()
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams()
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(134): TaskController->runAction()
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilter.php(41): CFilterChain->run()
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(1146): CAccessControlFilter->filter()
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CInlineFilter.php(59): TaskController->filterAccessControl()
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#11 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(292): CFilterChain->run()
+#12 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): TaskController->runActionWithFilters()
+#13 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): TaskController->run()
+#14 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController()
+#15 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#16 D:\xampp\htdocs\sigma-platform\index.php(16): CWebApplication->run()
+REQUEST_URI=/sigma-platform/index.php?r=task/TaskDag
+in D:\xampp\htdocs\sigma-platform\protected\views\task\taskDag.php (22)
+in D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php (183)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/25 16:46:00 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`sigma_local`.`sigma_task`, CONSTRAINT `task_prerequisite` FOREIGN KEY (`task_pretask`) REFERENCES `sigma_task` (`task_id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `sigma_task` (`task_type`, `task_pretask`, `task_id`, `task_problem_id`, `task_name`, `npc_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5).
+in D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php (73)
+in D:\xampp\htdocs\sigma-platform\index.php (16)
+2013/05/25 16:46:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`sigma_local`.`sigma_task`, CONSTRAINT `task_prerequisite` FOREIGN KEY (`task_pretask`) REFERENCES `sigma_task` (`task_id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `sigma_task` (`task_type`, `task_pretask`, `task_id`, `task_problem_id`, `task_name`, `npc_id`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5)' in D:\xampp\htdocs\sigma-platform\library\yii\db\CDbCommand.php:354
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 D:\xampp\htdocs\sigma-platform\library\yii\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 D:\xampp\htdocs\sigma-platform\protected\controllers\TaskController.php(73): CActiveRecord->save()
+#3 D:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): TaskController->actionCreate()
+#4 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilter.php(41): CFilterChain->run()
+#7 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 D:\xampp\htdocs\sigma-platform\library\yii\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(292): CFilterChain->run()
+#11 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('create')
+#13 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('task/create')
+#14 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#15 D:\xampp\htdocs\sigma-platform\index.php(16): CApplication->run()
+#16 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/create
+HTTP_REFERER=http://localhost/sigma-platform/index.php?r=task/create
+---
