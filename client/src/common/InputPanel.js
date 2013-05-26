@@ -1,8 +1,7 @@
 ﻿//********************
 //在过程中修改了extensions/CCControlEditBox.js
 
-var InputPanel = cc.Layer
-		.extend({
+var InputPanel = cc.Layer.extend({
 			_FONT_NAME : null,
 			_FONT_SIZE : null,
 			_WIDTH : null,
@@ -80,7 +79,7 @@ var InputPanel = cc.Layer
 				this.view.setPosition(cc.p(5, 33));
 				this.addChild(this.view);
 				this.view.setVisible(this._isOpen);
-				this.schedule(this.step,2);
+				this.schedule(this.step,1);
 				return true;
 			},
 
@@ -91,12 +90,11 @@ var InputPanel = cc.Layer
 					url : genPullMessageUrl(),
 					success : function(data) {
 						// cc.log(data);
-						if(data != "@@")
-							self.view.addWord("系统",data);
+						self.view.addWord("系统",data);
 					}
 				});
 			},
-			
+
 			showFace : function() {
 				alert("sdsd");
 			},
@@ -107,7 +105,7 @@ var InputPanel = cc.Layer
 					type : "GET",
 					url : genPushMessageUrl("all", 0, str),
 					success : function(data) {
-						 cc.log(data);
+						// cc.log(data);
 					}
 				});
 
@@ -168,7 +166,7 @@ var Message = function() {
 			if (realLength > k) {
 				newStr += String.substring(b, i);
 				newStr += "\n    ";
-				//alert(newStr);
+				alert(newStr);
 				realLength += 4;
 				b = i;
 				k += maxLenth;
@@ -177,8 +175,7 @@ var Message = function() {
 		}
 		newStr += String.substring(b, len);
 
-		this.CCLable = cc.LabelTTF.create(newStr, 'Microsoft YaHei', 12, cc
-				.size(330, 20), cc.TEXT_ALIGNMENT_LEFT);
+		this.CCLable = cc.LabelTTF.create(newStr, "Impact", 20, cc.size(330, 20), cc.TEXT_ALIGNMENT_LEFT);
 		this.CCLable.setColor(cc.c3(30, 30, 30));
 
 		this._height = this._lk * 14;
@@ -207,8 +204,7 @@ var Message = function() {
 			}
 		}
 		newStr += String.substring(b, len);
-		this.CCLable = cc.LabelTTF.create(newStr, 'Microsoft YaHei', 12, cc
-				.size(330, 20), cc.TEXT_ALIGNMENT_LEFT);
+		this.CCLable = cc.LabelTTF.create(newStr, "Impact", 20, cc.size(330, 20), cc.TEXT_ALIGNMENT_LEFT);
 		this.CCLable.setColor(cc.c3(30, 30, 30)); // alert(this.CCLable.getCharCount());
 		this._height = this._lk * 14;
 	}

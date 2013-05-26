@@ -13,7 +13,7 @@
         //engineDir:'../cocos2d/',
         SingleEngineFile:prefix+'Cocos2d-html5-v2.1.1.min.js',
        appFiles:[
-            prefix+'src/resource.js',
+            prefix + 'src/resource.js',
             prefix+'src/myApp.js',
             prefix+'src/core/Mediator.js',
             prefix+'src/core/ChatPanel.js',
@@ -34,10 +34,8 @@
             prefix+'src/common/ViewPanel.js',
             prefix+'src/common/Tools.js',
             prefix+'jquery-2.0.0.min.js',
-            prefix+'src/common/ViewPanel.js',
-            prefix+'src/common/Button.js',
-            prefix+'src/common/Dialog.js',
-            prefix+'src/core/NpcDialog.js'
+            prefix + 'src/common/Button.js',
+            prefix+'src/common/Dialog.js'
         ]
     };
     window.addEventListener('DOMContentLoaded', function () {
@@ -63,6 +61,3 @@
         //else if single file specified, load singlefile
     });
 })();
-
-
-
