@@ -83,6 +83,8 @@ document.write(len + " " + tmp[0][0]);
 tmp[1] = tmp[0];
 document.write(tmp[1][1]);*/
 
+
+
 var que = new Array();
 que[0] = new Array();//队列1
 que[1] = new Array();//队列2
@@ -160,9 +162,11 @@ function drawArrow() {
 }
 
 drawTask();
+
 for(var i = 0; i <= maxTask; i++) {
 	if(0 != graph[0][i]) {
 		que[0].push(i);
 	}
 }
+
 drawArrow();
