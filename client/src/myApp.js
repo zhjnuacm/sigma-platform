@@ -15,7 +15,6 @@ var mainLayer = cc.Layer.extend({
 				255), size.width, size.height);
 		this.addChild(colorLayer, -1);
         this.setKeyboardEnabled(true);
-        this.setTouchEnabled(true);
         if ('mouse' in sys.capabilities) {
             this.setMouseEnabled(true);
         } else {
@@ -49,6 +48,7 @@ var mainLayer = cc.Layer.extend({
             cc.canvas.height = document.documentElement.clientHeight - margin;
         }
 
+
         var xScale = cc.canvas.width / cc.originalCanvasSize.width; //这里是等比缩放的
         var yScale = cc.canvas.height / cc.originalCanvasSize.height;
         if (xScale > yScale) {
@@ -64,53 +64,34 @@ var mainLayer = cc.Layer.extend({
         cc.renderContext.translate(0, cc.canvas.height);
         cc.renderContext.scale(xScale, xScale);
         cc.Director.getInstance().setContentScaleFactor(xScale);
+
     },
     
-    onKeyDown: function(key) {
-    	this._mediator.onKeyDown(key); 
+    //onKeyDown: function(key) {
+    //    cc.log(key)
+    //},
+    //onKeyUp: function(key) {},
+    onMouseDown: function(event) { 
+        this._mediator.onMouseDown(event); 
     },
-//    onKeyUp: function(key) {},
-//    onMouseDown: function(event) { 
-//        this._mediator.onMouseDown(event); 
-//        return true;
-//    },
-//    onMouseDragged: function(event) {
-//        this._mediator.onMouseDragged(event);
-//    },
-//    onMouseMoved: function(event) {},
-//    onMouseUp: function(event) {
-//        this._mediator.onMouseUp(event);
-//    },
-//    onRightMouseDown: function(event) {
-//        cc.log(event.getLocation());
-//    },
-//    
-    onTouchBegan: function (touch, event) {
-    	
-        this._mediator.onTouchBegan(touch);
-        return true;
+    onMouseDragged: function(event) {
+        this._mediator.onMouseDragged(event);
     },
-
-    onEnter: function () {
-        this._super();
-        //alert("mainLayer " + this.getTouchPriority());
-        cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, true);
-        //alert(this.getTouchPriority());
+    onMouseMoved: function(event) {},
+    onMouseUp: function(event) {
+        this._mediator.onMouseUp(event);
     },
-
-    onExit: function () {
-        cc.Director.getInstance().getTouchDispatcher().removeDelegate(this);
-        this._super();
-    },
-    
-    onRightMouseDragged: function(event) {},
-    onRightMouseUp: function(event) {},
-    onOtherMouseDown: function(event) {},
-    onOtherMouseDragged: function(event) {},
-    onOtherMouseUp: function(event) {},
-    onScrollWheel: function(event) {},
-    onMouseEntered: function(theEvent) {},        //当鼠标移动到画布内的时候调用
-    onMouseExited: function(theEvent) {},         //移出画布内调用
+    onRightMouseDown: function(event) {
+        cc.log(event.getLocation());
+    }
+    //onRightMouseDragged: function(event) {},
+    //onRightMouseUp: function(event) {},
+    //onOtherMouseDown: function(event) {},
+    //onOtherMouseDragged: function(event) {},
+    //onOtherMouseUp: function(event) {},
+    //onScrollWheel: function(event) {},
+    //onMouseEntered: function(theEvent) {},        //当鼠标移动到画布内的时候调用
+    //onMouseExited: function(theEvent) {},         //移出画布内调用
     
 });
 
