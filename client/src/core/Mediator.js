@@ -57,6 +57,8 @@ function Mediator() {
 		this._mainLayer.addChild(this._hero.getSprite());
         //�����
 		
+
+
 		//var mes = new Message();
 		//mes.init2("�ҽ�����ʺ�ø��˺ÿ��İ���̾���أ�����˭�ܷ����ҵ�ϲ�á�", 26);
 		//var tb = TextBox.create(mes, 1);
@@ -75,6 +77,7 @@ function Mediator() {
 //		
 //		friendList = FriendList.create();
 //		this._mainLayer.addChild(friendList);
+
 		return true;
 	},
     

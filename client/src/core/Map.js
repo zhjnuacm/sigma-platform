@@ -55,6 +55,7 @@ var Map = cc.Layer.extend({
 	_walkMargin:7,//地图边缘
 	_squareSize:30,//TMX地图大小为 30*30=900个TILE
 	
+
 	/**
 	 * [init 根据英雄的位置和英雄的地图 初始化地图]
 	 * @param  {[type]} HeroPosition [英雄的tile位置]
@@ -181,6 +182,8 @@ var Map = cc.Layer.extend({
 		return null;
 	},
 
+
+
 	/**
 	 * [isMoveAble 检测目的点是否可动]
 	 * @param  {[cc.p]}  position [鼠标点击的相对于tile的点]
@@ -208,6 +211,7 @@ var Map = cc.Layer.extend({
 
 	},
 
+
 	/**
 	 * [mapMoveByHeroPosition 根据英雄的位置来改变地图的位置]
 	 * @param  {[cc.p]} position 	[坐标]
@@ -219,12 +223,15 @@ var Map = cc.Layer.extend({
 		var middlePosition = cc.p(this._winSize.width/2,this._winSize.height/2);
 		var diff = cc.pSub(middlePosition,this.tilePositionToWorldLocation(position));
 		
-		if(type == true) {
+		if(type == true)
+		{
 			this.runAction(cc.MoveTo.create(0.2,diff));
 		}
-		else {
+		else
+		{
 			this.setPosition(diff);
 		}
+		
 	},
 
 
@@ -369,7 +376,11 @@ this.runAction(cc.MoveTo.create(this._stepTime,this._newPosPoint));
 
 
 },
+	
 });
+
+
+
 
 
 /**
