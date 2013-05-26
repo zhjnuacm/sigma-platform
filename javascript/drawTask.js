@@ -1,4 +1,7 @@
 
+var c=document.getElementById("myCanvas");
+var cxt=c.getContext("2d");
+
 var MAXN = 150;
 var graph = new Array();
 var maxTask = -1;
@@ -25,6 +28,9 @@ function graphInit() {
 	}
 }
 
+/*
+ * 输出图
+ */
 function output() {
 	for(var i = 0; i < 7; i++) {
 		for(var j = 0; j < 7; j++) {
@@ -34,8 +40,6 @@ function output() {
 	}
 }
 
-var c=document.getElementById("myCanvas");
-var cxt=c.getContext("2d");
 
 /*
  * 参数：园中心坐标，任务ID
@@ -67,7 +71,7 @@ function createTaskArrow(_sx, _sy, _ex, _ey) {
 	a1.paint(cxt);
 }
 
-graphInit();
+
 //output();
 
 //test for Array
@@ -83,17 +87,10 @@ document.write(len + " " + tmp[0][0]);
 tmp[1] = tmp[0];
 document.write(tmp[1][1]);*/
 
-
-
-var que = new Array();
-que[0] = new Array();//队列1
-que[1] = new Array();//队列2
-for(var i = 0; i <= maxTask; i++) {
-	if(0 != graph[0][i]) {
-		que[0].push(i);
-	}
-}
-
+/*
+ * 这里两个函数drawTask与drawArrow有空最好重构一下
+ * 或者将这个文件用类封装一下
+ */
 function drawTask() {
 	var Gap = 100;
 	var ind = 0;
@@ -161,12 +158,21 @@ function drawArrow() {
 	}
 }
 
-drawTask();
+graphInit();
 
+var que = new Array();
+que[0] = new Array();//队列1
+que[1] = new Array();//队列2
 for(var i = 0; i <= maxTask; i++) {
 	if(0 != graph[0][i]) {
 		que[0].push(i);
 	}
 }
 
+drawTask();
+for(var i = 0; i <= maxTask; i++) {
+	if(0 != graph[0][i]) {
+		que[0].push(i);
+	}
+}
 drawArrow();
