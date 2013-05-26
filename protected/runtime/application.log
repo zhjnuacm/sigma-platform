@@ -2318,3 +2318,17 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/sigma-platform/index.php?r=TaskShow
 ---
+2013/05/26 09:53:11 [error] [exception.CHttpException.请先登录] exception 'CHttpException' in E:\xampp\htdocs\sigma-platform\protected\controllers\ChatController.php:15
+Stack trace:
+#0 E:\xampp\htdocs\sigma-platform\library\yii\web\actions\CInlineAction.php(50): ChatController->actionPull()
+#1 E:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(309): CInlineAction->runWithParams(Array)
+#2 E:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#3 E:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 E:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('pull')
+#5 E:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('chat/pull')
+#6 E:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#7 E:\xampp\htdocs\sigma-platform\index.php(17): CApplication->run()
+#8 {main}
+REQUEST_URI=/sigma-platform/index.php?r=chat/pull
+HTTP_REFERER=http://127.0.0.1:8080/sigma-platform/index.php?r=site/game
+---

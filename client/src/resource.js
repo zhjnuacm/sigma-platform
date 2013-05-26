@@ -6,7 +6,7 @@ var s_Search  			= "client/res/icon_1.png";
 var s_Pk  				= "client/res/icon_2.png";
 var s_Chat  			= "client/res/icon_3.png";
 var s_Fav  				= "client/res/icon_4.png";
-var s_hero              = "client/res/hero.png";
+var s_hero              = "client/res/huan.png";
 var s_face              = "client/res/face_normal.png";
 var s_face2             = "client/res/face_down.png";
 var s_inputR            = "client/res/InputPanel_Rect.png";
@@ -33,7 +33,7 @@ var s_map_res           = "client/res/map/smapRule.png";
 var s_extensions_buttonBackground = "client/res/buttonBackground.png";
 var s_extensions_button = "client/res/button.png";
 var s_extensions_buttonHighlighted = "client/res/buttonHighlighted.png";
-var s_mapPath = "client/res/map/map1_s.png";
+
 var s_dlg = [
     {
         type: "close_normal",
@@ -113,8 +113,8 @@ var g_ressources = [
     { type: "image", src: s_FriendList_t },
     { type: "image", src: s_Friendseach },
     { type: "image", src: s_npc_1 },
-    
-{ type: "image", src: s_mapPath },
+
+
     {type:"image", src:s_map_res},
     //plist
 
