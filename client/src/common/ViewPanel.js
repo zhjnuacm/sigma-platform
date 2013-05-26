@@ -34,7 +34,8 @@
     addWord: function (user, String) {
         //加入信息到page里面
         var mes = new Message();
-        String = "[" + user + "]：" + String;
+        //String = "[" + user + "]：" + String;
+        String = user;
         mes.init(String, 52);
         this._page.addMessage(mes);
         this._sLine.setButtom();
@@ -53,8 +54,6 @@ ViewPanel.create = function (color, w, h) {
     if (ret && ret.init(color, w, h)) return ret;
     return null;
 };
-
-
 
 //里面信息的那个层，负责更新信息位置，添加删除信息，处理滚动操作
 var CharPage = cc.Layer.extend({

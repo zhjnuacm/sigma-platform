@@ -85,7 +85,7 @@ function TArray(nRow, nColumn, value) {
 var head = "index.php?r=";
 function genPushMessageUrl(to, type, msg) {
 	var parameter = "&to=" + to + "&type=" + type + "&msg=" + msg;
-	return head + "chat/push"+parameter;
+	return head + "chat/push"+encodeURI(parameter);
 }
 
 function genPullMessageUrl() {

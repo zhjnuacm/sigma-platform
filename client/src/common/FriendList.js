@@ -160,6 +160,8 @@ var FriendList = cc.Layer.extend({
 
 
 
+
+
         //初始化朋友列表
         this.friendView = cc.TableView.create(this, cc.SizeMake(180, 230));
         this.friendView.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
