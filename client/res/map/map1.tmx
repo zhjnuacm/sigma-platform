@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" width="30" height="30" tilewidth="100" tileheight="50">
+ <tileset firstgid="1" name="smapRule" tilewidth="100" tileheight="50">
+  <image source="smapRule.png" width="1000" height="1984"/>
+ </tileset>
+ <layer name="floor" width="30" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2UUQ7AIAhDuad6/2vs1zSKbJQNt300fkh4oVaaiDRQ7YR3kcrALWRl5zK8fjN3xHiKa+2lcYvSP5p7Nrs/d1xfu9O7O3AG9h7KxkW2pS6S69kb2NeSU8a+muU3irv6NzM/dp33Li4zzzvMm4X71TxfqdM8w35Mrd4qiq/5bH03jw4zFE/gEA4AAA==
+  </data>
+ </layer>
+ <layer name="figure" width="30" height="30" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3NMQ0AAAgDsHnixr8tRHAQktZAEwDYqcO7D28A+G4ADNuxQRAOAAA=
+  </data>
+ </layer>
+ <layer name="Canteen" width="30" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3NMQ6CUBBF0b8ssQRKsROwArFSoVKgxC2wY/nJZQl/wOTdZHKme87tu+MGmxGmhpsHTPCMV4PtGDMs8R54d17uxF9gg13gbV+ON2xxDLh5wRpfOATcXKvwiT1+DbYf+MHJYNP3NtpRSimllPrXfjOjHhwQDgAA
+  </data>
+ </layer>
+ <layer name="Tower" width="30" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3NJwKAMADFUBAsxbj/idBYQDIcwzFNanFtET/myQSB+qr2+G6wx9nhu8MJd3wsPlscccMbs9Dee8AVL0wtPk0LnpjwrBy8D4x5lQ6epohX4fBpyj08lVJKKaX+2AtReXxxEA4AAA==
+  </data>
+ </layer>
+ <layer name="ActiveCenter" width="30" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3NqRGAQBTA0G0WLCA5HJfisHSLyTbAzH5DnolMSvqqph2d6F7wWdGWjnQr+MwaOtCV3gHvni70CnhmMz3pE/g+Al+SJEn6nxe2yvGdEA4AAA==
+  </data>
+ </layer>
+ <objectgroup name="ActiveCenter" width="30" height="30">
+  <object x="1257" y="292">
+   <polyline points="0,0 -1,-68 -24,-67 -59,-97 -69,-114 -72,-123 -76,-130 -148,-124 -154,-133 -196,-141 -206,-147 -212,-150 -350,-147 -351,-144 -349,-136 -341,-131 -289,-34 -286,-31 -279,-31 -205,45 -192,46 -73,42 -72,-4 -1,-1 0,-1"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="Tower" width="30" height="30">
+  <object x="1043" y="437">
+   <polyline points="0,0 -2,-213 -114,-214 -137,-237 -170,-248 -176,-253 -215,-254 -242,-270 -247,-273 -258,-276 -257,-258 -258,-214 -266,-212 -278,-220 -286,-219 -280,-211 -284,-210 -298,-224 -300,-238 -309,-246 -314,-245 -343,-266 -330,-245 -356,-266 -383,-281 -397,-291 -436,-326 -437,-327 -406,-291 -380,-247 -367,-228 -378,-235 -381,-236 -361,-207 -361,-200 -352,-191 -340,-188 -309,-156 -306,-152 -292,-137 -290,-113 -297,-113 -295,-106 -291,-101 -281,-81 -279,-69 -285,-72 -265,-52 -262,-7 -244,-6 -227,-5 -224,16 -216,31 -209,42 -190,61 -172,72 -142,81 -117,79 -92,72 -68,59 -49,38 -39,11 -39,1 0,-1"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="Canteen" width="30" height="30">
+  <object x="818" y="425">
+   <polyline points="0,0 3,-170 -58,-170 -75,-188 -79,-203 -89,-216 -106,-227 -128,-235 -172,-238 -203,-270 -205,-275 -212,-281 -212,-286 -292,-315 -276,-273 -301,-288 -307,-296 -317,-301 -321,-298 -377,-316 -359,-267 -348,-235 -357,-224 -358,-209 -355,-198 -348,-185 -343,-174 -336,-167 -325,-158 -312,-155 -304,-146 -293,-116 -292,-59 -293,-50 -298,-45 -293,-37 -293,-4 -219,-4 -218,8 -186,8 -182,24 -172,35 -161,41 -146,42 -135,36 -127,27 -124,9 -76,11 -73,-2 -2,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="Dormitory_1" width="30" height="30">
+  <object x="1144" y="1005">
+   <polyline points="0,0 -2,-53 9,-54 6,-113 -5,-113 -9,-169 -53,-170 -59,-174 -67,-174 -68,-178 -73,-183 -77,-182 -87,-192 -75,-191 -80,-200 -116,-207 -182,-257 -189,-259 -183,-227 -262,-227 -274,-224 -200,-103 -184,-88 -183,-83 -177,-79 -166,-69 -163,-56 -154,-48 -154,-14 -143,-4 -64,-2 -56,2 -51,4 -49,-1 -24,1 -19,5 -12,4 -12,1 0,0"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="Dormitory_3" width="30" height="30">
+  <object x="1143" y="1307">
+   <polyline points="0,0 -2,-57 13,-55 6,-114 -5,-117 -7,-170 -55,-173 -63,-177 -71,-185 -75,-186 -83,-193 -76,-193 -78,-201 -115,-210 -182,-261 -188,-262 -183,-229 -186,-229 -267,-228 -273,-226 -223,-142 -198,-106 -184,-93 -182,-87 -175,-79 -173,-80 -162,-70 -162,-56 -153,-48 -149,-15 -143,-8 -88,-7 -60,-4 -54,0 -50,-3 -25,-3 -17,3 -13,2 -12,-1 -1,-1"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="Dormitory_2" width="30" height="30">
+  <object x="635" y="1015">
+   <polyline points="0,0 -105,6 -120,0 -132,-12 -134,-18 -136,-40 -146,-52 -152,-53 -157,-57 -159,-58 -171,-91 -178,-92 -248,-223 -251,-228 -265,-233 -256,-241 -154,-242 -145,-237 -129,-231 -131,-228 -123,-225 -87,-222 -80,-222 -73,-214 -79,-211 -67,-200 -14,-193 -4,-184 2,-171 3,-163 7,-117 15,-116 18,-76 5,-77 10,-12 0,-1"/>
+  </object>
+ </objectgroup>
+ <objectgroup name="Dormitory_4" width="30" height="30">
+  <object x="636" y="1313">
+   <polyline points="0,0 -57,6 -101,7 -122,0 -132,-11 -136,-20 -135,-37 -146,-52 -152,-51 -161,-60 -172,-89 -179,-92 -251,-224 -265,-230 -261,-236 -249,-242 -216,-241 -154,-241 -145,-236 -131,-232 -128,-227 -133,-226 -120,-221 -83,-221 -80,-219 -76,-214 -80,-211 -69,-199 -15,-190 -6,-185 2,-171 6,-116 14,-115 19,-74 5,-75 9,-10 -1,1"/>
+  </object>
+ </objectgroup>
+ <layer name="Dormitory_1" width="30" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3NsRGAIAAEQfovQQiFUAiRUCnM5G3hmWFukwsvBAAA9pIWPKNajM9DzWozvk+1qsP4vtRbncZ3V1/j8/cseALY3wf/Sey/EA4AAA==
+  </data>
+ </layer>
+ <layer name="Dormitory_2" width="30" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3NIQKAIBQEUe5/AaxoFCISlZtR9kfrUuaViZMSAAD4c6iX8ZnVU23Gd1GrOozvW33UaXx39TM+w7vhCQBhAV5oBwYQDgAA
+  </data>
+ </layer>
+ <layer name="Dormitory_3" width="30" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3NIQKAIBQEUe5/BDEKUY1qBA5mWZt5P2FemTgpAQAAYFZrwDOr1fhc1KKexvemHupjfO/qrQ7j+1K78flpAU/8ewEcmci/EA4AAA==
+  </data>
+ </layer>
+ <layer name=" Dormitory_4" width="30" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3NIRaAIAAEUe5/AalCBCMYkZtR1hP43hqYXyZOCAAAANhBVLPxeahJvYzvU63qbXwXtavT+G7qY3y+xg9PfLMAt/J5xBAOAAA=
+  </data>
+ </layer>
+ <layer name="Tree_1" width="30" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2VQQrAIAwE/V1rb239/1uK4N0JxkZkB3ILCZMETSmWI7D3HdBTvv/V8/Yl9eQ7xuq+Ym9Wf59PWCu36GHxfWDe26KHfOfjfc+XIZf40r1VCsix+NK9UTx96Zxn+JI5V/Rf7scHsSvsuhAOAAA=
+  </data>
+ </layer>
+ <layer name="Tree_2" width="30" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGP7AfQDtDiRSHTXdSKpZxLqRmmaN+pd8MOpf/GAg/DsKRgGxYCjUR9QEo/6lHxj1L+3BqH/pB0brX/oCAD5921wQDgAA
+  </data>
+ </layer>
+</map>
