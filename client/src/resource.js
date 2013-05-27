@@ -118,6 +118,7 @@ var g_ressources = [
     { type: "image", src: s_shero },
     { type: "image", src: s_mapPath },
     { type: "image", src: s_map_res},
+    {type:"image", src:s_map_res},
     //plist
 
     //fnt

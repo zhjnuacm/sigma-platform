@@ -114,9 +114,3 @@ class ChatController extends Controller
 	}
 }
 
-
-
-
-
-
-

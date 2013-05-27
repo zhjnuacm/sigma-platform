@@ -331,10 +331,3 @@ function am()
 {
     return app()->getAssetManager();
 }
-
-
-
-
-
-
-

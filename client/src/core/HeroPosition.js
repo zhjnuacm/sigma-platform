@@ -11,5 +11,3 @@ HeroPosition.create = function() {
 	return null;
 }
 
-
-

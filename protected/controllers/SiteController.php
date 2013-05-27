@@ -150,9 +150,3 @@ class SiteController extends Controller
 		$tbl_userChatcontent->save();
 	}
 }
-
-
-
-
-
-

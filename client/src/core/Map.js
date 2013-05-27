@@ -389,9 +389,6 @@ smap.mapMoveByHeroPosition(sdiff, true);
 });
 
 
-
-
-
 /**
  * [create 根据英雄的位置和英雄的地图 初始化地图]
  * @param  {[type]} HeroPosition [英雄的tile位置]
@@ -405,7 +402,6 @@ Map.create = function(HeroPosition,HeroMap) {
 	}
 	return null;
 };
-
 
 ///////////////////////////////////////////////////////////////////////////////小地图
 
@@ -421,17 +417,17 @@ function SMap() {
     SMap.instance = this;
 
     this.init = function (HeroPosition, HeroMap) {
-        
+
         this._winSize = cc.Director.getInstance().getWinSize();
         //设置偏移量
-        this._mx = 100 - this._winSize.width*0.075;
+        this._mx = 100 - this._winSize.width * 0.075;
         this._my = 65 - this._winSize.height * 0.075;
 
         //放置遮罩 只显示方框区域
         this._content = cc.ScrollView.create();
         this._content.setViewSize(cc.SizeMake(200, 130));
         this._content.setPosition(cc.p(30, 20));
-    
+
 
         //获取地图
         this._map = cc.Sprite.create(s_mapPath);
@@ -445,7 +441,7 @@ function SMap() {
         //放置hero
 
         this._hero = cc.Sprite.create(s_shero);
-        this._hero.setPosition(cc.p(this._winSize.width*0.075, this._winSize.height*0.075));
+        this._hero.setPosition(cc.p(this._winSize.width * 0.075, this._winSize.height * 0.075));
         this._content.addChild(this._hero);
 
         return true;
