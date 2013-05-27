@@ -37,7 +37,7 @@ function Mediator() {
 	    //小地图
 		var smap = SMap.create(cc.p(5, 6), 'map1');
 		this._mainLayer.addChild(smap._content, 2);
-
+		
 		// map
 		this._map = Map.create(cc.p(5,6),'map1');
 		this._mainLayer.addChild(this._map);
@@ -55,8 +55,10 @@ function Mediator() {
 		
 		//hero
 		var k = cc.p(0,0);
+
 		k.x = this._map.tilePositionToWorldLocation(cc.p(5,6)).x+this._map.getPosition().x;
 		k.y = this._map.tilePositionToWorldLocation(cc.p(5,6)).y+this._map.getPosition().y;
+
 		this._hero = Hero.create(k);
 		this._mainLayer.addChild(this._hero.getSprite());
         //�����

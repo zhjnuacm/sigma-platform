@@ -10,4 +10,3 @@ HeroPosition.create = function() {
 	if (ret && ret.init()) return ret;
 	return null;
 }
-
