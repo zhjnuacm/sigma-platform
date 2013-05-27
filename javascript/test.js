@@ -35,6 +35,10 @@ function Refresh() {
 
 }
 
+
+
+
+
 function start() {
 	if (MyInterval == null) {
 		MyInterval = setInterval("Refresh()", 100);
