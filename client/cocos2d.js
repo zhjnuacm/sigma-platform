@@ -25,6 +25,7 @@
             prefix+'src/core/SystemFunction.js',
             prefix+'src/core/Map.js',
             prefix+'src/config/config.js',
+       
             prefix+'src/config/mapConfig.js',
             prefix+'src/common/TipBox.js',
             prefix+'src/common/TipsManage.js',

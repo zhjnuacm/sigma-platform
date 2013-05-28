@@ -34,10 +34,11 @@ function Mediator() {
 		this._tipsManage = TipsManage.create();
 		this._mainLayer.addChild(this._tipsManage,TIPS_MANAGE_TAG);
 		
+		
+		
 		// map
 		this._map = Map.create(cc.p(5,6),'map1');
 		this._mainLayer.addChild(this._map);
-
 
 	    // npc add npclayer into maplayer
 		this._npcLayer = cc.Layer.create();
@@ -57,26 +58,24 @@ function Mediator() {
 		this._mainLayer.addChild(this._hero.getSprite());
         //�����
 		
-
-
-		//var mes = new Message();
-		//mes.init2("�ҽ�����ʺ�ø��˺ÿ��İ���̾���أ�����˭�ܷ����ҵ�ϲ�á�", 26);
-		//var tb = TextBox.create(mes, 1);
-		//this._mainLayer.addChild(tb);
-		//tb.setPosition(cc.p(400, 300));
+		/*var mes = new Message();
+		mes.init2("�ҽ�����ʺ�ø��˺ÿ��İ���̾���أ�����˭�ܷ����ҵ�ϲ�á�", 26);
+		var tb = TextBox.create(mes, 1);
+		this._mainLayer.addChild(tb);
+		tb.setPosition(cc.p(400, 300));*/
 
 		/**/
-//		inputD = InputPanel.create();
-//		this._mainLayer.addChild(inputD, 2);
-//		inputD.adaptPoistion();
+		inputD = InputPanel.create();
+		this._mainLayer.addChild(inputD, 2);
+		inputD.adaptPoistion();
 		
-//	    var friend = FriendList.create(cc.c4(236,236, 236, 255), 180, 288);
-//	    friend.setPosition(cc.p(this._size.width - 200, 220));
-//	    this._mainLayer.addChild(friend);
-//		
-//		
-//		friendList = FriendList.create();
-//		this._mainLayer.addChild(friendList);
+	    var friend = FriendList.create(cc.c4(236,236, 236, 255), 180, 288);
+	    friend.setPosition(cc.p(this._size.width - 200, 220));
+	    this._mainLayer.addChild(friend);
+		
+		
+		friendList = FriendList.create();
+		this._mainLayer.addChild(friendList);
 
 		return true;
 	},
@@ -159,13 +158,15 @@ function Mediator() {
 	},
 ///////////////////////////鼠标响应
 	this.onTouchBegan = function(event) {
+		
+		
 		var toTilePosition = this._map.locationToTilePosition(event.getLocation());
 		var moveAble = this._map.isMoveAble(toTilePosition);
 		this._walkMargin = this._map.getWalkMargin();
 		this._squareSize = this._map.getSquareSize();
 		this._start = this._map.locationToTilePosition(this._hero.getSprite().getPosition());
 		this._terminal = this._map.locationToTilePosition(event.getLocation());
-		//cc.log("from  ("+this._start.y+","+this._start.x+") to ("+ this._terminal.y+","+this._terminal.x+")");
+		cc.log("from  ("+this._start.y+","+this._start.x+") to ("+ this._terminal.y+","+this._terminal.x+")");
 		if(this._map.isMoveable(this._start,this._terminal) && !this.isWalking())
 		{
 			this._map.calMoveRoute(this._start,this._terminal);

@@ -2458,3 +2458,13 @@ Stack trace:
 REQUEST_URI=/sigma-platform/index.php?r=chat/pull
 HTTP_REFERER=http://127.0.0.1:8080/sigma-platform/index.php?r=site/game
 ---
+2013/05/27 13:08:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "TaskDag".' in D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php:484
+Stack trace:
+#0 D:\xampp\htdocs\sigma-platform\library\yii\web\CController.php(271): CController->missingAction('TaskDag')
+#1 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(283): CController->run('TaskDag')
+#2 D:\xampp\htdocs\sigma-platform\library\yii\web\CWebApplication.php(142): CWebApplication->runController('task/TaskDag')
+#3 D:\xampp\htdocs\sigma-platform\library\yii\base\CApplication.php(162): CWebApplication->processRequest()
+#4 D:\xampp\htdocs\sigma-platform\index.php(17): CApplication->run()
+#5 {main}
+REQUEST_URI=/sigma-platform/index.php?r=task/TaskDag
+---

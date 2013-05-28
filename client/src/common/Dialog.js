@@ -149,12 +149,11 @@ var DialogView = cc.Layer.extend({
     	var p2 = cc.MenuItemLabel.create(t2,this.onCloseMyself,this);
     	
     	var menu = cc.Menu.create(p1,p2);
-    	
     	menu.alignItemsHorizontallyWithPadding(this.layer._width*0.2);
     	menu.setPosition(cc.p(this.layer._width*0.5,30));
     	this.addChild(menu,2);
-    	
     },
+    
     setPosition: function (point) {
         this._super(point);
     },

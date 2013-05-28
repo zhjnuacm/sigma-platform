@@ -27,9 +27,11 @@ var Npc = cc.Sprite
 
 				return true;
 			},
+			
 			setPriority : function(priority) {
 				this._priority = priority;
 			},
+			
 			onEnter : function() {
 				cc.Director.getInstance().getTouchDispatcher()
 						.addTargetedDelegate(this, this._priority, true);
