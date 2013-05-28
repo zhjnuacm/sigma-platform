@@ -34,13 +34,9 @@ function Mediator() {
 		this._tipsManage = TipsManage.create();
 		this._mainLayer.addChild(this._tipsManage, TIPS_MANAGE_TAG);
 
-<<<<<<< HEAD
 	    //小地图
 		var smap = SMap.create(cc.p(5, 6), 'map1');
-=======
-	    //小地图
-		var smap = SMap.create(cc.p(5, 6), 'map1');
->>>>>>> branch 'master' of https://github.com/zhjnuacm/sigma-platform.git
+
 		this._mainLayer.addChild(smap._content, 2);
 		
 		// map
@@ -68,7 +64,10 @@ function Mediator() {
 		this._mainLayer.addChild(this._hero.getSprite());
         //�����
 		
-
+		this._heroPanel = HeroPanel.create("我不是帅锅别逼我", 75, 100000);
+		//alert(this._heroPanel._width + "   " + this._heroPanel._height);
+		this._heroPanel.setPosition(cc.p(5, this._size.height - this._heroPanel._height - 5));
+		this._mainLayer.addChild(this._heroPanel, 2);
 
 		//var mes = new Message();
 		//mes.init2("�ҽ�����ʺ�ø��˺ÿ��İ���̾���أ�����˭�ܷ����ҵ�ϲ�á�", 26);
