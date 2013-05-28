@@ -26,7 +26,7 @@ function Mediator() {
 	this._walking;
 
 	this.init = function(mainLayer) {
-	    this._size = cc.Director.getInstance().getWinSize();
+		this._size = cc.Director.getInstance().getWinSize();
 		// get the main layer
 		this._mainLayer = mainLayer;
 
@@ -37,9 +37,9 @@ function Mediator() {
 	    //小地图
 		var smap = SMap.create(s_mapPath);
 		this._mainLayer.addChild(smap._content, 5);
-
+		
 		// map
-		this._map = Map.create(cc.p(5,6), 'map1');
+		this._map = Map.create(cc.p(5,6),'map1');
 		this._mainLayer.addChild(this._map);
 
 	    // npc add npclayer into maplayer
@@ -49,44 +49,45 @@ function Mediator() {
 		this._npcLayer.addChild(this._npc1);
 		this._map.addChild(this._npcLayer);
 		//alert(this._mainLayer.getTouchPriority() + "    " + (this._map.getTouchPriority() - 1));
+		
 		//alert(this._npcLayer.getTouchPriority());
-
+		
 		//hero
-		var k = cc.p(0, 0);
+		var k = cc.p(0,0);
 
 		k.x = this._map.tilePositionToWorldLocation(cc.p(5,6)).x+this._map.getPosition().x;
-		k.y = this._map.tilePositionToWorldLocation(cc.p(5, 6)).y + this._map.getPosition().y;
+		k.y = this._map.tilePositionToWorldLocation(cc.p(5,6)).y+this._map.getPosition().y;
 
 		this._hero = Hero.create(k);
 		this._mainLayer.addChild(this._hero.getSprite());
-
-
-	    //大地图
+		
+		//大地图
 		var bmap = BMap.create();
 		this._mainLayer.addChild(bmap._dig, 6);
 		bmap._dig.setTouchPriority(this._map.getTouchPriority() - 1);
 		bmap.showPoint('map3', cc.p(1500, 750));
 		bmap.showPoint('map1', this._map.tilePositionToWorldLocation(this._map.locationToTilePosition(this._hero.getSprite().getPosition())));
-
+		
         //�����
-		//var mes = new Message();
-		//mes.init2("�ҽ�����ʺ�ø��˺ÿ��İ���̾���أ�����˭�ܷ����ҵ�ϲ�á�", 26);
-		//var tb = TextBox.create(mes, 1);
-		//this._mainLayer.addChild(tb);
-		//tb.setPosition(cc.p(400, 300));
+		
+		/*var mes = new Message();
+		mes.init2("�ҽ�����ʺ�ø��˺ÿ��İ���̾���أ�����˭�ܷ����ҵ�ϲ�á�", 26);
+		var tb = TextBox.create(mes, 1);
+		this._mainLayer.addChild(tb);
+		tb.setPosition(cc.p(400, 300));*/
 
 		/**/
-//		inputD = InputPanel.create();
-//		this._mainLayer.addChild(inputD, 2);
-//		inputD.adaptPoistion();
+		inputD = InputPanel.create();
+		this._mainLayer.addChild(inputD, 2);
+		inputD.adaptPoistion();
 		
-//	    var friend = FriendList.create(cc.c4(236,236, 236, 255), 180, 288);
-//	    friend.setPosition(cc.p(this._size.width - 200, 220));
-//	    this._mainLayer.addChild(friend);
-//		
-//		
-//		friendList = FriendList.create();
-	    //		this._mainLayer.addChild(friendList);
+	    var friend = FriendList.create(cc.c4(236,236, 236, 255), 180, 288);
+	    friend.setPosition(cc.p(this._size.width - 200, 220));
+	    this._mainLayer.addChild(friend);
+		
+		
+		friendList = FriendList.create();
+		this._mainLayer.addChild(friendList);
 
 		return true;
 	},
@@ -116,7 +117,7 @@ function Mediator() {
 	},
 		///判断是hero还是map移动
 	this.shouldHeroMove=function(position,dir){
-		//cc.log(position);//坐标
+		cc.log(position);//坐标
 		if(
 			(position.x>=this._walkMargin &&  position.x<=this._squareSize-this._walkMargin) 
 			&&(position.y>=this._walkMargin &&  position.y<=this._squareSize-this._walkMargin)
@@ -169,6 +170,8 @@ function Mediator() {
 	},
 ///////////////////////////鼠标响应
 	this.onTouchBegan = function(event) {
+		
+		
 		var toTilePosition = this._map.locationToTilePosition(event.getLocation());
 		var moveAble = this._map.isMoveAble(toTilePosition);
 		this._walkMargin = this._map.getWalkMargin();
@@ -191,7 +194,7 @@ function Mediator() {
         //this._map.mapDragged(event);
     },
     
-    this.onTouchEnded = function (event) {
+    this.onTouchEnded =  function(event) {	
     };
 }
 

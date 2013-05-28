@@ -25,13 +25,13 @@ var Npc = cc.Sprite.extend({
 				// this.addChild(this._title);
 				return true;
 			},
-
+			
 			setPriority : function(priority) {
 				this._priority = priority;
 			},
-
-			onEnter: function () {
-			    this._super();
+			
+			onEnter : function() {
+				this._super();//某次合并代码时添加的，不知道对不对
 				cc.Director.getInstance().getTouchDispatcher()
 						.addTargetedDelegate(this, this._priority, true);
 				this._touchEnabled = true;

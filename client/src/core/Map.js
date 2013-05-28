@@ -220,11 +220,11 @@ var Map = cc.Layer.extend({
 		var diff = cc.pSub(middlePosition,this.tilePositionToWorldLocation(position));
 
 		var sdiff = cc.p(0, 0);
-		sdiff.x = diff.x * sMapratio;
-		sdiff.y = diff.y * sMapratio;
+		sdiff.x = diff.x * 0.15;
+		sdiff.y = diff.y * 0.15;
 
 		var smap = SMap.getinstance();
-		smap.mapMoveByHeroPosition(sdiff);
+		smap.mapMoveByHeroPosition(sdiff, type);
 
 		if(type == true)
 		{
@@ -237,155 +237,168 @@ var Map = cc.Layer.extend({
 		
 	},
 
+
 ////////////////////////////////////求移动的路线
 //根据TMX一维瓦片数组获取TMX迷宫矩阵
-getMatrix:function(){
-var c=0;
-for(var i=0;i<this._matrixWidth;i++){
-for(var j=0;j<this._matrixHeight;j++){
-if(typeof(this._tileSets[i+j]) == "undefined") continue;
-if(this._tileSets[c]>0) this._matrix[i][j] = this._tileSets[c++];
-if(this._matrix[i][j]!=93)this._matrix[i][j]=0;
-}
-}
-//this.logMatrix();
-},
-//////在控制台输出TMX迷宫矩阵
-logMatrix:function(){
-for(var i=0;i<this._matrixWidth;i++){
-var a="";
-for(var j=0;j<this._matrixHeight;j++){
-a+=this._matrix[i][j];
-a+=" ";
-}
-//cc.log(a);
-}
-},
+			getMatrix : function() {
+				var c = 0;
+				for ( var i = 0; i < this._matrixWidth; i++) {
+					for ( var j = 0; j < this._matrixHeight; j++) {
+						if (typeof (this._tileSets[i + j]) == "undefined")
+							continue;
+						if (this._tileSets[c] > 0)
+							this._matrix[i][j] = this._tileSets[c++];
+						if (this._matrix[i][j] != 93)
+							this._matrix[i][j] = 0;
+					}
+				}
+				// this.logMatrix();
+			},
+			// ////在控制台输出TMX迷宫矩阵
+			logMatrix : function() {
+				for ( var i = 0; i < this._matrixWidth; i++) {
+					var a = "";
+					for ( var j = 0; j < this._matrixHeight; j++) {
+						a += this._matrix[i][j];
+						a += " ";
+					}
+					cc.log(a);
+				}
+			},
 
 
 //此次移动是否可进行
-isMoveable:function(start,terminal){
-if(this._matrix[start.y][start.x]==0 
-&& this._matrix[terminal.y][terminal.x]==0
-&& (start.x!=terminal.x || start.y!=terminal.y) )return true;
-return false;
-},
+			isMoveable : function(start, terminal) {
+				if (this._matrix[start.y][start.x] == 0
+						&& this._matrix[terminal.y][terminal.x] == 0
+						&& (start.x != terminal.x || start.y != terminal.y))
+					return true;
+				return false;
+			},
 
 //计算移动路线
-calMoveRoute:function(start,terminal){
+			calMoveRoute : function(start, terminal) {
 
-var dx = new Array(-1,1,0,0);
-var dy = new Array(0,0,-1,1);
-var name = new Array(0,1,2,3);
-var q = new Array();
-var vis = new Array();
-var nMap = new Array();
-var m=this._squareSize;
-var n=this._squareSize;
-var dir = new Array();
-var fa = new Array();
-var dis = new Array();
-var last_dir = new Array();
-var front=rear=0;
-var d,u,x,y;
+				var dx = new Array(-1, 1, 0, 0);
+				var dy = new Array(0, 0, -1, 1);
+				var name = new Array(0, 1, 2, 3);
+				var q = new Array();
+				var vis = new Array();
+				var nMap = new Array();
+				var m = this._squareSize;
+				var n = this._squareSize;
+				var dir = new Array();
+				var fa = new Array();
+				var dis = new Array();
+				var last_dir = new Array();
+				var front = rear = 0;
+				var d, u, x, y;
 //bfs
 
-for(var i = 0;i<m;i++){
-vis[i]=new Array();
-fa[i]=new Array();
-dis[i]=new Array();
-last_dir[i]=new Array();
-for(var j=0;j<n;j++){
-vis[i][j]=dis[i][j]=fa[i][j]=0;
-}
-}
+				for ( var i = 0; i < m; i++) {
+					vis[i] = new Array();
+					fa[i] = new Array();
+					dis[i] = new Array();
+					last_dir[i] = new Array();
+					for ( var j = 0; j < n; j++) {
+						vis[i][j] = dis[i][j] = fa[i][j] = 0;
+					}
+				}
 
-x=start.y;
-y=start.x;
-u=x*m+y;
-vis[x][y]=1;
-fa[x][y]=u;
-q[rear++]=u;
-while(front!=rear){
-u=q[front++];
-x=Math.floor(u/m);y=u%m;
-for(d=0;d<4;d++){
-var nx=x+dx[d];
-var ny=y+dy[d];
-if(nx>=0 && nx<m && ny>=0 && ny<n && vis[nx][ny]==0 && this._matrix[nx][ny]==0){					
-var v = nx*m+ny;
-q[rear++]=v;
-vis[nx][ny]=1;
-fa[nx][ny]=u;
-dis[nx][ny]=dis[x][y]+1;
-last_dir[nx][ny]=d;	
-}     
-}
-}
+				x = start.y;
+				y = start.x;
+				u = x * m + y;
+				vis[x][y] = 1;
+				fa[x][y] = u;
+				q[rear++] = u;
+				while (front != rear) {
+					u = q[front++];
+					x = Math.floor(u / m);
+					y = u % m;
+					for (d = 0; d < 4; d++) {
+						var nx = x + dx[d];
+						var ny = y + dy[d];
+						if (nx >= 0 && nx < m && ny >= 0 && ny < n
+								&& vis[nx][ny] == 0
+								&& this._matrix[nx][ny] == 0) {
+							var v = nx * m + ny;
+							q[rear++] = v;
+							vis[nx][ny] = 1;
+							fa[nx][ny] = u;
+							dis[nx][ny] = dis[x][y] + 1;
+							last_dir[nx][ny] = d;
+						}
+					}
+				}
 
-x = terminal.y;
-y = terminal.x;
+				x = terminal.y;
+				y = terminal.x;
 
-var c=0;
-while(1){
-var fx=Math.floor(fa[x][y]/m);
-var fy=fa[x][y]%m;
-if(fx==x && fy==y) break;
-dir[c++] = last_dir[x][y];
-x=fx;
-y=fy;
-}
-this._routeSize = c;
-while(c--){
-//cc.log(name[dir[c]]);
-this._route[c]=name[dir[c]];
-}
-},
-getRouteSize:function(){
-return this._routeSize;
-},
-getRouteContent:function(){
-return this._route;
-},
-getWalkMargin:function(){
-return this._walkMargin;
-},
-getSquareSize:function(){
-return this._squareSize;
-},
+				var c = 0;
+				while (1) {
+					var fx = Math.floor(fa[x][y] / m);
+					var fy = fa[x][y] % m;
+					if (fx == x && fy == y)
+						break;
+					dir[c++] = last_dir[x][y];
+					x = fx;
+					y = fy;
+				}
+				this._routeSize = c;
+				while (c--) {
+					//cc.log(name[dir[c]]);
+					this._route[c] = name[dir[c]];
+				}
+			},
+			
+			getRouteSize : function() {
+				return this._routeSize;
+			},
+			
+			getRouteContent : function() {
+				return this._route;
+			},
+			getWalkMargin : function() {
+				return this._walkMargin;
+			},
+			getSquareSize : function() {
+				return this._squareSize;
+			},
 /////////////////////////////////地图移动
 
-//按照方向移动1格
-moveOneStep:function(dir){
-this._posPoint = this.getPosition();
+			// 按照方向移动1格
+			moveOneStep : function(dir) {
+				this._posPoint = this.getPosition();
 
+				if (dir == 1) {// UP
+					this._newPosPoint.x = this._posPoint.x + this._stepLengthX;
+					this._newPosPoint.y = this._posPoint.y + this._stepLengthY;
+				} else if (dir == 0) {// DOWN
+					this._newPosPoint.x = this._posPoint.x - this._stepLengthX;
+					this._newPosPoint.y = this._posPoint.y - this._stepLengthY;
+				} else if (dir == 3) {// LEFT
+					this._newPosPoint.x = this._posPoint.x - this._stepLengthX;
+					this._newPosPoint.y = this._posPoint.y + this._stepLengthY;
 
-if(dir == 1){//UP
-this._newPosPoint.x = this._posPoint.x+this._stepLengthX; 
-this._newPosPoint.y = this._posPoint.y+this._stepLengthY;
-}else if(dir == 0){//DOWN
-this._newPosPoint.x = this._posPoint.x-this._stepLengthX; 
-this._newPosPoint.y = this._posPoint.y-this._stepLengthY;
-}else if(dir == 3){//LEFT
-this._newPosPoint.x = this._posPoint.x-this._stepLengthX;
-this._newPosPoint.y = this._posPoint.y+this._stepLengthY;
+				} else if (dir == 2) {// RIGHT
+					this._newPosPoint.x = this._posPoint.x + this._stepLengthX;
+					this._newPosPoint.y = this._posPoint.y - this._stepLengthY;
+				}
+				this.runAction(cc.MoveTo.create(this._stepTime,
+						this._newPosPoint));
+						
+						
+				var sdiff = cc.p(0, 0);
+				sdiff.x = this._newPosPoint.x * sMapratio;
+				sdiff.y = this._newPosPoint.y * sMapratio;
 
-}else if(dir == 2){//RIGHT
-this._newPosPoint.x = this._posPoint.x+this._stepLengthX; 
-this._newPosPoint.y = this._posPoint.y-this._stepLengthY;
-}
+				var smap = SMap.getinstance();
+				smap.mapMoveByHeroPosition(sdiff);
 
-this.runAction(cc.MoveTo.create(this._stepTime, this._newPosPoint));
-
-var sdiff = cc.p(0, 0);
-sdiff.x = this._newPosPoint.x * sMapratio;
-sdiff.y = this._newPosPoint.y * sMapratio;
-
-var smap = SMap.getinstance();
-smap.mapMoveByHeroPosition(sdiff);
-},
-
-});
+			},
+			
+			
+		});
 
 
 /**

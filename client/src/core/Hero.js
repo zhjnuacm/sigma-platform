@@ -132,9 +132,7 @@ function Hero() {
 		var smap = SMap.getinstance();
 		smap.heroMoveByHeroPosition(sdiff);
 		this._sprite.runAction(cc.MoveTo.create(this._stepTime,this._newPosPoint));
-		
 	},
-	
 	
 	this.moveOneAction = function(dir){
 		var box = new Array(2,3,0,1);
@@ -173,7 +171,6 @@ function Hero() {
 	this.getSprite = function(){
 		return this._sprite;
 	}
-	
 }
 
 
@@ -185,10 +182,3 @@ Hero.create = function(position) {
 	}
 	return ret;
 }
-
-
-
-
-
-
-

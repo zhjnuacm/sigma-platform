@@ -134,7 +134,6 @@ var InputPanel = cc.Layer
 				}
 				this._isOpen = this._isOpen ^ true;
 				this.view.setVisible(this._isOpen);
-
 			}
 
 		});
@@ -145,6 +144,7 @@ InputPanel.create = function() {
 		return ret;
 	return null;
 }
+
 
 var Message = function() {
 	this.CCLable;
