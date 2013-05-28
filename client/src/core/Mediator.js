@@ -34,8 +34,13 @@ function Mediator() {
 		this._tipsManage = TipsManage.create();
 		this._mainLayer.addChild(this._tipsManage, TIPS_MANAGE_TAG);
 
+<<<<<<< HEAD
 	    //小地图
 		var smap = SMap.create(cc.p(5, 6), 'map1');
+=======
+	    //小地图
+		var smap = SMap.create(cc.p(5, 6), 'map1');
+>>>>>>> branch 'master' of https://github.com/zhjnuacm/sigma-platform.git
 		this._mainLayer.addChild(smap._content, 2);
 		
 		// map
