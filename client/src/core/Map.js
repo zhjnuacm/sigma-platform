@@ -71,8 +71,6 @@ var Map = cc.Layer.extend({
 		this._tileSize = this._tmxMap.getTileSize();
 		this._mapSize = this._tmxMap.getContentSize();
 		this.mapMoveByHeroPosition(HeroPosition);		//根据英雄的位置初始化地图的位置
-
-
 		
 
 		this._mapConfig = this.getSingleMapConfigByName(HeroMap);		//读出了地图配置文件
@@ -85,7 +83,6 @@ var Map = cc.Layer.extend({
 			//cc.log(buildObject.getAttribute('polyline'));
 
 		};
-
 
 
 		this._groundLayer = this._tmxMap.getLayer(this._mapConfig.ground);		//初始化地图floor层
@@ -126,7 +123,6 @@ var Map = cc.Layer.extend({
 		this._stepLengthY = 25;
 		this._walking= false;
 		this._stepCnt=0;
-		
 		
 		
 		return true;
@@ -222,10 +218,17 @@ var Map = cc.Layer.extend({
 	{
 		var middlePosition = cc.p(this._winSize.width/2,this._winSize.height/2);
 		var diff = cc.pSub(middlePosition,this.tilePositionToWorldLocation(position));
-		
+
+		var sdiff = cc.p(0, 0);
+		sdiff.x = diff.x * 0.15;
+		sdiff.y = diff.y * 0.15;
+
+		var smap = SMap.getinstance();
+		smap.mapMoveByHeroPosition(sdiff, type);
+
 		if(type == true)
 		{
-			this.runAction(cc.MoveTo.create(0.2,diff));
+			this.runAction(cc.MoveTo.create(1.0,diff));
 		}
 		else
 		{
@@ -401,4 +404,91 @@ Map.create = function(HeroPosition,HeroMap) {
 	return null;
 };
 
+///////////////////////////////////////////////////////////////////////////////小地图
 
+function SMap() {
+
+    this._winSize;
+    this._map;
+    this._content;
+    this._hero;
+    this._mx;
+    this._my;
+
+    SMap.instance = this;
+
+    this.init = function (HeroPosition, HeroMap) {
+
+        this._winSize = cc.Director.getInstance().getWinSize();
+        //设置偏移量
+        this._mx = 100 - this._winSize.width * 0.075;
+        this._my = 65 - this._winSize.height * 0.075;
+
+        //放置遮罩 只显示方框区域
+        this._content = cc.ScrollView.create();
+        this._content.setViewSize(cc.SizeMake(200, 130));
+        this._content.setPosition(cc.p(30, 20));
+
+
+        //获取地图
+        this._map = cc.Sprite.create(s_mapPath);
+        this._map.setPosition(cc.p(this._mx, this._my));
+        this._content.addChild(this._map);
+
+        //颜色层
+        var colorLayer = cc.LayerColor.create(cc.c4(30, 30, 30, 125), 200, 130);
+        this._content.addChild(colorLayer);
+
+        //放置hero
+
+        this._hero = cc.Sprite.create(s_shero);
+        this._hero.setPosition(cc.p(this._winSize.width * 0.075, this._winSize.height * 0.075));
+        this._content.addChild(this._hero);
+
+        return true;
+    };
+
+    /**
+  * [init 根据地图移动的方向来调整小地图]
+  * @param  {[type]} diff         [大地图移动的向量*0.15]
+  * @param  {[type]} type         [是否显示动画]
+  * @return {[type]}              [description]
+  */
+    this.mapMoveByHeroPosition = function (diff, type) {
+        if (type == true) {
+            this._map.runAction(cc.MoveTo.create(1.0, diff));
+        }
+        else {
+            this._map.setPosition(diff);
+        }
+    };
+
+    this.heroMoveByHeroPosition = function (diff, type) {
+
+        if (type == true) {
+            this._hero.runAction(cc.MoveTo.create(1.0, diff));
+        }
+        else {
+            this._hero.setPosition(diff);
+        }
+        cc.log(this._hero.getPosition().x + ' ' + this._hero.getPosition().y);
+    };
+};
+
+
+//小地图的单例
+SMap.getinstance = function () {
+    if (SMap.instance == null) {
+        return new SMap();
+    }
+    else
+        return SMap.instance;
+};
+
+SMap.create = function (HeroPosition, HeroMap) {
+    var ret = SMap.getinstance();
+    if (ret && ret.init(HeroPosition, HeroMap)) {
+        return ret;
+    }
+    return null;
+};

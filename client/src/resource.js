@@ -33,7 +33,9 @@ var s_map_res           = "client/res/map/smapRule.png";
 var s_extensions_buttonBackground = "client/res/buttonBackground.png";
 var s_extensions_button = "client/res/button.png";
 var s_extensions_buttonHighlighted = "client/res/buttonHighlighted.png";
-
+var s_mapPath = "client/res/map/map1_s.png";
+var s_shero = "client/res/shero.png";
+var s_photo = "client/res/photo.png";
 var s_dlg = [
     {
         type: "close_normal",
@@ -113,8 +115,9 @@ var g_ressources = [
     { type: "image", src: s_FriendList_t },
     { type: "image", src: s_Friendseach },
     { type: "image", src: s_npc_1 },
-
-
+    { type: "image", src: s_shero },
+    { type: "image", src: s_mapPath },
+    { type: "image", src: s_map_res},
     {type:"image", src:s_map_res},
     //plist
 

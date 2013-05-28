@@ -46,4 +46,3 @@ Your browser does not support the canvas element.
 <script src="javascript/drawArrow.js"> </script>  
 <script src="javascript/drawTask.js"> </script>
 
-

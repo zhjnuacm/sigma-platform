@@ -29,5 +29,4 @@
 	<?php echo CHtml::encode($data->npc_id); ?>
 	<br />
 
-
 </div>

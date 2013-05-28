@@ -1,4 +1,7 @@
 
+
+
+
 function Hero() {
 	_sprite:null;
 	
@@ -37,7 +40,7 @@ function Hero() {
 		
 		///////////////////////////////////移动模块-初始部分
 		this._newPosPoint = cc.p(null,null);
-		this._stepTime = 0.03;//步长表示移动一格花费1秒时间
+		this._stepTime = 1;//步长表示移动一格花费1秒时间
 		this._stepLengthX = 50;
 		this._stepLengthY = 25;
 		this._walking= false;
@@ -98,7 +101,7 @@ function Hero() {
 		}
 		
 		this._animation.setLoops(100);//设置循环次数
-		this._animation.setDelayPerUnit(0.3);//动画间隔	
+		this._animation.setDelayPerUnit(0.2);//动画间隔	
     	this._spriteActions[3] = cc.Animate.create(this._animation);
     	
 						
@@ -122,6 +125,12 @@ function Hero() {
 			this._newPosPoint.x = this._posPoint.x+this._stepLengthX; 
 			this._newPosPoint.y = this._posPoint.y-this._stepLengthY;
 		}
+		var sdiff = cc.p(0, 0);
+		sdiff.x = this._newPosPoint.x * 0.15;
+		sdiff.y = this._newPosPoint.y * 0.15;
+
+		var smap = SMap.getinstance();
+		smap.heroMoveByHeroPosition(sdiff, 1);
 		this._sprite.runAction(cc.MoveTo.create(this._stepTime,this._newPosPoint));
 	},
 	

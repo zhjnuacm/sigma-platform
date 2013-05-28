@@ -8,8 +8,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>iconv("gb2312","utf-8","»ñÈ¡ÈÎÎñ"), 'url'=>array('site/getTask', 'id'=>$model->task_id)),
-	array('label'=>iconv("gb2312","utf-8","´¦ÀíÈÎÎñ"), 'url'=>array('site/DealWithTask', 'id'=>$model->task_id)),
+	array('label'=>iconv("gb2312","utf-8","ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½"), 'url'=>array('site/getTask', 'id'=>$model->task_id)),
+	array('label'=>iconv("gb2312","utf-8","ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"), 'url'=>array('site/DealWithTask', 'id'=>$model->task_id)),
 );
 
 ?>

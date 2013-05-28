@@ -1,3 +1,4 @@
+
 <?php
 
 /**
@@ -105,8 +106,8 @@ class User extends CActiveRecord
 	
 	
 	/**
-	 * function:·µ»ØÓÃ»§ÁÐ±íÊý×é
-	 * ÎÞ²ÎÊý
+	 * function:ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * ï¿½Þ²ï¿½ï¿½ï¿½
 	 */
 	public static function getUserOnline() {
 		$userArray = array();
@@ -118,10 +119,4 @@ class User extends CActiveRecord
 		return $userArray;
 	}
 }
-
-
-
-
-
-
 
