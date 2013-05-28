@@ -26,7 +26,7 @@ function Mediator() {
 	this._walking;
 
 	this.init = function(mainLayer) {
-		this._size = cc.Director.getInstance().getWinSize();
+	    this._size = cc.Director.getInstance().getWinSize();
 		// get the main layer
 		this._mainLayer = mainLayer;
 
@@ -35,13 +35,12 @@ function Mediator() {
 		this._mainLayer.addChild(this._tipsManage, TIPS_MANAGE_TAG);
 
 	    //小地图
-		var smap = SMap.create(cc.p(5, 6), 'map1');
-		this._mainLayer.addChild(smap._content, 2);
-		
-		// map
-		this._map = Map.create(cc.p(5,6),'map1');
-		this._mainLayer.addChild(this._map);
+		var smap = SMap.create(s_mapPath);
+		this._mainLayer.addChild(smap._content, 5);
 
+		// map
+		this._map = Map.create(cc.p(5,6), 'map1');
+		this._mainLayer.addChild(this._map);
 
 	    // npc add npclayer into maplayer
 		this._npcLayer = cc.Layer.create();
@@ -50,21 +49,26 @@ function Mediator() {
 		this._npcLayer.addChild(this._npc1);
 		this._map.addChild(this._npcLayer);
 		//alert(this._mainLayer.getTouchPriority() + "    " + (this._map.getTouchPriority() - 1));
-		
 		//alert(this._npcLayer.getTouchPriority());
-		
+
 		//hero
-		var k = cc.p(0,0);
+		var k = cc.p(0, 0);
 
 		k.x = this._map.tilePositionToWorldLocation(cc.p(5,6)).x+this._map.getPosition().x;
-		k.y = this._map.tilePositionToWorldLocation(cc.p(5,6)).y+this._map.getPosition().y;
+		k.y = this._map.tilePositionToWorldLocation(cc.p(5, 6)).y + this._map.getPosition().y;
 
 		this._hero = Hero.create(k);
 		this._mainLayer.addChild(this._hero.getSprite());
+
+
+	    //大地图
+		var bmap = BMap.create();
+		this._mainLayer.addChild(bmap._dig, 6);
+		bmap._dig.setTouchPriority(this._map.getTouchPriority() - 1);
+		bmap.showPoint('map3', cc.p(1500, 750));
+		bmap.showPoint('map1', this._map.tilePositionToWorldLocation(this._map.locationToTilePosition(this._hero.getSprite().getPosition())));
+
         //�����
-		
-
-
 		//var mes = new Message();
 		//mes.init2("�ҽ�����ʺ�ø��˺ÿ��İ���̾���أ�����˭�ܷ����ҵ�ϲ�á�", 26);
 		//var tb = TextBox.create(mes, 1);
@@ -82,7 +86,7 @@ function Mediator() {
 //		
 //		
 //		friendList = FriendList.create();
-//		this._mainLayer.addChild(friendList);
+	    //		this._mainLayer.addChild(friendList);
 
 		return true;
 	},
@@ -112,7 +116,7 @@ function Mediator() {
 	},
 		///判断是hero还是map移动
 	this.shouldHeroMove=function(position,dir){
-		cc.log(position);//坐标
+		//cc.log(position);//坐标
 		if(
 			(position.x>=this._walkMargin &&  position.x<=this._squareSize-this._walkMargin) 
 			&&(position.y>=this._walkMargin &&  position.y<=this._squareSize-this._walkMargin)
@@ -187,7 +191,7 @@ function Mediator() {
         //this._map.mapDragged(event);
     },
     
-    this.onTouchEnd =  function(event) {	
+    this.onTouchEnded = function (event) {
     };
 }
 

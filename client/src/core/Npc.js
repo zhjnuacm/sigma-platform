@@ -1,5 +1,4 @@
-var Npc = cc.Sprite
-		.extend({
+var Npc = cc.Sprite.extend({
 
 			_title : null,
 			_touchBegan : false,
@@ -16,7 +15,7 @@ var Npc = cc.Sprite
 			init : function() {
 				this._super();
 				this.initWithFile(s_npc_1);
-				this.setAnchorPoint(cc.p(0.5, 0.5));
+				//this.setAnchorPoint(cc.p(0.5, 0.5));
 				this.setPosition(cc.p(1750, 900));
 				// //title
 				// this._title = cc.LabelTTF.create("����ɵ��");
@@ -24,24 +23,26 @@ var Npc = cc.Sprite
 				// this._title.setPosition(cc.p(1750, 900 - 50));
 				// this._title.setFontSize(11);
 				// this.addChild(this._title);
-
 				return true;
 			},
+
 			setPriority : function(priority) {
 				this._priority = priority;
 			},
-			onEnter : function() {
+
+			onEnter: function () {
+			    this._super();
 				cc.Director.getInstance().getTouchDispatcher()
 						.addTargetedDelegate(this, this._priority, true);
 				this._touchEnabled = true;
-				this._super();
+				
 			},
 
-			onExit : function() {
+			onExit: function () {
+			    this._super();
 				cc.Director.getInstance().getTouchDispatcher().removeDelegate(
 						this);
 				this._touchEnabled = false;
-				this._super();
 			},
 
 			touchRect : function() {
@@ -66,7 +67,6 @@ var Npc = cc.Sprite
 				if (cc.Rect.CCRectContainsPoint(this.touchRect(), touch
 						.getLocation())) {
 					this._touchBegan = true;
-					
 					
 					var dialog = NpcDialog.create(touch.getLocation(),this._priority,0);
 					this.addChild(dialog._dialogView);

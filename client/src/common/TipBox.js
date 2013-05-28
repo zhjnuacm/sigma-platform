@@ -11,7 +11,6 @@ var TipBox = cc.Layer.extend({
         this._tLable = cc.LabelTTF.create(information, "Arial", 20);
         this._tLable._color = cc.black();
         this.addChild(this._tLable, 2);
-
         
         return true;
     },

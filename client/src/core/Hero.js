@@ -126,11 +126,11 @@ function Hero() {
 			this._newPosPoint.y = this._posPoint.y-this._stepLengthY;
 		}
 		var sdiff = cc.p(0, 0);
-		sdiff.x = this._newPosPoint.x * 0.15;
-		sdiff.y = this._newPosPoint.y * 0.15;
+		sdiff.x = this._newPosPoint.x * sMapratio;
+		sdiff.y = this._newPosPoint.y * sMapratio;
 
 		var smap = SMap.getinstance();
-		smap.heroMoveByHeroPosition(sdiff, 1);
+		smap.heroMoveByHeroPosition(sdiff);
 		this._sprite.runAction(cc.MoveTo.create(this._stepTime,this._newPosPoint));
 		
 	},

@@ -1,6 +1,4 @@
 
-
-
 /**
  * [HeroPanel 英雄面板信息类]
  * @type {[type]}
