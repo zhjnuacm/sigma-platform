@@ -425,10 +425,9 @@ function SMap() {
         this._my = 65 - this._winSize.height * 0.075;
 
         //放置遮罩 只显示方框区域
-        this._content = cc.ScrollView.create();
+     /*   this._content = cc.ScrollView.create();
         this._content.setViewSize(cc.SizeMake(200, 130));
-        this._content.setPosition(cc.p(30, 20));
-
+        this._content.setPosition(cc.p(30, 20));*/
 
         //获取地图
         this._map = cc.Sprite.create(s_mapPath);
@@ -440,7 +439,6 @@ function SMap() {
         this._content.addChild(colorLayer);
 
         //放置hero
-
         this._hero = cc.Sprite.create(s_shero);
         this._hero.setPosition(cc.p(this._winSize.width * 0.075, this._winSize.height * 0.075));
         this._content.addChild(this._hero);
