@@ -482,7 +482,7 @@ function SMap() {
         else {
             this._hero.setPosition(diff);
         }
-        cc.log(this._hero.getPosition().x + ' ' + this._hero.getPosition().y);
+        //cc.log(this._hero.getPosition().x + ' ' + this._hero.getPosition().y);
     };
 };
 

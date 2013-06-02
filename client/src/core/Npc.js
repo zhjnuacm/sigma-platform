@@ -13,17 +13,12 @@ var Npc = cc.Sprite
 				this._super();
 			},
 
-			init : function() {
+			init : function(position,id) {
 				this._super();
 				this.initWithFile(s_npc_1);
 				this.setAnchorPoint(cc.p(0.5, 0.5));
-				this.setPosition(cc.p(1750, 900));
-				// //title
-				// this._title = cc.LabelTTF.create("����ɵ��");
-				// this._title.setAnchorPoint(cc.p(0.5, 0.5));
-				// this._title.setPosition(cc.p(1750, 900 - 50));
-				// this._title.setFontSize(11);
-				// this.addChild(this._title);
+				this.setPosition(position);
+				this._id = id;
 
 				return true;
 			},
@@ -97,9 +92,9 @@ var Npc = cc.Sprite
 			}
 		});
 
-Npc.create = function() {
+Npc.create = function(position,id) {
 	var ret = new Npc();
-	if (ret && ret.init())
+	if (ret && ret.init(position,id))
 		return ret;
 	return null;
 };
