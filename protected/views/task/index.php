@@ -9,6 +9,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
 	array('label'=>'Create Task', 'url'=>array('create')),
 	array('label'=>'Manage Task', 'url'=>array('admin')),
+	array('label'=>'Show Task', 'url'=>array('TaskShow')),
 );
 ?>
 
@@ -18,3 +19,5 @@ $this->menu=array(
 	'dataProvider'=>$dataProvider,
 	'itemView'=>'_view',
 )); ?>
+
+

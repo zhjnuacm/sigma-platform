@@ -126,11 +126,11 @@ function Hero() {
 			this._newPosPoint.y = this._posPoint.y-this._stepLengthY;
 		}
 		var sdiff = cc.p(0, 0);
-		sdiff.x = this._newPosPoint.x * sMapratio;
-		sdiff.y = this._newPosPoint.y * sMapratio;
+		sdiff.x = this._newPosPoint.x * 0.15;
+		sdiff.y = this._newPosPoint.y * 0.15;
 
 		var smap = SMap.getinstance();
-		smap.heroMoveByHeroPosition(sdiff);
+		smap.heroMoveByHeroPosition(sdiff, 1);
 		this._sprite.runAction(cc.MoveTo.create(this._stepTime,this._newPosPoint));
 	},
 	
@@ -182,3 +182,10 @@ Hero.create = function(position) {
 	}
 	return ret;
 }
+
+
+
+
+
+
+

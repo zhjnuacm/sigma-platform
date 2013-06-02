@@ -16,7 +16,7 @@ function NpcDialog () {
 		self._dialogView.setTouchPriority(priority-1);
 		self._dialogView.addButtons("接受任务",self.getTaskDescription,self);
 
-		var titleLabel = cc.LabelTTF.create(" ",s_yahei, 24);
+		var titleLabel = cc.LabelTTF.create("",s_yahei, 24);
 		titleLabel.setString(title);
 		titleLabel.setPosition(cc.p(width*0.5,height-20));
 		titleLabel.setColor(cc.c3b(0,0,0));
@@ -36,9 +36,13 @@ function NpcDialog () {
 	{
 		// ajax
 		var self = this;
+
 		self._dialogView.onCloseMyself();
 	}
+
 }
+
+
 
 /**
  * [ ]

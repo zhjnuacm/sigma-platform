@@ -120,6 +120,10 @@ var DialogView = cc.Layer.extend({
         var backgroundButton = cc.Scale9Sprite.create(s_dlg[0]["res"]);
         var backgroundHighlightedButton = cc.Scale9Sprite.create(s_dlg[1]["res"]);
 
+        var titleButton = cc.LabelTTF.create("", "Marker Felt", 30);
+
+        titleButton.setColor(cc.c3(255, 255, 255));
+
     //    alert(this.getTouchPriority());
         this.closeItem = cc.ControlButton.create(titleButton, backgroundButton);
         this.closeItem.setBackgroundSpriteForState(backgroundHighlightedButton, cc.CONTROL_STATE_HIGHLIGHTED);

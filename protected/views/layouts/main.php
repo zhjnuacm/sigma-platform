@@ -39,7 +39,7 @@ array('label'=>'Home', 'url'=>array('/site/index')),
 array('label'=>'Game', 'url'=>array('/site/game')),
 array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 array('label'=>'Task', 'url'=>array('/task/index')),
-
+array('label'=>'Npc', 'url'=>array('/npc')),
 array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 ),
