@@ -91,3 +91,9 @@ function genPushMessageUrl(to, type, msg) {
 function genPullMessageUrl() {
 	return head + "chat/pull";
 }
+
+function genPushMapMessageUrl(mapStr, row, col) {
+	var para = "&mapStr=" + mapStr + "&row=" + row + "&col=" + col;
+	return head + "Npc/AjaxGetMapMatrix" + encodeURI(para);
+}
+

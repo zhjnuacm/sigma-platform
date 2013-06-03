@@ -8,7 +8,7 @@
    H4sIAAAAAAAAC+2UUQ7AIAhDuad6/2vs1zSKbJQNt300fkh4oVaaiDRQ7YR3kcrALWRl5zK8fjN3xHiKa+2lcYvSP5p7Nrs/d1xfu9O7O3AG9h7KxkW2pS6S69kb2NeSU8a+muU3irv6NzM/dp33Li4zzzvMm4X71TxfqdM8w35Mrd4qiq/5bH03jw4zFE/gEA4AAA==
   </data>
  </layer>
- <layer name="figure" width="30" height="30" visible="0">
+ <layer name="figure" width="30" height="30">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+3NMQ0AAAgDsHnixr8tRHAQktZAEwDYqcO7D28A+G4ADNuxQRAOAAA=
   </data>

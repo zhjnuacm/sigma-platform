@@ -55,7 +55,6 @@ var Map = cc.Layer.extend({
 	_walkMargin:7,//地图边缘
 	_squareSize:30,//TMX地图大小为 30*30=900个TILE
 	
-
 	/**
 	 * [init 根据英雄的位置和英雄的地图 初始化地图]
 	 * @param  {[type]} HeroPosition [英雄的tile位置]
@@ -178,8 +177,6 @@ var Map = cc.Layer.extend({
 		return null;
 	},
 
-
-
 	/**
 	 * [isMoveAble 检测目的点是否可动]
 	 * @param  {[cc.p]}  position [鼠标点击的相对于tile的点]
@@ -191,8 +188,8 @@ var Map = cc.Layer.extend({
 		if(tileId == 93)
 			return "你不能到达那里!";
 		else return true;
-
 	},
+	
 
 	/**
 	 * [mapDragged debug专用]
@@ -204,7 +201,6 @@ var Map = cc.Layer.extend({
 		var delta = event.getDelta();
         var diff = cc.pAdd(delta, this.getPosition());
         this.setPosition(diff);
-
 	},
 
 
@@ -250,6 +246,9 @@ var Map = cc.Layer.extend({
 							this._matrix[i][j] = this._tileSets[c++];
 						if (this._matrix[i][j] != 93)
 							this._matrix[i][j] = 0;
+						else {
+							this._matrix[i][j] = 1;
+						}
 					}
 				}
 				// this.logMatrix();
@@ -260,13 +259,33 @@ var Map = cc.Layer.extend({
 					var a = "";
 					for ( var j = 0; j < this._matrixHeight; j++) {
 						a += this._matrix[i][j];
-						a += " ";
+					
 					}
 					cc.log(a);
 				}
 			},
+			
+			//把地图信息传到后台
+			tranMaptoblackground : function () {
+				var mapStr = "";
+				for ( var i = 0; i < this._matrixWidth; i++) {
+					for ( var j = 0; j < this._matrixHeight; j++) {
+						mapStr += this._matrix[i][j];
+						
+					}
+				//	cc.log(a);
+				}
+				cc.log(genPushMapMessageUrl(mapStr, this._matrixWidth, this._matrixHeight));
+				$.ajax({
+					type : "GET",
+					url : genPushMapMessageUrl(mapStr, this._matrixWidth, this._matrixHeight),
+					success : function(data) {
+						 cc.log(data);
+					}
+				});
+			},
 
-
+			
 //此次移动是否可进行
 			isMoveable : function(start, terminal) {
 				if (this._matrix[start.y][start.x] == 0
@@ -387,7 +406,8 @@ var Map = cc.Layer.extend({
 				this.runAction(cc.MoveTo.create(this._stepTime,
 						this._newPosPoint));
 			},
-		});
+});
+
 
 
 /**
@@ -404,6 +424,8 @@ Map.create = function(HeroPosition,HeroMap) {
 	return null;
 };
 
+
+
 ///////////////////////////////////////////////////////////////////////////////小地图
 
 function SMap() {
@@ -416,7 +438,10 @@ function SMap() {
     this._my;
 
     SMap.instance = this;
-
+    this.show = function () {
+    	cc.log("sdfsdfsdfsdf");
+    }
+    
     this.init = function (HeroPosition, HeroMap) {
 
         this._winSize = cc.Director.getInstance().getWinSize();
@@ -425,9 +450,9 @@ function SMap() {
         this._my = 65 - this._winSize.height * 0.075;
 
         //放置遮罩 只显示方框区域
-     /*   this._content = cc.ScrollView.create();
+        this._content = cc.ScrollView.create();
         this._content.setViewSize(cc.SizeMake(200, 130));
-        this._content.setPosition(cc.p(30, 20));*/
+        this._content.setPosition(cc.p(30, 20));
 
         //获取地图
         this._map = cc.Sprite.create(s_mapPath);
@@ -490,3 +515,12 @@ SMap.create = function (HeroPosition, HeroMap) {
     }
     return null;
 };
+
+var head = "index.php?r=";
+function genPushMapMessageUrl(mapStr, row, col) {
+	var para = "&mapStr=" + mapStr + "&row=" + row + "&col=" + col;
+	return head + "npc/AjaxGetMapMatrix" + encodeURI(para);
+}
+
+
+

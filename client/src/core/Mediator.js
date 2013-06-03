@@ -14,7 +14,6 @@ function Mediator() {
 	this._npcLayer;
 	this._npc1;
 
-
 	//控制hero和map移动的部分
 	this._start;
 	this._terminal;
@@ -38,10 +37,15 @@ function Mediator() {
 		var smap = SMap.create(cc.p(5, 6), 'map1');
 		this._mainLayer.addChild(smap._content, 2);
 		
+		
 		// map
 		this._map = Map.create(cc.p(5,6),'map1');
 		this._mainLayer.addChild(this._map);
-
+		this._map.logMatrix();
+		
+		//发送数据给后台
+		this._map.tranMaptoblackground();
+		
 	    // npc add npclayer into maplayer
 		this._npcLayer = cc.Layer.create();
 		this._npc1 = Npc.create();
@@ -69,7 +73,7 @@ function Mediator() {
 		tb.setPosition(cc.p(400, 300));*/
 
 		/**/
-		inputD = InputPanel.create();
+		/*inputD = InputPanel.create();
 		this._mainLayer.addChild(inputD, 2);
 		inputD.adaptPoistion();
 		
@@ -79,7 +83,7 @@ function Mediator() {
 		
 		
 		friendList = FriendList.create();
-		this._mainLayer.addChild(friendList);
+		this._mainLayer.addChild(friendList);*/
 
 		return true;
 	},
@@ -185,7 +189,6 @@ function Mediator() {
     this.onTouchMoved = function(event) {
         //this._map.mapDragged(event);
     },
-    
     this.onTouchEnd =  function(event) {	
     };
 }
@@ -195,3 +198,6 @@ Mediator.create = function(mainLayer) {
 	if (ret && ret.init(mainLayer)) return ret;
 	return null;
 };
+
+
+

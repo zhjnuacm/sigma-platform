@@ -16,6 +16,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+		'application.extensions.yiidebugtb.*',
 	),
 
 	'modules'=>array(					//GII模块
@@ -62,6 +63,8 @@ return array(
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',
+			'enableProfiling' => true,
+			'enableParamLogging' => true
 		),
 		
 		'errorHandler'=>array(
@@ -71,24 +74,28 @@ return array(
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
-				array(
+				/* array(
 					'class'=>'CFileLogRoute',
 					'levels'=>'error, warning',
-				),
+				), */
+				/* array(
+						'class'=>'ext.yii-debug-toolbar.YiiDebugToolbarRoute',
+						//'ipFilters'=>array('127.0.0.1','192.168.1.215'),
+				), */
 				// uncomment the following to show log messages on web pages
-				/*
-				array(
-					'class'=>'CWebLogRoute',
-				),
-				*/
+					/* array( // configuration for the toolbar
+							'class'=>'XWebDebugRouter',
+							'config'=>'alignLeft, opaque, runInDebug, fixedPos, collapsed, yamlStyle',
+							'levels'=>'error, warning, trace, profile, info',
+							'allowedIPs'=>array('127.0.0.1','::1','192.168.1.54','192\.168\.1[0-5]\.[0-9]{3}'),
+					), */
 			),
 		),
-	),
-
 	// application-level parameters that can be accessed
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
 		'adminEmail'=>'webmaster@example.com',
 	),
+			),
 );

@@ -36,6 +36,13 @@
 
 <script type="text/javascript">
 	var jsData = <?php echo json_encode($array); ?>
+	alert("sdfsdf");
+	<?php
+		
+	/* 	$temp = json_decode( tt );
+		echo $tmp; */
+	?>
+
 </script>
 
 

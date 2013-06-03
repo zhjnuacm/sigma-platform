@@ -21,13 +21,11 @@ var mainLayer = cc.Layer.extend({
         } else {
             cc.log("MOUSE Not supported");
         }
-
         if ('keyboard' in sys.capabilities) {
             this.setKeyboardEnabled(true);
         } else {
             cc.log("KEYBOARD Not supported");
         }
-
         //this.adjustSizeForWindow();
         //window.addEventListener("resize", function(event) {
         //    selfPointer.adjustSizeForWindow();
@@ -115,10 +113,15 @@ var mainLayer = cc.Layer.extend({
 });
 
 var SgimaScene = cc.Scene.extend({
-    onEnter: function() {
+	_layer: null,
+	onEnter: function() {
         this._super();
-        var layer = new mainLayer();
-        layer.init();
-        this.addChild(layer);
+        this._layer = new mainLayer();
+        this._layer.init();
+        this.addChild(this._layer);
     }
 });
+
+
+
+

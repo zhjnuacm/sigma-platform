@@ -1,6 +1,3 @@
-
-
-
 /**
  * [HeroPanel 英雄面板信息类]
  * @type {[type]}
@@ -22,6 +19,7 @@ var HeroPanel = cc.Layer.extend({
 	_totScore: null,
 	_action: null,
 	_actionLabel: null,
+	
 	init: function(name, level, score) {
 		
 		this._super();
@@ -112,3 +110,8 @@ HeroPanel.create = function(name, level, score) {
 	}
 	return null;
 }
+
+
+
+
+

@@ -7,7 +7,7 @@ var InputPanel = cc.Layer
 			_FONT_SIZE : null,
 			_WIDTH : null,
 			_HEIGHT : null,
-			_isOpen : false,
+			_isOpen : true,
 			_box : null,
 			_view : null,
 			_viewButton : null,

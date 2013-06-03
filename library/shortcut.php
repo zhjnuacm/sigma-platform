@@ -331,3 +331,12 @@ function am()
 {
     return app()->getAssetManager();
 }
+
+
+function ff() {
+	return 11;
+}
+
+
+
+
