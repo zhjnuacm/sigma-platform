@@ -1,19 +1,28 @@
-
 <?php
 
 class SiteController extends Controller
 {
+	public function filters()
+	{
+		return array(
+				'accessControl',
+		);
+	}
 	
 	public function accessRules()
 	{
 		return array(
+			array('deny', 
+				'actions'=>array('game'),
+				'users'=>array('?'),
+			),
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('Game'),
+	 			'actions'=>array('game', 'Index', 'Error','Contact', 'Login', 'logout'), 
 				'users'=>array('@'),
 			),
-			array('deny',  // deny all users
-				'users'=>array('@'),
-			),
+ 			/* array('deny',  // deny all users
+ 				'users'=>array('*'),
+ 			), */
 		);
 	}
 	
@@ -32,7 +41,7 @@ class SiteController extends Controller
 		// They can be accessed via: index.php?r=site/page&view=FileName
 			'page'=>array(
 				'class'=>'CViewAction',
-		),
+			),
 		);
 	}
 
@@ -46,6 +55,7 @@ class SiteController extends Controller
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('index');
 	}
+	
 	public function actionGame()
 	{
 		$this->render("game");
@@ -164,6 +174,4 @@ class SiteController extends Controller
 		$tbl_userChatcontent->message_content = $content;
 		$tbl_userChatcontent->save();
 	}
-
-
 }

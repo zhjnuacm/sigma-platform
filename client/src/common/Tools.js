@@ -91,12 +91,15 @@ function genPushMessageUrl(to, type, msg) {
 	var parameter = "&to=" + to + "&type=" + type + "&msg=" + msg;
 	return head + "chat/push" + encodeURI(parameter);
 }
+
 function genPullMessageUrl() {
 	return head + "chat/pull";
 }
+
 function genNpcsConfigUrl(mapName) {
 	return head + "npc/getnpcs&mapName=" + mapName;
 }
+
 function getTasksFromNpcUrl(npcid) {
 	return head + "npc/gettasks&npcid=" + npcid;
 }

@@ -83,12 +83,12 @@ return array(
 						//'ipFilters'=>array('127.0.0.1','192.168.1.215'),
 				), */
 				// uncomment the following to show log messages on web pages
-					/* array( // configuration for the toolbar
+					 array( // configuration for the toolbar
 							'class'=>'XWebDebugRouter',
 							'config'=>'alignLeft, opaque, runInDebug, fixedPos, collapsed, yamlStyle',
 							'levels'=>'error, warning, trace, profile, info',
 							'allowedIPs'=>array('127.0.0.1','::1','192.168.1.54','192\.168\.1[0-5]\.[0-9]{3}'),
-					), */
+					), 
 			),
 		),
 	// application-level parameters that can be accessed

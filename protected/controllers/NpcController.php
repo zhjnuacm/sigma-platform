@@ -28,7 +28,7 @@ class NpcController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view', 'Getnpcs', 'Gettasks'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -206,23 +206,24 @@ class NpcController extends Controller
 			// id,x,y
 			for ($i = 0 ; $i < 3 ; $i++)
 			{
-			echo "@".$i.",".($i+5).",".($i+6).",路人甲".$i;
-			}
+				echo "@".$i.",".($i+5).",".($i+6).",路人甲".$i;
 			}
 		}
-		/**
-		* 根据NPCid 传任务信息，@分割
-		* Enter description here ...
-		* @param unknown_type $npcid
-		*/
-		public function ActionGettasks($npcid)
+	}
+	
+	/**
+	 * 根据NPCid 传任务信息，@分割
+	 * Enter description here ...
+	 * @param unknown_type $npcid
+	 */
+	public function ActionGettasks($npcid)
+	{
+		// id,title,content,完成状态(未接受，任务完成没有交任务),
+		$title = "C语言入门";
+		for($i = 0 ; $i < 2 ; $i++)
 		{
-			// id,title,content,完成状态(未接受，任务完成没有交任务),
-			$title = "C语言入门";
-			for($i = 0 ; $i < 2 ; $i++)
-			{
-				echo "@".$i."|"."测试任务".$i."请熟练唱出山路十八弯|如果我 和你的猫咪一起掉进水里,没关系,脂肪有浮力,你们沉不下去|".$i%2;
-			}
+			echo "@".$i."|"."测试任务".$i."请熟练唱出山路十八弯|如果我 和你的猫咪一起掉进水里,没关系,脂肪有浮力,你们沉不下去|".$i%2;
 		}
+	}
 }
 

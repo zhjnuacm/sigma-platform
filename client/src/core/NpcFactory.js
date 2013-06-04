@@ -11,10 +11,12 @@ function NpcFactory() {
 
 	this.addNpcs = function(mapName) {
 		var self = this;
+		//cc.log(genNpcsConfigUrl(mapName));
 		$.ajax({
 			type : "GET",
 			url : genNpcsConfigUrl(mapName),
 			success : function(data) {
+				/*cc.log(data);*/
 				var npcs = data.split("@");
 				for ( var i = 1; i < npcs.length; i++) {
 					var NpcConfig = npcs[i].split(",");
@@ -41,3 +43,5 @@ NpcFactory.create = function(layer, mapName) {
 		return ret;
 	return null;
 }
+
+

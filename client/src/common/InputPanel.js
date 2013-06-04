@@ -40,7 +40,6 @@ var InputPanel = cc.Layer
 				});
 
 				this.addChild(this._box);
-
 				// 定义表情菜单
 				var faceButton = cc.MenuItemImage.create(s_face, s_face2,
 						s_face, function() {
@@ -216,3 +215,7 @@ var Message = function() {
 		this._maxLenth = num;
 	}
 }
+
+
+
+

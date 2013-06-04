@@ -262,26 +262,27 @@ var Map = cc.Layer.extend({
 				}
 			},
 			
+			
 			//把地图信息传到后台
 			tranMaptoblackground : function () {
 				var mapStr = "";
 				for ( var i = 0; i < this._matrixWidth; i++) {
 					for ( var j = 0; j < this._matrixHeight; j++) {
 						mapStr += this._matrix[i][j];
-						
 					}
 				//	cc.log(a);
 				}
-				cc.log(genPushMapMessageUrl(mapStr, this._matrixWidth, this._matrixHeight));
+				//cc.log(genPushMapMessageUrl(mapStr, this._matrixWidth, this._matrixHeight));
 				$.ajax({
 					type : "GET",
 					url : genPushMapMessageUrl(mapStr, this._matrixWidth, this._matrixHeight),
 					success : function(data) {
-						 cc.log(data);
+						// cc.log(data);
 					}
 				});
 			},
 
+			
 //此次移动是否可进行
 			isMoveable : function(start, terminal) {
 				if (this._matrix[start.y][start.x] == 0
