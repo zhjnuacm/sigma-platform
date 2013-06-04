@@ -20,37 +20,39 @@ class NpcController extends Controller
 		);
 	}
 
+
 	/**
 	 * Specifies the access control rules.
 	 * This method is used by the 'accessControl' filter.
 	 * @return array access control rules
 	 */
-	public function accessRules()
-	{
-		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('@'),
-			),
-			array('deny',  // deny all users
-				'users'=>array('*'),
-			),
-		);
-	}
+	//	public function accessRules()
+	//	{
+	//
+	//		return array(
+	//		array('allow',  // allow all users to perform 'index' and 'view' actions
+	//				'actions'=>array('index','view'),
+	//				'users'=>array('*'),
+	//		),
+	//		array('allow', // allow authenticated user to perform 'create' and 'update' actions
+	//				'actions'=>array('create','update'),
+	//				'users'=>array('@'),
+	//		),
+	//		array('allow', // allow admin user to perform 'admin' and 'delete' actions
+	//				'actions'=>array('admin','delete'),
+	//				'users'=>array('@'),
+	//		),
+	//		array('deny',  // deny all users
+	//				'users'=>array('*'),
+	//		),
+	//		);
+	//	}
 
 	//得到地图矩阵
 	public function actionAjaxGetMapMatrix() {
-		
+
 	}
-	
+
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -69,21 +71,21 @@ class NpcController extends Controller
 	public function actionCreate()
 	{
 		$model=new Npc;
-		
-	/* 	$arr = array();
-		$row = $col = 5;
-		for($i = 0; $i < $row; $i++) {
+
+		/* 	$arr = array();
+		 $row = $col = 5;
+		 for($i = 0; $i < $row; $i++) {
 			$arr[$i] = array();
 			for($j = 0; $j < $col; $j++) {
-				$arr[$i][$j] = 2;
+			$arr[$i][$j] = 2;
 			}
-		}
-		
-		$model->setMapArray($arr, $row, $col);
-		
-		$this->render('test',array(
-				'model'=>$model->get(),
-		)); */
+			}
+
+			$model->setMapArray($arr, $row, $col);
+
+			$this->render('test',array(
+			'model'=>$model->get(),
+			)); */
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -91,12 +93,12 @@ class NpcController extends Controller
 		{
 			$model->attributes=$_POST['Npc'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->npc_id));
+			$this->redirect(array('view','id'=>$model->npc_id));
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
-		)); 
+		));
 	}
 
 	/**
@@ -115,7 +117,7 @@ class NpcController extends Controller
 		{
 			$model->attributes=$_POST['Npc'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->npc_id));
+			$this->redirect(array('view','id'=>$model->npc_id));
 		}
 
 		$this->render('update',array(
@@ -134,7 +136,7 @@ class NpcController extends Controller
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
 	/**
@@ -143,7 +145,7 @@ class NpcController extends Controller
 	public function actionIndex()
 	{
 		$dataProvider=new CActiveDataProvider('Npc');
-		
+
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -157,13 +159,45 @@ class NpcController extends Controller
 		$model=new Npc('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Npc']))
-			$model->attributes=$_GET['Npc'];
+		$model->attributes=$_GET['Npc'];
 
 		$this->render('admin',array(
 			'model'=>$model,
 		));
 	}
 
+	/**
+	 * 
+	 * 根据地图传NPC配置信息@分割
+	 * @param unknown_type $mapName
+	 */
+	public function actionGetnpcs($mapName) {
+		if(Yii::app()->request->isAjaxRequest)
+		{
+			// id,x,y
+			for ($i = 0 ; $i < 3 ; $i++)
+			{
+				echo "@".$i.",".($i+5).",".($i+6).",路人甲".$i;
+			}
+		}
+	}
+	/**
+	 * 根据NPCid 传任务信息，@分割
+	 * Enter description here ...
+	 * @param unknown_type $npcid
+	 */
+	public function ActionGettasks($npcid)
+	{
+		// id,title,content,完成状态(未接受，任务完成没有交任务),
+		$title = "C语言入门";
+		for($i = 0 ; $i < 2 ; $i++)
+		{
+			echo "@".$i."|"."测试任务".$i."请熟练唱出山路十八弯|如果我 和你的猫咪一起掉进水里,没关系,脂肪有浮力,你们沉不下去|".$i%2;
+		}
+	}
+	
+	
+	
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
@@ -173,7 +207,7 @@ class NpcController extends Controller
 	{
 		$model=Npc::model()->findByPk($id);
 		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');
+		throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
 

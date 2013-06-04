@@ -52,7 +52,7 @@ function Mediator() {
 		//alert(this._mainLayer.getTouchPriority() + "    " + (this._map.getTouchPriority() - 1));
 		
 		//alert(this._npcLayer.getTouchPriority());
-		this._npcFactory = NpcFactory.create(this._map);
+		this._npcFactory = NpcFactory.create(this._map,'map1');
 		//hero
 		var k = cc.p(0,0);
 

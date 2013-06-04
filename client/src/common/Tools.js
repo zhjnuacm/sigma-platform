@@ -81,13 +81,24 @@ function TArray(nRow, nColumn, value) {
 	return tarray;
 }
 
-
 var head = "index.php?r=";
 function genPushMessageUrl(to, type, msg) {
 	var parameter = "&to=" + to + "&type=" + type + "&msg=" + msg;
-	return head + "chat/push"+encodeURI(parameter);
+	return head + "chat/push" + encodeURI(parameter);
 }
-
 function genPullMessageUrl() {
 	return head + "chat/pull";
+}
+function genNpcsConfigUrl(mapName) {
+	return head + "npc/getnpcs&mapName=" + mapName;
+}
+function getTasksFromNpcUrl(npcid) {
+	return head + "npc/gettasks&npcid=" + npcid;
+}
+
+function genGetTaskUrl(taskId) {
+	return head + "task/gettask&taskId=" + taskId;
+}
+function genSubmitTaskUrl(taskId) {
+	return head + "task/submittask&taskId=" + taskId;
 }

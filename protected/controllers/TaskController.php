@@ -24,27 +24,28 @@ class TaskController extends Controller
 	 * This method is used by the 'accessControl' filter.
 	 * @return array access control rules
 	 */
-	public function accessRules()
-	{
-		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete','taskShow'),
-				'users'=>array('@'),
-			),
-			 array('deny',  // deny all users
-				'users'=>array('*'),
-			), 
-		);
-	}
+//	public function accessRules()
+//	{
+//		return array(
+//			array('allow',  // allow all users to perform 'index' and 'view' actions
+//				'actions'=>array('index','view'),
+//				'users'=>array('*'),
+//			),
+//			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+//				'actions'=>array('create','update'),
+//				'users'=>array('@'),
+//			),
+//			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+//				'actions'=>array('admin','delete','taskShow'),
+//				'users'=>array('@'),
+//			),
+//			 array('deny',  // deny all users
+//				'users'=>array('*'),
+//			), 
+//		);
+//	}
 
+	
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -144,6 +145,27 @@ class TaskController extends Controller
 		));
 	}
 
+	/**
+	 * 用户接受任务时，调用
+	 * Enter description here ...
+	 * @param unknown_type $taskId
+	 */
+	public function actionGettask($taskId)
+	{
+		echo "你接受了一个任务";
+	}
+	
+	
+	/**
+	 * 用户交任务的时候调用
+	 * Enter description here ...
+	 * @param unknown_type $taskId
+	 */
+	public function actionSubmittask($taskId)
+	{
+		echo "你完成了一个任务";
+	}
+	
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
