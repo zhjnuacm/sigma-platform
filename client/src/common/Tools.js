@@ -80,8 +80,13 @@ function TArray(nRow, nColumn, value) {
 	}
 	return tarray;
 }
-
 var head = "index.php?r=";
+function genPushMapMessageUrl(mapStr, row, col) {
+	var para = "&mapStr=" + mapStr + "&row=" + row + "&col=" + col;
+	return head + "npc/AjaxGetMapMatrix" + encodeURI(para);
+}
+
+
 function genPushMessageUrl(to, type, msg) {
 	var parameter = "&to=" + to + "&type=" + type + "&msg=" + msg;
 	return head + "chat/push" + encodeURI(parameter);

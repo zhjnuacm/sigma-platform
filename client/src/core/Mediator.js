@@ -42,7 +42,10 @@ function Mediator() {
 		// map
 		this._map = Map.create(cc.p(5,6),'map1');
 		this._mainLayer.addChild(this._map);
-
+		
+		//发送数据给后台
+		this._map.tranMaptoblackground();
+		
 	    // npc add npclayer into maplayer
 		//this._npcLayer = cc.Layer.create();
 		//this._npc1 = Npc.create();

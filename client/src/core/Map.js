@@ -264,14 +264,22 @@ var Map = cc.Layer.extend({
 			
 			//把地图信息传到后台
 			tranMaptoblackground : function () {
+				var mapStr = "";
 				for ( var i = 0; i < this._matrixWidth; i++) {
-					var a = "";
 					for ( var j = 0; j < this._matrixHeight; j++) {
-						a += this._matrix[i][j];
-						a += " ";
+						mapStr += this._matrix[i][j];
+						
 					}
-					cc.log(a);
+				//	cc.log(a);
 				}
+				cc.log(genPushMapMessageUrl(mapStr, this._matrixWidth, this._matrixHeight));
+				$.ajax({
+					type : "GET",
+					url : genPushMapMessageUrl(mapStr, this._matrixWidth, this._matrixHeight),
+					success : function(data) {
+						 cc.log(data);
+					}
+				});
 			},
 
 //此次移动是否可进行
@@ -503,4 +511,5 @@ SMap.create = function (HeroPosition, HeroMap) {
     }
     return null;
 };
+
 
