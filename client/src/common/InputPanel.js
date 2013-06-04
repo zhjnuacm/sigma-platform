@@ -145,7 +145,6 @@ InputPanel.create = function() {
 	return null;
 }
 
-
 var Message = function() {
 	this.CCLable;
 	this._height;

@@ -1,10 +1,19 @@
 <?php
+<<<<<<< HEAD
 /* @var $this NpcController */
 /* @var $data Npc */
 ?>
 
 <div class="view">
 
+=======
+/* @var $this NpcController */
+/* @var $data Npc */
+?>
+
+<div class="view">
+
+>>>>>>> 603ea58808a6e67c1b04697187f2fe589157c0ce
 	<b><?php echo CHtml::encode($data->getAttributeLabel('npc_id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->npc_id), array('view', 'id'=>$data->npc_id)); ?>
 	<br />
@@ -25,5 +34,9 @@
 	<?php echo CHtml::encode($data->npc_map_belong); ?>
 	<br />
 
+<<<<<<< HEAD
 
+=======
+
+>>>>>>> 603ea58808a6e67c1b04697187f2fe589157c0ce
 </div>

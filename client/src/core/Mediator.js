@@ -13,6 +13,7 @@ function Mediator() {
 	this._input;
 	this._npcLayer;
 	this._npc1;
+	this._npcFactory;
 
 	//控制hero和map移动的部分
 	this._start;
@@ -41,21 +42,17 @@ function Mediator() {
 		// map
 		this._map = Map.create(cc.p(5,6),'map1');
 		this._mainLayer.addChild(this._map);
-		this._map.logMatrix();
-		
-		//发送数据给后台
-		this._map.tranMaptoblackground();
-		
+
 	    // npc add npclayer into maplayer
-		this._npcLayer = cc.Layer.create();
-		this._npc1 = Npc.create();
-		this._npc1.setPriority(this._map.getTouchPriority() - 1);
-		this._npcLayer.addChild(this._npc1);
-		this._map.addChild(this._npcLayer);
+		//this._npcLayer = cc.Layer.create();
+		//this._npc1 = Npc.create();
+		//this._npc1.setPriority(this._map.getTouchPriority() - 1);
+		//this._npcLayer.addChild(this._npc1);
+		//this._map.addChild(this._npcLayer);
 		//alert(this._mainLayer.getTouchPriority() + "    " + (this._map.getTouchPriority() - 1));
 		
 		//alert(this._npcLayer.getTouchPriority());
-		
+		this._npcFactory = NpcFactory.create(this._map,'map1');
 		//hero
 		var k = cc.p(0,0);
 
@@ -113,7 +110,7 @@ function Mediator() {
 	},
 		///判断是hero还是map移动
 	this.shouldHeroMove=function(position,dir){
-		cc.log(position);//坐标
+		//cc.log(position);//坐标
 		if(
 			(position.x>=this._walkMargin &&  position.x<=this._squareSize-this._walkMargin) 
 			&&(position.y>=this._walkMargin &&  position.y<=this._squareSize-this._walkMargin)
@@ -174,7 +171,7 @@ function Mediator() {
 		this._squareSize = this._map.getSquareSize();
 		this._start = this._map.locationToTilePosition(this._hero.getSprite().getPosition());
 		this._terminal = this._map.locationToTilePosition(event.getLocation());
-		cc.log("from  ("+this._start.y+","+this._start.x+") to ("+ this._terminal.y+","+this._terminal.x+")");
+		//cc.log("from  ("+this._start.y+","+this._start.x+") to ("+ this._terminal.y+","+this._terminal.x+")");
 		if(this._map.isMoveable(this._start,this._terminal) && !this.isWalking())
 		{
 			this._map.calMoveRoute(this._start,this._terminal);
@@ -198,6 +195,3 @@ Mediator.create = function(mainLayer) {
 	if (ret && ret.init(mainLayer)) return ret;
 	return null;
 };
-
-
-

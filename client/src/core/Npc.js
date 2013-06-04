@@ -13,25 +13,20 @@ var Npc = cc.Sprite
 				this._super();
 			},
 
-			init : function() {
+			init : function(position, id, name) {
 				this._super();
 				this.initWithFile(s_npc_1);
 				this.setAnchorPoint(cc.p(0.5, 0.5));
-				this.setPosition(cc.p(1750, 900));
-				// //title
-				// this._title = cc.LabelTTF.create("����ɵ��");
-				// this._title.setAnchorPoint(cc.p(0.5, 0.5));
-				// this._title.setPosition(cc.p(1750, 900 - 50));
-				// this._title.setFontSize(11);
-				// this.addChild(this._title);
-
+				this.setPosition(position);
+				this._id = id;
+				this._title = name;
 				return true;
 			},
-			
+
 			setPriority : function(priority) {
 				this._priority = priority;
 			},
-			
+
 			onEnter : function() {
 				cc.Director.getInstance().getTouchDispatcher()
 						.addTargetedDelegate(this, this._priority, true);
@@ -67,11 +62,20 @@ var Npc = cc.Sprite
 				// 如果点击在npc上，则弹出对话框，并返回true，截断touch， 否则，返回false，响应下层touch
 				if (cc.Rect.CCRectContainsPoint(this.touchRect(), touch
 						.getLocation())) {
-					this._touchBegan = true;
-					
-					
-					var dialog = NpcDialog.create(touch.getLocation(),this._priority,0);
-					this.addChild(dialog._dialogView);
+					var self = this;
+					$.ajax({
+						type : "GET",
+						url : getTasksFromNpcUrl(self._id),
+						success : function(data) {
+							var tasks = data.split("@");
+							self._touchBegan = true;
+							var dialog = NpcTaskListDialog.create(touch
+									.getLocation(), self._priority, 0, tasks,
+									self._title);
+							self.addChild(dialog._dialogView);
+						}
+					});
+
 					return true;
 				}
 				return false;
@@ -97,9 +101,9 @@ var Npc = cc.Sprite
 			}
 		});
 
-Npc.create = function() {
+Npc.create = function(position, id, name) {
 	var ret = new Npc();
-	if (ret && ret.init())
+	if (ret && ret.init(position, id, name))
 		return ret;
 	return null;
 };
