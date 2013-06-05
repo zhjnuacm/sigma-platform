@@ -1,106 +1,91 @@
 ﻿//由于源码的关系。这里只能使用左下角为原点。
 
-//var TapMenu = cc.Sprite.extend({
 
-//    ctor: function () {
-//        this._super();
-//    },
-    
-//    init: function (s_l, s_p, page) {
-//        this._super();
-//        this._viewPage = page;
-//        this.initWithFile(s_l);
-//        this.setAnchorPoint(cc.p(0.5, 0));
-//        this.point = cc.Sprite.create(s_p);
-//        this.point.setAnchorPoint(cc.p(0.5, 0.5));
-//        this.addChild(this.point);
-//        this.point.setPosition(cc.p(2, 102));
-//        return true;
-    
-//    },
+//================================
+//  Jopix  好友列表对于的菜单
+//  2013年6月5日 22:41:27
+//===============================
 
-//    onEnter: function () {
-//        cc.Director.getInstance().getTouchDispatcher().addStandardDelegate(this, 0);
-//        this._touchEnabled = true;
-//        this._super();
-//    },
 
-    
-//    onExit: function () {
-//        cc.Director.getInstance().getTouchDispatcher().removeDelegate(this);
-//        this._touchEnabled = false;
-//        this._super();
-//    },
+var FriendMenu = cc.Layer.extend({
+    _userID: null,
 
-    
-//    touchRect: function () {
-//        return this.getBoundingBoxToWorld();
-//    },
+    init: function () {
+    }
 
-        
-//    setTouchEnabled: function (enable) {
-//        if (enable && !this._touchEnabled) {
-//            cc.Director.getInstance().getTouchDispatcher().addStandardDelegate(this, 0);
-//            this._touchEnabled = true;
-//        }
-        
-//        else if (!enable && this._touchEnabled) {
-//            cc.Director.getInstance().getTouchDispatcher().removeDelegate(this);
-//            this._touchEnabled = false;
-//        }
-//    },
+});
 
-        
-//    onTouchesBegan: function (touches, event) {
-//        if (cc.Rect.CCRectContainsPoint(this.touchRect(), touches[0].getLocation())) {
-//            this._touchBegan = true;
-  
-//            var touch = touches[0].getLocation();
-//            var pButten = this.point.getPositionY() + 64;
-//            this._tx = touch.y - this.point.getPosition().y;
-//            if (touch.y >= pButten && touch.y <= pButten + 7) {
-//                this._touchDraw = true;
-//            } else {
-//            }
-//        }
-//    },
-       
-//    onTouchesMoved: function (touches, event) {           
-//        if (this._touchDraw) {             
-//            var y = touches[0].getLocation().y;            
-            
-//            if (y <= 170 && y > 70) {
-//                this.point.setPositionY(y - this._tx);
-//                this._viewPage.setPositionInpercent(170 - y);             
-//            }       
-//        }       
-//    },
 
-     
-//    onTouchesEnded: function (touches, event) {        
-//        if (this._touchBegan) {          
-//            this._touchBegan = false;         
-//            this._touchDraw = false;        
-//        }
-//     },
-    
-//    setButtom: function () {
-//        this.point.setPositionY(2);   
-//    } 
-//});
 
-//TapMenu.create = function (filename, tapname, bg, size) {
-//    var retObj = new TapMenu();
-//    if (retObj && retObj.init(tapname, bg, size)) {
-//        return retObj;
-//    }
-//    return null;
-//}
+//===
+//用于测试
 
+var friendData = [];
+friendData.push(
+    {
+        'name': 'Jopix',
+        'place': '教室吹水',
+        'photo': 'client/res/user/user_1.jpg',
+    },
+    {
+        'name': 'nanke',
+        'place': '宿舍睡觉',
+        'photo': 'client/res/user/user_2.jpg',
+    },
+    {
+        'name': 'cchun',
+        'place': '魔界打怪',
+        'photo': 'client/res/user/user_3.jpg',
+    },
+    {
+        'name': 'vainner',
+        'place': '现实世界',
+        'photo': 'client/res/user/user_4.jpg',
+    },
+    {
+        'name': 'huan',
+        'place': '食堂泡妞',
+        'photo': 'client/res/user/user_5.jpg',
+    },
+     {
+         'name': 'Jopix',
+         'place': '教室吹水',
+         'photo': 'client/res/user/user_1.jpg',
+     },
+    {
+        'name': 'nanke',
+        'place': '宿舍睡觉',
+        'photo': 'client/res/user/user_2.jpg',
+    },
+    {
+        'name': 'cchun',
+        'place': '魔界打怪',
+        'photo': 'client/res/user/user_3.jpg',
+    },
+    {
+        'name': 'vainner',
+        'place': '现实世界',
+        'photo': 'client/res/user/user_4.jpg',
+    },
+    {
+        'name': 'huan',
+        'place': '食堂泡妞',
+        'photo': 'client/res/user/user_5.jpg',
+    }
+);
+//==
+
+
+//================================
+//  Jopix  好友列表单元格
+//  2013年6月5日 22:41:27
+//===============================
 
 var FriendViewCell = cc.TableViewCell.extend({
     _name: null,
     _place: null,
+    _photo: null,
+
     id: null,
 
     draw: function (ctx) {
@@ -110,41 +95,71 @@ var FriendViewCell = cc.TableViewCell.extend({
         cc.drawingUtil.drawLine(cc.p(10, 0), cc.p(170, 0));
     },
 
-    init: function (image, name, place) {
-        this._place = place;
-        this._name = name;
+    init: function (idx) {
 
-        var photo = cc.Sprite.create(image);
-        photo.setAnchorPoint(cc.p(0, 0));
-        photo.setPosition(cc.p(15, 5));
+        this._place = friendData[idx].place;
+        this._name = friendData[idx].name;
+        this._photo = friendData[idx].photo;
+
+        var photo = cc.Sprite.create(this._photo);
+        photo.setPosition(cc.p(25, 25));
         this.addChild(photo);
 
-        var n = cc.LabelTTF.create(name, s_yahei, 12);
+        var n = cc.LabelTTF.create(this._name, s_yahei, 12);
         n.setColor(cc.c3(30, 30, 30));
         n.setPosition(cc.p(60, 30));
         n.setAnchorPoint(cc.p(0, 0));
         n.setTag(123);
         this.addChild(n);
 
-        var p = cc.LabelTTF.create(place, s_yahei, 12);
+        var p = cc.LabelTTF.create(this._place, s_yahei, 12);
         p.setColor(cc.c3(140, 140, 140));
-        p.setPosition(cc.p(60, 5));
+        p.setPosition(cc.p(60, 8));
         p.setAnchorPoint(cc.p(0, 0));
         p.setTag(123);
         this.addChild(p);
+
         return true;
     },
 
-    send:function(){
+    send: function () {
         alert(this._name + this._place);
     }
 
 });
 
+
+//================================
+//  Jopix  拖动列表类
+//  2013年6月5日 22:41:27
+// 重写cc.TableView  更新层的优先级
+//===============================
+var myTableView = cc.TableView.extend({
+    registerWithTouchDispatcher: function () {
+        cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, -13, true);
+    }
+});
+
+myTableView.create = function (dataSource, size, container) {
+    var table = new myTableView();
+    table.initWithViewSize(size, container);
+    table.setDataSource(dataSource);
+    table._updateContentSize();
+    return table;
+};
+
+//================================
+//  Jopix  好友列表
+//  2013年6月5日 22:41:27
+//===============================
+
+
 var FriendList = cc.Layer.extend({
     friendView: null,
     _root: null,
-    _box:null,
+    _box: null,
+    _friendNum: null,
+
     init: function () {
         if (!this._super()) {
             return false;
@@ -152,21 +167,20 @@ var FriendList = cc.Layer.extend({
 
         this._root = cc.p(cc.Director.getInstance().getWinSize().width - 174, 220);
         this.initBorder(180, 288);
-
-
+        this.setfriendNum(friendData.length);
         //初始化主标签
-
         //var item = cc.MenuItemSprite.create(normalImage, SelectedImage, 'callback', this);
 
         //初始化朋友列表
-        this.friendView = cc.TableView.create(this, cc.SizeMake(180, 230));
+        this.friendView = myTableView.create(this, cc.SizeMake(180, 230));
         this.friendView.setDirection(cc.SCROLLVIEW_DIRECTION_VERTICAL);
         this.friendView.setPosition(cc.p(this._root.x, 250));
+        this.friendView.onTouchMoved(cc.TOUCH_ONE_BY_ONE);
         this.friendView.setDelegate(this);
         this.friendView.setVerticalFillOrder(cc.TABLEVIEW_FILL_TOPDOWN);
-        this.addChild(this.friendView);
+        this.addChild(this.friendView, 2);
         this.friendView.reloadData();
-
+        this.setTouchPriority(1);
         //初始化搜索
 
         var fseach = cc.Sprite.create(s_Friendseach);
@@ -175,19 +189,20 @@ var FriendList = cc.Layer.extend({
 
         this._box = cc.EditBox.create(cc.size(138, 16));
         this._box.setText("搜索");
-        this._box.setFontColor(new cc.Color3B(200, 200, 200));
+        this._box.setFontColor(cc.c3(200, 200, 200));
         this._box.setPosition(this._root.x + 14, this._root.y + 6);
-        this._box.setBgClr(new cc.Color3B(245, 245, 245));
+        this._box.setBgClr(cc.c3(245, 245, 245));
         this._box.setFontSize(12);
 
         this._box.setFunction("keydown", function (event) {
             if (event.keyCode == 13)
                 friendList.sendMessage();
         });
+
         this._box.setFunction("click", function (event) {
             friendList._box.setText("");
             friendList._box.setColor(cc.c3(30, 30, 30));
-            friendList._box.setBgClr(new cc.Color3B(255, 255, 255));
+            friendList._box.setBgClr(cc.c3(255, 255, 255));
         });
         this.addChild(this._box);
 
@@ -229,14 +244,16 @@ var FriendList = cc.Layer.extend({
         this.addChild(boxtop);
     },
 
-   
     scrollViewDidScroll: function (view) {
+
     },
     scrollViewDidZoom: function (view) {
+
     },
 
     tableCellTouched: function (table, cell) {
         cell.send();
+        return true;
     },
 
     cellSizeForTable: function (table) {
@@ -244,22 +261,26 @@ var FriendList = cc.Layer.extend({
     },
 
     tableCellAtIndex: function (table, idx) {
-        var strValue = idx.toFixed(0);
+        //   var strValue = idx.toFixed(0);
         var cell = table.dequeueCell();
         var label;
+
         if (!cell) {
             cell = new FriendViewCell();
-            cell.init(s_user, "喜欢你搞基", "课室-学习");
+            cell.init(idx);
         } else {
-          //  label = cell.getChildByTag(123);
-         //   label.setString(strValue);
+            //  label = cell.getChildByTag(123);
+            //   label.setString(strValue);
         }
-
         return cell;
     },
 
     numberOfCellsInTableView: function (table) {
-        return 25;
+        return this._friendNum;
+    },
+
+    setfriendNum: function (num) {
+        this._friendNum = num;
     }
 });
 
@@ -270,4 +291,3 @@ FriendList.create = function () {
     }
     return null;
 };
-

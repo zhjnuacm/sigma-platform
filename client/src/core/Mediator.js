@@ -35,8 +35,8 @@ function Mediator() {
 		this._mainLayer.addChild(this._tipsManage, TIPS_MANAGE_TAG);
 
 	    //小地图
-		var smap = SMap.create(cc.p(5, 6), 'map1');
-		this._mainLayer.addChild(smap._content, 2);
+		var smap = SMap.create(s_mapPath);
+		this._mainLayer.addChild(smap._content, 5);
 		
 		// map
 		this._map = Map.create(cc.p(5,6),'map1');
@@ -73,20 +73,33 @@ function Mediator() {
 		tb.setPosition(cc.p(400, 300));*/
 
 		
-		/*inputD = InputPanel.create();
+		inputD = InputPanel.create();
 		this._mainLayer.addChild(inputD, 2);
-		inputD.adaptPoistion();
-		
-	    var friend = FriendList.create(cc.c4(236,236, 236, 255), 180, 288);
-	    friend.setPosition(cc.p(this._size.width - 200, 220));
-	    this._mainLayer.addChild(friend);*/
-		
-		
-		/*friendList = FriendList.create();
-		this._mainLayer.addChild(friendList);*/
+
+		friendList = FriendList.create();
+		this._mainLayer.addChild(friendList);
 
 		return true;
 	},
+
+
+    //Jopix tab键显示大地图
+	this.showBigMap = function () {
+	    var bmap = BMap.getinstance();
+	    if (bmap.isOnShow()) {
+	        bmap.closeDig();
+	    } else {
+	        this._mainLayer.addChild(bmap._dig, 6);
+	        bmap._dig.setTouchPriority(this._map.getTouchPriority() - 1);
+	        bmap.showPoint('map1', this._map.tilePositionToWorldLocation(this._map.locationToTilePosition(this._hero.getSprite().getPosition())));
+	    }
+	}
+
+    //Jopix 在大体图中显示位置
+	this.markPointInBigMap = function (mapID, position) {
+	    var bmap = BMap.getinstance();
+	    bmap.showPoint(mapID, Position);
+	}
     
 /////////////////////////////////////////MAP 和 HERO的移动控制
 	//执行路线
@@ -144,7 +157,13 @@ function Mediator() {
 	
 ////////////////////////////按键响应
 	this.onKeyDown = function(key){
-		//碰撞冲突还没写，之后在地图里面写
+	    //碰撞冲突还没写，之后在地图里面写
+
+	    if (key == 9) {
+	        this.showBigMap();
+	        return;
+	    }
+
 		if(!this.isWalking()){
 			this._hero.stopOneAction();
 			this._walking = true;
@@ -191,6 +210,25 @@ function Mediator() {
     },
     this.onTouchEnd =  function(event) {	
     };
+
+    //刷新小地图
+	this.rushSMapPosition = function (med) {
+
+	    //var middlePosition = cc.p(this._map._winSize.width / 2, this._map._winSize.height / 2);
+	    //var diff = cc.pSub(cc.p(512, 384), this._map.getPosition());
+	    //cc.log(diff);
+	    //alert("asdsadasd");
+	    //var sdiff = cc.p(0, 0);
+	    //sdiff.x = diff.x * sMapratio;
+	    //sdiff.y = diff.y * sMapratio;
+	    //this._smap.mapMoveByHeroPosition(sdiff);
+
+	    //var newPoint = this._hero.getSprite().getPosition();
+	    //var sdiff2 = cc.p(0, 0);
+	    //sdiff2.x = newPoint.x * sMapratio;
+	    //sdiff2.y = newPoint.y * sMapratio;
+	    //this._smap.mapMoveByHeroPosition(sdiff2);
+	};
 }
 
 Mediator.create = function(mainLayer) {
