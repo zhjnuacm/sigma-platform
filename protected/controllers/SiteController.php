@@ -134,7 +134,6 @@ class SiteController extends Controller
 				$namefrom = $user;
 				$nameto = "【系统消息】";
 				$content = $user."进入了聊天室!";
-			//	$this->render('test', array('para'=>$content));
 				$this->addToTblChatcont($namefrom, $nameto, $content);
 				$this->redirect(Yii::app()->user->returnUrl);
 			}	

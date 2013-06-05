@@ -8,9 +8,24 @@ class NpcController extends Controller
 	 */
 	public $layout='//layouts/column2';
 	
-	
 	public function actionSetGlobal() {
-		Yii::app()->setParams(array('cchun'=>"good job!"));
+		Yii::app()->user->setState("cchun", "good job123!!!");
+	}
+	
+	/**
+	 * @abstract get the ajax of the information of the map config
+	 * @param unknown_type $mapConfStr
+	 */
+	public function actionSetGlobalMapConf($mapConfStr) {
+		if(Yii::app()->request->isAjaxRequest) 
+		{
+			$res = array();
+			$mapArr = explode("|", $mapConfStr);
+			for($i = 0; $i < count($mapArr); $i++) {
+				$res[$i+1] = $mapArr[$i];
+			}
+			Yii::app()->user->setState("mapConfArr", $res);
+		}
 	}
 	
 	/**
@@ -33,7 +48,7 @@ class NpcController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'Getnpcs', 'Gettasks', 'SetGlobal'),
+				'actions'=>array('index','view', 'Getnpcs', 'Gettasks', 'SetGlobal', 'SetGlobalMapConf'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -50,8 +65,11 @@ class NpcController extends Controller
 		);
 	}
 
-	/*
-	 * function: get the string of map from client/src/Map to 'sigma_local'
+	/**
+	 * @abstract get the string of map from client/src/Map to 'sigma_local'
+	 * @param unknown_type $mapStr
+	 * @param unknown_type $row
+	 * @param unknown_type $col
 	 */
 	public function actionAjaxGetMapMatrix($mapStr, $row, $col)
 	{
@@ -68,6 +86,9 @@ class NpcController extends Controller
 		}
 	}
 	
+	/**
+	 * @abstract just for test
+	 */
 	public function actionTest() {
 		global $mm;
 		$this->render('test',array(
@@ -93,7 +114,6 @@ class NpcController extends Controller
 	public function actionCreate()
 	{
 		$model=new Npc;
-		
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 

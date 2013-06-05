@@ -13,6 +13,7 @@
  * @property string $message_is_secret
  * @property string $message_is_kick
  */
+
 class Message extends CActiveRecord
 {
 	/**

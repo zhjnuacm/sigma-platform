@@ -44,6 +44,8 @@ function Mediator() {
 		
 		//发送数据给后台
 		this._map.tranMaptoblackground();
+		//传送地图配置信息你 
+		this._map.transformMapConfToNpcController();
 		
 	    // npc add npclayer into maplayer
 		//this._npcLayer = cc.Layer.create();

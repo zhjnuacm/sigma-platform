@@ -2,13 +2,11 @@
 class ChatController extends Controller
 {
 	/**
-	 *
 	 * 某个用户拉取信息
-	 * @param user $user
 	 */
 	public function actionPull()
 	{
-		//if(Yii::app()->request->isAjaxRequest)
+		if(Yii::app()->request->isAjaxRequest)
 		{
 			$info="";
 			 if(Yii::app()->user->isGuest)
@@ -34,6 +32,7 @@ class ChatController extends Controller
 				$this->renderPartial("_pull1"); 
 		}
 	}
+	
 	
 	private function actionTest() {
 		$user = Yii::app()->user->name;

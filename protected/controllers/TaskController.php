@@ -1,6 +1,4 @@
-
 <?php
-
 class TaskController extends Controller
 {
 	/**
@@ -10,9 +8,9 @@ class TaskController extends Controller
 	public $layout='//layouts/column2';
 	
 	public function actionGetGlobal() {
-		Yii::app()->setParams(array('cchun'=>"good job!"));
-		$tmp = Yii::app()->getParams('cchun');
-		Yii::log(print_r($tmp),CLogger::LEVEL_INFO,'system.protected.controllers.TaskController');
+		//Yii::app()->setParams(array('cchun'=>"good job!"));
+		$tmp = Yii::app()->user->getState("cchun");
+		Yii::log("the ans is: ".$tmp,CLogger::LEVEL_INFO,'system.protected.controllers.TaskController');
 	}
 	
 	/**
@@ -202,7 +200,6 @@ class TaskController extends Controller
 		echo "你接受了一个任务";
 	}
 	
-	
 	/**
 	 * 用户交任务的时候调用
 	 * Enter description here ...
@@ -212,6 +209,5 @@ class TaskController extends Controller
 	{
 		echo "你完成了一个任务";
 	}
-	
 }
 

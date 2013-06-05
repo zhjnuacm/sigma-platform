@@ -4,16 +4,13 @@
 /* @var $form CActiveForm */
 ?>
 
-<!-- 
-	暂时还没有处理下拉列表，因为这个涉及到传数据的问题。
--->
-
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'npc-form',
 	'enableAjaxValidation'=>false,
-)); ?>
+));
+?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
@@ -45,9 +42,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'npc_map_belong'); ?>
-		<?php /* echo $form->textField($model,'npc_map_belong'); */ ?>
-		<?php echo $form->dropDownList($model, 'npc_map_belong', array('map1'=>'map1',
-             ) ); ?>
+		<?php echo $form->dropDownList($model, 'npc_map_belong',  Yii::app()->user->getState("mapConfArr")); ?>
 		<?php echo $form->error($model,'npc_map_belong'); ?>
 	</div>
 

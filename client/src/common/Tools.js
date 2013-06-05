@@ -58,6 +58,7 @@ function getRandomNum(Min, Max) {
 	var Rand = Math.random();
 	return (Min + Math.round(Rand * Range));
 }
+
 /**
  * 返回一个二维数组
  * 
@@ -82,6 +83,7 @@ function TArray(nRow, nColumn, value) {
 }
 
 var head = "index.php?r=";
+
 function genPushMapMessageUrl(mapStr, row, col) {
 	var para = "&mapStr=" + mapStr + "&row=" + row + "&col=" + col;
 	return head + "npc/AjaxGetMapMatrix" + encodeURI(para);
@@ -107,6 +109,12 @@ function getTasksFromNpcUrl(npcid) {
 function genGetTaskUrl(taskId) {
 	return head + "task/gettask&taskId=" + taskId;
 }
+
 function genSubmitTaskUrl(taskId) {
 	return head + "task/submittask&taskId=" + taskId;
 }
+
+function genMapConfToNpcControllerMessageUrl(mapInfo) {
+	return head + "npc/SetGlobalMapConf&mapConfStr=" + mapInfo;
+}
+
