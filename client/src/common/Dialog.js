@@ -55,6 +55,12 @@ var DialogBackground = cc.LayerColor.extend({
     },
 });
 
+/**
+ * [ ]
+ * @param  {[type]} pw 对话框背景的宽
+ * @param  {[type]} ph 对话框背景的高
+ * @return {[type]}
+ */
 
 DialogBackground.create = function (pw, ph) {
     var ret = new DialogBackground();
@@ -66,7 +72,6 @@ var DialogView = cc.Layer.extend({
     layer: null,
     _width: 0,
     _height: 0,
-    _oPoint: null,
 
     actionShake : cc.Speed.create(cc.Repeat.create(
                 cc.Sequence.create(
@@ -80,14 +85,13 @@ var DialogView = cc.Layer.extend({
     closeButton: null,
     closeItem: null,
 
-    init: function (pw, ph, oPoint) {//对话框左下角
+    init: function (pw, ph, oPoint) {
 
         this._super();
         this._width = pw;
         this._height = ph;
-        this._oPoint = oPoint;
         this.setAnchorPoint(cc.p(0, 0));
-        this.setPosition(cc.p(-0.5 * pw, 60));
+        this.setPosition(oPoint);
         this.layer = DialogBackground.create(pw, ph);
         this.setTouchEnabled(true);
         this.setMouseEnabled(true);
@@ -160,11 +164,14 @@ var DialogView = cc.Layer.extend({
 
     onTouchBegan: function (touch, event) {
 
-        var starx = this._oPoint.x + this.getPositionX() - 22, stary = this._oPoint.y + this.getPositionY() - 32;
-        var endx = this._oPoint.x + this.getPositionX() + this._width - 22, endy = this._oPoint.y + this.getPositionY() + this._height - 32;
+    	var point = this.getParent().convertToWorldSpace(this.getPosition());
+    	
+        var starx = point.x + this.getPositionX(), stary = point.y + this.getPositionY();
+        
+        var endx = starx + this._width, endy = stary + this._height;
+        
         var x = touch.getLocation().x, y = touch.getLocation().y;
-
-
+        
         //alert(starx + ' ' + endx + '\n' + stary + ' ' + endy + '\n' + x + ' '  + y + '\n' + this._oPoint.x + ' ' + this._oPoint.y
         //		+ '\n' + this.getPositionX() + ' ' + this.getPositionY());
 
@@ -206,7 +213,13 @@ var DialogView = cc.Layer.extend({
     }
 });
 
-
+/**
+ * [ ]
+ * @param  {[type]} pw 对话框的宽
+ * @param  {[type]} ph 对话框的高
+ * @param  {[type]} po 相对于父节点的位置
+ * @return {[type]}
+ */
 DialogView.create = function (pw, ph, po) {
     var ret = new DialogView();
     if (ret && ret.init(pw, ph, po)) return ret;
