@@ -102,14 +102,17 @@ var InputPanel = cc.Layer
 
 			sendMessage : function() {
 				var str = this._box.getText();
+				//cc.log(genPushMessageUrl("all", 0, str));
+				cc.log(str);
 				$.ajax({
 					type : "GET",
 					url : genPushMessageUrl("all", 0, str),
 					success : function(data) {
-						 cc.log(data);
+					//	 cc.log(data);
 					}
 				});
 
+				//这里的addWord函数有问题。
 				this.view.addWord("佳旺", str);
 				this._box.setText("");
 			},

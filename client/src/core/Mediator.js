@@ -63,25 +63,24 @@ function Mediator() {
 
 		this._hero = Hero.create(k);
 		this._mainLayer.addChild(this._hero.getSprite());
-        //�����
 		
 		/*var mes = new Message();
-		mes.init2("�ҽ�����ʺ�ø��˺ÿ��İ���̾���أ�����˭�ܷ����ҵ�ϲ�á�", 26);
+		mes.init2("", 26);
 		var tb = TextBox.create(mes, 1);
 		this._mainLayer.addChild(tb);
 		tb.setPosition(cc.p(400, 300));*/
 
-		/**/
+		
 		/*inputD = InputPanel.create();
 		this._mainLayer.addChild(inputD, 2);
 		inputD.adaptPoistion();
 		
 	    var friend = FriendList.create(cc.c4(236,236, 236, 255), 180, 288);
 	    friend.setPosition(cc.p(this._size.width - 200, 220));
-	    this._mainLayer.addChild(friend);
+	    this._mainLayer.addChild(friend);*/
 		
 		
-		friendList = FriendList.create();
+		/*friendList = FriendList.create();
 		this._mainLayer.addChild(friendList);*/
 
 		return true;

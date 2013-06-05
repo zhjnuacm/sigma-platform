@@ -8,7 +8,13 @@ class TaskController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
-
+	
+	public function actionGetGlobal() {
+		Yii::app()->setParams(array('cchun'=>"good job!"));
+		$tmp = Yii::app()->getParams('cchun');
+		Yii::log(print_r($tmp),CLogger::LEVEL_INFO,'system.protected.controllers.TaskController');
+	}
+	
 	/**
 	 * @return array action filters
 	 */
@@ -29,7 +35,7 @@ class TaskController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view', 'GetGlobal'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions

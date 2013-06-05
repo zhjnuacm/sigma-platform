@@ -8,6 +8,11 @@ class NpcController extends Controller
 	 */
 	public $layout='//layouts/column2';
 	
+	
+	public function actionSetGlobal() {
+		Yii::app()->setParams(array('cchun'=>"good job!"));
+	}
+	
 	/**
 	 * @return array action filters
 	 */
@@ -28,7 +33,7 @@ class NpcController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'Getnpcs', 'Gettasks'),
+				'actions'=>array('index','view', 'Getnpcs', 'Gettasks', 'SetGlobal'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions

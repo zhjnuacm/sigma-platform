@@ -1,4 +1,3 @@
-
 <?php
 class ChatController extends Controller
 {
@@ -9,7 +8,7 @@ class ChatController extends Controller
 	 */
 	public function actionPull()
 	{
-		if(Yii::app()->request->isAjaxRequest)
+		//if(Yii::app()->request->isAjaxRequest)
 		{
 			$info="";
 			 if(Yii::app()->user->isGuest)
@@ -26,11 +25,12 @@ class ChatController extends Controller
 				}
 				$info .= $model->message_sender.$model->message_content."\n\n\n";
 			} 
+			Yii::log("sdfsdf", CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
 			if($info != "") {
 				$this->actionTest();
 				$this->renderPartial("_pull", array("info"=>$info));
 			} 
-			 else
+			else
 				$this->renderPartial("_pull1"); 
 		}
 	}
@@ -41,14 +41,7 @@ class ChatController extends Controller
 		$res = $tbl_useronline->find("online_name='$user'");
 		$res->online_from_time = date("YmdHis");
 		$res->save();
-		
-		/* $user = Yii::app()->user->name;
-		$res = UserOnline::model()->find("online_name='$user'");
-		$res->online_from_time = date("YmdHis");
-		$res->save(); */
-		//$this->renderPartial("test", array("res"=>$res->online_from_time));
 	}
-	
 	
 	//得到需要显示的聊天内容
 	private function getTalkLog() {
@@ -109,7 +102,12 @@ class ChatController extends Controller
 			$model->message_sender = $user;
 			$model->message_reciever = $to;
 			$model->message_time = date("YmdHis");
-			$model->save();
+			if($model->save() > 0) {
+				Yii::log("save success!!!",CLogger::LEVEL_INFO,'system.protected.ChatController');
+			}
+			else {
+				Yii::log("save failed!!!",CLogger::LEVEL_INFO,'system.protected.ChatController.actionPush');
+			}
 			$this->renderPartial("_push",array("msg"=>$msg));
 		}
 	}
