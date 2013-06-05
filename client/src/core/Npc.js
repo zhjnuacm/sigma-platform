@@ -69,8 +69,7 @@ var Npc = cc.Sprite
 						success : function(data) {
 							var tasks = data.split("@");
 							self._touchBegan = true;
-							var dialog = NpcTaskListDialog.create(touch
-									.getLocation(), self._priority, 0, tasks,
+							var dialog = NpcTaskListDialog.create(cc.p(0,0), self._priority, 0, tasks,
 									self._title);
 							self.addChild(dialog._dialogView);
 						}
