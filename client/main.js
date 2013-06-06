@@ -33,7 +33,7 @@ var cocos2dApp = cc.Application.extend({
         cc.initDebugSetting();
         cc.setup(this.config['tag']);
         cc.Loader.getInstance().onloading = function () {
-            cc.LoaderScene.getInstance().draw();
+            LoaderScene.getInstance().draw();
         };
         cc.Loader.getInstance().onload = function () {
             cc.AppController.shareAppController().didFinishLaunchingWithOptions();
