@@ -37,6 +37,17 @@ var s_mapPath = "client/res/map/map1_s.png";
 var s_shero = "client/res/shero.png";
 var s_photo = "client/res/photo.png";
 var s_LoadingBackground = "client/res/pretty.png";
+var s_friend_menu_home = "client/res/Friend_Menu_Home.png";
+var s_friend_menu_chat = "client/res/Friend_Menu_Chat.png";
+var s_friend_menu_mail = "client/res/Friend_Menu_Mail.png";
+var s_friend_menu_show = "client/res/Friend_Menu_Show.png";
+var s_friend_menu_pk = "client/res/Friend_Menu_Pk.png";
+var s_friend_menu_home2 = "client/res/Friend_Menu_Home2.png";
+var s_friend_menu_chat2 = "client/res/Friend_Menu_Chat2.png";
+var s_friend_menu_mail2 = "client/res/Friend_Menu_Mail2.png";
+var s_friend_menu_show2 = "client/res/Friend_Menu_Show2.png";
+var s_friend_menu_pk2 = "client/res/Friend_Menu_Pk2.png";
+
 
 var s_dlg = [
     {
@@ -120,7 +131,16 @@ var g_ressources = [
     { type: "image", src: s_shero },
     { type: "image", src: s_mapPath },
     { type: "image", src: s_map_res},
-    {type:"image", src:s_map_res},
+        { type: "image", src: s_friend_menu_home },
+    { type: "image", src: s_friend_menu_chat },
+    { type: "image", src: s_friend_menu_mail },
+    { type: "image", src: s_friend_menu_show },
+    { type: "image", src: s_friend_menu_pk },
+        { type: "image", src: s_friend_menu_home2 },
+    { type: "image", src: s_friend_menu_chat2 },
+    { type: "image", src: s_friend_menu_mail2 },
+    { type: "image", src: s_friend_menu_show2 },
+    { type: "image", src: s_friend_menu_pk2 },
     //plist
 
     //fnt
