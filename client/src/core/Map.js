@@ -73,8 +73,7 @@ var Map = cc.Layer.extend({
 		
 		this._mapConfig = this.getSingleMapConfigByName(HeroMap);		//读出了地图配置文件
 		for (var i = this._mapConfig.buildings.length - 1; i >= 0; i--) {	//初始化地图上的建筑
-			cc.log(this._mapConfig.buildings[i]['buildingName'] + " "
-			 	+ this._mapConfig.buildings[i]['objectName']);
+		//	cc.log(this._mapConfig.buildings[i]['buildingName'] + " " + this._mapConfig.buildings[i]['objectName']);
 			var buildingObjects = this._tmxMap.getObjectGroup(
 				this._mapConfig.buildings[i]['objectName']);
 			var buildObject = buildingObjects.getObjects()[0];
@@ -251,7 +250,7 @@ var Map = cc.Layer.extend({
 						a += this._matrix[i][j];
 						a += " ";
 					}
-					cc.log(a);
+					//cc.log(a);
 				}
 			},
 			

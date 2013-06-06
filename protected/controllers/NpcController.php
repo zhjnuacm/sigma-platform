@@ -228,10 +228,14 @@ class NpcController extends Controller
 	public function actionGetnpcs($mapName) {
 		if(Yii::app()->request->isAjaxRequest)
 		{
-			// id,x,y
-			for ($i = 0 ; $i < 3 ; $i++)
-			{
-				echo "@".$i.",".($i+5).",".($i+6).",路人甲".$i;
+			//@, id, pos_x, pos_y, npc_name
+			$res = Npc::model()->findAll();
+			foreach($res as $model) {
+				$id = $model->npc_id;
+				$name = $model->npc_name;
+				$pos_x = $model->npc_position_x;
+				$pos_y = $model->npc_position_y;
+				echo "@".$id.",".$pos_x.",".$pos_y.",".$name;
 			}
 		}
 	}

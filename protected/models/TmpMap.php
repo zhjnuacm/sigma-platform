@@ -97,3 +97,4 @@ class TmpMap extends CActiveRecord
 		));
 	}
 }
+

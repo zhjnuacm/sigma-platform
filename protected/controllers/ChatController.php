@@ -2,47 +2,75 @@
 class ChatController extends Controller
 {
 	/**
-	 * 某个用户拉取信息
+	 * @abstract pull the talk info from server to ajax
+	 * 			 for talk system 
+	 * @throws CHttpException
 	 */
 	public function actionPull()
 	{
 		if(Yii::app()->request->isAjaxRequest)
 		{
-			$info="";
-			 if(Yii::app()->user->isGuest)
-				throw new CHttpException("请先登录");
-			$user = Yii::app()->user->name;
-			$modelarray = $this->getTalkLog();
-			foreach($modelarray as $model) {
-				if($model->message_reciever == "所有人") {
-					$model->message_reciever = "【闲聊】";
-					$model->message_content = "说:".$model->message_content;
+			$isPulling = Yii::app()->user->getState("pullTalking");
+			//Yii::log("heihei: ".$isPulling, CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
+			if($isPulling == false) {
+				Yii::app()->user->setState("pullTalking", true);
+				$info="";
+				/* if(Yii::app()->user->isGuest)
+					throw new CHttpException("请先登录"); */
+				$user = Yii::app()->user->name;
+				$modelarray = $this->getTalkLog();
+				foreach($modelarray as $model) {
+					if($model->message_reciever == "所有人") {
+						$model->message_reciever = "【闲聊】";
+						$model->message_content = "说:".$model->message_content;
+					}
+					else {
+						$model->message_sender = "";
+					}
+					$info .= $model->message_sender.$model->message_content."";
 				}
+				//Yii::log($info, CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
+				if($info != "") {
+					$this->updateUserOnlineFromTime();
+					$this->renderPartial("_pullHaveInfo", array("info"=>$info));
+				} 
 				else {
-					$model->message_sender = "";
-				}
-				$info .= $model->message_sender.$model->message_content."\n\n\n";
-			} 
-			Yii::log("sdfsdf", CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
-			if($info != "") {
-				$this->actionTest();
-				$this->renderPartial("_pull", array("info"=>$info));
-			} 
-			else
-				$this->renderPartial("_pull1"); 
+					$this->renderPartial("_pullNoInfo");
+					Yii::app()->user->setState("pullTalking", false);
+				} 
+			}
+			else {
+				Yii::log("can't pull the info, the is pulling is: ".$isPulling, CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
+			}
 		}
 	}
 	
 	
-	private function actionTest() {
+	public function  actionTest() {
+		$this->renderPartial("test");
+	} 
+	
+	/**
+	 * @abstract 更新在线用户表中的用户提取信息的最后一次时间。
+	 */
+	private function updateUserOnlineFromTime() {
 		$user = Yii::app()->user->name;
-		$tbl_useronline = new UserOnline();
-		$res = $tbl_useronline->find("online_name='$user'");
+		$criteria = new CDbCriteria;
+		$criteria->addCondition("online_name='$user'");
+		$res = UserOnline::model()->find($criteria);
 		$res->online_from_time = date("YmdHis");
-		$res->save();
+		if($res->save() < 0) {
+			Yii::log("update failed!!!", CLogger::LEVEL_INFO, 'system.protected.ChatController.updateUserOnlineFromTime');
+		}
+		else {
+			Yii::app()->user->setState("pullTalking", false);
+		}
 	}
 	
-	//得到需要显示的聊天内容
+	/**
+	 * @abstract 得到需要显示的聊天内容
+	 * @return Message(array model)
+	 */
 	private function getTalkLog() {
 		$model = $this->getFromtime();
 		$time = $model->online_from_time;
@@ -53,7 +81,10 @@ class ChatController extends Controller
 		return $res; //array
 	}
 	
-	//得到用户的显示聊天内容的起始时间
+	/**
+	 * @abstract 得到用户的显示聊天内容的起始时间
+	 * @return UserOnline(model)
+	 */
 	private function getFromtime() {
 		$user = Yii::app()->user->name;
 		$tbl_useronline = new UserOnline();
@@ -61,7 +92,10 @@ class ChatController extends Controller
 		return $res;
 	}
 	
-	//chang the string time to double time
+	/**
+	 * @abstract chang the string time to double time
+	 * @return timer(double)
+	 */
 	private function dotimer($timer) {
 		$timer = str_replace("-", "", $timer);
 		$timer = str_replace(":", "", $timer);

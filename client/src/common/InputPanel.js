@@ -86,8 +86,7 @@ var InputPanel = cc.Layer
 		        this.view.setPosition(cc.p(5, 33));
 		        this.addChild(this.view);
 		        this.view.setVisible(this._isOpen);
-		        this.schedule(this.step, 1);
-
+		        this.schedule(this.step, 3);
 
 		        return true;
 		    },
@@ -133,6 +132,7 @@ var InputPanel = cc.Layer
 
 		    sendMessage: function () {
 		        var str = this._box.getText();
+		       // cc.log(str);
 		        $.ajax({
 		            type: "GET",
 		            url: genPushMessageUrl("all", 0, str),

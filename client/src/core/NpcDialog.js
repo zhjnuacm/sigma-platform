@@ -25,9 +25,10 @@ function TaskDialog() {
 		taskDescriptionViewPanel.setColor(cc.c3b(25, 25, 25));
 		taskDescriptionViewPanel.setString(content);
 		self._dialogView.addChild(taskDescriptionViewPanel);
-
 		return true;
-	}, this.getTask = function() {
+	},
+	
+	this.getTask = function() {
 		// ajax
 		var self = this;
 		$.ajax({
@@ -38,7 +39,6 @@ function TaskDialog() {
 				self._dialogView.onCloseMyself();
 			}
 		});
-
 	},
 
 	this.submitTask = function() {
@@ -51,9 +51,7 @@ function TaskDialog() {
 				self._dialogView.onCloseMyself();
 			}
 		});
-
 	}
-
 }
 
 TaskDialog.create = function(position, priority, npcId, title, content, isDone) {
@@ -62,6 +60,7 @@ TaskDialog.create = function(position, priority, npcId, title, content, isDone) 
 		return ret;
 	return null;
 }
+
 function NpcTaskListDialog() {
 	this._dialogView;
 	this._npcId;
@@ -118,3 +117,5 @@ NpcTaskListDialog.create = function(position, priority, npcId, taskList, title) 
 		return ret;
 	return null;
 }
+
+

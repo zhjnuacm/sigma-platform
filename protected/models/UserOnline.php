@@ -1,4 +1,3 @@
-
 <?php
 
 /**
@@ -9,6 +8,7 @@
  * @property string $online_time_now
  * @property string $online_from_time
  */
+
 class UserOnline extends CActiveRecord
 {
 	/**
@@ -88,3 +88,6 @@ class UserOnline extends CActiveRecord
 		));
 	}
 }
+
+
+

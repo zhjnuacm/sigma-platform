@@ -120,3 +120,7 @@ class User extends CActiveRecord
 	}
 }
 
+
+
+
+

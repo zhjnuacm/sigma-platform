@@ -57,6 +57,7 @@ function Mediator() {
 		
 		//alert(this._npcLayer.getTouchPriority());
 		this._npcFactory = NpcFactory.create(this._map,'map1');
+		
 		//hero
 		var k = cc.p(0,0);
 
@@ -72,7 +73,6 @@ function Mediator() {
 		this._mainLayer.addChild(tb);
 		tb.setPosition(cc.p(400, 300));*/
 
-		
 		inputD = InputPanel.create();
 		this._mainLayer.addChild(inputD, 2);
 

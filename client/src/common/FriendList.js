@@ -165,6 +165,8 @@ var FriendList = cc.Layer.extend({
             return false;
         }
 
+      
+        
         this._root = cc.p(cc.Director.getInstance().getWinSize().width - 174, 220);
         this.initBorder(180, 288);
         this.setfriendNum(friendData.length);
@@ -284,10 +286,14 @@ var FriendList = cc.Layer.extend({
     }
 });
 
+
 FriendList.create = function () {
+	  cc.log("好友列表");
     var retObj = new FriendList();
     if (retObj && retObj.init()) {
         return retObj;
     }
     return null;
 };
+
+

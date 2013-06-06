@@ -1,6 +1,4 @@
-
 <?php
-
 /**
  * This is the model class for table "sigma_user_task".
  *
@@ -97,3 +95,6 @@ class UserTask extends CActiveRecord
 		));
 	}
 }
+
+
+

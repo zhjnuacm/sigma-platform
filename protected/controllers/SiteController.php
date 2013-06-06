@@ -46,11 +46,19 @@ class SiteController extends Controller
 	}
 
 	/**
+	 * @abstract initialize the var which will use later
+	 */
+	private function initialize() {
+		Yii::app()->user->setState("pullTalking", false);
+	}
+	
+	/**
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
 	 */
 	public function actionIndex()
 	{
+		
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('index');
@@ -101,6 +109,35 @@ class SiteController extends Controller
 		$this->render('contact',array('model'=>$model));
 	}
 
+	
+	/**
+	 * @abstract do some action after npc login
+	 */
+	private function afterLogin($username) {
+		$this->initialize(); //init
+		
+		Yii::log("name is : ".$username, CLogger::LEVEL_INFO, 'system.protected.SiteController.actionLogin');
+		$resNum = UserOnline::model()->deleteAll('online_name=:name', array(':name'=> $username));
+		if($resNum == 0) {
+			Yii::log("delete failed!", CLogger::LEVEL_INFO, 'system.protected.SiteController.actionLogin');
+		}
+		else {
+			Yii::log("delete successed!", CLogger::LEVEL_INFO, 'system.protected.SiteController.actionLogin');
+		}
+		
+		//把登录用户信息添加到tbl_useronline表上
+		$tbl_useron = new UserOnline();
+		$tbl_useron->online_name = $username; 
+		$tbl_useron->online_time_now = date("YmdHis");
+		$tbl_useron->online_from_time = date("YmdHis");
+		$tbl_useron->save();
+		
+		$namefrom = $username;
+		$nameto = "【系统消息】";
+		$content = $username."进入了聊天室!";
+		$this->addToTblChatcont($namefrom, $nameto, $content);
+	}
+	
 	/**
 	 * Displays the login page
 	 */
@@ -122,19 +159,7 @@ class SiteController extends Controller
 			// validate user input and redirect to the previous page if valid
 			if($model->validate() && $model->login())
 			{
-				
-				//把登录用户信息添加到tbl_useronline表上
-				$tbl_useron = new UserOnline();
-				$tbl_useron->online_name = Yii::app()->user->name;
-				$tbl_useron->online_time_now = date("YmdHis");
-				$tbl_useron->online_from_time = date("YmdHis");
-				$tbl_useron->save();
-				
-				$user = Yii::app()->user->name;
-				$namefrom = $user;
-				$nameto = "【系统消息】";
-				$content = $user."进入了聊天室!";
-				$this->addToTblChatcont($namefrom, $nameto, $content);
+				$this->afterLogin($model->username);
 				$this->redirect(Yii::app()->user->returnUrl);
 			}	
 		}
@@ -142,6 +167,7 @@ class SiteController extends Controller
 		$this->render('login',array('model'=>$model));
 	}
 
+	
 	/**
 	 * Logs out the current user and redirect to homepage.
 	 */
