@@ -14,6 +14,7 @@ function TaskDialog() {
 			self._dialogView.addButtons("接受任务", self.getTask, self);
 		else if (isDone == false)
 			self._dialogView.addButtons("完成任务", self.submitTask, self);
+		
 		var titleLabel = cc.LabelTTF.create("", s_yahei, 24);
 		titleLabel.setString(title);
 		titleLabel.setPosition(cc.p(width * 0.5, height - 20));

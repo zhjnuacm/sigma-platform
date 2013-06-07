@@ -60,8 +60,8 @@ var Npc = cc.Sprite
 			onTouchBegan : function(touch, event) {
 				// alert("npc");
 				// 如果点击在npc上，则弹出对话框，并返回true，截断touch， 否则，返回false，响应下层touch
-				if (cc.Rect.CCRectContainsPoint(this.touchRect(), touch
-						.getLocation())) {
+				if (cc.Rect.CCRectContainsPoint(this.touchRect(), touch.getLocation())) 
+				{
 					var self = this;
 					$.ajax({
 						type : "GET",
@@ -69,12 +69,11 @@ var Npc = cc.Sprite
 						success : function(data) {
 							var tasks = data.split("@");
 							self._touchBegan = true;
-							var dialog = NpcTaskListDialog.create(cc.p(0,0), self._priority, 0, tasks,
-									self._title);
+							//self._title为npc名字
+							var dialog = NpcTaskListDialog.create(cc.p(0,0), self._priority, 0, tasks, self._title);
 							self.addChild(dialog._dialogView);
 						}
 					});
-
 					return true;
 				}
 				return false;

@@ -256,3 +256,6 @@ class NpcController extends Controller
 	}
 }
 
+
+
+
