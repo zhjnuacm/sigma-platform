@@ -10,10 +10,11 @@ class ChatController extends Controller
 	{
 		if(Yii::app()->request->isAjaxRequest)
 		{
-			$isPulling = Yii::app()->user->getState("pullTalking");
+			//$isPulling = Yii::app()->user->getState("pullTalking");
 			//Yii::log("heihei: ".$isPulling, CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
-			if($isPulling == false) {
-				Yii::app()->user->setState("pullTalking", true);
+			//if($isPulling == false)
+			{
+				//Yii::app()->user->setState("pullTalking", true);
 				$info="";
 				/* if(Yii::app()->user->isGuest)
 					throw new CHttpException("请先登录"); */
@@ -29,7 +30,7 @@ class ChatController extends Controller
 					}
 					$info .= $model->message_sender.$model->message_content."";
 				}
-				//Yii::log($info, CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
+				Yii::log($info, CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
 				if($info != "") {
 					$this->updateUserOnlineFromTime();
 					$this->renderPartial("_pullHaveInfo", array("info"=>$info));
@@ -37,11 +38,11 @@ class ChatController extends Controller
 				else {
 					$this->renderPartial("_pullNoInfo");
 					Yii::app()->user->setState("pullTalking", false);
-				} 
+				}
 			}
-			else {
+			/* else {
 				Yii::log("can't pull the info, the is pulling is: ".$isPulling, CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
-			}
+			} */
 		}
 	}
 	
