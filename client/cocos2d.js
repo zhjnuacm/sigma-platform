@@ -34,7 +34,8 @@
 				prefix + 'src/common/Dialog.js',
 				prefix + 'src/core/NpcDialog.js',
 				prefix + 'src/core/LoaderScene.js',
-				prefix + 'src/core/NpcFactory.js' ]
+				prefix + 'src/core/NpcFactory.js',
+                prefix + 'src/core/UserContral.js'],
 	};
 	window
 			.addEventListener(

@@ -66,6 +66,13 @@ function Mediator() {
 
 		this._hero = Hero.create(k);
 		this._mainLayer.addChild(this._hero.getSprite());
+
+
+	    //其它用户
+
+		var a = User.create(123456);
+		this._map.addChild(a, 2);
+	
 		
 		/*var mes = new Message();
 		mes.init2("", 26);
