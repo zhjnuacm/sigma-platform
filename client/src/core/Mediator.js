@@ -41,7 +41,11 @@ function Mediator() {
 		// map
 		this._map = Map.create(cc.p(5,6),'map1');
 		this._mainLayer.addChild(this._map);
-		
+			    //其它用户
+
+		var aaa = User.create(123456);
+		this._map.addChild(aaa);
+	
 		//发送数据给后台
 		this._map.tranMaptoblackground();
 		//传送地图配置信息你 
@@ -68,11 +72,7 @@ function Mediator() {
 		this._mainLayer.addChild(this._hero.getSprite());
 
 
-	    //其它用户
 
-		var a = User.create(123456);
-		this._map.addChild(a, 2);
-	
 		
 		/*var mes = new Message();
 		mes.init2("", 26);

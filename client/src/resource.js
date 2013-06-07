@@ -2,10 +2,10 @@ var s_HelloWorld 		= "client/res/HelloWorld.png";
 var s_CloseNormal 		= "client/res/CloseNormal.png";
 var s_CloseSelected 	= "client/res/CloseSelected.png";
 var s_HeroPanel 		= "client/res/hero_panel.png";
-var s_Search  			= "client/res/icon_1.png";
-var s_Pk  				= "client/res/icon_2.png";
-var s_Chat  			= "client/res/icon_3.png";
-var s_Fav  				= "client/res/icon_4.png";
+var s_user_menu_show    = "client/res/User_Menu_Show.png";
+var s_user_menu_pk      = "client/res/User_Menu_PK.png";
+var s_user_menu_chat    = "client/res/User_Menu_Chat.png";
+var s_user_menu_fav     = "client/res/User_Menu_Fav.png";
 var s_hero              = "client/res/huan.png";
 var s_face              = "client/res/face_normal.png";
 var s_face2             = "client/res/face_down.png";
@@ -101,14 +101,14 @@ var g_ressources = [
     {type:"image", src:s_CloseNormal},
     {type:"image", src:s_CloseSelected},
     {type:"image", src:s_HeroPanel},
-    {type:"image", src:s_Search},
-    {type:"image", src:s_Pk},
-    {type:"image", src:s_Fav},
-    {type:"image", src:s_Chat},
+
+    { type: "image", src: s_user_menu_show },
+    { type: "image", src: s_user_menu_pk },
+    { type: "image", src: s_user_menu_chat },
+    { type: "image", src: s_user_menu_fav },
 
     { type: "image", src: s_face },
     { type: "image", src: s_face2 },
-    { type: "image", src: s_Chat },
     { type: "image", src: s_inputR },
     { type: "image", src: s_cr },
     { type: "image", src: s_openview },

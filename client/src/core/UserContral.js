@@ -11,8 +11,8 @@ userData.push(
     {
         'ID': 123456,
         'name': 'Jopix',
-        'PositionX': '1500',
-        'PositionY': '900',
+        'PositionX': 1580,
+        'PositionY': 900,
         'Photo': 'client/res/user/user_4.jpg'
     }
     );
@@ -86,11 +86,13 @@ var User = cc.Sprite.extend({
 
 
     onTouchBegan: function (touch, event) {
-        // alert("npc");  
-        
+       // alert("npc");  
         // 如果点击在npc上，则弹出对话框，并返回true，截断touch， 否则，返回false，响应下层touch
+     //   alert(this.touchRect().origin.x + ' ' + this.touchRect().origin.y + ' ' + this.touchRect().size.width + ' ' + this.touchRect().size.height);
         if (cc.Rect.CCRectContainsPoint(this.touchRect(), touch.getLocation())) {
             this._touchBegan = true;
+
+
             //var self = this;
             //$.ajax({
             //    type: "GET",
@@ -102,6 +104,7 @@ var User = cc.Sprite.extend({
             //        self.addChild(dialog._dialogView);
             //    }
             //  });
+
 
             return true;
         }
@@ -119,6 +122,9 @@ var User = cc.Sprite.extend({
         if (this._touchBegan && (cc.Rect.CCRectContainsPoint(this.touchRect(), touch.getLocation()))) {
             this._touchBegan = false;
             this._touchDraw = false;
+            var uMenu = UserMenu.create(this._uData, this);
+            uMenu.getMenu().setPosition(cc.p(0, 0));
+            this.addChild(uMenu.getMenu());
 
         }
     },
@@ -157,127 +163,61 @@ User.create = function (ID) {
 //===============================
 
 
-var UserMenu = cc.LayerColor.extend({
-    _userID: null,
-    _uData: null,
-    _touchBegan: null,
-    _width: null,
-    _height: null,
+var UserMenu = function(){ 
 
-
-    init: function (uData) {
-        this._width = 260;
-        this._height = 133;
-        this._super(cc.c4(255, 255, 255, 200), this._width, this._height);
-        this._fData = fData;
-        this._touchBegan = false;
+    this._uData;
+    this._menu;
+    this.init = function (uData) {
 
         //初始化菜单
-        var homeButton = cc.MenuItemImage.create(s_friend_menu_home, s_friend_menu_home2, s_friend_menu_home2, this.home, this);
-        var chatButton = cc.MenuItemImage.create(s_friend_menu_chat, s_friend_menu_chat2, s_friend_menu_chat2, this.chat, this);
-        var mailButton = cc.MenuItemImage.create(s_friend_menu_mail, s_friend_menu_mail2, s_friend_menu_mail2, this.mail, this);
-        var showButton = cc.MenuItemImage.create(s_friend_menu_show, s_friend_menu_show2, s_friend_menu_show2, this.show, this);
-        var pkButton = cc.MenuItemImage.create(s_friend_menu_pk, s_friend_menu_pk2, s_friend_menu_pk2, this.pk, this);
+        var showButton = cc.MenuItemImage.create(s_user_menu_show, s_user_menu_show, s_user_menu_show, this.show, this);
+       showButton.setPosition(cc.p(0, 60));
+        var chatButton = cc.MenuItemImage.create(s_user_menu_chat, s_user_menu_chat, s_user_menu_chat, this.chat, this);
+         chatButton.setPosition(cc.p(32, 60));
+        var pkButton = cc.MenuItemImage.create(s_user_menu_pk, s_user_menu_pk, s_user_menu_pk, this.pk, this);
+        pkButton.setPosition(cc.p(60, 40));
+        var favButton = cc.MenuItemImage.create(s_user_menu_fav, s_user_menu_fav, s_user_menu_fav, this.fav, this);
+        favButton.setPosition(cc.p(60, 10));
 
         // 将所有的按钮加到菜单容器里面
-        var menu = cc.Menu.create(homeButton, chatButton, mailButton, showButton, pkButton);
-        menu.alignItemsHorizontallyWithPadding(2);
-        menu.setPosition(cc.p(this._width - 70, 10));
-        this.addChild(menu);
-
-        var photo = cc.Sprite.create(this._fData.photo);
-        photo.setPosition(cc.p(30, 105));
-
-        this.addChild(photo);
-
-        var n = cc.LabelTTF.create(this._fData.name, s_yahei, 12);
-        n.setColor(cc.c3(30, 30, 30));
-        n.setAnchorPoint(cc.p(0, 0));
-        n.setPosition(cc.p(60, 110));
-        this.addChild(n);
-
-        var p = cc.LabelTTF.create(this._fData.place, s_yahei, 12);
-        p.setColor(cc.c3(30, 30, 30));
-        p.setAnchorPoint(cc.p(0, 0));
-        p.setPosition(cc.p(60, 90));
-        this.addChild(p);
-
-
-        var m = cc.LabelTTF.create(this._fData.mood, s_yahei, 12);
-        m.setColor(cc.c3(30, 30, 30));
-        m.setAnchorPoint(cc.p(0, 0));
-        m.setPosition(cc.p(60, 70));
-
-        this.addChild(m);
+        this._menu = cc.Menu.create(showButton, chatButton, pkButton, favButton);
         return true;
     },
 
-    onEnter: function () {
-        cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, -14, true);
-        this._super();
-    },
+    this.show = function () {
+        //这里自定以函数体
+        alert("yes");
+        this.destorySelf();
+    };
 
-    onExit: function () {
-        cc.Director.getInstance().getTouchDispatcher().removeDelegate(this);
-        this._super();
-    },
+    this.chat = function () {
+        //这里自定以函数体
+        alert("yes");
+        this.destorySelf();
+    };
 
-    onTouchBegan: function (touch, event) {
-        var _root = this.getPosition();
-        var pt = touch.getLocation();
-        if (pt.x > _root.x && pt.x < _root.x + this._width && pt.y > _root.y && pt.y < _root.y + this._height) {
-            this._touchBegan = true;
-            return true;
-        }
-
-        this.removeFromParent(true);
-        return false;
-    },
-
-    onTouchEnded: function (touch, event) {
-        if (this._touchBegan) {
-            this._touchBegan = false;
-
-        }
-    },
-
-
-    show: function () {
+    this.fav = function () {
         //这里自定以函数体
 
+        alert("yes");
         this.destorySelf();
-    },
+    };
 
-    chat: function () {
+    this.pk = function () {
         //这里自定以函数体
-
+        alert("yes");
         this.destorySelf();
-    },
-
-    home: function () {
-        //这里自定以函数体
+    };
 
 
-        this.destorySelf();
-    },
+    this.destorySelf = function () {
+        this._menu.removeFromParent(true);
+    };
 
-    mail: function () {
-        //这里自定以函数体
-
-        this.destorySelf();
-    },
-
-    pk: function () {
-        //这里自定以函数体
-
-        this.destorySelf();
-    },
-
-
-    destorySelf: function () {
-        this.removeFromParent(true);
-    }
-});
+    this.getMenu = function () {
+        return this._menu;
+    };
+}
 
 
 UserMenu.create = function (uData) {
