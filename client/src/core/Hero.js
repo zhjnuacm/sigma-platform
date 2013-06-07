@@ -1,169 +1,169 @@
+/*
+ * 对外接口
+ * Hero Hero.create(position);			//创建英雄类实例
+ * void moveByStep(dir);				//根据方向移动一步
+ * void moveByRoute(route,routeSize);	//根据路线数组移动
+ * bool checkIsWalking();				//返回精灵是否在移动的判断值
+ * CCSprite getSprite();				//返回精灵对象
+ * 
+ * 
+ */
+
+
+
 function Hero() {
-	_sprite:null;
+	//精灵移动相关变量
+	_stepTime:null;//单步移动时间
+	_stepLengthX:null;//单步移动实际距离X
+	_stepLengthY:null;//单步移动实际距离Y
+	_stepDelta:null;//单步位移向量
+	_route:null;//移动路线数组
+	_routeCnt:null;//移动路线步数
 	
-	//角色定位模块-定义部分
-	_posPoint:null;
-	_dir:null;	
-	_dirTexture:null;
+
+	//动画模块相关变量
+	_heroTexture:null;//精灵的纹理
+	_delayTime:null;//每帧时间间隔
+	_loopCnt:null;//行走动画循环次数
+	_spriteActions:null;//精灵行走动画四个方向的数组
 	
-	//角色移动模块—定义部分
-	_newPosPoint:null;
-	_stepTime:null;
-	_stepLengthX:null;
-	_stepLengthY:null;
-	_walking:null;
-	_stepCnt:null;
-	_route:null;
-	_routeSize:null;
-	
-	//动画模块-定义部分
-	_heroTexture:null;
-	_frames:null;
-	_animation:null;
-	_spriteRunning:null;
-	_spriteActions:null;
-	_dirAction:null;
-	
+	//精灵的状态
+	_isHeroWalking:null;//精灵是否在移动
+	_routeState:null;//精灵是否正在进行路线移动
+	_dir:null;//精灵正在移动的方向
+
+	//主体精灵
+	_sprite:null;//英雄类的主体精灵
+
+	/*
+	 * 初始化函数
+	 */
 	this.init = function(position) {
-		this._sprite = cc.Sprite.create();
-		
-		//定位模块-初始化部分
-		this._posPoint = position;
-		this._sprite.setPosition(this._posPoint);
-		
-		//setTexture:function (texture) {
-		//this.dirTexture = cc.Texture.
-		
-		///////////////////////////////////移动模块-初始部分
-		this._newPosPoint = cc.p(null,null);
-		this._stepTime = 1;//步长表示移动一格花费1秒时间
+		//精灵移动相关变量
+		this._stepTime = 0.8;//步长表示移动一格花费1秒时间
 		this._stepLengthX = 50;
 		this._stepLengthY = 25;
-		this._walking= false;
-		this._stepCnt=0;
+		this._stepDelta = new Array();
+		this._stepDelta[0] = cc.p(this._stepLengthX,this._stepLengthY);//UP
+		this._stepDelta[1] = cc.p(-this._stepLengthX,-this._stepLengthY);//DOWN
+		this._stepDelta[2] = cc.p(-this._stepLengthX,this._stepLengthY);//LEFT
+		this._stepDelta[3] = cc.p(this._stepLengthX,-this._stepLengthY);//RIGHT
 		this._route= new Array();
-
+		this._routeCnt=0;
 		
-		/////////////////////////////////////动画模块-初始部分
-		this._dirAction = new cc.Action();
+		//动画模块相关变量
 		this._heroTexture = cc.TextureCache.getInstance().addImage(s_hero);
-		this._frames = new Array();
+		this._delayTime=0.2;
+		this._loopCnt=1;
 		this._spriteActions = new Array();
-		this._sprite.initWithTexture(this._heroTexture, cc.rect(0, 120*4, 120, 120));//左上角截到右下角，坐标系是WIN坐标系
-    	this._sprite.setTexture(this._heroTexture, cc.rect(0, 120*4, 120, 120));
+		var frames = new Array();
+    	var box = new Array(6,5,7,4);
+		for(var k=0;k<4;k++){
+			var animation = new cc.Animation();
+	    	for(var i=0;i<4;i++){
+				frames[i] = cc.SpriteFrame.createWithTexture(this._heroTexture,cc.rect(120*i,120*box[k],120,120));
+				animation.addSpriteFrame(frames[i]);
+			}
+			animation.setLoops(this._loopCnt);//设置循环次数
+			animation.setDelayPerUnit(this._delayTime);//动画间隔
+	    	this._spriteActions[k] = cc.Animate.create(animation);
+		}
     	
-    	this._sprite.setScale(0.8);	
+    	//精灵的状态
+    	this._routeState=false;
+		this._isHeroWalking=false;
+		this._dir=-1;
+		
+		//hero真正初始化
+		this._sprite = cc.Sprite.create();	
+		this._sprite.setPosition(position);//坐标位置
+		this._sprite.initWithTexture(this._heroTexture, cc.rect(0, 120*4, 120, 120));
+    	this._sprite.setScale(0.7);	
     	this._sprite.setAnchorPoint(cc.p(0.5,0.1));
     	
-    	
-    	//--------------------LEFT
-    	this._animation = new cc.Animation();
-		for(var i=0;i<4;i++){
-			this._frames[i] = cc.SpriteFrame.createWithTexture(this._heroTexture,cc.rect(120*i,120*6,120,120));
-			this._animation.addSpriteFrame(this._frames[i]);
-		}
-		
-		this._animation.setLoops(100);//设置循环次数
-		this._animation.setDelayPerUnit(0.2);//动画间隔	
-    	this._spriteActions[0] = cc.Animate.create(this._animation);
-    	
-    	//--------------------RIGHT
-    	this._animation = new cc.Animation();
-    	for(var i=0;i<4;i++){
-			this._frames[i] = cc.SpriteFrame.createWithTexture(this._heroTexture,cc.rect(120*i,120*5,120,120));
-			this._animation.addSpriteFrame(this._frames[i]);
-		}
-		this._animation.setLoops(100);//设置循环次数
-		this._animation.setDelayPerUnit(0.2);//动画间隔
-    	this._spriteActions[1] = cc.Animate.create(this._animation);
-    	
-    	//--------------------DOWN
-    	this._animation = new cc.Animation();
-    	for(var i=0;i<4;i++){
-			this._frames[i] = cc.SpriteFrame.createWithTexture(this._heroTexture,cc.rect(120*i,120*7,120,120));
-			this._animation.addSpriteFrame(this._frames[i]);
-		}
-		
-		this._animation.setLoops(100);//设置循环次数
-		this._animation.setDelayPerUnit(0.2);//动画间隔	
-    	this._spriteActions[2] = cc.Animate.create(this._animation);
-    	
-
-    	//--------------------UP
-    	this._animation = new cc.Animation();
-    	for(var i=0;i<4;i++){
-			this._frames[i] = cc.SpriteFrame.createWithTexture(this._heroTexture,cc.rect(120*i,120*4,120,120));
-			this._animation.addSpriteFrame(this._frames[i]);
-		}
-		
-		this._animation.setLoops(100);//设置循环次数
-		this._animation.setDelayPerUnit(0.2);//动画间隔	
-    	this._spriteActions[3] = cc.Animate.create(this._animation);
-    	
-						
 		return true;
 	},
 	
-	//按照方向移动1格
-	this.moveOneStep = function(dir){
-		this._posPoint.x = this._sprite.getPosition().x;
-		this._posPoint.y = this._sprite.getPosition().y;
-		if(dir == 0){//UP
-			this._newPosPoint.x = this._posPoint.x+this._stepLengthX; 
-			this._newPosPoint.y = this._posPoint.y+this._stepLengthY;
-		}else if(dir == 1){//DOWN
-			this._newPosPoint.x = this._posPoint.x-this._stepLengthX; 
-			this._newPosPoint.y = this._posPoint.y-this._stepLengthY;
-		}else if(dir == 2){//LEFT
-			this._newPosPoint.x = this._posPoint.x-this._stepLengthX;
-			this._newPosPoint.y = this._posPoint.y+this._stepLengthY;	
-		}else if(dir == 3){//RIGHT
-			this._newPosPoint.x = this._posPoint.x+this._stepLengthX; 
-			this._newPosPoint.y = this._posPoint.y-this._stepLengthY;
-		}
 
-		var smap = SMap.getinstance();
-		smap.heroMoveByHeroPosition(this._newPosPoint);
-		this._sprite.runAction(cc.MoveTo.create(this._stepTime,this._newPosPoint));
-	},
-	
-	this.moveOneAction = function(dir){
+
+	/*
+	 * 单步移动
+	 */
+	this.moveByStep = function(dir){
+		if(this._isHeroWalking) return;
+		this._isHeroWalking=true;
+		this._dir = dir;
 		var box = new Array(2,3,0,1);
-		this._dirAction = cc.RepeatForever.create(this._spriteActions[box[dir]]);
-		this._sprite.runAction(this._dirAction);
-	},
-	this.stopOneAction = function(){
-		this._sprite.stopAction(this._dirAction);
+		var movementActions = cc.Sequence.create(
+			cc.Spawn.create(
+				cc.MoveBy.create(this._stepTime,this._stepDelta[dir]),
+				this._spriteActions[box[dir]],
+				null),
+			cc.CallFunc.create(this.setFaceDirection,this,dir),
+			null);
+		this._sprite.runAction(movementActions);
+		
+		
 	},
 	
-	this.isWalking = function(){
-		return this._walking;
-	},
-	
-	//执行路线
-	this.runRoute = function(){
-		this._stepCnt--;
-		this._sprite.stopAction(this._dirAction);
-		this.moveOneStep(this._route[this._stepCnt]);
-		var self = this;
-		if(this._stepCnt!=0)
-		 	setTimeout(function(){self.runRoute();},1000);
-		if(this._stepCnt==0){
-			setTimeout(function(){self._walking=false;},1000);
+	/*
+	 * 单步移动结束后的回调函数
+	 */
+	this.setFaceDirection=function(nodeExecutingAction, value){
+		this._isHeroWalking=false;
+		var box = new Array(7,4,6,5);
+		this._sprite.setTextureRect(cc.rect(0, 120*box[value], 120, 120),false);
+		if(this._routeState==true ){
+			if(this._routeCnt>=0) this._routeCnt--;
+			if(this._routeCnt<0){
+				this._routeState=false;
+				return;
+			} 
+			this.moveByStep(this._route[this._routeCnt]);
 		}
-	}
-	
-	//根据路线进行运动
-	this.moveByRoute = function(route,cnt){
-		this._route = route;
-		this._routeSize = cnt;
-		this._walking = true;
-		this._stepCnt = cnt;
-		this.runRoute();
 	},
+
+
+	/*
+	 * 根据路线移动
+	 */
+	this.moveByRoute = function(route,routeSize){
+			this._route = route;
+			this._routeCnt = routeSize;
+			this._routeState=true;
+			this._routeCnt--;
+			this.moveByStep(this._route[this._routeCnt]);
+	},
+	
+	this.getStepDir=function(){
+		return this._dir;
+	},
+	
+	/*
+	 * 获得走完下一步后的世界坐标
+	 */
+	this.getNextWorldPosition=function(dir){
+		return cc.pAdd(this._sprite.getPosition(),this._stepDelta[dir]);
+	},
+	
+	/*
+	 * 判断是否在行走
+	 */
+	this.checkIsWalking = function(){
+		if(this._routeState==true || this._isHeroWalking==true) return true;
+		return false;
+	},
+	
+	this.checkIsStepDone = function(){
+		return !this._isHeroWalking;
+	},
+	/*
+	 * 返回精灵实例
+	 */
 	this.getSprite = function(){
 		return this._sprite;
 	}
+
 }
 
 
