@@ -95,8 +95,8 @@ var DialogView = cc.Layer.extend({
         this.setTouchEnabled(true);
         this.setMouseEnabled(true);
         this.setKeyboardEnabled(true);
-        this.addClose();
         this.addChild(this.layer);
+        this.addClose();
         return true;
     },
 
@@ -140,7 +140,11 @@ var DialogView = cc.Layer.extend({
     setPosition: function (point) {
         this._super(point);
     },
-
+    
+    setTouchPriority: function(prority){
+    	this._super(prority);
+    	this.closeButton.setTouchPriority(prority - 1);
+    },
     onTouchBegan: function (touch, event) {
 
     	var point = this.getParent().convertToWorldSpace(this.getPosition());
