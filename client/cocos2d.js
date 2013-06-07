@@ -35,6 +35,7 @@
 				prefix + 'src/core/NpcDialog.js',
 				prefix + 'src/core/LoaderScene.js',
 				prefix + 'src/core/NpcFactory.js',
+				prefix + 'src/core/ChildScene.js',
                 prefix + 'src/core/UserContral.js'],
 	};
 	window

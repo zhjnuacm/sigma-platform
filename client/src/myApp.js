@@ -26,6 +26,8 @@ var mainLayer = cc.Layer.extend({
         } else {
             cc.log("KEYBOARD Not supported");
         }
+        
+        this.schedule(this.mainloop);
         //this.adjustSizeForWindow();
         //window.addEventListener("resize", function(event) {
         //    selfPointer.adjustSizeForWindow();
@@ -62,6 +64,10 @@ var mainLayer = cc.Layer.extend({
         cc.renderContext.translate(0, cc.canvas.height);
         cc.renderContext.scale(xScale, xScale);
         cc.Director.getInstance().setContentScaleFactor(xScale);
+    },
+    
+    mainloop: function(dt){
+    	this._mediator.mainloop(dt);
     },
     
     onKeyDown: function(key) {

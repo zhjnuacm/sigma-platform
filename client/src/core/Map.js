@@ -1,3 +1,9 @@
+
+//================================
+//  请叫我欢娘  场景地图
+//  2013年6月7日 22:41:27
+//===============================
+
 var Map = cc.Layer.extend({
 	_backGround: null,
 	_tmxMap:null,
@@ -31,6 +37,8 @@ var Map = cc.Layer.extend({
 	 */
 	_tileLength:null,
 	
+	//解决地图边缘
+	_edgeBg:null,
 
 	//求路线模块
 	_tmpLayer:null,
@@ -51,34 +59,57 @@ var Map = cc.Layer.extend({
 	_walking:null,
 	_stepCnt:null,
 	_tmpHero:null,
+
+	//地图传送
+	_gates:null,
+
 	//地图信息
 	_walkMargin:7,//地图边缘
 	_squareSize:30,//TMX地图大小为 30*30=900个TILE
 	
+
 	/**
 	 * [init 根据英雄的位置和英雄的地图 初始化地图]
 	 * @param  {[type]} HeroPosition [英雄的tile位置]
 	 * @param  {[type]} HeroMap      [英雄所在的地图]
 	 * @return {[type]}              [description]
 	 */
-	init: function(HeroPosition,HeroMap) {
+	init: function(HeroMap) {
 		this._winSize = cc.Director.getInstance().getWinSize();
 		
 		var mapPath = 'client/res/map/' + HeroMap + '.tmx';
 		this._tmxMap = cc.TMXTiledMap.create(mapPath);
+		//this._tmxMap.setAnchorPoint(cc.p(0,0));
 		this.addChild(this._tmxMap,-1,MAP_TAG);
 		this._tileSize = this._tmxMap.getTileSize();
 		this._mapSize = this._tmxMap.getContentSize();
-		this.mapMoveByHeroPosition(HeroPosition);		//根据英雄的位置初始化地图的位置
+
+		this.initMapInfo(HeroMap);
+
+		return true;
+	},
+
+	initMapInfo:function(HeroMap){
+		
+						///////////////////解决地图边缘问题
+		this._edgeBg = cc.Sprite.create(s_edgeBg);
+		this._edgeBg.setPosition(cc.p(1500,750));
+		this._edgeBg.setScale(1.0);
+		this.addChild(this._edgeBg,-5);
+		
 		
 		this._mapConfig = this.getSingleMapConfigByName(HeroMap);		//读出了地图配置文件
+		/*
 		for (var i = this._mapConfig.buildings.length - 1; i >= 0; i--) {	//初始化地图上的建筑
-		//	cc.log(this._mapConfig.buildings[i]['buildingName'] + " " + this._mapConfig.buildings[i]['objectName']);
+		//	cc.log(this._mapConfig.buildings[i]['buildingName'] + " "  	+ this._mapConfig.buildings[i]['objectName']);
 			var buildingObjects = this._tmxMap.getObjectGroup(
 				this._mapConfig.buildings[i]['objectName']);
 			var buildObject = buildingObjects.getObjects()[0];
 			//cc.log(buildObject.getAttribute('polyline'));
+
 		};
+
+		*/
 
 		this._groundLayer = this._tmxMap.getLayer(this._mapConfig.ground);		//初始化地图floor层
 
@@ -92,19 +123,21 @@ var Map = cc.Layer.extend({
 		this._tileLength = Math.sqrt(this._tileSize.width*this._tileSize.width + 
 			this._tileSize.height*this._tileSize.height)/2;
 
-		
-		
+
 		///////////////////求路线模块
 		this._matrix= new Array();
-		this._route = new Array();	
+		this._route = new Array();
+		this._gates = new Array();	
 		this._canMove=false;
 		
 		this._matrixWidth = this._tmxMap.getMapSize().width;
 		this._matrixHeight = this._tmxMap.getMapSize().height;
 		for( var i=0;i<this._matrixWidth;i++){
 			this._matrix[i]=new Array();
+			this._gates[i] = new Array();
 			for(var j=0;j<this._matrixHeight;j++){
 					this._matrix[i][j] = 0;
+					this._gates[i][j] = -1;
 			}
 		}
 		this._tmpLayer = this._tmxMap.getLayer(this._mapConfig.ground);
@@ -118,46 +151,19 @@ var Map = cc.Layer.extend({
 		this._stepLengthY = 25;
 		this._walking= false;
 		this._stepCnt=0;
+
+		///////////////////////地图传送部分
 		
+
 		
-		return true;
-	},
-
-	/**
-	 * [locationToTilePosition  根据鼠标的点击位置索引地图的tile]
-	 * @param  {[ccp]} position [鼠标的点击位置]
-	 * @return {[ccp]}          [tile的位置,如果没有则返回null]
-	 */
-	locationToTilePosition : function (position)	
-	{
-		var newPosition = cc.pSub(position,this.getPosition());		//将鼠标点击的位置变为地图的相对位置
-		var x = newPosition.x  - this._mapSize.width/2 ;
-		var y = newPosition.y  - this._mapSize.height ;
-		var a = (x*this._vectorB.y - y*this._vectorB.x)/(
-			this._vectorA.x*this._vectorB.y - this._vectorB.x *this._vectorA.y);
-		var b = (x*this._vectorA.y - y*this._vectorA.x)/(
-			this._vectorB.x *this._vectorA.y - this._vectorA.x*this._vectorB.y);
-		if(a <= 0 || b <= 0)
-			return null;
-
-	    var ret =  cc.p(parseInt(b/this._tileLength),parseInt(a/this._tileLength));
-	    return ret;
-	},
-
-	/**
-	 * [tilePositionToMapLocation 将tile坐标变为地图的相对坐标]
-	 * @param  {[ccp]} position [tile坐标]
-	 * @return {[ccp]}          [tile在地图上的坐标]
-	 */
-	tilePositionToWorldLocation : function (position)
-	{
-		var tile_nx = this._mapSize.width/this._tileSize.width;
-		var tile_ny = this._mapSize.height/this._tileSize.height;
-		var posX = (tile_ny + position.x - position.y) * this._tileSize.width * 0.5;
-		var posY = (tile_ny+tile_nx - position.x - position.y - 1 )* this._tileSize.height *0.5;
-		return (cc.p(posX,posY));
+		for (var i = this._mapConfig.conveyGate.length - 1; i >= 0; i--) {	//初始化地图上的建筑
+			this._gates[this._mapConfig.conveyGate[i]['startPos'].x][this._mapConfig.conveyGate[i]['startPos'].y]=i;
+			//cc.log(buildObject.getAttribute('polyline'));
+		};
+ 
 		
 	},
+
 
 	/**
 	 * [getSingleMapConfigByName 根据地图名称读出地图配置]
@@ -173,261 +179,222 @@ var Map = cc.Layer.extend({
 		return null;
 	},
 
-	/**
-	 * [isMoveAble 检测目的点是否可动]
-	 * @param  {[cc.p]}  position [鼠标点击的相对于tile的点]
-	 * @return {Boolean}          [description]
-	 */
-	isMoveAble : function ( position )
-	{
-		var tileId = this._groundLayer.getTileGIDAt(position);
-		if(tileId == 93)
-			return "你不能到达那里!";
-		else return true;
-	},
-	
 
-	/**
-	 * [mapDragged debug专用]
-	 * @param  {[type]} event [description]
-	 * @return {[type]}       [description]
-	 */
-	mapDragged : function (event)
-	{
-		var delta = event.getDelta();
-        var diff = cc.pAdd(delta, this.getPosition());
-        this.setPosition(diff);
-	},
-
-
-	/**
-	 * [mapMoveByHeroPosition 根据英雄的位置来改变地图的位置]
-	 * @param  {[cc.p]} position 	[坐标]
-	 * @param  {[boolean]} type     [是否有动画]
-	 * @return {[type]}          [null]
-	 */
-	mapMoveByHeroPosition : function(position,type)
-	{
-		var middlePosition = cc.p(this._winSize.width/2,this._winSize.height/2);
-		var diff = cc.pSub(middlePosition,this.tilePositionToWorldLocation(position));
-
-		var smap = SMap.getinstance();
-		smap.mapMoveByHeroPosition(diff);
-
-		if(type == true)
-		{
-			this.runAction(cc.MoveTo.create(1.0,diff));
+	////////////////////////////////////求移动的路线
+	//根据TMX一维瓦片数组获取TMX迷宫矩阵
+	getMatrix:function(){
+		var c=0;
+		for(var i=0;i<this._matrixWidth;i++){
+			for(var j=0;j<this._matrixHeight;j++){
+			if(typeof(this._tileSets[i+j]) == "undefined") continue;
+			if(this._tileSets[c]>0) this._matrix[i][j] = this._tileSets[c++];
+			if(this._matrix[i][j]==91)this._matrix[i][j]=0;
+			}
 		}
-		else
-		{
-			this.setPosition(diff);
+	},
+	//////在控制台输出TMX迷宫矩阵
+	logMatrix:function(){
+		for(var i=0;i<this._matrixWidth;i++){
+			var a="";
+			for(var j=0;j<this._matrixHeight;j++){
+				a+=this._matrix[i][j];
+				a+=" ";
+			}
+			cc.log(a);
+		}
+	},
+
+
+	//计算移动路线
+	calMoveRoute:function(start,terminal){
+
+		var dx = new Array(-1,1,0,0);
+		var dy = new Array(0,0,-1,1);
+		var name = new Array(0,1,2,3);
+		var q = new Array();
+		var vis = new Array();
+		var nMap = new Array();
+		var m=this._squareSize;
+		var n=this._squareSize;
+		var dir = new Array();
+		var fa = new Array();
+		var dis = new Array();
+		var last_dir = new Array();
+		var front=rear=0;
+		var d,u,x,y;
+		//bfs
+
+		for(var i = 0;i<m;i++){
+			vis[i]=new Array();
+			fa[i]=new Array();
+			dis[i]=new Array();
+			last_dir[i]=new Array();
+			for(var j=0;j<n;j++){
+				vis[i][j]=dis[i][j]=fa[i][j]=0;
+			}
+		}
+
+		x=start.y;
+		y=start.x;
+		u=x*m+y;
+		vis[x][y]=1;
+		fa[x][y]=u;
+		q[rear++]=u;
+		while(front!=rear){
+			u=q[front++];
+			x=Math.floor(u/m);y=u%m;
+			for(d=0;d<4;d++){
+				var nx=x+dx[d];
+				var ny=y+dy[d];
+				if(nx>=0 && nx<m && ny>=0 && ny<n && vis[nx][ny]==0 && this._matrix[nx][ny]==0){					
+					var v = nx*m+ny;
+					q[rear++]=v;
+					vis[nx][ny]=1;
+					fa[nx][ny]=u;
+					dis[nx][ny]=dis[x][y]+1;
+					last_dir[nx][ny]=d;	
+				}     
+			}
+		}
+
+		x = terminal.y;
+		y = terminal.x;
+
+		var c=0;
+		while(1){
+			var fx=Math.floor(fa[x][y]/m);
+			var fy=fa[x][y]%m;
+			if(fx==x && fy==y) break;
+			dir[c++] = last_dir[x][y];
+			x=fx;
+			y=fy;
+		}
+		this._routeSize = c;
+		while(c--){
+			this._route[c]=name[dir[c]];
 		}
 		
 	},
+	
+	
+	///////////////////////////////////////////////对外接口
+	
+	/**
+	 * [locationToTilePosition  根据鼠标的点击位置索引地图的tile]
+	 * @param  {[ccp]} position [鼠标的点击位置]
+	 * @return {[ccp]}          [tile的位置,如果没有则返回null]
+	 */
+	locationToTilePosition : function (position)	
+	{
+		var x = position.x  - this._mapSize.width/2 ;
+		var y = position.y  - this._mapSize.height ;
+		var a = (x*this._vectorB.y - y*this._vectorB.x)/(
+			this._vectorA.x*this._vectorB.y - this._vectorB.x *this._vectorA.y);
+		var b = (x*this._vectorA.y - y*this._vectorA.x)/(
+			this._vectorB.x *this._vectorA.y - this._vectorA.x*this._vectorB.y);
+		if(a <= 0 || b <= 0)
+			return null;
 
+	    var ret =  cc.p(parseInt(b/this._tileLength),parseInt(a/this._tileLength));
+	    return ret;
+	},
+	
+	/**
+	 * [tilePositionToMapLocation 将tile坐标变为地图的相对坐标]
+	 * @param  {[ccp]} position [tile坐标]
+	 * @return {[ccp]}          [tile在地图上的坐标]
+	 */
+	tilePositionToWorldLocation : function (position)
+	{
+		var tile_nx = this._mapSize.width/this._tileSize.width;
+		var tile_ny = this._mapSize.height/this._tileSize.height;
+		var posX = (tile_ny + position.x - position.y) * this._tileSize.width * 0.5;
+		var posY = (tile_ny+tile_nx - position.x - position.y - 1 )* this._tileSize.height *0.5;
+		return (cc.p(posX,posY));
+		
+	},
+	
+	getRouteSize:function(){
+		return this._routeSize;
+	},
+	getRouteContent:function(){
+		return this._route;
+	},
+	getWalkMargin:function(){
+		return this._walkMargin;
+	},
+	getSquareSize:function(){
+		return this._squareSize;
+	},
+	getTileSize:function(){
+		return this._tileSize;
+	},
+	/*
+	 * 判断tile坐标是否应该进行地图切换，是则进行移动且返回true，不是则返回false
+	 */
+	checkOrDoConvey:function(position){
+		var conveyId = this._gates[position.x][position.y];
+		if(conveyId==-1) return false;
+		else{
+			var targetMap = this._mapConfig.conveyGate[conveyId]['targetMap'];
+			var mapPath = 'client/res/map/' + targetMap + '.tmx';
+			this.removeChild(this._tmxMap);
+			this._tmxMap = cc.TMXTiledMap.create(mapPath);
+			this.addChild(this._tmxMap,-1,MAP_TAG);
+			this.initMapInfo(targetMap);
+			this._tileSize = this._tmxMap.getTileSize();
+			this._mapSize = this._tmxMap.getContentSize();
+			return true;
+		}
+	},
+	
+	
+	/*
+	 * 检查能否进行路线移动,是则计算移动路径且返回true，不是则返回false
+	 */
+	checkOrCalRoute:function(start,terminal){
+		if(this._matrix[start.y][start.x]==0 
+		&& this._matrix[terminal.y][terminal.x]==0
+		&& (start.x!=terminal.x || start.y!=terminal.y) ){
+			this.calMoveRoute(start,terminal);
+			return true;
+		}
+		return false;
+	},
+	
+	
+	/*
+	 * 检查该tile是否有障碍物
+	 */
+	checkCollision:function(tilePos){
+		if(this._matrix[tilePos.y][tilePos.x]!=0){
+			return true;
+		}else return false; 
+	},
 
-////////////////////////////////////求移动的路线
-//根据TMX一维瓦片数组获取TMX迷宫矩阵
-			getMatrix : function() {
-				var c = 0;
-				for ( var i = 0; i < this._matrixWidth; i++) {
-					for ( var j = 0; j < this._matrixHeight; j++) {
-						if (typeof (this._tileSets[i + j]) == "undefined")
-							continue;
-						if (this._tileSets[c] > 0)
-							this._matrix[i][j] = this._tileSets[c++];
-						if (this._matrix[i][j] != 93)
-							this._matrix[i][j] = 0;
-					}
-				}
-				// this.logMatrix();
-			},
-			// ////在控制台输出TMX迷宫矩阵
-			logMatrix : function() {
-				for ( var i = 0; i < this._matrixWidth; i++) {
-					var a = "";
-					for ( var j = 0; j < this._matrixHeight; j++) {
-						a += this._matrix[i][j];
-						a += " ";
-					}
-					//cc.log(a);
-				}
-			},
-			
-			//把地图信息传到后台
-			tranMaptoblackground : function () {
-				var mapStr = "";
-				for ( var i = 0; i < this._matrixWidth; i++) {
-					for ( var j = 0; j < this._matrixHeight; j++) {
-						mapStr += this._matrix[i][j];
-					}
-				}
-				//cc.log(genPushMapMessageUrl(mapStr, this._matrixWidth, this._matrixHeight));
-				$.ajax({
-					type : "GET",
-					url : genPushMapMessageUrl(mapStr, this._matrixWidth, this._matrixHeight),
-					success : function(data) {
-					}
-				});
-			},
-
-			//把地图配置信息传到后台
-			transformMapConfToNpcController : function () {				
-				var mapInfo = "";
-				for(var i = 0; i < mapsConfig.length; i++) {
-					//mapInfo.push(mapsConfig[0]["name"]);
-					if(i != 0)
-						mapInfo += "|";
-					mapInfo += mapsConfig[i]["name"];
-				}
-				$.ajax({
-					type : "GET",
-					url : genMapConfToNpcControllerMessageUrl(mapInfo),
-					success : function(data) {
-					}
-				});
-			},
-			
-//此次移动是否可进行
-			isMoveable : function(start, terminal) {
-				if (this._matrix[start.y][start.x] == 0
-						&& this._matrix[terminal.y][terminal.x] == 0
-						&& (start.x != terminal.x || start.y != terminal.y))
-					return true;
-				return false;
-			},
-
-//计算移动路线
-			calMoveRoute : function(start, terminal) {
-
-				var dx = new Array(-1, 1, 0, 0);
-				var dy = new Array(0, 0, -1, 1);
-				var name = new Array(0, 1, 2, 3);
-				var q = new Array();
-				var vis = new Array();
-				var nMap = new Array();
-				var m = this._squareSize;
-				var n = this._squareSize;
-				var dir = new Array();
-				var fa = new Array();
-				var dis = new Array();
-				var last_dir = new Array();
-				var front = rear = 0;
-				var d, u, x, y;
-//bfs
-
-				for ( var i = 0; i < m; i++) {
-					vis[i] = new Array();
-					fa[i] = new Array();
-					dis[i] = new Array();
-					last_dir[i] = new Array();
-					for ( var j = 0; j < n; j++) {
-						vis[i][j] = dis[i][j] = fa[i][j] = 0;
-					}
-				}
-
-				x = start.y;
-				y = start.x;
-				u = x * m + y;
-				vis[x][y] = 1;
-				fa[x][y] = u;
-				q[rear++] = u;
-				while (front != rear) {
-					u = q[front++];
-					x = Math.floor(u / m);
-					y = u % m;
-					for (d = 0; d < 4; d++) {
-						var nx = x + dx[d];
-						var ny = y + dy[d];
-						if (nx >= 0 && nx < m && ny >= 0 && ny < n
-								&& vis[nx][ny] == 0
-								&& this._matrix[nx][ny] == 0) {
-							var v = nx * m + ny;
-							q[rear++] = v;
-							vis[nx][ny] = 1;
-							fa[nx][ny] = u;
-							dis[nx][ny] = dis[x][y] + 1;
-							last_dir[nx][ny] = d;
-						}
-					}
-				}
-
-				x = terminal.y;
-				y = terminal.x;
-
-				var c = 0;
-				while (1) {
-					var fx = Math.floor(fa[x][y] / m);
-					var fy = fa[x][y] % m;
-					if (fx == x && fy == y)
-						break;
-					dir[c++] = last_dir[x][y];
-					x = fx;
-					y = fy;
-				}
-				this._routeSize = c;
-				while (c--) {
-					//cc.log(name[dir[c]]);
-					this._route[c] = name[dir[c]];
-				}
-			},
-			
-			getRouteSize : function() {
-				return this._routeSize;
-			},
-			
-			getRouteContent : function() {
-				return this._route;
-			},
-			getWalkMargin : function() {
-				return this._walkMargin;
-			},
-			getSquareSize : function() {
-				return this._squareSize;
-			},
-/////////////////////////////////地图移动
-
-			// 按照方向移动1格
-			moveOneStep : function(dir) {
-				this._posPoint = this.getPosition();
-
-				if (dir == 1) {// UP
-					this._newPosPoint.x = this._posPoint.x + this._stepLengthX;
-					this._newPosPoint.y = this._posPoint.y + this._stepLengthY;
-				} else if (dir == 0) {// DOWN
-					this._newPosPoint.x = this._posPoint.x - this._stepLengthX;
-					this._newPosPoint.y = this._posPoint.y - this._stepLengthY;
-				} else if (dir == 3) {// LEFT
-					this._newPosPoint.x = this._posPoint.x - this._stepLengthX;
-					this._newPosPoint.y = this._posPoint.y + this._stepLengthY;
-
-				} else if (dir == 2) {// RIGHT
-					this._newPosPoint.x = this._posPoint.x + this._stepLengthX;
-					this._newPosPoint.y = this._posPoint.y - this._stepLengthY;
-				}
-				this.runAction(cc.MoveTo.create(this._stepTime,
-						this._newPosPoint));
-
-				var smap = SMap.getinstance();
-				smap.mapMoveByHeroPosition(this._newPosPoint);
-			},
-});
+	
+	});
 
 
 
-/**
- * [create 根据英雄的位置和英雄的地图 初始化地图]
- * @param  {[type]} HeroPosition [英雄的tile位置]
- * @param  {[type]} HeroMap      [英雄所在的地图]
- * @return {[type]}              [description]
- */
-Map.create = function(HeroPosition,HeroMap) {
-	var ret = new Map();
-	if (ret && ret.init(HeroPosition,HeroMap)) {
-		return ret;
-	}
-	return null;
+
+
+	/**
+	 * [create 根据英雄的位置和英雄的地图 初始化地图]
+	 * @param  {[type]} HeroPosition [英雄的tile位置]
+	 * @param  {[type]} HeroMap      [英雄所在的地图]
+	 * @return {[type]}              [description]
+	 */
+	Map.create = function(HeroMap) {
+		var ret = new Map();
+		if (ret && ret.init(HeroMap)) {
+			return ret;
+		}
+		return null;
 };
+
+
+
 
 
 //================================
