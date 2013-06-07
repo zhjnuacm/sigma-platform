@@ -3,7 +3,6 @@ var DialogBackground = cc.LayerColor.extend({
     _width: 0,
     _height: 0,
     sprite: null,
-    closeItem: null,
     menu: null,
 
     init: function (pw, ph) {
@@ -115,31 +114,11 @@ var DialogView = cc.Layer.extend({
     addClose: function () {
 
         this.closeItem = cc.MenuItemImage.create(s_dlg[0]["res"], s_dlg[1]["res"], this.onCloseMyself, this);
-        //closeItem.setAnchorPoint(cc.p(0.5, 0.5));
-        this.closeButton = myButton.create(this.closeItem);
-        this.closeButton.setPosition(cc.p(this._width -15, this._height - 10));
-        this.closeButton.setTouchPriority(this.getTouchPriority() - 1);
-        this.addChild(this.closeButton, 5);
-
-        var backgroundButton = cc.Scale9Sprite.create(s_dlg[0]["res"]);
-        var backgroundHighlightedButton = cc.Scale9Sprite.create(s_dlg[1]["res"]);
-
-        var titleButton = cc.LabelTTF.create("", "Marker Felt", 30);
-
-        titleButton.setColor(cc.c3(255, 255, 255));
-
-    //    alert(this.getTouchPriority());
-        this.closeItem = cc.ControlButton.create(titleButton, backgroundButton);
-        this.closeItem.setBackgroundSpriteForState(backgroundHighlightedButton, cc.CONTROL_STATE_HIGHLIGHTED);
-        this.closeItem.setTitleColorForState(cc.WHITE, cc.CONTROL_STATE_HIGHLIGHTED);
-
-        //controlButton.setAnchorPoint(cc.p(0.5, 1));
-        this.closeItem.setPosition(cc.p(this.layer._width - 10, this.layer._height - 8));
-        this.closeItem.setDefaultTouchPriority(this.getTouchPriority() - 1);
-  //      alert(this.closeItem.getDefaultTouchPriority());
-        this.addChild(this.closeItem);
-
-        this.closeItem.addTargetWithActionForControlEvent(this, this.onCloseMyself, cc.CONTROL_EVENT_TOUCH_DOWN);
+    	this.closeButton = myButton.create(this.closeItem);
+        //var rect = this.closeItem.getBoundingBoxToWorld();
+        //cc.log(rect.size.width + ' ' + rect.size.height + ' ' + rect.origin.x + ' '+rect.origin.y );
+    	this.closeButton.setPosition(cc.p(this._width - 15, this._height - 10));
+        this.addChild(this.closeButton);
     },
     
     addButtons : function (title,select_callback,target)
@@ -225,47 +204,3 @@ DialogView.create = function (pw, ph, po) {
     if (ret && ret.init(pw, ph, po)) return ret;
     return null;
 };
-
-//var MyHelloWorld = cc.Layer.extend({
-
-//    _x: 50,
-//    _y: 50,
-//    _pw: 300,
-//    _ph: 250,
-//    _priority: 0,
-
-//    init: function () {
-//        this._super();
-
-//        var s = cc.Director.getInstance().getWinSize();
-        
-//        var backgroundButton = cc.Scale9Sprite.create(s_extensions_button);
-//        var backgroundHighlightedButton = cc.Scale9Sprite.create(s_extensions_buttonHighlighted);
-
-//        var titleButton = cc.LabelTTF.create("Touch Me!", "Marker Felt", 30);
-
-//        titleButton.setColor(cc.c3(159, 168, 176));
-
-//        var controlButton = cc.ControlButton.create(titleButton, backgroundButton);
-//        controlButton.setBackgroundSpriteForState(backgroundHighlightedButton, cc.CONTROL_STATE_HIGHLIGHTED);
-//        controlButton.setTitleColorForState(cc.WHITE, cc.CONTROL_STATE_HIGHLIGHTED);
-
-//        //controlButton.setAnchorPoint(cc.p(0.5, 1));
-//        controlButton.setPosition(cc.p(s.width - 50, 20));
-//        this.addChild(controlButton, 1);
-//        controlButton.addTargetWithActionForControlEvent(this, this.touchDownAction, cc.CONTROL_EVENT_TOUCH_DOWN);
-//        return true;
-//    },
-
-//    touchDownAction: function () {
-//        var layer = new DialogView();
-//        layer.init(cc.c4(255, 255, 255, 255), this._pw, this._ph);
-//        layer.setTouchPriority(this._priority - 1);
-//        layer.setPosition(cc.p(this._x + 20, this._y + 20));
-//        layer.addClose();
-//        this.addChild(layer);
-//        this._priority -= 2;
-//        this._x += 20;
-//        this._y += 20;
-//    }
-//});

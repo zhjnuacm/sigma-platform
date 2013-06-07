@@ -47,7 +47,16 @@ var s_friend_menu_chat2 = "client/res/Friend_Menu_Chat2.png";
 var s_friend_menu_mail2 = "client/res/Friend_Menu_Mail2.png";
 var s_friend_menu_show2 = "client/res/Friend_Menu_Show2.png";
 var s_friend_menu_pk2 = "client/res/Friend_Menu_Pk2.png";
-
+var s_dlg_close_normal = "client/res/dlg_close_normal.png";
+var s_dlg_close_select = "client/res/dlg_close_select.png";
+var s_dlg_corner_bottom = "client/res/dlg_corner_bottom.png";
+var s_dlg_corner_left = "client/res/dlg_corner_left.png";
+var s_dlg_corner_leftbottom = "client/res/dlg_corner_leftbottom.png";
+var s_dlg_corner_lefttop = "client/res/dlg_corner_lefttop.png";
+var s_dlg_corner_right = "client/res/dlg_corner_right.png";
+var s_dlg_corner_rightbottom = "client/res/dlg_corner_rightbottom.png";
+var s_dlg_corner_righttop = "client/res/dlg_corner_righttop.png";
+var s_dlg_corner_top = "client/res/dlg_corner_top.png";
 
 var s_dlg = [
     {
@@ -101,7 +110,17 @@ var g_ressources = [
     {type:"image", src:s_CloseNormal},
     {type:"image", src:s_CloseSelected},
     {type:"image", src:s_HeroPanel},
-
+    
+    { type: "image", src: s_dlg_close_normal },
+    { type: "image", src: s_dlg_close_select },
+    { type: "image", src: s_dlg_corner_bottom },
+    { type: "image", src: s_dlg_corner_left },
+    { type: "image", src: s_dlg_corner_leftbottom },
+    { type: "image", src: s_dlg_corner_lefttop },
+    { type: "image", src: s_dlg_corner_right },
+    { type: "image", src: s_dlg_corner_rightbottom },
+    { type: "image", src: s_dlg_corner_righttop },
+    { type: "image", src: s_dlg_corner_top },
     { type: "image", src: s_user_menu_show },
     { type: "image", src: s_user_menu_pk },
     { type: "image", src: s_user_menu_chat },
