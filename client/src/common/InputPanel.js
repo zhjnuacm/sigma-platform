@@ -121,7 +121,7 @@ var InputPanel = cc.Layer
 		            success: function (data) {
 		                //	cc.log(data);
 		                if (data != "@@")
-		                    self.view.addWord("系统", data);
+		                    self.view.addWord(data);
 		            }
 		        });
 		    },
@@ -132,6 +132,7 @@ var InputPanel = cc.Layer
 
 		    sendMessage: function () {
 		        var str = this._box.getText();
+		        
 		       // cc.log(str);
 		        $.ajax({
 		            type: "GET",
@@ -140,7 +141,9 @@ var InputPanel = cc.Layer
 		                // cc.log(data);
 		            }
 		        });
-		        this.view.addWord("佳旺", str);
+		        str = "[" + "我" + "]：" + str;
+		        str += '\n';
+		        this.view.addWord(str);
 		        this._box.setText("");
 		    },
 

@@ -3,6 +3,7 @@
  * @class
  * @extends cc.LoaderScene
  */
+
 LoaderScene = cc.LoaderScene.extend({
     _logo:new Image(),
 

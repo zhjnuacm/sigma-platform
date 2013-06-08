@@ -71,8 +71,6 @@ var User = cc.Sprite.extend({
         return this.getBoundingBoxToWorld();
     },
 
-
-
     setTouchEnabled: function (enable) {
         if (enable && !this._touchEnabled) {
             cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, this._priority, true);
@@ -161,14 +159,12 @@ User.create = function (ID) {
 //  Jopix  用户操作菜单
 //  2013年6月7日 09:12:45
 //===============================
-
-
 var UserMenu = function(){ 
 
     this._uData;
     this._menu;
-    this.init = function (uData) {
-
+    this.init = function (uData)
+    {
         //初始化菜单
         var showButton = cc.MenuItemImage.create(s_user_menu_show, s_user_menu_show, s_user_menu_show, this.show, this);
        showButton.setPosition(cc.p(0, 60));

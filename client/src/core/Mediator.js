@@ -15,6 +15,12 @@ function Mediator() {
 
 
 	this.init = function(mainLayer) {
+		
+		//发送数据给后台
+		/*this._map.tranMaptoblackground();*/
+		//传送地图配置信息你 
+		/*this._map.transformMapConfToNpcController();*/
+		
 		this._size = cc.Director.getInstance().getWinSize();
 		// get the main layer
 		this._mainLayer = mainLayer;
@@ -26,21 +32,18 @@ function Mediator() {
 		//游戏主场景
 		this._childScene = ChildScene.create();
 		this._mainLayer.addChild(this._childScene);
-			/*
+		
+		
+	   //其它用户
+	/*	var aaa = User.create(123456);
+		this._map.addChild(aaa);
+	*/
+		
 	    //小地图
 		var smap = SMap.create(s_mapPath);
 		this._mainLayer.addChild(smap._content, 5);
 		
-			    //其它用户
-
-		var aaa = User.create(123456);
-		this._map.addChild(aaa);
-	
-		//发送数据给后台
-		this._map.tranMaptoblackground();
-		//传送地图配置信息你 
-		this._map.transformMapConfToNpcController();
-		
+		/*
 	    // npc add npclayer into maplayer
 		//this._npcLayer = cc.Layer.create();
 		//this._npc1 = Npc.create();
@@ -52,10 +55,6 @@ function Mediator() {
 		//alert(this._npcLayer.getTouchPriority());
 		this._npcFactory = NpcFactory.create(this._map,'map1');
 		
-		
-
-
-
 		
 		/*var mes = new Message();
 		mes.init2("", 26);
@@ -91,6 +90,7 @@ function Mediator() {
 	   // bmap.showPoint(mapID, Position);
 	}
     
+	
 ////////////////////////////循环刷新	
 	this.mainloop=function(dt) {
 		 	this._childScene.loopTime();

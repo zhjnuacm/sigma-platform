@@ -25,10 +25,10 @@ class ChatController extends Controller
 						$model->message_reciever = "【闲聊】";
 						$model->message_content = "说:".$model->message_content;
 					}
-					else {
+					/* else {
 						$model->message_sender = "";
-					}
-					$info .= $model->message_sender.$model->message_content."";
+					} */
+					$info .= "[".$model->message_sender."]: ".$model->message_content."\n";
 				}
 				Yii::log($info, CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
 				if($info != "") {

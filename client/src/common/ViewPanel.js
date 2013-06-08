@@ -36,7 +36,7 @@ var Message = function () {
             }
         }
         this._string += String.substring(b, len);
-        this._string += '\n';
+       // this._string += '\n';
         this._height = this._lk * 15.4;
     };
 
@@ -114,10 +114,11 @@ var ViewPanel = cc.LayerColor.extend({
         return true;
     },
 
-    addWord: function (user, String) {
+    addWord: function (String) {
         //加入信息到page里面
         var mes = new Message();
-        String = "[" + user + "]：" + String;
+      //  String = "[" + user + "]：" + String;
+       // String = String;
         //String = user;
 
         mes.init(String, 52);

@@ -234,7 +234,6 @@ var FriendViewCell = cc.TableViewCell.extend({
     },
 
     init: function (idx) {
-
         this.getDataFromIndex(idx);
         this.setIdx(idx);
 
@@ -273,17 +272,13 @@ var FriendViewCell = cc.TableViewCell.extend({
         this._photo.initWithFile(this._fData.photo);
     },
 
-
-
     send: function () {
         alert(this._fData.name + ' ' + this._fData.mood);
     },
 
-
     getData: function () {
         return this._fData;
     }
-
 });
 
 
@@ -306,11 +301,12 @@ myTableView.create = function (dataSource, size, container) {
     return table;
 };
 
+
+
 //================================
 //  Jopix  好友列表
 //  2013年6月5日 22:41:27
 //===============================
-
 
 var FriendList = cc.Layer.extend({
     friendView: null,
@@ -365,7 +361,6 @@ var FriendList = cc.Layer.extend({
             friendList._box.setBgClr(cc.c3(255, 255, 255));
         });
         this.addChild(this._box);
-
 
         return true;
     },
