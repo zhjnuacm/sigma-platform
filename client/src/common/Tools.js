@@ -110,8 +110,8 @@ function genGetTaskUrl(taskId) {
 	return head + "task/gettask&taskId=" + taskId;
 }
 
-function genSubmitTaskUrl(taskId) {
-	return head + "task/submittask&taskId=" + taskId;
+function genSubmitTaskUrl(taskId,answer) {
+	return head + "task/submittask&taskId=" + taskId + "&answer="+answer;
 }
 
 function genMapConfToNpcControllerMessageUrl(mapInfo) {

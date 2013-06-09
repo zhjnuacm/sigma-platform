@@ -37,7 +37,7 @@ class TaskController extends Controller
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','gettask','submittask'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -205,9 +205,9 @@ class TaskController extends Controller
 	 * Enter description here ...
 	 * @param unknown_type $taskId
 	 */
-	public function actionSubmittask($taskId)
+	public function actionSubmittask($taskId,$answer)
 	{
-		echo "你完成了一个任务";
+		echo "你完成了一个任务 ,答案是".$answer;
 	}
 }
 
