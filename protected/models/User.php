@@ -1,4 +1,3 @@
-
 <?php
 
 /**
@@ -8,16 +7,21 @@
  * @property integer $user_id
  * @property string $user_password
  * @property string $user_username
+ * @property string $user_email
+ * @property text $user_sign
+ * @property text $user_declare'
  *
  * The followings are the available model relations:
- * @property SigmaBlog[] $sigmaBlogs
- * @property SigmaCompetition[] $sigmaCompetitions
- * @property SigmaCompetitionSubmit[] $sigmaCompetitionSubmits
- * @property SigmaUserCompetition[] $sigmaUserCompetitions
- * @property SigmaUserTask[] $sigmaUserTasks
+ * @property Blog[] $blogs
+ * @property Competition[] $competitions
+ * @property CompetitionSubmit[] $competitionSubmits
+ * @property UserCompetition[] $userCompetitions
+ * @property UserTask[] $userTasks
  */
 class User extends CActiveRecord
 {
+	private $passwd;
+	
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -44,14 +48,36 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_password, user_username', 'required'),
+			array('user_password, user_username, user_email, user_password_repeat', 'required'),
+			array('user_username', 'judgeUserNameRepeat'),
 			array('user_password, user_username', 'length', 'max'=>45),
+			array('user_sign, user_declare', 'length'),
+			array('user_email', 'length', 'max'=>105),
+			array('user_password', 'password1'),
+			array('user_password_repeat', 'passwordRepeat'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('user_id, user_password, user_username', 'safe', 'on'=>'search'),
+			array('user_id, user_password, user_username, user_email', 'safe', 'on'=>'search'),
 		);
 	}
 
+	public function judgeUserNameRepeat($attribute,$params) {
+		$name = $this->$attribute;
+		$res = User::model()->find("user_username='$name'");
+		if(!empty($res)) {
+			$this->addError($attribute, "该用户名已经被使用");
+		}
+	}
+	
+	public function password1($attribute,$params) {
+		$this->passwd = $this->$attribute;
+		//$this->addError($attribute, "please input a number in Npc Position X!");
+	}
+	
+	public function passwordRepeat($attribute,$params) {
+		if($this->$attribute != $this->passwd)
+			$this->addError($attribute, "两次密码输入不一致");
+	}
 	/**
 	 * @return array relational rules.
 	 */
@@ -60,11 +86,11 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'sigmaBlogs' => array(self::HAS_MANY, 'SigmaBlog', 'blog_user_id'),
-			'sigmaCompetitions' => array(self::HAS_MANY, 'SigmaCompetition', 'competition_creater'),
-			'sigmaCompetitionSubmits' => array(self::HAS_MANY, 'SigmaCompetitionSubmit', 'competition_submit_user_id'),
-			'sigmaUserCompetitions' => array(self::HAS_MANY, 'SigmaUserCompetition', 'user_competition_user_id'),
-			'sigmaUserTasks' => array(self::HAS_MANY, 'SigmaUserTask', 'user_task_user_id'),
+			'blogs' => array(self::HAS_MANY, 'Blog', 'blog_user_id'),
+			'competitions' => array(self::HAS_MANY, 'Competition', 'competition_creater'),
+			'competitionSubmits' => array(self::HAS_MANY, 'CompetitionSubmit', 'competition_submit_user_id'),
+			'userCompetitions' => array(self::HAS_MANY, 'UserCompetition', 'user_competition_user_id'),
+			'userTasks' => array(self::HAS_MANY, 'UserTask', 'user_task_user_id'),
 		);
 	}
 
@@ -74,9 +100,13 @@ class User extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'user_id' => 'User',
-			'user_password' => 'User Password',
-			'user_username' => 'User Username',
+			'user_id' => '用户ID',
+			'user_username' => '用户名',
+			'user_password' => '用户密码',
+			'user_password_repeat' => '重复密码',
+			'user_email' => '用户邮箱',
+			'user_sign' => '个性签名',
+			'user_declare' => '个人说明',
 		);
 	}
 
@@ -94,21 +124,16 @@ class User extends CActiveRecord
 		$criteria->compare('user_id',$this->user_id);
 		$criteria->compare('user_password',$this->user_password,true);
 		$criteria->compare('user_username',$this->user_username,true);
+		$criteria->compare('user_email',$this->user_email,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
-	
 	public function validatePassword($password) {
 		return $password === $this->user_password;
 	}
 	
-	
-	/**
-	 * function:�����û��б�����
-	 * �޲���
-	 */
 	public static function getUserOnline() {
 		$userArray = array();
 		$model = new UserOnline;
@@ -119,8 +144,3 @@ class User extends CActiveRecord
 		return $userArray;
 	}
 }
-
-
-
-
-

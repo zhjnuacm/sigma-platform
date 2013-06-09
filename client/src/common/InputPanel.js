@@ -86,7 +86,7 @@ var InputPanel = cc.Layer
 		        this.view.setPosition(cc.p(5, 33));
 		        this.addChild(this.view);
 		        this.view.setVisible(this._isOpen);
-		        this.schedule(this.step, 3);
+		        this.schedule(this.step, 0.5);
 
 		        return true;
 		    },

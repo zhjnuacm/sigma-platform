@@ -33,16 +33,22 @@
 </div>
 <!-- header -->
 
-<div id="mainmenu"><?php $this->widget('zii.widgets.CMenu',array(
+<div id="mainmenu"><?php 
+
+$this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 array('label'=>'Home', 'url'=>array('/site/index')),
 array('label'=>'Game', 'url'=>array('/site/game')),
 array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-array('label'=>'Task', 'url'=>array('/task/index')),
-array('label'=>'Npc', 'url'=>array('/npc')),
+array('label'=>'Task', 'url'=>array('/task/index'), 'visible'=>(Yii::app()->user->name == "admin")),
+array('label'=>'Npc', 'url'=>array('/npc'), 'visible'=>(Yii::app()->user->name == "admin")),
 array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+array('label'=>'Register', 'url'=>array('/user/create'), 'visible'=>Yii::app()->user->isGuest),
+array('label'=>'User', 'url'=>array('/user/index'), 'visible'=>(Yii::app()->user->name == "admin")),		
+array('label'=>'Profile', 'url'=>array('/user/viewMyself'), 'visible'=>(!Yii::app()->user->isGuest)), 
 ),
+		
 )); ?></div>
 <!-- mainmenu --> <?php if(isset($this->breadcrumbs)):?> <?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,
@@ -50,10 +56,9 @@ array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout
 
 <div class="clear"></div>
 
-<div id="footer">Copyright &copy; <?php echo date('Y'); ?> by My
-Company.<br />
+<div id="footer">Copyright &copy; <?php echo date('Y'); ?> by sigma company.<br />
 All Rights Reserved.<br />
-<?php echo Yii::powered(); ?></div>
+</div>
 <!-- footer --></div>
 <!-- page -->
 

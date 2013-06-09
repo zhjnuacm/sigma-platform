@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 07, 2013 at 08:06 PM
+-- Generation Time: Jun 10, 2013 at 02:30 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `sigma_message` (
   `message_is_secret` enum('y','n') COLLATE utf8_unicode_ci DEFAULT NULL,
   `message_is_kick` enum('y','n') COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`message_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=232 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=254 ;
 
 --
 -- Dumping data for table `sigma_message`
@@ -250,7 +250,29 @@ INSERT INTO `sigma_message` (`message_id`, `message_sender`, `message_reciever`,
 (228, 'test1', 'all', '哈哈，就是文字位置咯咯咯来咯咯咯咯', '2013-06-06 23:00:03', 0, NULL, NULL, NULL),
 (229, 'test1', 'all', '随便聊咯。', '2013-06-06 23:00:09', 0, NULL, NULL, NULL),
 (230, 'test1', 'all', '文字位置', '2013-06-06 23:03:59', 0, NULL, NULL, NULL),
-(231, 'test1', 'all', '聊天窗口哟哟哟', '2013-06-06 23:04:11', 0, NULL, NULL, NULL);
+(231, 'test1', 'all', '聊天窗口哟哟哟', '2013-06-06 23:04:11', 0, NULL, NULL, NULL),
+(232, 'test3', '【系统消息】', 'test3进入了聊天室!', '2013-06-09 14:38:39', 0, NULL, NULL, NULL),
+(233, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-09 14:48:51', 0, NULL, NULL, NULL),
+(234, 'admin', '【系统消息】', 'admin进入了聊天室!', '2013-06-09 14:48:59', 0, NULL, NULL, NULL),
+(235, 'admin', '【系统消息】', 'admin离开了聊天室!', '2013-06-09 14:52:07', 0, NULL, NULL, NULL),
+(236, 't', '【系统消息】', 't进入了聊天室!', '2013-06-09 15:12:50', 0, NULL, NULL, NULL),
+(237, 't', '【系统消息】', 't离开了聊天室!', '2013-06-09 15:12:55', 0, NULL, NULL, NULL),
+(238, 'test1', '【系统消息】', 'test1进入了聊天室!', '0000-00-00 00:00:00', 0, NULL, NULL, NULL),
+(239, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-09 17:12:03', 0, NULL, NULL, NULL),
+(240, 'admin', '【系统消息】', 'admin进入了聊天室!', '2013-06-09 17:12:09', 0, NULL, NULL, NULL),
+(241, 'admin', '【系统消息】', 'admin离开了聊天室!', '2013-06-09 17:12:17', 0, NULL, NULL, NULL),
+(242, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-09 17:13:41', 0, NULL, NULL, NULL),
+(243, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-09 23:34:16', 0, NULL, NULL, NULL),
+(244, 'admin', '【系统消息】', 'admin进入了聊天室!', '2013-06-09 23:37:27', 0, NULL, NULL, NULL),
+(245, 'admin', '【系统消息】', 'admin进入了聊天室!', '2013-06-10 02:01:32', 0, NULL, NULL, NULL),
+(246, 'admin', '【系统消息】', 'admin离开了聊天室!', '2013-06-10 02:04:33', 0, NULL, NULL, NULL),
+(247, 'admin', '【系统消息】', 'admin进入了聊天室!', '2013-06-10 02:05:43', 0, NULL, NULL, NULL),
+(248, 'admin', '【系统消息】', 'admin离开了聊天室!', '2013-06-10 02:06:37', 0, NULL, NULL, NULL),
+(249, 'admin', '【系统消息】', 'admin进入了聊天室!', '2013-06-10 02:07:15', 0, NULL, NULL, NULL),
+(250, 'admin', '【系统消息】', 'admin离开了聊天室!', '2013-06-10 02:08:29', 0, NULL, NULL, NULL),
+(251, '45', '【系统消息】', '45进入了聊天室!', '2013-06-10 02:14:25', 0, NULL, NULL, NULL),
+(252, '45', '【系统消息】', '45离开了聊天室!', '2013-06-10 02:14:57', 0, NULL, NULL, NULL),
+(253, 'admin', '【系统消息】', 'admin进入了聊天室!', '2013-06-10 02:19:19', 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -326,20 +348,26 @@ INSERT INTO `sigma_tmp_map` (`row`, `col`, `strMap`, `pos_x`, `pos_y`, `id`) VAL
 CREATE TABLE IF NOT EXISTS `sigma_user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_password` varchar(45) NOT NULL,
+  `user_password_repeat` varchar(45) NOT NULL,
   `user_username` varchar(45) NOT NULL,
+  `user_email` varchar(105) NOT NULL,
+  `user_sign` text NOT NULL,
+  `user_declare` text NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `user_username_UNIQUE` (`user_username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `sigma_user`
 --
 
-INSERT INTO `sigma_user` (`user_id`, `user_password`, `user_username`) VALUES
-(1, 'test1', 'test1'),
-(2, 'test2', 'test2'),
-(3, 'test3', 'test3'),
-(4, 'test4', 'test4');
+INSERT INTO `sigma_user` (`user_id`, `user_password`, `user_password_repeat`, `user_username`, `user_email`, `user_sign`, `user_declare`) VALUES
+(1, 'test1', '', 'test1', '', '', ''),
+(2, 'test2', '', 'test2', '', '', ''),
+(3, 'test3', '', 'test3', '', '', ''),
+(4, 'test4', '', 'test4', '', '', ''),
+(5, 'admin', 'admin', 'admin', 'guichyu@gmail.com', '我的第一个个性签名,我的第一个个性签名,我的第一个个性签名,我的第一个个性签名,我的第一个个性签名', '我的第一个个人说明'),
+(9, '45', '45', '45', '45', '', '');
 
 -- --------------------------------------------------------
 
@@ -374,7 +402,8 @@ CREATE TABLE IF NOT EXISTS `sigma_user_online` (
 --
 
 INSERT INTO `sigma_user_online` (`online_name`, `online_time_now`, `online_from_time`) VALUES
-('test1', '2013-06-06 22:05:16', '2013-06-06 23:04:13');
+('admin', '2013-06-10 02:19:18', '2013-06-10 02:19:18'),
+('test3', '2013-06-09 14:38:38', '2013-06-09 14:38:38');
 
 -- --------------------------------------------------------
 
