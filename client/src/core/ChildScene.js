@@ -5,6 +5,11 @@
  * [ChildScene 英雄面板信息类]
  * @type {[type]}
  */
+
+/**
+ * @author huanniang
+ * @type 
+ */
 var ChildScene = cc.Layer.extend({
 
 	//layer中的元素内容
@@ -34,7 +39,7 @@ var ChildScene = cc.Layer.extend({
 		//map
 		this._map = Map.create('map1');
 		this.addChild(this._map,this._zOrder["_map"]);
-		
+		this._npcFactory = NpcFactory.create(this._map,'map1');
 		//hero
 		this._hero = Hero.create(this._map.tilePositionToWorldLocation(cc.p(6,1)));
 		this.addChild(this._hero.getSprite(),this._zOrder["_hero"]);

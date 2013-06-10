@@ -12,14 +12,19 @@
 		tag : 'gameCanvas', // the dom element to run cocos2d on
 		// engineDir:'../cocos2d/',
 		SingleEngineFile : prefix + 'Cocos2d-html5-v2.1.1.min.js',
-		appFiles : [ prefix + 'src/resource.js', prefix + 'src/myApp.js',
+		appFiles : [ 
+		        prefix + 'src/resource.js', 
+		        prefix + 'src/myApp.js',
 				prefix + 'src/core/Mediator.js',
-				prefix + 'src/core/ChatPanel.js', prefix + 'src/core/Hero.js',
+				prefix + 'src/core/ChatPanel.js',
+				prefix + 'src/core/Hero.js',
 				prefix + 'src/core/HeroPanel.js',
 				prefix + 'src/core/HeroPosition.js',
-				prefix + 'src/core/Map.js', prefix + 'src/core/Npc.js',
+				prefix + 'src/core/Map.js', 
+				prefix + 'src/core/Npc.js',
 				prefix + 'src/core/SystemFunction.js',
-				prefix + 'src/core/Map.js', prefix + 'src/config/config.js',
+				prefix + 'src/core/Map.js', 
+				prefix + 'src/config/config.js',
 
 				prefix + 'src/config/mapConfig.js',
 				prefix + 'src/common/TipBox.js',
@@ -28,15 +33,19 @@
 				prefix + 'src/common/TextBox.js',
 				prefix + 'src/common/InputPanel.js',
 				prefix + 'src/common/ViewPanel.js',
-				prefix + 'src/common/Tools.js', prefix + 'jquery-2.0.0.min.js',
+				prefix + 'src/common/Tools.js', 
+				prefix + 'jquery-2.0.0.min.js',
 				prefix + 'src/common/ViewPanel.js',
 				prefix + 'src/common/Button.js',
+				prefix + 'src/common/RadioButton.js',
 				prefix + 'src/common/Dialog.js',
 				prefix + 'src/core/NpcDialog.js',
 				prefix + 'src/core/LoaderScene.js',
 				prefix + 'src/core/NpcFactory.js',
 				prefix + 'src/core/ChildScene.js',
-                prefix + 'src/core/UserContral.js'],
+                prefix + 'src/core/UserContral.js',
+               
+                ],
 	};
 	window
 			.addEventListener(

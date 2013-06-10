@@ -7,17 +7,17 @@ class NpcController extends Controller
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='//layouts/column2';
-	
+
 	public function actionSetGlobal() {
 		Yii::app()->user->setState("cchun", "good job123!!!");
 	}
-	
+
 	/**
 	 * @abstract get the ajax of the information of the map config
 	 * @param unknown_type $mapConfStr
 	 */
 	public function actionSetGlobalMapConf($mapConfStr) {
-		if(Yii::app()->request->isAjaxRequest) 
+		if(Yii::app()->request->isAjaxRequest)
 		{
 			$res = array();
 			$mapArr = explode("|", $mapConfStr);
@@ -27,7 +27,7 @@ class NpcController extends Controller
 			Yii::app()->user->setState("mapConfArr", $res);
 		}
 	}
-	
+
 	/**
 	 * @return array action filters
 	 */
@@ -47,21 +47,21 @@ class NpcController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
+		array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view', 'Getnpcs', 'Gettasks', 'SetGlobal', 'SetGlobalMapConf'),
 				'users'=>array('@'),
-			),
-			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+		),
+		array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update'),
 				'users'=>array('@'),
-			),
-			array('allow', // allow admin user to perform 'admin' and 'delete' actions
+		),
+		array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete', 'AjaxGetMapMatrix', 'Test'),
 				'users'=>array('@'),
-			),
-			array('deny',  // deny all users
+		),
+		array('deny',  // deny all users
 				'users'=>array('*'),
-			),
+		),
 		);
 	}
 
@@ -74,18 +74,18 @@ class NpcController extends Controller
 	public function actionAjaxGetMapMatrix($mapStr, $row, $col)
 	{
 		if(Yii::app()->request->isAjaxRequest)
-		{		
+		{
 			$model = new TmpMap;
 			$res = $model->find("id='1'");
 			$res->strMap = $mapStr;
 			$res->row = $row;
-			$res->col = $col; 
+			$res->col = $col;
 			if($res->save() <= 0){
 				Yii::log("save fail",CLogger::LEVEL_INFO,'system.protected.controllers.NpcController');
 			}
 		}
 	}
-	
+
 	/**
 	 * @abstract just for test
 	 */
@@ -95,7 +95,7 @@ class NpcController extends Controller
 				'model'=>$mm,
 		));
 	}
-	
+
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -120,14 +120,14 @@ class NpcController extends Controller
 		if(isset($_POST['Npc']))
 		{
 			$model->attributes=$_POST['Npc'];
-			
+				
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->npc_id));
+			$this->redirect(array('view','id'=>$model->npc_id));
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
-		)); 
+		));
 	}
 
 	/**
@@ -146,7 +146,7 @@ class NpcController extends Controller
 		{
 			$model->attributes=$_POST['Npc'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->npc_id));
+			$this->redirect(array('view','id'=>$model->npc_id));
 		}
 
 		$this->render('update',array(
@@ -165,7 +165,7 @@ class NpcController extends Controller
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
 	}
 
 	/**
@@ -187,7 +187,7 @@ class NpcController extends Controller
 		$model=new Npc('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['Npc']))
-			$model->attributes=$_GET['Npc'];
+		$model->attributes=$_GET['Npc'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -203,7 +203,7 @@ class NpcController extends Controller
 	{
 		$model=Npc::model()->findByPk($id);
 		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');
+		throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
 
@@ -219,7 +219,7 @@ class NpcController extends Controller
 			Yii::app()->end();
 		}
 	}
-	
+
 	/**
 	 *
 	 * 根据地图传NPC配置信息@分割
@@ -239,7 +239,7 @@ class NpcController extends Controller
 			}
 		}
 	}
-	
+
 	/**
 	 * 根据NPCid 传任务信息，@分割
 	 * Enter description here ...
@@ -247,12 +247,12 @@ class NpcController extends Controller
 	 */
 	public function ActionGettasks($npcid)
 	{
-		// id,title,content,完成状态(未接受，任务完成没有交任务),
-		$title = "C语言入门";
-		for($i = 0 ; $i < 2 ; $i++)
-		{
-			echo "@".$i."|"."测试任务".$i."请熟练唱出山路十八弯|如果我 和你的猫咪一起掉进水里,没关系,脂肪有浮力,你们沉不下去|".$i%2;
-		}
+		
+		// id title content(content,options) isDone taskType
+		echo "@1|"."请熟练唱出山路十八弯|如果我 和你的猫咪一起掉进水里,没关系,脂肪有浮力,你们沉不下去|1|0";
+		echo "@2|"."未接受任务测试|如果我 和你的猫咪一起掉进水里,没关系,脂肪有浮力,你们沉不下去|0|0";
+		echo "@3|历史选择题|请问朱元璋是谁!^唐太宗&唐高宗&明太祖&康熙|0|1";
+		echo "@4|简单计算题|请问(1+2/3+5+78+78-41+45-78+145-145 = ?)|0|2"; 
 	}
 }
 
