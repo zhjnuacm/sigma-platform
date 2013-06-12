@@ -66,7 +66,7 @@ function Mediator() {
 		this._mainLayer.addChild(inputD, 2);
 
 		friendList = FriendList.create();
-		this._mainLayer.addChild(friendList);
+		this._mainLayer.addChild(friendList, 2);
 
 		return true;
 	},

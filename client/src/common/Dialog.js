@@ -59,6 +59,8 @@ var DialogBackground = cc.LayerColor.extend({
  * @param  {[type]} pw 对话框背景的宽
  * @param  {[type]} ph 对话框背景的高
  * @return {[type]}
+ * 关于菜单问题： 凡是在对话框中add一个menu类的Child, tag利用this._menuTag设置， 之后都要调用一次addMenu 函数
+ * 另外，如果还有除menu类以外的Child 添加tag， 请将tag设置在100 以上, 也就是0 ~ 100 用来设置menu类的tag
  */
 
 DialogBackground.create = function (pw, ph) {
@@ -71,7 +73,8 @@ var DialogView = cc.Layer.extend({
     layer: null,
     _width: 0,
     _height: 0,
-
+    _menuTag: 0,
+    
     actionShake : cc.Speed.create(cc.Repeat.create(
                 cc.Sequence.create(
                 cc.MoveBy.create(0.1, cc.p(1, 0)),
@@ -99,7 +102,12 @@ var DialogView = cc.Layer.extend({
         this.addClose();
         return true;
     },
-
+    
+    addMenu: function() {
+    	this._menuTag++;
+    },
+    
+    
     onCloseMyself: function () {
 
         this.removeFromParent(true);
@@ -114,11 +122,12 @@ var DialogView = cc.Layer.extend({
     addClose: function () {
 
         this.closeItem = cc.MenuItemImage.create(s_dlg[0]["res"], s_dlg[1]["res"], this.onCloseMyself, this);
-    	this.closeButton = myButton.create(this.closeItem);
+    	this.closeButton = cc.Menu.create(this.closeItem);
         //var rect = this.closeItem.getBoundingBoxToWorld();
         //cc.log(rect.size.width + ' ' + rect.size.height + ' ' + rect.origin.x + ' '+rect.origin.y );
     	this.closeButton.setPosition(cc.p(this._width - 15, this._height - 10));
-        this.addChild(this.closeButton);
+        this.addChild(this.closeButton, 0, this._menuTag);
+        this.addMenu();
     },
     
     addButtons : function (title,select_callback,target)
@@ -134,7 +143,8 @@ var DialogView = cc.Layer.extend({
     	var menu = cc.Menu.create(p1,p2);
     	menu.alignItemsHorizontallyWithPadding(this.layer._width*0.2);
     	menu.setPosition(cc.p(this.layer._width*0.5,30));
-    	this.addChild(menu,2);
+    	this.addChild(menu, 2, this._menuTag);
+    	this.addMenu();
     },
     
     setPosition: function (point) {
@@ -143,7 +153,7 @@ var DialogView = cc.Layer.extend({
     
     setTouchPriority: function(prority){
     	this._super(prority);
-    	this.closeButton.setTouchPriority(prority - 1);
+    	//this.closeButton.setTouchPriority(prority - 1);
     },
     onTouchBegan: function (touch, event) {
 
@@ -171,10 +181,20 @@ var DialogView = cc.Layer.extend({
     onEnter: function () {
         this._super();
         cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, this.getTouchPriority(), true);
+        this.scheduleOnce(this.setDialogMenuPriority, 1)
+
         //cc.KeyboardDispatcher.getInstance().addDelegate(this);
         //alert(this.getTouchPriority());
     },
 
+    setDialogMenuPriority: function(){
+    	var i;
+        for(i = 0; i < this._menuTag; ++i){
+        	var menu = this.getChildByTag(i);
+        	menu.setHandlerPriority(this.getTouchPriority() - 1);
+        }
+    },
+    
     onExit: function () {
         cc.Director.getInstance().getTouchDispatcher().removeDelegate(this);
         //cc.KeyboardDispatcher.getInstance().removeDelegate(this);

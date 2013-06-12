@@ -13,7 +13,9 @@ var RadioButton = cc.Layer.extend({
 					self.optionsClickCallBack, self);
 			self._chooseItems[i].optionId = i;
 		}
+		//var menu = myButton.create(self._chooseItems);
 		var menu = cc.Menu.create(self._chooseItems);
+		//menu.setHandlerPriority(this.getTouchPriority() - 1);
 		menu.alignItemsVerticallyWithPadding(8);
 		self.addChild(menu);
 		menu.setPosition(position);

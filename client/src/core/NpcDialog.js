@@ -120,6 +120,8 @@ function NpcTaskListDialog() {
 	this._taskList;
 	this._width;
 	this._height;
+	this._priority;
+	
 	this.init = function(position, priority, npcId, taskList, title) {
 		var self = this;
 		self._width = 400;
@@ -152,13 +154,19 @@ function NpcTaskListDialog() {
 			p[i - 1].taskType = parseInt(taskConfig[4]);
 
 		}
-
 		var menu = cc.Menu.create(p);
+		
 		menu.alignItemsVerticallyWithPadding(8);
 		menu.setPosition(cc.p(self._width * 0.5, self._height - 80));
-		self._dialogView.addChild(menu);
+		self._dialogView.addChild(menu, 0, self._dialogView._menuTag);
+		self._dialogView.addMenu();
 		return true;
 	};
+	
+	this.setDialogMenuPriority = function(){
+		this._dialogView.getChildByTag(1).setHandlerPriority(this._priority - 1);
+	};
+	
 	this.createTaskDialog = function(sender) {
 		var self = this;
 		var dialog = TaskDialog.create(cc.p(0, 0), self._dialogView
