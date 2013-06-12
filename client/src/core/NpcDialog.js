@@ -4,6 +4,7 @@ function TaskDialog() {
 	this._width;
 	this._height;
 	this._answer;
+	
 	this.init = function(position, priority, taskId, title, content, isDone,
 			taskType) {
 		var self = this;
@@ -41,13 +42,16 @@ function TaskDialog() {
 			break;
 		}
 		return true;
-	}, this.initNormalTask = function(title, content, isDone) {
+	},
+	
+	this.initNormalTask = function(title, content, isDone) {
 		var self = this;
 		self._answer = "done";
 		isDone ? self._dialogView.addButtons("接受任务", self.getTask, self)
 				: self._dialogView.addButtons("完成任务", self.submitTask, self);
-
-	}, this.initChooseTask = function(title, content) {
+	}, 
+	
+	this.initChooseTask = function(title, content) {
 		var self = this;
 		var choose = RadioButton.create(content.split("&"), cc.p(
 				self._width * 0.5, self._height - 200));
@@ -58,7 +62,6 @@ function TaskDialog() {
 			// cc.log(choose.getAnswer());
 			self.submitTask();
 		}, self);
-
 	},
 
 	this.initFullTask = function() {
@@ -78,6 +81,7 @@ function TaskDialog() {
 			self.submitTask();
 		}, self);
 	}
+	
 	this.getTask = function() {
 		// ajax
 		var self = this;
@@ -125,8 +129,7 @@ function NpcTaskListDialog() {
 		self._width = 400;
 		self._height = 200;
 		var title = title;
-		self._dialogView = DialogView.create(self._width, self._height, cc.p(0,
-				0));
+		self._dialogView = DialogView.create(self._width, self._height, cc.p(0,0));
 		self._dialogView.setTouchPriority(priority - 1);
 		var titleLabel = cc.LabelTTF.create("", s_yahei, 24);
 		titleLabel.setString(title);
@@ -150,7 +153,6 @@ function NpcTaskListDialog() {
 			p[i - 1].content = taskConfig[2];
 			p[i - 1].isDone = taskConfig[3] == "0";
 			p[i - 1].taskType = parseInt(taskConfig[4]);
-
 		}
 
 		var menu = cc.Menu.create(p);
@@ -159,6 +161,7 @@ function NpcTaskListDialog() {
 		self._dialogView.addChild(menu);
 		return true;
 	};
+	
 	this.createTaskDialog = function(sender) {
 		var self = this;
 		var dialog = TaskDialog.create(cc.p(0, 0), self._dialogView

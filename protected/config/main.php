@@ -37,6 +37,9 @@ return array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
 		),
+		'mutex' => array(
+			'class' => 'application.extensions.EMutex',
+		),
 		// uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(

@@ -1,16 +1,17 @@
 <?php
+
 /**
  * This is the model class for table "sigma_user_task".
  *
  * The followings are the available columns in table 'sigma_user_task':
- * @property integer $user_task_id
- * @property integer $user_task_task_id
- * @property integer $user_task_user_id
- * @property integer $user_task_status
+ * @property integer $id
+ * @property integer $task_id
+ * @property integer $status  (1: have done, 0: haven't done)
+ * @property 'user_name'
  *
  * The followings are the available model relations:
- * @property Task $userTaskTask
- * @property User $userTaskUser
+ * @property User $user
+ * @property Task $task
  */
 class UserTask extends CActiveRecord
 {
@@ -40,11 +41,11 @@ class UserTask extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_task_task_id, user_task_user_id, user_task_status', 'required'),
-			array('user_task_task_id, user_task_user_id, user_task_status', 'numerical', 'integerOnly'=>true),
+			array('task_id, status', 'required'),
+			array('task_id, status', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('user_task_id, user_task_task_id, user_task_user_id, user_task_status', 'safe', 'on'=>'search'),
+			array('id, task_id, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,8 +57,8 @@ class UserTask extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'userTaskTask' => array(self::BELONGS_TO, 'Task', 'user_task_task_id'),
-			'userTaskUser' => array(self::BELONGS_TO, 'User', 'user_task_user_id'),
+			'user' => array(self::BELONGS_TO, 'User', 'user_name'),
+			'task' => array(self::BELONGS_TO, 'Task', 'task_id'),
 		);
 	}
 
@@ -67,10 +68,10 @@ class UserTask extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'user_task_id' => 'User Task',
-			'user_task_task_id' => 'User Task Task',
-			'user_task_user_id' => 'User Task User',
-			'user_task_status' => 'User Task Status',
+			'id' => 'ID',
+			'task_id' => 'Task',
+			'user_name' => 'User Name', 
+			'status' => 'Status',
 		);
 	}
 
@@ -85,16 +86,13 @@ class UserTask extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('user_task_id',$this->user_task_id);
-		$criteria->compare('user_task_task_id',$this->user_task_task_id);
-		$criteria->compare('user_task_user_id',$this->user_task_user_id);
-		$criteria->compare('user_task_status',$this->user_task_status);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('task_id',$this->task_id);
+		$criteria->compare('user_id',$this->user_id);
+		$criteria->compare('status',$this->status);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
 }
-
-
-

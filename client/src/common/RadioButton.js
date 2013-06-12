@@ -21,13 +21,14 @@ var RadioButton = cc.Layer.extend({
 		self._answer = "A";
 		return true;
 	},
+	
 	getMenuItemFromTitle : function(title, select_callback, target) {
 		var t1 = cc.LabelTTF.create(title, s_yahei, 16);
 		t1.setColor(cc.c3b(0, 0, 0));
 		var p1 = cc.MenuItemLabel.create(t1, select_callback, target);
 		return p1;
 	},
-
+ 
 	getAnswer : function() {
 		return this._answer;
 	},

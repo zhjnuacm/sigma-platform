@@ -2,6 +2,9 @@
 
 class ChatController extends Controller
 {
+	
+   
+	
 	/**
 	 * @abstract pull the talk info from server to ajax
 	 * 			 for talk system 
@@ -10,27 +13,38 @@ class ChatController extends Controller
 	 */
 	public function actionPull()
 	{
-		//if(Yii::app()->request->isAjaxRequest)
+		
+	    /* if(Yii::app()->mutex->lock('some-unique-id', 60)) {
+		 	echo "lock success!";
+		 	sleep(15);
+			Yii::app()->mutex->unlock();
+			Yii::log("lock success! ", CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
+		}
+		else
 		{
-			//$lock = new CacheLock('key_name');
-			
-			if(function_exists("eaccelerator_lock") == true)
-		    {
-				Yii::log("lock success! ", CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
-			}
-			else
+			echo "Already working on it...";
+			exit;
+			Yii::log("lock failed! ", CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
+		} */
+		
+		
+	//	if(Yii::app()->request->isAjaxRequest)
+		{		
+			/* while (!Yii::app()->mutex->lock('id4', 3))
 			{
-				Yii::log("lock failed! ", CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
-			}
-			
-			//$isPulling = Yii::app()->user->getState("pullTalking");
-			//Yii::log("heihei: ".$isPulling, CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
-			//if($isPulling == false)
+				sleep(1);
+			} */
+			if(Yii::app()->mutex->lock('some-unique-id', 60))
 			{
-				//Yii::app()->user->setState("pullTalking", true);
+				//Yii::log("lock success! ", CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
+				/*else
+				{
+					Yii::log("lock failed! ", CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
+					Yii::app()->mutex->unlock("id");
+				} */
+			
 				$info="";
-				/* if(Yii::app()->user->isGuest)
-					throw new CHttpException("请先登录"); */
+
 				$user = Yii::app()->user->name;
 				$modelarray = $this->getTalkLog();
 				foreach($modelarray as $model) {
@@ -39,29 +53,30 @@ class ChatController extends Controller
 						$model->message_content = "说:".$model->message_content;
 					}
 					/* if($model->message_sender == $user)
-						continue; */
+					 continue; */
 					/* else {
-						$model->message_sender = "";
+					 $model->message_sender = "";
 					} */
 					$info .= "[".$model->message_sender."]: ".$model->message_content."\n";
 				}
+				
 				//Yii::log($info, CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
 				if($info != "") {
-					$this->updateUserOnlineFromTime();
-					$this->renderPartial("_pullHaveInfo", array("info"=>$info));
-					//$lock->unlock();
-						
-				} 
-				else {
-					$this->renderPartial("_pullNoInfo");
-					Yii::app()->user->setState("pullTalking", false);
-					//$lock->unlock();
-						
+					$this->updateUserOnlineFromTime();	
+					$this->renderPartial("_pullHaveInfo", array("info"=>$info));					
 				}
+				else {
+				//	$this->renderPartial("_pullNoInfo");
+					echo "@@";
+				//	Yii::app()->user->setState("pullTalking", false);
+				}
+				Yii::app()->mutex->unlock();
 			}
-			/* else {
-				Yii::log("can't pull the info, the is pulling is: ".$isPulling, CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
-			} */
+			else {
+				Yii::log("lock failed! ", CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
+				//$this->renderPartial("_pullNoInfo");
+				echo "locking…………\n";
+			}
 		}
 	}
 	

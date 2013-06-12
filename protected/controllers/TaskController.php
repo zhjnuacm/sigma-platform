@@ -33,7 +33,7 @@ class TaskController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view', 'GetGlobal'),
+				'actions'=>array('index','view', 'GetGlobal', 'Gettask', 'Submittask'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -67,6 +67,12 @@ class TaskController extends Controller
 	 */
 	public function actionCreate()
 	{
+		/* $type1 = new TaskProType1;
+	//	$url = $this->createUrl('TaskProType1/create', array('model'=>$type1) ,'/');
+		$str = "hello";
+		$url=$this->createUrl('index.php?r=TaskProType1/create', array('model'=>$type1,'str'=>$str) ,'&');
+		$this->redirect($url); */
+		
 		$model=new Task;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -75,8 +81,9 @@ class TaskController extends Controller
 		if(isset($_POST['Task']))
 		{
 			$model->attributes=$_POST['Task'];
-			if($model->save())
+			if($model->save()) {
 				$this->redirect(array('view','id'=>$model->task_id));
+			}
 		}
 
 		$this->render('create',array(
@@ -197,6 +204,17 @@ class TaskController extends Controller
 	 */
 	public function actionGettask($taskId)
 	{
+		$username = Yii::app()->user->name;
+		$model = new UserTask;
+		$model->task_id = $taskId;
+		$model->user_name = $username;
+		
+		if($model->save()) {
+			Yii::log("save success!","info","TaskController.actionGettask");
+		}
+		else {
+			Yii::log("save failed!","info","TaskController.actionGettask");
+		}
 		echo "你接受了一个任务";
 	}
 	
@@ -207,7 +225,83 @@ class TaskController extends Controller
 	 */
 	public function actionSubmittask($taskId,$answer)
 	{
-		echo "你完成了一个任务 ,答案是".$answer;
+		if($this->isTheUserHaveDonePreTask ($taskId)) {
+			$criteria = new CDbCriteria;
+			$criteria->addCondition("task_id='$taskId'");
+				
+			$allTask = array();
+			$res = TaskProType0::model()->findAll($criteria);
+			$this->putResToArr($allTask, $res);
+			$res = TaskProType1::model()->findAll($criteria);
+			$this->putResToArr($allTask, $res);
+			$res = TaskProType2::model()->findAll($criteria);
+			$this->putResToArr($allTask, $res);
+			
+			$ans = $allTask[0]->problem_answer;
+			//Yii::log("the problem answer is: ".$ans ,"info","TaskController.actionSubmittask");
+			//echo "你完成了一个任务 ,答案是".$answer;
+			if($ans != $answer) {
+				echo "不好意思，你的答案是错误的~";
+			}
+			else {
+				
+				$userTaskModel = UserTask::model()->find("task_id='$taskId'");
+				if(!empty($userTaskModel)) {
+					$userTaskModel->status = 1;
+					$userTaskModel->save();
+				}
+				else {
+					$username = Yii::app()->user->name;
+					$model = new UserTask;
+					$model->task_id = $taskId;
+					$model->user_name = $username;
+					$model->status = 1;
+					if($model->save()) {
+						Yii::log("save success!","info","TaskController.actionSubmittask");
+					}
+					else {
+						Yii::log("save failed!","info","TaskController.actionSubmittask");
+					}
+				}
+				echo "恭喜你，你答对了!";
+			}
+		}
+		else {
+			echo "请做好这个任务的前置任务才能领取该任务！！";
+		}
+	}
+	
+	
+	/**
+	 * @abstract judge the user is have done the prepose task
+	 * @return true:(you can do this task)  false:(you can't do this task) 
+	 */
+	private function isTheUserHaveDonePreTask ($taskId) {
+		$task = Task::model()->find("task_id='$taskId'");
+		$taskPreTaskId = $task->task_pretask;
+		if($taskId == $taskPreTaskId) return true;
+		
+		$username =  Yii::app()->user->name;
+		$userTask = UserTask::model()->findAll("user_name='$username'");
+	
+		if(empty($userTask)) return false;
+		
+		foreach ($userTask as $mod) {
+			if($mod->task_id == $taskPreTaskId && $mod->status == 1) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	/**
+	 * @abstract put the element from a array to a array
+	 */
+	private function putResToArr(&$allTask, &$res) {
+		foreach ($res as $mol) {
+			array_push($allTask, $mol);
+		}
 	}
 }
+
 

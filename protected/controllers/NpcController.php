@@ -222,13 +222,13 @@ class NpcController extends Controller
 
 	/**
 	 *
-	 * 根据地图传NPC配置信息@分割
+	 * @abstract info = @ + npc_id + pos_x + pos_y + npc_name;
+	 * 			"@" is used for split npc
 	 * @param unknown_type $mapName
 	 */
 	public function actionGetnpcs($mapName) {
 		if(Yii::app()->request->isAjaxRequest)
 		{
-			//@, id, pos_x, pos_y, npc_name
 			$res = Npc::model()->findAll();
 			foreach($res as $model) {
 				$id = $model->npc_id;
@@ -241,20 +241,89 @@ class NpcController extends Controller
 	}
 
 	/**
-	 * 根据NPCid 传任务信息，@分割
-	 * Enter description here ...
+	 * @abstract  info = @ + taskId + title + content + isDone + taskType;
+	 * 			"@" is used for split problem
+	 * 			type0: mixed question
+	 * 			type1: choice question
+	 * 			type2: calculation question
 	 * @param unknown_type $npcid
 	 */
-	public function ActionGettasks($npcid)
+	public function actionGettasks($npcid)
 	{
-		
-		// id title content(content,options) isDone taskType
-		echo "@1|"."请熟练唱出山路十八弯|如果我 和你的猫咪一起掉进水里,没关系,脂肪有浮力,你们沉不下去|1|0";
-		echo "@2|"."未接受任务测试|如果我 和你的猫咪一起掉进水里,没关系,脂肪有浮力,你们沉不下去|0|0";
-		echo "@3|历史选择题|请问朱元璋是谁!^唐太宗&唐高宗&明太祖&康熙|0|1";
-		echo "@4|简单计算题|请问(1+2/3+5+78+78-41+45-78+145-145 = ?)|0|2"; 
+		///if(Yii::app()->request->isAjaxRequest) 
+		{
+			$allTask = $this->findNpcTask($npcid);
+			$taskId; $title; $content; $isDone; $taskType;
+			foreach($allTask as $mod) {
+				$taskId = $mod->task_id;
+				$title = $mod->problem_name;
+				$content = $mod->problem_declare;
+				$taskType = $mod->task_type;
+				$isDone = $this->isTheUserHaveDoneThisTask($taskId);
+				echo "@".$taskId."|".$title."|".$content."|".$isDone."|".$taskType;
+			}
+			//Yii::log(var_dump($allTask),CLogger::LEVEL_INFO,'system.protected.controllers.NpcController.Gettasks');
+			/* echo "@1|"."请熟练唱出山路十八弯|如果我 和你的猫咪一起掉进水里,没关系,脂肪有浮力,你们沉不下去|1|0";*/
+		}  
+	}
+	
+	
+	/**
+	 * @abstract judge the user have done this work
+	 * @param unknown_type $taskId
+	 * @return boolean
+	 */
+	private function isTheUserHaveDoneThisTask ($taskId) {
+		$username = Yii::app()->user->name;
+		$TheUserTask = UserTask::model()->findAll("user_name='$username'");
+		foreach($TheUserTask as $mod) {
+			if($mod->task_id == $taskId && $mod->status == 1) {
+				return 1; //have done
+			}
+		}
+		return 0; //haven't done
+	} 
+	
+	/**
+	 * @abstract find the task of a npc 
+	 * @param array model $npdid
+	 */
+	public function findNpcTask($npcid) {
+		$allTaskId = array();
+		$taskArr = Task::model()->findAll("npc_id='$npcid'");
+		Yii::log(count($taskArr),CLogger::LEVEL_INFO,'system.protected.controllers.NpcController.Gettasks');
+		foreach($taskArr as $taskMol) {
+			$id = $taskMol->task_id;
+			array_push($allTaskId, $id);
+		}
+		$criteria = new CDbCriteria;
+		$criteria->addInCondition('task_id', $allTaskId);
+			
+		$allTask = array();
+		$res = TaskProType0::model()->findAll($criteria);
+		$this->putResToArr($allTask, $res);
+		$res = TaskProType1::model()->findAll($criteria);
+		$this->putResToArr($allTask, $res);
+		$res = TaskProType2::model()->findAll($criteria);
+		$this->putResToArr($allTask, $res);
+		return $allTask;
+	}
+	
+	/**
+	 * @abstract put the element from a array to a array
+	 */
+	public function putResToArr(&$allTask, &$res) {
+		foreach ($res as $mol) {
+			array_push($allTask, $mol);
+		}		
 	}
 }
+
+
+
+
+
+
 
 
 
