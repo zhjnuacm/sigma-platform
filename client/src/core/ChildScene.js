@@ -36,6 +36,8 @@ var ChildScene = cc.Layer.extend({
 		this._zOrder["_hero"] = 20;
 		this._zOrder["_clickTile"] = 11;
 		
+		//this._zOrder["_npc"] = 30;
+		
 		//map
 		this._map = Map.create('map1');
 		this.addChild(this._map,this._zOrder["_map"]);

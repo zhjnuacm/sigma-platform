@@ -5,7 +5,8 @@ function NpcFactory() {
 		var self = this;
 		self._mapLayer = layer;
 		self._npcLayer = cc.Layer.create();
-		layer.addChild(self._npcLayer);
+		var parent = layer.getParent();
+		parent.addChild(self._npcLayer, 30);
 		self.addNpcs();
 	}
 
