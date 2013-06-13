@@ -64,6 +64,7 @@ var Map = cc.Layer.extend({
 	_gates:null,
 
 	//地图信息
+	_mapName:null,
 	_walkMargin:7,//地图边缘
 	_squareSize:30,//TMX地图大小为 30*30=900个TILE
 	
@@ -96,7 +97,7 @@ var Map = cc.Layer.extend({
 		this._edgeBg.setPosition(cc.p(1500,750));
 		this._edgeBg.setScale(1.0);
 		this.addChild(this._edgeBg,-5);
-		
+		this._mapName = HeroMap;
 		
 		this._mapConfig = this.getSingleMapConfigByName(HeroMap);		//读出了地图配置文件
 		/*
@@ -160,7 +161,7 @@ var Map = cc.Layer.extend({
 			this._gates[this._mapConfig.conveyGate[i]['startPos'].x][this._mapConfig.conveyGate[i]['startPos'].y]=i;
 			//cc.log(buildObject.getAttribute('polyline'));
 		};
- 
+		 
 		
 	},
 
@@ -272,8 +273,10 @@ var Map = cc.Layer.extend({
 		this._routeSize = c;
 		while(c--){
 			this._route[c]=name[dir[c]];
+			if(this._route[c]==undefined) return false;
 		}
-		
+		if(this._routeSize>0) return true;
+		else return false;
 	},
 	
 	
@@ -329,6 +332,41 @@ var Map = cc.Layer.extend({
 	getTileSize:function(){
 		return this._tileSize;
 	},
+	
+
+	checkConvey:function(position){
+		var conveyId = this._gates[position.x][position.y];
+		if(conveyId==-1) return false;
+		return true;
+	},
+	doConvey:function(position){
+		var conveyId = this._gates[position.x][position.y];
+		var targetMap = this._mapConfig.conveyGate[conveyId]['targetMap'];
+		var targetPos = this._mapConfig.conveyGate[conveyId]['tagetPos'];
+		var mapPath = 'client/res/map/' + targetMap + '.tmx';
+		this.removeChild(this._tmxMap);
+		this._tmxMap = cc.TMXTiledMap.create(mapPath);
+		this.addChild(this._tmxMap,-1,MAP_TAG);
+		this.initMapInfo(targetMap);
+		
+		this._tileSize = this._tmxMap.getTileSize();
+		this._mapSize = this._tmxMap.getContentSize();
+		
+		return targetPos;
+	
+	},
+	
+	checkTileInMap:function(position){
+		if(	position!=null 	&&
+			position.x>=0	&&
+			position.x<=30 	&&
+			position.y>=0 	&&
+			position.y<=30
+		)return true;
+		return false;
+			
+	},
+	
 	/*
 	 * 判断tile坐标是否应该进行地图切换，是则进行移动且返回true，不是则返回false
 	 */
@@ -356,8 +394,7 @@ var Map = cc.Layer.extend({
 		if(this._matrix[start.y][start.x]==0 
 		&& this._matrix[terminal.y][terminal.x]==0
 		&& (start.x!=terminal.x || start.y!=terminal.y) ){
-			this.calMoveRoute(start,terminal);
-			return true;
+			if(this.calMoveRoute(start,terminal))return true;
 		}
 		return false;
 	},
@@ -371,7 +408,13 @@ var Map = cc.Layer.extend({
 			return true;
 		}else return false; 
 	},
-
+	
+	/*
+	 * 获取地图信息
+	 */
+	getMapConfig:function(){
+		return this.getSingleMapConfigByName(this._mapName);
+	}
 	
 	});
 

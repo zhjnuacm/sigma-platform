@@ -104,7 +104,7 @@ var s_dlg = [
 
 //tmx map 
 var s_smap 				= "client/res/map/map1.tmx";
-
+var s_smap03 				= "client/res/map/map3.tmx";
 var g_ressources = [
     //image
     {type:"image", src:s_HelloWorld},
@@ -162,7 +162,7 @@ var g_ressources = [
     { type: "image", src: s_friend_menu_show2 },
     { type: "image", src: s_friend_menu_pk2 },
     { type: "image", src: s_clickTile},
-	{ type: "image", src: s_edgeBg},
+    { type: "image", src: s_edgeBg},
     //plist
 
     //fnt
@@ -170,7 +170,7 @@ var g_ressources = [
     //tmx
 
     {type:"tmx", src:s_smap},
-
+    {type:"tmx", src:s_smap03},
     //bgm
 
     //effect

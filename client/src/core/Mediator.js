@@ -24,7 +24,7 @@ function Mediator() {
 		this._size = cc.Director.getInstance().getWinSize();
 		// get the main layer
 		this._mainLayer = mainLayer;
-
+		
 		//tipsManage
 		this._tipsManage = TipsManage.create();
 		this._mainLayer.addChild(this._tipsManage, TIPS_MANAGE_TAG);
@@ -33,6 +33,12 @@ function Mediator() {
 		this._childScene = ChildScene.create();
 		this._mainLayer.addChild(this._childScene);
 		
+		
+		this._heroPanel = HeroPanel.create("我是帅锅别逼我", 75, 30000);
+		cc.log(this._size);
+		cc.log(this._heroPanel._width + " " + this._heroPanel._heigth);
+		this._heroPanel.setPosition(cc.p(3, this._size.height - this._heroPanel._height - 3));
+		this._mainLayer.addChild(this._heroPanel);
 		
 	   //其它用户
 	/*	var aaa = User.create(123456);

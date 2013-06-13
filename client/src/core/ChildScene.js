@@ -46,6 +46,10 @@ var ChildScene = cc.Layer.extend({
 		this._hero = Hero.create(this._map.tilePositionToWorldLocation(cc.p(6,1)));
 		this.addChild(this._hero.getSprite(),this._zOrder["_hero"]);
 
+		//其它用户
+		var aaa = User.create(123456);
+		this._map.addChild(aaa);
+		
 		
 		//click!动画
 		this._clickTile = cc.Sprite.create(s_clickTile);
@@ -64,6 +68,11 @@ var ChildScene = cc.Layer.extend({
 		this._keytodir[40]=1;
 		this._keytodir[37]=2;
 		this._keytodir[39]=3;
+		var winSize=cc.Director.getInstance().getWinSize();
+		var screenCenter = cc.p(winSize.width/2.0,winSize.height/2.0);
+		this.setPosition(cc.pSub(screenCenter,this._hero.getSprite().getPosition()));
+		
+		
 		return true;
 	},
 
@@ -110,15 +119,27 @@ var ChildScene = cc.Layer.extend({
 	 */
 	loopTime:function(){
 		
+		var nowTilePos = this._map.locationToTilePosition(this._hero.getSprite().getPosition());
 		//镜头跟踪
-		this.setSceneScrollPosition();
+		//this.setSceneScrollPosition();
 		
 		//角色移动时判断是否踩到特殊格子
-	 	if(this._hero.checkIsWalking()){
-	 		var nowTilePos = this._map.locationToTilePosition(this._hero.getSprite().getPosition());
-		//	this._map.checkOrDoConvey(nowTilePos);
+		if(this._hero.checkIsWalking()){
+			this.setSceneScrollPosition();
+		}else{
+			
+			if(this._map.checkConvey(nowTilePos)){
+				//this._conveyBg.setVisible(true);
+				cc.log("good?");
+				var nowTilePos = this._map.locationToTilePosition(this._hero.getSprite().getPosition());
+			 	this._hero.getSprite().setPosition(this._map.tilePositionToWorldLocation(this._map.doConvey(nowTilePos)));
+				var winSize=cc.Director.getInstance().getWinSize();
+		    	var screenCenter = cc.p(winSize.width/2.0,winSize.height/2.0);
+				this.setPosition(cc.pSub(screenCenter,this._hero.getSprite().getPosition()));
+				
+	
+			}
 	 	}
-	 	
 	},
 	
 	/*
@@ -140,15 +161,16 @@ var ChildScene = cc.Layer.extend({
 	 */
 	onTouchBegan : function(event) {
 		
-		
-		if(this._clickAble){//防止暴力点击
+
+		var toTilePosition = this._map.locationToTilePosition(cc.pSub(event.getLocation(),this.getPosition()));
+		if(this._clickAble && this._map.checkTileInMap(toTilePosition)){//防止暴力点击
 			this._clickAble=false;
-			var toTilePosition = this._map.locationToTilePosition(cc.pSub(event.getLocation(),this.getPosition()));
 			var targetPos = this._map.tilePositionToWorldLocation(toTilePosition);
 		
 			
 			//点击格子动画
-	      	var clickCellPos = this._map.tilePositionToWorldLocation(toTilePosition)
+	      	var clickCellPos = this._map.tilePositionToWorldLocation(toTilePosition);
+	      	
 	        this._clickTile.setPosition(clickCellPos);
 	        this._clickTile.runAction(
 	        	cc.Sequence.create(
@@ -158,15 +180,16 @@ var ChildScene = cc.Layer.extend({
 				)
 			);
 
-		
+			
 			//角色移动到点击地点
 			if(!this._hero.checkIsWalking()){
 				var start = this._map.locationToTilePosition(this._hero.getSprite().getPosition());
-				var terminal = toTilePosition;
-				if(this._map.checkOrCalRoute(start,terminal))
+				var terminal = toTilePosition;		
+				if(this._map.checkOrCalRoute(start,terminal)){
 					this._hero.moveByRoute(this._map.getRouteContent(),this._map.getRouteSize());
+				}	
 			}
-			
+	
 		}
 		
 	},
