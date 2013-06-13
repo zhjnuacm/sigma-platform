@@ -9,7 +9,7 @@ class ChatController extends Controller
 	 */
 	public function actionPull()
 	{
-		//set_time_limit(0);//无限请求超时时间
+		set_time_limit(0);//无限请求超时时间
  		$i=0;
  		while (true){
  			//sleep(1);
@@ -32,23 +32,17 @@ class ChatController extends Controller
 			}
 			
 			if($info != "")
-			 {
+			{
 				$this->updateUserOnlineFromTime();
 				$arr=array('success'=>"1",'name'=>'','text'=>$info);
 				echo json_encode($arr);
 				break;
 			}
-			 if($info == "") {
+			else if($info == "") {
 				$arr=array('success'=>"0",'name'=>'','text'=>$info);
 				echo json_encode($arr);
 				break;
 			}  
-			//服务器($_POST['time']*0.5)秒后告诉客服端无数据
-			/* if($i == 80){
-				$arr=array('success'=>"0",'name'=>'xiaocai','text'=>$info);
-				echo json_encode($arr);
-				break;
-			} */
 		}
 	}
 	
