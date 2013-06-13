@@ -4,7 +4,7 @@
 $yii=dirname(__FILE__).'/library/yii/yii.php';
 $config=dirname(__FILE__).'/protected/config/main.php';
 $shortcut = dirname(__FILE__).'/library/shortcut.php';
-$loc = dirname(__FILE__).'/library/Lock.php';
+$loc = dirname(__FILE__).'/library/Filelock.php';
 
 // remove the following lines when in production mode
 defined('YII_DEBUG') or define('YII_DEBUG',true);

@@ -1,22 +1,24 @@
 <?php
 
 /**
- * This is the model class for table "sigma_tmp_map".
+ * This is the model class for table "sigma_taskpro_type0".
  *
- * The followings are the available columns in table 'sigma_tmp_map':
- * @property integer $row
- * @property integer $col
- * @property string $strMap
- * @property integer $pos_x
- * @property integer $pos_y
- * @property integer $id
+ * The followings are the available columns in table 'sigma_taskpro_type0':
+ * @property integer $problem_id
+ * @property integer $task_id
+ * @property string $problem_name
+ * @property string $problem_declare
+ * @property 'problem_answer'
+ *
+ * The followings are the available model relations:
+ * @property Task $task
  */
-class TmpMap extends CActiveRecord
+class TaskProType0 extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return TmpMap the static model class
+	 * @return TaskProType0 the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -28,7 +30,7 @@ class TmpMap extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'sigma_tmp_map';
+		return 'sigma_taskpro_type0';
 	}
 
 	/**
@@ -39,12 +41,12 @@ class TmpMap extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('row, col, strMap, pos_x, pos_y, id', 'required'),
-			array('row, col, pos_x, pos_y, id', 'numerical', 'integerOnly'=>true),
-			array('strMap', 'length', 'max'=>1024),
+			array('task_id, problem_name, problem_declare', 'required'),
+			array('task_id', 'numerical', 'integerOnly'=>true),
+			array('problem_name', 'length', 'max'=>105),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('row, col, strMap, pos_x, pos_y, id', 'safe', 'on'=>'search'),
+			array('problem_id, task_id, problem_name, problem_declare', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,6 +58,7 @@ class TmpMap extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'task' => array(self::BELONGS_TO, 'Task', 'task_id'),
 		);
 	}
 
@@ -65,13 +68,11 @@ class TmpMap extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'row' => 'Row',
-			'col' => 'Col',
-			'strMap' => 'Str Map',
-			'pos_x' => 'Pos X',
-			'pos_y' => 'Pos Y',
-			'id' => 'ID',
-			'chat_status' => 'chat_status', 
+			'problem_id' => 'Problem',
+			'task_id' => 'Task',
+			'problem_name' => 'Problem Name',
+			'problem_declare' => 'Problem Declare',
+			'problem_answer' => 'Problem Answer', 
 		);
 	}
 
@@ -86,16 +87,15 @@ class TmpMap extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('row',$this->row);
-		$criteria->compare('col',$this->col);
-		$criteria->compare('strMap',$this->strMap,true);
-		$criteria->compare('pos_x',$this->pos_x);
-		$criteria->compare('pos_y',$this->pos_y);
-		$criteria->compare('id',$this->id);
+		$criteria->compare('problem_id',$this->problem_id);
+		$criteria->compare('task_id',$this->task_id);
+		$criteria->compare('problem_name',$this->problem_name,true);
+		$criteria->compare('problem_declare',$this->problem_declare,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
 }
+
 

@@ -49,7 +49,10 @@ class SiteController extends Controller
 	 * @abstract initialize the var which will use later
 	 */
 	private function initialize() {
-		Yii::app()->user->setState("pullTalking", false);
+		Yii::app()->user->setState("pullTalking", "yes");
+		$res = TmpMap::model()->find("id=1");
+		$res->chat_status = 0;
+		$res->save();
 	}
 	
 	/**

@@ -2,84 +2,65 @@
 
 class ChatController extends Controller
 {
-	
-   
-	
 	/**
 	 * @abstract pull the talk info from server to ajax
 	 * 			 for talk system 
 	 * @throws CHttpException
-	 * 明天继续把互斥锁给搞定了。
 	 */
 	public function actionPull()
 	{
-		
-	    /* if(Yii::app()->mutex->lock('some-unique-id', 60)) {
-		 	echo "lock success!";
-		 	sleep(15);
-			Yii::app()->mutex->unlock();
-			Yii::log("lock success! ", CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
-		}
-		else
-		{
-			echo "Already working on it...";
-			exit;
-			Yii::log("lock failed! ", CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
-		} */
-		
-		
-	//	if(Yii::app()->request->isAjaxRequest)
-		{		
-			/* while (!Yii::app()->mutex->lock('id4', 3))
-			{
-				sleep(1);
-			} */
-			if(Yii::app()->mutex->lock('some-unique-id', 60))
-			{
-				//Yii::log("lock success! ", CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
-				/*else
-				{
-					Yii::log("lock failed! ", CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
-					Yii::app()->mutex->unlock("id");
+		//set_time_limit(0);//无限请求超时时间
+ 		$i=0;
+ 		while (true){
+ 			//sleep(1);
+ 			//usleep(500000);//0.5秒
+ 			$i++;
+ 			$info="";
+ 			$user = Yii::app()->user->name;
+ 			$modelarray = $this->getTalkLog();
+ 			foreach($modelarray as $model) {
+ 				if($model->message_reciever == "所有人") {
+ 					$model->message_reciever = "【闲聊】";
+ 					$model->message_content = "说:".$model->message_content;
+ 				}
+ 			    /*if($model->message_sender == $user)
+				 continue;*/ 
+				/* else {
+				 $model->message_sender = "";
 				} */
+				$info .= "[".$model->message_sender."]: ".$model->message_content." --".$model->message_time."\n";
+			}
 			
-				$info="";
-
-				$user = Yii::app()->user->name;
-				$modelarray = $this->getTalkLog();
-				foreach($modelarray as $model) {
-					if($model->message_reciever == "所有人") {
-						$model->message_reciever = "【闲聊】";
-						$model->message_content = "说:".$model->message_content;
-					}
-					/* if($model->message_sender == $user)
-					 continue; */
-					/* else {
-					 $model->message_sender = "";
-					} */
-					$info .= "[".$model->message_sender."]: ".$model->message_content."\n";
-				}
-				
-				//Yii::log($info, CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
-				if($info != "") {
-					$this->updateUserOnlineFromTime();	
-					$this->renderPartial("_pullHaveInfo", array("info"=>$info));					
-				}
-				else {
-				//	$this->renderPartial("_pullNoInfo");
-					echo "@@";
-				//	Yii::app()->user->setState("pullTalking", false);
-				}
-				Yii::app()->mutex->unlock();
+			if($info != "")
+			 {
+				$this->updateUserOnlineFromTime();
+				$arr=array('success'=>"1",'name'=>'','text'=>$info);
+				echo json_encode($arr);
+				break;
 			}
-			else {
-				Yii::log("lock failed! ", CLogger::LEVEL_INFO, 'system.protected.ChatController.actionPull');
-				//$this->renderPartial("_pullNoInfo");
-				echo "locking…………\n";
-			}
+			 if($info == "") {
+				$arr=array('success'=>"0",'name'=>'','text'=>$info);
+				echo json_encode($arr);
+				break;
+			}  
+			//服务器($_POST['time']*0.5)秒后告诉客服端无数据
+			/* if($i == 80){
+				$arr=array('success'=>"0",'name'=>'xiaocai','text'=>$info);
+				echo json_encode($arr);
+				break;
+			} */
 		}
 	}
 	
+	/**
+	 * save the chat_status
+	 * @param unknown_type $status
+	 */
+	private function saveChatStatus($status) {
+		$res = TmpMap::model()->find("id=1");
+		$res->chat_status = $status;
+		$res->save();
+	}
 	
 	public function  actionTest() {
 		$this->renderPartial("test");
@@ -94,6 +75,7 @@ class ChatController extends Controller
 		$criteria->addCondition("online_name='$user'");
 		$res = UserOnline::model()->find($criteria);
 		$res->online_from_time = date("YmdHis");
+		
 		if($res->save() < 0) {
 			Yii::log("update failed!!!", CLogger::LEVEL_INFO, 'system.protected.ChatController.updateUserOnlineFromTime');
 		}
@@ -136,6 +118,7 @@ class ChatController extends Controller
 		$timer = str_replace(":", "", $timer);
 		$timer = str_replace(" ", "", $timer);
 		$timer = chop($timer);
+		//echo doubleval($timer);
 		return doubleval($timer);
 	}
 	

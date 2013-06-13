@@ -86,8 +86,8 @@ var InputPanel = cc.Layer
 		        this.view.setPosition(cc.p(5, 33));
 		        this.addChild(this.view);
 		        this.view.setVisible(this._isOpen);
-		        this.schedule(this.step, 0.5);
-
+		        //this.schedule(this.step, 1);
+		        this.step();
 		        return true;
 		    },
 
@@ -116,13 +116,27 @@ var InputPanel = cc.Layer
 		    step: function () {
 		        var self = this;
 		        $.ajax({
-		            type: "GET",
+		            type: "POST",
+		            dataType: "json", 
+		            timeout: 80000,
+		            data:{time:"80"}, 
 		            url: genPullMessageUrl(),
-		            success: function (data) {
+		            success: function (data, textStatus) {
+		            	if(data.success=="1"){      
+		            		self.view.addWord(data.text);
+		                    self.step();
+		                }
+		            	if(data.success=="0"){          
+		            		self.step();
+		                }
 		                //	cc.log(data);
-		                if (data != "@@")
-		                    self.view.addWord(data);
-		            }
+		            }, 
+		            //Ajax请求超时，继续查询      
+		          /*  error:function(XMLHttpRequest,textStatus,errorThrown){      
+		                // if(textStatus=="timeout"){       
+		                   	self.step();      
+		                 }    
+		            } */
 		        });
 		    },
 
