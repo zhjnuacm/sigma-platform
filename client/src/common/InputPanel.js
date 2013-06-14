@@ -1,11 +1,9 @@
-﻿//********************
-//在过程中修改了extensions/CCControlEditBox.js
-
-//================================
-//  Jopix  输入框
-//  2013年6月5日 22:41:27
-//===============================
-
+﻿
+/**
+ * @ Jopix  左下角聊天窗口
+ * @ 2013年6月5日 22:41:23
+ * 在过程中修改了extensions/CCControlEditBox.js 添加监控html标签方法
+ */
 
 var InputPanel = cc.Layer
 		.extend({
@@ -18,10 +16,11 @@ var InputPanel = cc.Layer
 		    _view: null,
 		    _viewButton: null,
 		    _rootPoint: null,
-
+		    _canSend:null,
 		    init: function () {
 
 		        this._super();
+		        this._canSend = true;
 		        this._WIDTH = 354;
 		        this._HEIGHT = 188;
 		        var twidth = cc.canvas.width;
@@ -42,8 +41,18 @@ var InputPanel = cc.Layer
 		        this._box.setBorderClr(cc.c3(255, 255, 255));
 		        this._box.setFontSize(13);
 		        this._box.setFunction("keydown", function (event) {
-		            if (event.keyCode == 13)
-		                inputD.sendMessage();
+		            if (event.keyCode == 13) {
+		                if (inputD._canSend) {
+		                    inputD.sendMessage();
+		                    //inputD._canSend = false;
+		                    //setTimeout(function () {
+		                    //    inputD._canSend = true;
+		                    //}, 1000);
+		                }
+		                else {
+		                    inputD.sendMessage();
+		                }
+		            }
 		        });
 
 		        this.addChild(this._box);
@@ -122,8 +131,8 @@ var InputPanel = cc.Layer
 		            data:{time:"80"}, 
 		            url: genPullMessageUrl(),
 		            success: function (data, textStatus) {
-		            	if(data.success=="1"){      
-		            		self.view.addWord(data.text);
+		                if (data.success == "1") {
+		                    self.splitMessage(data.text);
 		                    self.step();
 		                }
 		            	if(data.success=="0"){          
@@ -145,19 +154,26 @@ var InputPanel = cc.Layer
 		    },
 
 		    sendMessage: function () {
-		        var str = this._box.getText();
-		        
-		       // cc.log(str);
-		        $.ajax({
-		            type: "GET",
-		            url: genPushMessageUrl("all", 0, str),
-		            success: function (data) {
-		                // cc.log(data);
-		            }
-		        });
-		        str = "[" + "我" + "]：" + str;
-		        str += '\n';
-		        this.view.addWord(str);
+
+		        if (this._canSend) {
+		            var str = this._box.getText();
+		            // cc.log(str);
+		            $.ajax({
+		                type: "GET",
+		                url: genPushMessageUrl("all", 0, str),
+		                success: function (data) {
+		                    // cc.log(data);
+		                }
+		            });
+		            str = '[' + '我' + ']:' + str;
+                    //这里整个字符串不需要加回车
+		            this.view.addWord(str);
+		        }
+		        else {
+		            var str = "[系统]：草，别按那么快，老子不用休息啊";
+		            this.view.addWord(str);
+		        }
+
 		        this._box.setText("");
 		    },
 
@@ -173,6 +189,18 @@ var InputPanel = cc.Layer
 		        }
 		        this._isOpen = this._isOpen ^ true;
 		        this.view.setVisible(this._isOpen);
+		    },
+
+		    splitMessage: function (mes) {
+		        var i = 0, j;
+		        while (i < mes.length) {
+		            j = mes.indexOf("\n", i);
+		            var tmsa = mes.substring(i, j - 1);
+		            //alert(mes);
+		            //alert(i + ' ' + j + ' ' + tmsa + ' ' + mes.length);
+		            this.view.addWord(tmsa);
+		            i = j+1;
+		        }
 		    }
 		});
 InputPanel.create = function () {

@@ -1,5 +1,4 @@
 var inputD;
-var friendList;
 
 function Mediator() {
 	this._childScene;
@@ -71,8 +70,18 @@ function Mediator() {
 		inputD = InputPanel.create();
 		this._mainLayer.addChild(inputD, 2);
 
-		friendList = FriendList.create();
-		this._mainLayer.addChild(friendList, 2);
+	    //好友列表，给一个开关按钮
+		var friendList = FriendList.getInstance();
+		this._mainLayer.addChild(friendList.getLayer());
+
+		var friendShowButton = cc.MenuItemImage.create(s_extensions_button, s_extensions_button, s_extensions_button, this.ShowFriend, this);
+		friendShowButton.setPosition(cc.p(this._size.width - 50, 550));
+	    //var showButton = cc.MenuItemImage.create(s_friend_add, s_friend_add, s_friend_add, this.show, this);
+	    //showButton.setPosition(cc.p(this._root.x + 5, this._root.y + 270));
+	    // 将所有的按钮加到菜单容器里面
+		var tmenu = cc.Menu.create(friendShowButton);
+		tmenu.setPosition(cc.p(0, 0));
+		this._mainLayer.addChild(tmenu);
 
 		return true;
 	},
@@ -99,7 +108,8 @@ function Mediator() {
 	
 ////////////////////////////循环刷新	
 	this.mainloop=function(dt) {
-		 	this._childScene.loopTime();
+	    this._childScene.loopTime();
+	    this.rushSMapPosition();
 		 	
 	},
 	
@@ -124,23 +134,15 @@ function Mediator() {
     };
 
     //刷新小地图
-	this.rushSMapPosition = function (med) {
-
-	    //var middlePosition = cc.p(this._map._winSize.width / 2, this._map._winSize.height / 2);
-	    //var diff = cc.pSub(cc.p(512, 384), this._map.getPosition());
-	    //cc.log(diff);
-	    //alert("asdsadasd");
-	    //var sdiff = cc.p(0, 0);
-	    //sdiff.x = diff.x * sMapratio;
-	    //sdiff.y = diff.y * sMapratio;
-	    //this._smap.mapMoveByHeroPosition(sdiff);
-
-	    //var newPoint = this._hero.getSprite().getPosition();
-	    //var sdiff2 = cc.p(0, 0);
-	    //sdiff2.x = newPoint.x * sMapratio;
-	    //sdiff2.y = newPoint.y * sMapratio;
-	    //this._smap.mapMoveByHeroPosition(sdiff2);
+	this.rushSMapPosition = function () {
+	    var smap = SMap.getInstance();
+	    smap.mapMoveByHeroPosition(this._childScene.getHeroWorldPosition());
 	};
+
+	this.ShowFriend = function () {
+	    var friendList = FriendList.getInstance();
+	    friendList.show();
+	}
 }
 
 Mediator.create = function(mainLayer) {

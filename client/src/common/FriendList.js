@@ -1,11 +1,8 @@
-﻿//由于源码的关系。这里只能使用左下角为原点。
-
-
-//================================
-//  Jopix  好友列表对于的菜单
-//  2013年6月7日 01:18:32
-//===============================
-
+﻿
+/**
+ * @ Jopix  好友列表对于的菜单
+ * @ 2013年6月7日 01:18:32
+ */
 
 var FriendMenu = cc.LayerColor.extend({
     _userID: null,
@@ -208,12 +205,10 @@ friendData.push(
 );
 //==
 
-
-//================================
-//  Jopix  好友列表单元格
-//  2013年6月5日 22:41:27
-//===============================
-
+/**
+ * @ Jopix  好友列表单元格
+ * @ 2013年6月5日 22:41:27
+ */
 var FriendViewCell = cc.TableViewCell.extend({
 
     _fData: {
@@ -281,12 +276,13 @@ var FriendViewCell = cc.TableViewCell.extend({
     }
 });
 
+/**
+ * @ Jopix  拖动列表类
+ * @ 2013年6月5日 22:41:27
+ * @ 重写cc.TableView  更新层的优先级
+ */
 
-//================================
-//  Jopix  拖动列表类
-//  2013年6月5日 22:41:27
-// 重写cc.TableView  更新层的优先级
-//===============================
+
 var myTableView = cc.TableView.extend({
     registerWithTouchDispatcher: function () {
         cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, -13, true);
@@ -302,19 +298,19 @@ myTableView.create = function (dataSource, size, container) {
 };
 
 
+/**
+ * @ Jopix  好友列表层
+ * @ 2013年6月5日 22:41:27
+ * @ 由于源码关系，只能以视角左下角为（0，0）
+ */
 
-//================================
-//  Jopix  好友列表
-//  2013年6月5日 22:41:27
-//===============================
 
-var FriendList = cc.Layer.extend({
+var FriendListLayer = cc.Layer.extend({
     friendView: null,
     _root: null,
     _box: null,
     _friendNum: null,
-    _showfd: null,
-    _vis: null,
+    _isShow: null,
 
     init: function () {
         if (!this._super()) {
@@ -322,6 +318,7 @@ var FriendList = cc.Layer.extend({
         }
 
         this._root = cc.p(cc.Director.getInstance().getWinSize().width - 174, 220);
+        this._isShow = true;
         this.initBorder(180, 288);
         this.setfriendNum(friendData.length);
 
@@ -353,6 +350,10 @@ var FriendList = cc.Layer.extend({
         this._box.setFunction("keydown", function (event) {
             if (event.keyCode == 13)
                 friendList.sendMessage();
+
+            //响应函数
+
+
         });
 
         this._box.setFunction("click", function (event) {
@@ -361,6 +362,17 @@ var FriendList = cc.Layer.extend({
             friendList._box.setBgClr(cc.c3(255, 255, 255));
         });
         this.addChild(this._box);
+
+
+        //添加好友列表相关菜单按钮
+        var addButton = cc.MenuItemImage.create(s_friend_add, s_friend_add2, this.addFriend, this);
+        addButton.setPosition(cc.p(this._root.x + 160, this._root.y + 275));
+        //var showButton = cc.MenuItemImage.create(s_friend_add, s_friend_add, s_friend_add, this.show, this);
+        //showButton.setPosition(cc.p(this._root.x + 5, this._root.y + 270));
+        // 将所有的按钮加到菜单容器里面
+        var tmenu = cc.Menu.create(addButton);
+        tmenu.setPosition(cc.p(0, 0));
+        this.addChild(tmenu);
 
         return true;
     },
@@ -417,6 +429,7 @@ var FriendList = cc.Layer.extend({
 
 
     cellSizeForTable: function (table) {
+
         return cc.SizeMake(180, 50);
     },
 
@@ -441,12 +454,62 @@ var FriendList = cc.Layer.extend({
     setfriendNum: function (num) {
         this._friendNum = num;
     },
+
+    //添加好友界面
+    addFriend: function () {
+
+        alert("后期处理？");
+    },
+
+    show: function () {
+        this._isShow ^= true;
+        this.setVisible(this._isShow);
+    }
 });
 
-FriendList.create = function () {
-    var retObj = new FriendList();
+FriendListLayer.create = function () {
+    var retObj = new FriendListLayer();
     if (retObj && retObj.init()) {
         return retObj;
     }
     return null;
 };
+
+
+/**
+ * @ Jopix  好友列表类--单例
+ * @ 2013年6月5日 22:41:27
+ * @ 由于源码关系，只能以视角左下角为（0，0）
+ */
+
+
+var FriendList = function () {
+    FriendList.instance = this;
+    this._Layer;
+    this.init = function () {
+        this._Layer = FriendListLayer.create();
+        return true;
+    };
+
+    this.getLayer = function () {
+        return this._Layer;
+    };
+}
+
+FriendList.create = function () {
+    var ret = new FriendList();
+    if (ret && ret.init()) {
+        return ret;
+    }
+    return null;
+}
+
+
+FriendList.getInstance = function () {
+    if (FriendList.instance == null) {
+        return FriendList.create();
+    } else {
+        return FriendList.instance;
+    }
+}
+

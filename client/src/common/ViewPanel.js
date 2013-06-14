@@ -1,9 +1,9 @@
-﻿//================================
-//  Jopix  信息类
-//  2013年4月5日 22:41:27
-//
-// 将字符串自动换行 长度为maxlenth
-//===============================
+﻿
+/**
+ * @ Jopix  信息类
+ * @ 2013年4月5日 22:41:27
+ * @ 将字符串自动换行 长度为maxlenth
+ */
 
 
 var Message = function () {
@@ -15,7 +15,7 @@ var Message = function () {
         // alert(String);
         // /<summary>获得字符串实际长度，中文2，英文1</summary>
         // /<param name="str">要获得长度的字符串</param>
-        this._string = "";
+        this._string = '';
         this._lk = 1;
         var realLength = 0, len = String.length, charCode = -1, b = 0, k = maxLenth;
         for (var i = 0; i < len; i++) {
@@ -36,8 +36,8 @@ var Message = function () {
             }
         }
         this._string += String.substring(b, len);
-       // this._string += '\n';
-        this._height = this._lk * 15.4;
+        this._string += "\n";
+        this._height = this._lk * 14.4;
     };
 
     this.init2 = function (String, maxLenth) {
@@ -77,12 +77,12 @@ var Message = function () {
 
 
 
-//================================
-//  Jopix  信息墙
-//  2013年4月6日 22:41:27
-//
-//  显示信息的窗口
-//===============================
+/**
+ * @ Jopix  信息墙
+ * @ 2013年4月6日 22:41:27
+ * @ 显示信息的窗口
+ */
+
 var ViewPanel = cc.LayerColor.extend({
 
     _height: null,
@@ -121,7 +121,7 @@ var ViewPanel = cc.LayerColor.extend({
        // String = String;
         //String = user;
 
-        mes.init(String, 52);
+        mes.init(String, 48);
         this._page.addMessage(mes);
         this._sLine.setButtom();
 
@@ -142,8 +142,12 @@ ViewPanel.create = function (color, w, h) {
 };
 
 
+/**
+ * @ Jopix  聊天记录显示层
+ * @ 2013年4月5日 22:41:27
+ * @ 里面信息的那个层，负责更新信息位置，添加删除信息，处理滚动操作
+ */
 
-//里面信息的那个层，负责更新信息位置，添加删除信息，处理滚动操作
 var CharPage = cc.Layer.extend({
     _y: null,
     _sumIndex: null,
@@ -154,7 +158,7 @@ var CharPage = cc.Layer.extend({
         this._y = 0;
         this._sumIndex = 0;
         this.setPosition(cc.p(5, 100));
-        this._message = cc.LabelTTF.create("", 'Microsoft YaHei', 12, cc.size(330, 20), cc.TEXT_ALIGNMENT_LEFT);
+        this._message = cc.LabelTTF.create("", 'Liberation Mono', 12, cc.size(500, 140), cc.TEXT_ALIGNMENT_LEFT);
         this._message.setAnchorPoint(cc.p(0, 1));
         this._message.setPosition(cc.p(5, this._y));
         this.addChild(this._message);
@@ -169,27 +173,24 @@ var CharPage = cc.Layer.extend({
         this._y -= mes._height;
 
         if (this._y < -135) {
-            this.setPositionY(-this._y - 40);
-            this._y += 1;
+            this.setPositionY(-this._y - 36);
         }
         else if (this._y < -600) {
-            var k = 5, i = 0;
+            var k = 8, i = 0;
             while (k-- > 0) {
                 i = s.indexOf("\n");
                 s = s.slice(i + 1, s.length());
             }
-            this._message._height += 5 * 15.4;
-            this._y += 5 * 15.4;
-
-            this.setPositionY(-this._y - 40);
-            this._y += 1;
+            this._message._height += 5 * 14.4;
+            this._y += 5 * 14.4;
+            this.setPositionY(-this._y - 36);
         }
         this._message.setString(s);
     },
 
     setPositionInpercent: function (per) {
         if (this._y <= -135) {
-            this.setPositionY((-this._y - 135) * per / 100 + 100);
+            this.setPositionY((-this._y - 135) * per / 105 + 100);
         }
     }
 });
@@ -202,13 +203,10 @@ CharPage.create = function () {
 };
 
 
-
-//================================
-//  Jopix  滚动条
-//  2013年4月5日 22:41:27
-//
-//===============================
-
+/**
+ * @ Jopix  滚动条
+ * @ 2013年4月5日 22:41:27
+ */
 var ScrolBor = cc.Sprite.extend({
 
     _viewPage: null,
@@ -274,7 +272,7 @@ var ScrolBor = cc.Sprite.extend({
         if (this._touchDraw) {
             var y = touch.getLocation().y;
 
-            if (y <= 170 && y > 70) {
+            if (y <= 170 && y > 65) {
                 this.point.setPositionY(y - this._tx);
                 this._viewPage.setPositionInpercent(170 - y);
             }
