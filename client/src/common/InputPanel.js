@@ -64,8 +64,7 @@ var InputPanel = cc.Layer
 
 		        // 定义聊天对象
 		        var charKind_str = "[ " + "世界" + " ]:";
-		        var charLabel = cc.LabelTTF.create(charKind_str,
-						"Microsoft YaHei", 12);
+		        var charLabel = cc.LabelTTF.create(charKind_str, "Microsoft YaHei", 12);
 		        charLabel.setColor(cc.c3(30, 30, 30));
 		        var CharButton = cc.MenuItemLabel.create(charLabel, function () {
 		            alert("sdsds");

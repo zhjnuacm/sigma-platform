@@ -15,6 +15,7 @@
 		appFiles : [ 
 		        prefix + 'src/resource.js', 
 		        prefix + 'src/myApp.js',
+                prefix + 'src/common/ScrollList.js',
 				prefix + 'src/core/Mediator.js',
 				prefix + 'src/core/ChatPanel.js',
 				prefix + 'src/core/Hero.js',

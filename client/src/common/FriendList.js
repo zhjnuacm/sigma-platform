@@ -1,6 +1,183 @@
-﻿
+﻿/**
+ * @ Jopix  滚动列表单元格
+ * @ 2013年6月15日 12:27:07
+ * @ [action] 点击时时间响应在这个函数里面
+ */
+
+var SeachFriendCell = cc.TableViewCell.extend({
+    _fData: {
+        'name': null,
+        'place': null,
+        'photo': null,
+    },
+    _name: null,
+    _place: null,
+    _photo: null,
+
+    draw: function (ctx) {
+        this._super(ctx);
+        cc.renderContext.strokeStyle = "rgba(220,220,220,1)";
+        cc.renderContext.lineWidth = "1";
+        cc.drawingUtil.drawLine(cc.p(10, 0), cc.p(170, 0));
+    },
+
+    init: function (idx) {
+        this.getDataFromIndex(idx);
+        this.setIdx(idx);
+
+        this._photo = cc.Sprite.create(this._fData.photo);
+        this._photo.setPosition(cc.p(25, 25));
+        this.addChild(this._photo);
+
+        this._name = cc.LabelTTF.create(this._fData.name, s_yahei, 12);
+        this._name.setAnchorPoint(cc.p(0, 0));
+        this._name.setColor(cc.c3(30, 30, 30));
+        this._name.setPosition(cc.p(60, 30));
+
+        this.addChild(this._name);
+
+        this._place = cc.LabelTTF.create(this._fData.place, s_yahei, 12);
+        this._place.setColor(cc.c3(140, 140, 140));
+        this._place.setPosition(cc.p(60, 8));
+        this._place.setAnchorPoint(cc.p(0, 0));
+        this.addChild(this._place);
+
+        return true;
+    },
+
+    //从数据库读取第idx个好友的信息
+    getDataFromIndex: function (idx) {
+        this._fData.place = friendData[idx].place;
+        this._fData.name = friendData[idx].name;
+        this._fData.photo = friendData[idx].photo;
+        this._fData.mood = friendData[idx].mood;
+    },
+
+    updataFromIndex: function (idx) {
+        this.getDataFromIndex(idx);
+        this._name.setString(this._fData.name);
+        this._place.setString(this._fData.place);
+        this._photo.initWithFile(this._fData.photo);
+    },
+
+    send: function () {
+        alert(this._fData.name + ' ' + this._fData.mood);
+    },
+
+    getData: function () {
+        return this._fData;
+    },
+
+    action: function () {
+        alert(this._fData.name);
+    }
+});
+
+
+
 /**
- * @ Jopix  好友列表对于的菜单
+ * @ Jopix  添加好友界面
+ * @ 2013年6月15日 12:27:07
+ * @ 在这里输入名字向后台搜索出用户列表展示在滚动列表里面。请@cchun在此添加与后台响应函数返回js数组
+ */
+//临时定义成全局
+var sself;
+
+var FriendAddView = function () {
+
+    this._seachRueslt;
+    this._addDig;
+    this._box;
+    this._root;
+    this.init = function () {
+
+        //this._root = cc.p(cc.Director.getInstance().getWinSize().width - 380, 250);
+        this._root = cc.p(0, 0);
+        this._addDig = DialogView.create(220, 360, this._root);
+        var fseachs = cc.Sprite.create(s_Friendseach);
+        fseachs.setPosition(cc.p(90, 340));
+        this._addDig.addChild(fseachs);
+
+        this._box = cc.EditBox.create(cc.size(138, 16));
+        this._box.setText("输入用户名");
+        this._box.setFontColor(cc.c3(200, 200, 200));
+        this._box.setPosition(cc.p(25, 330));
+        this._box.setBgClr(cc.c3(245, 245, 245));
+        this._box.setFontSize(12);
+        sself = this;
+        this._box.setFunction("keydown", function (event) {
+         
+            if (event.keyCode == 13)
+                sself.showResult();
+            //响应函数
+        });
+
+        this._box.setFunction("click", function (event) {
+            sself._box.setText("");
+            sself._box.setColor(cc.c3(30, 30, 30));
+            sself._box.setBgClr(cc.c3(255, 255, 255));
+        });
+        this._addDig.addChild(this._box);
+
+
+        return true;
+
+    } 
+    this.showResult = function () {
+        var sname = this._box.getText();
+        //=====
+        //去数据库抓取搜索到的用户信息给我，保存在jsonData数组里面
+
+        var jsonData = [
+            {
+                'name': 'Jopix0',
+                'place': '教室吹水',
+                'photo': 'client/res/user/user_1.jpg',
+                'mood': '好不想学习，想打怪，其带菜',
+            },
+            {
+                'name': 'nanke1',
+                'place': '宿舍睡觉',
+                'photo': 'client/res/user/user_2.jpg',
+                'mood': '好不想学习，想打怪，其带菜',
+            }
+        ];
+
+        //===
+
+        if (jsonData.length > 0) {
+            this._showResult = ScrollList.create(200, 320, cc.p(this._root.x + 10, this._root.y + 10), SeachFriendCell, 50, jsonData);
+            this._addDig.addChild(this._showResult);
+        } else {
+            this._showResult = cc.Layer.create();
+            var mes = cc.LabelTTF.create("未找到该用户", "Microsoft YaHei", 12);
+            this._showResult.addChild(mes);
+            this.addDig.addChild(this._showResult);
+        }
+    }
+
+    this.setTouchPriority = function(num){
+        this._showResult.setTouchPriority(num);
+    }
+    this.getDig = function () {
+        return this._addDig;
+    }
+}
+
+
+FriendAddView.create = function(){
+    var ret = new FriendAddView();
+    if (ret && ret.init())
+        return ret;
+    return null;
+}
+
+
+
+
+
+/**
+ * @ Jopix  好友列表对于用户的菜单
  * @ 2013年6月7日 01:18:32
  */
 
@@ -276,27 +453,6 @@ var FriendViewCell = cc.TableViewCell.extend({
     }
 });
 
-/**
- * @ Jopix  拖动列表类
- * @ 2013年6月5日 22:41:27
- * @ 重写cc.TableView  更新层的优先级
- */
-
-
-var myTableView = cc.TableView.extend({
-    registerWithTouchDispatcher: function () {
-        cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, -13, true);
-    }
-});
-
-myTableView.create = function (dataSource, size, container) {
-    var table = new myTableView();
-    table.initWithViewSize(size, container);
-    table.setDataSource(dataSource);
-    table._updateContentSize();
-    return table;
-};
-
 
 /**
  * @ Jopix  好友列表层
@@ -304,13 +460,13 @@ myTableView.create = function (dataSource, size, container) {
  * @ 由于源码关系，只能以视角左下角为（0，0）
  */
 
-
 var FriendListLayer = cc.Layer.extend({
     friendView: null,
     _root: null,
     _box: null,
     _friendNum: null,
     _isShow: null,
+    _addDig: null,
 
     init: function () {
         if (!this._super()) {
@@ -355,7 +511,6 @@ var FriendListLayer = cc.Layer.extend({
 
 
         });
-
         this._box.setFunction("click", function (event) {
             friendList._box.setText("");
             friendList._box.setColor(cc.c3(30, 30, 30));
@@ -429,7 +584,6 @@ var FriendListLayer = cc.Layer.extend({
 
 
     cellSizeForTable: function (table) {
-
         return cc.SizeMake(180, 50);
     },
 
@@ -455,17 +609,25 @@ var FriendListLayer = cc.Layer.extend({
         this._friendNum = num;
     },
 
-    //添加好友界面
-    addFriend: function () {
+    addFriend : function () {
+        //添加好友界面
 
-        alert("后期处理？");
+        var digC = FriendAddView.create();
+        this.addChild(digC.getDig(), 5);
+        digC.getDig().setTouchPriority(this.getTouchPriority() - 1);
+        //friendData.push({
+        //    'name': 'huan10',
+        //    'place': '食堂泡妞10',
+        //    'photo': 'client/res/user/user_5.jpg',
+        //    'mood': '好不想学习，想打怪，其带菜',
+        //});
+
+        this.setfriendNum(friendData.length);
+        this.friendView.insertCellAtIndex(friendData.length);
+        this.friendView.reloadData();
     },
-
-    show: function () {
-        this._isShow ^= true;
-        this.setVisible(this._isShow);
-    }
 });
+
 
 FriendListLayer.create = function () {
     var retObj = new FriendListLayer();
@@ -475,18 +637,19 @@ FriendListLayer.create = function () {
     return null;
 };
 
-
 /**
  * @ Jopix  好友列表类--单例
  * @ 2013年6月5日 22:41:27
  * @ 由于源码关系，只能以视角左下角为（0，0）
  */
 
-
 var FriendList = function () {
     FriendList.instance = this;
     this._Layer;
+    this._isShow;
+
     this.init = function () {
+        this._isShow = false;
         this._Layer = FriendListLayer.create();
         return true;
     };
@@ -494,7 +657,17 @@ var FriendList = function () {
     this.getLayer = function () {
         return this._Layer;
     };
-}
+
+    this.show = function (layer) {
+        if (this._isShow) {
+            this.getLayer().removeFromParent(true);
+        }
+        else {
+            layer.addChild(this.getLayer());
+        }
+        this._isShow ^= true;
+    }
+};
 
 FriendList.create = function () {
     var ret = new FriendList();
@@ -502,8 +675,7 @@ FriendList.create = function () {
         return ret;
     }
     return null;
-}
-
+};
 
 FriendList.getInstance = function () {
     if (FriendList.instance == null) {
@@ -511,5 +683,4 @@ FriendList.getInstance = function () {
     } else {
         return FriendList.instance;
     }
-}
-
+};

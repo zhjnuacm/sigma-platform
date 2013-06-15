@@ -34,8 +34,8 @@ function Mediator() {
 		
 		
 		this._heroPanel = HeroPanel.create("我是帅锅别逼我", 75, 30000);
-		cc.log(this._size);
-		cc.log(this._heroPanel._width + " " + this._heroPanel._heigth);
+	//	cc.log(this._size);
+//		cc.log(this._heroPanel._width + " " + this._heroPanel._heigth);
 		this._heroPanel.setPosition(cc.p(3, this._size.height - this._heroPanel._height - 3));
 		this._mainLayer.addChild(this._heroPanel);
 		
@@ -71,17 +71,11 @@ function Mediator() {
 		this._mainLayer.addChild(inputD, 2);
 
 	    //好友列表，给一个开关按钮
-		var friendList = FriendList.getInstance();
-		this._mainLayer.addChild(friendList.getLayer());
 
-		var friendShowButton = cc.MenuItemImage.create(s_extensions_button, s_extensions_button, s_extensions_button, this.ShowFriend, this);
-		friendShowButton.setPosition(cc.p(this._size.width - 50, 550));
-	    //var showButton = cc.MenuItemImage.create(s_friend_add, s_friend_add, s_friend_add, this.show, this);
-	    //showButton.setPosition(cc.p(this._root.x + 5, this._root.y + 270));
-	    // 将所有的按钮加到菜单容器里面
-		var tmenu = cc.Menu.create(friendShowButton);
-		tmenu.setPosition(cc.p(0, 0));
-		this._mainLayer.addChild(tmenu);
+		var crButton = cc.MenuItemImage.create(s_friend_menu, s_friend_menu, s_friend_menu, this.ShowFriend, this);
+		var menu = cc.Menu.create(crButton);
+		menu.setPosition(cc.p(this._size.width - 10, 520));
+		this._mainLayer.addChild(menu);
 
 		return true;
 	},
@@ -141,8 +135,8 @@ function Mediator() {
 
 	this.ShowFriend = function () {
 	    var friendList = FriendList.getInstance();
-	    friendList.show();
-	}
+	    friendList.show(this._mainLayer);
+	};
 }
 
 Mediator.create = function(mainLayer) {

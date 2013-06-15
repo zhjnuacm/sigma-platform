@@ -62,6 +62,7 @@ var s_clickTile = "client/res/map/clickTile.png";
 var s_friend_add = "client/res/friend_add.png";
 var s_friend_add2 = "client/res/friend_add2.png";
 var s_main_font = "client/res/fnt/LiberationMono-Regular.ttf"
+var s_friend_menu = "client/res/friend_menu.png";
 var s_dlg = [
     {
         type: "close_normal",
@@ -168,6 +169,7 @@ var g_ressources = [
     { type: "image", src: s_edgeBg },
         { type: "image", src: s_friend_add },
     { type: "image", src: s_friend_add2 },
+   { type: "image", src: s_friend_menu },
     //plist
 
     //fnt

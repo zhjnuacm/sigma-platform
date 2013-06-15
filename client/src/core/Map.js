@@ -576,8 +576,6 @@ var Map = cc.Layer.extend({
 	        this._map.setPosition(cc.p(0, 0));
 	        this._dig.addChild(this._map);
 
-
-
 	        ////放置遮罩 只显示方框区域
 	        //this._content = cc.ScrollView.create();
 	        //this._content.setViewSize(cc.SizeMake(800, 600));
@@ -585,7 +583,6 @@ var Map = cc.Layer.extend({
 
 	        return true;
 	    };
-
 
 	    //初始化各场景地图的相对坐标 保存在 _mapPointList里面。第一张地图默认（0，0）;
 	    this.dfs = function (x) {

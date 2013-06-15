@@ -165,7 +165,7 @@ var DialogView = cc.Layer.extend({
         
         var x = touch.getLocation().x, y = touch.getLocation().y;
         
-        //alert(starx + ' ' + endx + '\n' + stary + ' ' + endy + '\n' + x + ' '  + y + '\n' + this._oPoint.x + ' ' + this._oPoint.y
+        //alert(starx + ' ' + endx + '\n' + stary + ' ' + endy + '\n' + x + ' '  + y + '\n'
         //		+ '\n' + this.getPositionX() + ' ' + this.getPositionY());
 
         if (x >= starx && x <= endx && y >= stary && y <= endy) {
