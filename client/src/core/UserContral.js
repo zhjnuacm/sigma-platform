@@ -20,6 +20,7 @@ userData.push(
 
 
 var User = cc.Sprite.extend({
+    _menu: null,
     _touchBegan: false,
     _touchEnabled: true,
     _touchDraw: false,
@@ -120,10 +121,17 @@ var User = cc.Sprite.extend({
         if (this._touchBegan && (cc.Rect.CCRectContainsPoint(this.touchRect(), touch.getLocation()))) {
             this._touchBegan = false;
             this._touchDraw = false;
-            var uMenu = UserMenu.create(this._uData, this);
-            uMenu.getMenu().setPosition(cc.p(0, 0));
-            this.addChild(uMenu.getMenu());
+            
+            if (this._menu == null)
+            {
+                this._menu = UserMenu.create(this._uData, this);
+                this._menu.getMenu().setPosition(cc.p(0, 0));
+            }
 
+            if (!this._menu._isShow) {
+                this.addChild(this._menu.getMenu());
+                this._menu.chagestate();
+            }
         }
     },
 
@@ -139,6 +147,7 @@ var User = cc.Sprite.extend({
             }
         
         }
+
     return false;
     },
 
@@ -163,9 +172,11 @@ var UserMenu = function(){
 
     this._uData;
     this._menu;
+    this._isShow;
     this.init = function (uData)
     {
         //初始化菜单
+        this._isShow = false;
         var showButton = cc.MenuItemImage.create(s_user_menu_show, s_user_menu_show, s_user_menu_show, this.show, this);
        showButton.setPosition(cc.p(0, 60));
         var chatButton = cc.MenuItemImage.create(s_user_menu_chat, s_user_menu_chat, s_user_menu_chat, this.chat, this);
@@ -205,8 +216,12 @@ var UserMenu = function(){
         this.destorySelf();
     };
 
+    this.chagestate = function(){
+        this._isShow ^= true;
+    };
 
     this.destorySelf = function () {
+        this.chagestate();
         this._menu.removeFromParent(true);
     };
 
