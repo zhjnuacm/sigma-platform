@@ -666,7 +666,11 @@ var FriendList = function () {
             layer.addChild(this.getLayer());
         }
         this._isShow ^= true;
-    }
+    };
+
+    this.rushFriendData = function () {
+
+    };
 };
 
 FriendList.create = function () {

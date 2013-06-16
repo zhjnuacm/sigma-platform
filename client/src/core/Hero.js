@@ -1,16 +1,15 @@
-/*
- * 对外接口
- * Hero Hero.create(position);			//创建英雄类实例
- * void moveByStep(dir);				//根据方向移动一步
- * void moveByRoute(route,routeSize);	//根据路线数组移动
- * bool checkIsWalking();				//返回精灵是否在移动的判断值
- * CCSprite getSprite();				//返回精灵对象
+/**
+ * [Hero 英雄类]
+ * @author Saisa
  * 
+ * 对外接口
+ * Hero Hero.create(CCPoint position);			//创建英雄类实例
+ * void moveByStep(int dir);					//根据方向移动一步
+ * void moveByRoute(int[] route,int routeSize);	//根据路线数组移动
+ * bool checkIsWalking();						//返回精灵是否在移动的判断值
+ * CCSprite getSprite();						//返回精灵对象
  * 
  */
-
-
-
 function Hero() {
 	//精灵移动相关变量
 	_stepTime:null;//单步移动时间

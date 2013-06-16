@@ -1,14 +1,12 @@
-
-
-
 /**
- * [ChildScene 英雄面板信息类]
- * @type {[type]}
- */
-
-/**
- * @author huanniang
- * @type 
+ * [ChildScene 子场景类]
+ * @author Saisa
+ * 
+ * 对外接口
+ * ChildScene ChildScene.create();		//创建子场景类实例
+ * CCPoint getHeroTilePosition();		//获取英雄在TILE地图中的坐标
+ * CCPoint getHeroWorldPosition();		//获取英雄在屏幕中的实际坐标
+ * 
  */
 var ChildScene = cc.Layer.extend({
 
