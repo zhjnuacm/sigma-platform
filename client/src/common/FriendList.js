@@ -89,6 +89,7 @@ var FriendAddView = function () {
     this._addDig;
     this._box;
     this._root;
+    this.jsonData = [];
     this.init = function () {
 
         //this._root = cc.p(cc.Director.getInstance().getWinSize().width - 380, 250);
@@ -118,17 +119,16 @@ var FriendAddView = function () {
             sself._box.setBgClr(cc.c3(255, 255, 255));
         });
         this._addDig.addChild(this._box);
-
-
         return true;
-
     } 
+    
+    
     this.showResult = function () {
         var sname = this._box.getText();
         //=====
         //去数据库抓取搜索到的用户信息给我，保存在jsonData数组里面
-
-        var jsonData = [
+        this.getFriendOfSearch(sname);
+       /* var jsonData = [
             {
                 'name': 'Jopix0',
                 'place': '教室吹水',
@@ -141,12 +141,13 @@ var FriendAddView = function () {
                 'photo': 'client/res/user/user_2.jpg',
                 'mood': '好不想学习，想打怪，其带菜',
             }
-        ];
+        ];*/
 
         //===
-
-        if (jsonData.length > 0) {
-            this._showResult = ScrollList.create(200, 320, cc.p(this._root.x + 10, this._root.y + 10), SeachFriendCell, 50, jsonData);
+        cc.log("嘿嘿" + this.jsonData.length);
+        
+        if (this.jsonData.length > 0) {
+            this._showResult = ScrollList.create(200, 320, cc.p(this._root.x + 10, this._root.y + 10), SeachFriendCell, 50, this.jsonData);
             this._addDig.addChild(this._showResult);
         } else {
             this._showResult = cc.Layer.create();
@@ -155,6 +156,21 @@ var FriendAddView = function () {
             this.addDig.addChild(this._showResult);
         }
     }
+    
+    this.getFriendOfSearch = function(name) {
+		var self = this;
+		$.ajax({
+			type : "POST",
+			async: false,
+			dataType : "json",
+			url : genGetFriendOfSearchUrl(name),
+			success : function(data, textStatus) {
+				this.jsonData = data;
+				cc.log("haha:" + this.jsonData);
+				cc.log("嘿嘿1111" + this.jsonData.length);
+			}
+		});
+	}
 
     this.setTouchPriority = function(num){
         this._showResult.setTouchPriority(num);
@@ -187,8 +203,6 @@ var FriendMenu = cc.LayerColor.extend({
     _touchBegan: null,
     _width: null,
     _height: null,
-
-
 
     init: function (fData) {
         this._width = 260;
@@ -226,7 +240,6 @@ var FriendMenu = cc.LayerColor.extend({
         p.setAnchorPoint(cc.p(0, 0));
         p.setPosition(cc.p(60, 90));
         this.addChild(p);
-
 
         var m = cc.LabelTTF.create(this._fData.mood, s_yahei, 12);
         m.setColor(cc.c3(30, 30, 30));
@@ -316,70 +329,7 @@ FriendMenu.create = function (fData) {
 
 //===
 //用于测试
-
 var friendData = [];
-friendData.push(
-    {
-        'name': 'Jopix0',
-        'place': '教室吹水',
-        'photo': 'client/res/user/user_1.jpg',
-        'mood': '好不想学习，想打怪，其带菜',
-    },
-    {
-        'name': 'nanke1',
-        'place': '宿舍睡觉',
-        'photo': 'client/res/user/user_2.jpg',
-        'mood': '好不想学习，想打怪，其带菜',
-    },
-    {
-        'name': 'cchun2',
-        'place': '魔界打怪',
-        'photo': 'client/res/user/user_3.jpg',
-        'mood': '好不想学习，想打怪，其带菜',
-    },
-    {
-        'name': 'vainner3',
-        'place': '现实世界',
-        'photo': 'client/res/user/user_4.jpg',
-        'mood': '好不想学习，想打怪，其带菜',
-    },
-    {
-        'name': 'huan4',
-        'place': '食堂泡妞',
-        'photo': 'client/res/user/user_5.jpg',
-        'mood': '好不想学习，想打怪，其带菜',
-    },
-     {
-         'name': 'Jopix5',
-         'place': '教室吹水',
-         'photo': 'client/res/user/user_1.jpg',
-         'mood': '好不想学习，想打怪，其带菜',
-     },
-    {
-        'name': 'nanke6',
-        'place': '宿舍睡觉',
-        'photo': 'client/res/user/user_2.jpg',
-        'mood': '好不想学习，想打怪，其带菜',
-    },
-    {
-        'name': 'cchun7',
-        'place': '魔界打怪',
-        'photo': 'client/res/user/user_3.jpg',
-        'mood': '好不想学习，想打怪，其带菜',
-    },
-    {
-        'name': 'vainner8',
-        'place': '现实世界',
-        'photo': 'client/res/user/user_4.jpg',
-        'mood': '好不想学习，想打怪，其带菜',
-    },
-    {
-        'name': 'huan9',
-        'place': '食堂泡妞',
-        'photo': 'client/res/user/user_5.jpg',
-        'mood': '好不想学习，想打怪，其带菜',
-    }
-);
 //==
 
 /**
@@ -406,6 +356,7 @@ var FriendViewCell = cc.TableViewCell.extend({
     },
 
     init: function (idx) {
+    	
         this.getDataFromIndex(idx);
         this.setIdx(idx);
 
@@ -472,11 +423,13 @@ var FriendListLayer = cc.Layer.extend({
         if (!this._super()) {
             return false;
         }
-
+        this.getMyFriendInfo();
+        
         this._root = cc.p(cc.Director.getInstance().getWinSize().width - 174, 220);
         this._isShow = true;
         this.initBorder(180, 288);
         this.setfriendNum(friendData.length);
+
 
         //初始化主标签
         //var item = cc.MenuItemSprite.create(normalImage, SelectedImage, 'callback', this);
@@ -529,9 +482,30 @@ var FriendListLayer = cc.Layer.extend({
         tmenu.setPosition(cc.p(0, 0));
         this.addChild(tmenu);
 
+        /*this.setfriendNum(5);
+        this.friendView.insertCellAtIndex(5);
+        this.friendView.reloadData();*/
+        
         return true;
     },
 
+    /**
+     * get my friend infomation
+     */
+	getMyFriendInfo : function() {
+		var self = this;
+		$.ajax({
+			type : "POST",
+			async: false,
+			dataType : "json",
+			url : genGetFriendInfoUrl(),
+			success : function(data, textStatus) {
+				friendData = data;
+				//cc.log(friendData);
+			}
+		});
+	},
+    
     initBorder: function (w, h) {
 
         var bg = cc.LayerColor.create(cc.c4(225, 225, 225, 255), w, h);
@@ -581,8 +555,7 @@ var FriendListLayer = cc.Layer.extend({
         this.addChild(fmenu);
         return true;
     },
-
-
+    
     cellSizeForTable: function (table) {
         return cc.SizeMake(180, 50);
     },
@@ -637,12 +610,13 @@ FriendListLayer.create = function () {
     return null;
 };
 
+
+
 /**
  * @ Jopix  好友列表类--单例
  * @ 2013年6月5日 22:41:27
  * @ 由于源码关系，只能以视角左下角为（0，0）
  */
-
 var FriendList = function () {
     FriendList.instance = this;
     this._Layer;
@@ -684,3 +658,6 @@ FriendList.getInstance = function () {
         return FriendList.instance;
     }
 };
+
+
+

@@ -118,3 +118,10 @@ function genMapConfToNpcControllerMessageUrl(mapInfo) {
 	return head + "npc/SetGlobalMapConf&mapConfStr=" + mapInfo;
 }
 
+function genGetFriendInfoUrl() {
+	return head + "UserFriend/getMyfriendInfo";
+}
+
+function genGetFriendOfSearchUrl(name) {
+	return head + "UserFriend/getFriendOfSearch&name=" + name;
+}

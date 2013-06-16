@@ -72,10 +72,11 @@ function Mediator() {
 
 	    //好友列表，给一个开关按钮
 
-		var crButton = cc.MenuItemImage.create(s_friend_menu, s_friend_menu, s_friend_menu, this.ShowFriend, this);
+		/*var crButton = cc.MenuItemImage.create(s_friend_menu, s_friend_menu, s_friend_menu, this.ShowFriend, this);
 		var menu = cc.Menu.create(crButton);
 		menu.setPosition(cc.p(this._size.width - 10, 520));
-		this._mainLayer.addChild(menu);
+		this._mainLayer.addChild(menu);*/
+		this._mainLayer.addChild(FriendListLayer.create());
 
 		return true;
 	},

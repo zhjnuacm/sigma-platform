@@ -230,7 +230,6 @@ var UserMenu = function(){
     };
 }
 
-
 UserMenu.create = function (uData) {
     var ret = new UserMenu();
     if (ret && ret.init(uData)) {

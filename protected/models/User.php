@@ -10,6 +10,8 @@
  * @property string $user_email
  * @property text $user_sign
  * @property text $user_declare'
+ * string $user_place
+ * text $user_photo
  *
  * The followings are the available model relations:
  * @property Blog[] $blogs
@@ -107,6 +109,7 @@ class User extends CActiveRecord
 			'user_email' => '用户邮箱',
 			'user_sign' => '个性签名',
 			'user_declare' => '个人说明',
+			//暂时没有添加place，photo，测试一下是否一定需要
 		);
 	}
 
