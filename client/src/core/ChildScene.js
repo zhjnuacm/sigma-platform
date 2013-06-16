@@ -1,3 +1,27 @@
+var actionList = [];
+
+actionList.push(
+		{
+			'x' : 980,
+			'y' : 980
+		},
+		{
+			'x' : 1000,
+			'y' : 1000
+		},
+		{
+			'x' : 800,
+			'y' : 800
+		},
+		{
+			'x' : 700,
+			'y' : 700
+		},
+		{
+			'x' : 700,
+			'y' : 700
+		}
+		);
 /**
  * [ChildScene 子场景类]
  * @author Saisa
@@ -17,7 +41,8 @@ var ChildScene = cc.Layer.extend({
 	_clickTile:null,//点击tile的时显示的精灵	
 	_clickAction:null,//该精灵的动画
 	
-
+	_users: null,//其他用户
+	
 	//鼠标点击相关
 	_clickAble:null,//点击能否被响应
 	
@@ -44,10 +69,16 @@ var ChildScene = cc.Layer.extend({
 		this._hero = Hero.create(this._map.tilePositionToWorldLocation(cc.p(6,1)));
 		this.addChild(this._hero.getSprite(),this._zOrder["_hero"]);
 
-		//其它用户
-		var aaa = User.create(123456);
-		this._map.addChild(aaa);
+		//添加其他用户
+		this._users = new Array();
 		
+		for(var i = 0; i < userData.length; ++i)
+		{
+			//cc.log(i);
+			var user = User.create(userData[i]);
+			this._users.push(user);
+			this._map.addChild(this._users[i]);
+		}
 		
 		//click!动画
 		this._clickTile = cc.Sprite.create(s_clickTile);
@@ -70,7 +101,7 @@ var ChildScene = cc.Layer.extend({
 		var screenCenter = cc.p(winSize.width/2.0,winSize.height/2.0);
 		this.setPosition(cc.pSub(screenCenter,this._hero.getSprite().getPosition()));
 		
-		
+		this.schedule(this.myUserMove, 2.0);//定时让其他用户移动
 		return true;
 	},
 
@@ -199,7 +230,51 @@ var ChildScene = cc.Layer.extend({
     onTouchEnd :  function(event) {	
     	
     },
-  
+    
+	//判断hero当前场景是否有新用户登录
+    checkNewUser: function(position) {
+    	var self = this;
+    	
+    	$.ajax({
+    		type : "GET",
+    		url : getNewUserDataUrl(position),
+    		success : function(data) {
+    			self.addNewUser(data);
+    		}
+    	});
+    },
+    
+    //添加新用户
+    addNewUser: function(data) {
+    	
+    },
+    
+    userMove: function () {
+        var self = this;
+        $.ajax({
+            type: "POST",
+            dataType: "json", 
+            timeout: 80000,
+            data:{time:"80"}, 
+            url: genPullMessageUrl(),
+            success: function (data, textStatus) {
+                //	cc.log(data);
+            }, 
+        });
+    },
+    
+    //随机获取位置，让其他用户移动
+    myUserMove: function(){
+    	var tot = actionList.length;
+    	
+    	for(var i = 0; i < this._users.length; ++i)
+    	{
+    		var id = getRandomNum(0, tot);
+    		if(id != tot){
+    			this._users[i].setPosition(actionList[id]);
+    		}
+    	}
+    },
     
     
     ////////////////////////////////////外部接口

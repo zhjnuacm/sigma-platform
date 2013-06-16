@@ -125,3 +125,13 @@ function genGetFriendInfoUrl() {
 function genGetFriendOfSearchUrl(name) {
 	return head + "UserFriend/getFriendOfSearch&name=" + name;
 }
+
+//根据userPosition 获取当前场景是否有新用户登录
+function getNewUserDataUrl(userPosition){
+	return ;
+}
+
+//根据userPosition 获取当前场景中用户的position
+function getUserNewPosition(userPosition){
+	return ;
+}

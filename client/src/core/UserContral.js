@@ -9,9 +9,37 @@
 var userData = [];
 userData.push(
     {
-        'ID': 123456,
+        'ID': 1,
         'name': 'Jopix',
         'PositionX': 1580,
+        'PositionY': 900,
+        'Photo': 'client/res/user/user_4.jpg'
+    },
+    {
+    	'ID': 2,
+        'name': 'nanke',
+        'PositionX': 1480,
+        'PositionY': 900,
+        'Photo': 'client/res/user/user_4.jpg'
+    },
+    {
+    	'ID': 3,
+        'name': 'vainner',
+        'PositionX': 1380,
+        'PositionY': 900,
+        'Photo': 'client/res/user/user_4.jpg'
+    },
+    {
+    	'ID': 4,
+        'name': 'huangniang',
+        'PositionX': 1180,
+        'PositionY': 900,
+        'Photo': 'client/res/user/user_4.jpg'
+    },
+    {
+    	'ID': 5,
+        'name': 'cchun',
+        'PositionX': 980,
         'PositionY': 900,
         'Photo': 'client/res/user/user_4.jpg'
     }
@@ -39,10 +67,10 @@ var User = cc.Sprite.extend({
         this._super();
     },
 
-    init: function (id) {
+    init: function (userdata) {
         this._super();
         this._priority = -15;
-        this.getDataFromID(id);
+        this.initUserData(userdata);
         this.initWithFile(this._uData.Photo);
         this.setPosition(cc.p(this._uData.PositionX, this._uData.PositionY));
         return true;
@@ -135,20 +163,14 @@ var User = cc.Sprite.extend({
         }
     },
 
-    getDataFromID: function (ID) {
-        for (var i = 0; i < userData.length; i++) {
-            if (userData[i].ID == ID) {
-                this._uData.ID = userData[i].ID;
-                this._uData.name = userData[i].name;
-                this._uData.Photo = userData[i].Photo;
-                this._uData.PositionX = userData[i].PositionX;
-                this._uData.PositionY = userData[i].PositionY;
-                return true;
-            }
-        
-        }
-
-    return false;
+    initUserData: function (userdata) {
+    	cc.log(userdata);
+       this._uData.ID = userdata.ID;
+       this._uData.name = userdata.name;
+       this._uData.Photo = userdata.Photo;
+       this._uData.PositionX = userdata.PositionX;
+       this._uData.PositionY = userdata.PositionY;
+       return true;
     },
 
     setButtom: function () {
