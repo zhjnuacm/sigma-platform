@@ -1,9 +1,17 @@
-
-//================================
-//  请叫我欢娘  场景地图
-//  2013年6月7日 22:41:27
-//===============================
-
+/**
+ * [Map 地图类]
+ * @author Saisa
+ * 
+ * 对外接口
+ * Map Map.create(string HeroMap);						//根据地图名称字符串来创建地图实例
+ * CCPoint locationToTilePosition(CCPoint position);	//将TILE地图坐标转换为屏幕实际坐标
+ * CCPoint tilePositionToMapLocation(CCPoint position);	//将屏幕实际坐标转换为TILE地图坐标
+ * bool checkCollision(CCPoint tilePos)					//检查某个tile是否有障碍物
+ * bool checkOrCalRoute(CCPoint start,CCPoint terminal);//检查起始点到终点能否进行路线移动,能则计算移动路径且返回true，不是则返回false
+ * Array getRouteContent();								//返回移动路线的数组内容，需要先调用checkOrCalRoute
+ * int getRouteSize();									//获取移动路线的数组大小，需要先调用checkOrCalRoute
+ * getMapConfig();										//获取当前地图的配置信息
+ */
 var Map = cc.Layer.extend({
 	_backGround: null,
 	_tmxMap:null,
@@ -317,6 +325,7 @@ var Map = cc.Layer.extend({
 		
 	},
 	
+
 	getRouteSize:function(){
 		return this._routeSize;
 	},

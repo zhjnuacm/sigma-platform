@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2013 at 04:54 PM
+-- Generation Time: Jun 16, 2013 at 10:32 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -88,46 +88,250 @@ CREATE TABLE IF NOT EXISTS `sigma_message` (
   `message_is_secret` enum('y','n') COLLATE utf8_unicode_ci DEFAULT NULL,
   `message_is_kick` enum('y','n') COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`message_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=79 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=313 ;
 
 --
 -- Dumping data for table `sigma_message`
 --
 
 INSERT INTO `sigma_message` (`message_id`, `message_sender`, `message_reciever`, `message_content`, `message_time`, `messsage_type`, `message_color`, `message_is_secret`, `message_is_kick`) VALUES
-(46, 'test3', '【系统消息】', 'test3进入了聊天室!', '2013-05-23 23:14:04', 0, NULL, NULL, NULL),
-(47, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-05-23 23:14:19', 0, NULL, NULL, NULL),
-(48, 'test3', 'all', '来啊，大家一起来聊天呀', '2013-05-23 23:14:40', 0, NULL, NULL, NULL),
-(49, 'test3', 'all', '呵呵，你们想聊些什么呢', '2013-05-23 23:14:50', 0, NULL, NULL, NULL),
-(50, 'test3', 'all', '大家一起来搞基啊啊', '2013-05-23 23:15:58', 0, NULL, NULL, NULL),
-(51, 'test3', 'all', '受打击了附近收到飞', '2013-05-23 23:16:07', 0, NULL, NULL, NULL),
-(52, 'test1', 'all', '', '2013-05-23 23:16:26', 0, NULL, NULL, NULL),
-(53, 'test1', 'all', '', '2013-05-23 23:18:39', 0, NULL, NULL, NULL),
-(54, 'test1', 'all', 'sdasd', '2013-05-23 23:18:49', 0, NULL, NULL, NULL),
-(55, 'test2', '【系统消息】', 'test2进入了聊天室!', '2013-05-23 23:19:34', 0, NULL, NULL, NULL),
-(56, 'test1', 'all', '文字位置', '2013-05-23 23:23:44', 0, NULL, NULL, NULL),
-(57, 'test3', 'all', '哈哈，收费的电视费收费', '2013-05-23 23:23:57', 0, NULL, NULL, NULL),
-(58, 'test1', 'all', '收费老师的咖啡机', '2013-05-23 23:24:08', 0, NULL, NULL, NULL),
-(59, 'test1', 'all', '@@', '2013-05-23 23:26:53', 0, NULL, NULL, NULL),
-(60, 'test1', 'all', '水电费水电费', '2013-05-23 23:27:01', 0, NULL, NULL, NULL),
-(61, 'test1', 'all', '@', '2013-05-23 23:27:05', 0, NULL, NULL, NULL),
-(62, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-05-24 00:28:49', 0, NULL, NULL, NULL),
-(63, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-05-24 00:28:52', 0, NULL, NULL, NULL),
-(64, 'test3', '【系统消息】', 'test3进入了聊天室!', '2013-05-24 00:28:56', 0, NULL, NULL, NULL),
-(65, 'test3', 'all', '哈哈，大家好啊', '2013-05-24 00:36:57', 0, NULL, NULL, NULL),
-(66, 'test3', '【系统消息】', 'test3离开了聊天室!', '2013-05-24 19:43:15', 0, NULL, NULL, NULL),
-(67, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-05-24 19:43:23', 0, NULL, NULL, NULL),
-(68, 'test1', 'all', '哈哈哈', '2013-05-24 19:43:36', 0, NULL, NULL, NULL),
-(69, 'test1', 'all', '贾汪哦', '2013-05-24 19:43:43', 0, NULL, NULL, NULL),
-(70, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-05-24 19:44:11', 0, NULL, NULL, NULL),
-(71, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-05-25 09:28:32', 0, NULL, NULL, NULL),
-(72, 'test1', 'all', '这个邪恶的师姐呀', '2013-05-28 15:35:02', 0, NULL, NULL, NULL),
-(73, 'test1', 'all', '拉拉拉阿拉', '2013-05-28 15:35:33', 0, NULL, NULL, NULL),
-(74, 'test1', 'all', '文字位置', '2013-05-28 15:41:07', 0, NULL, NULL, NULL),
-(75, 'test1', 'all', '水电费水电费水电费', '2013-05-28 15:41:20', 0, NULL, NULL, NULL),
 (76, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-05-28 23:55:58', 0, NULL, NULL, NULL),
 (77, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-05-28 23:56:14', 0, NULL, NULL, NULL),
-(78, 'test3', '【系统消息】', 'test3进入了聊天室!', '2013-06-01 15:44:10', 0, NULL, NULL, NULL);
+(78, 'test3', '【系统消息】', 'test3进入了聊天室!', '2013-06-01 15:44:10', 0, NULL, NULL, NULL),
+(79, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-04 21:56:55', 0, NULL, NULL, NULL),
+(80, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-04 23:31:28', 0, NULL, NULL, NULL),
+(81, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-04 23:32:04', 0, NULL, NULL, NULL),
+(82, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-04 23:41:20', 0, NULL, NULL, NULL),
+(83, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-04 23:41:24', 0, NULL, NULL, NULL),
+(84, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-04 23:59:19', 0, NULL, NULL, NULL),
+(85, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-05 00:49:19', 0, NULL, NULL, NULL),
+(86, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-05 00:55:18', 0, NULL, NULL, NULL),
+(87, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-05 00:59:02', 0, NULL, NULL, NULL),
+(88, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-05 00:59:05', 0, NULL, NULL, NULL),
+(89, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-05 00:59:35', 0, NULL, NULL, NULL),
+(90, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-05 01:03:45', 0, NULL, NULL, NULL),
+(91, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-05 01:06:52', 0, NULL, NULL, NULL),
+(92, 'test1', 'all', '车费鬼地方', '2013-06-05 12:24:42', 0, NULL, NULL, NULL),
+(93, 'test1', 'all', '水电费收费水电费', '2013-06-05 12:26:29', 0, NULL, NULL, NULL),
+(94, 'test1', 'all', '哈哈哈哈哈', '2013-06-05 12:27:18', 0, NULL, NULL, NULL),
+(95, 'test1', 'all', '文字位置', '2013-06-05 12:28:12', 0, NULL, NULL, NULL),
+(96, 'test1', 'all', '文字位置', '2013-06-05 12:29:47', 0, NULL, NULL, NULL),
+(97, 'test1', 'all', '文字位置', '2013-06-05 12:31:20', 0, NULL, NULL, NULL),
+(98, 'test1', 'all', '文字位置', '2013-06-05 12:32:02', 0, NULL, NULL, NULL),
+(99, 'test1', 'all', '文字位置1', '2013-06-05 12:39:47', 0, NULL, NULL, NULL),
+(100, 'test1', 'all', '文字位置', '2013-06-05 12:40:40', 0, NULL, NULL, NULL),
+(101, 'test1', 'all', '水电费', '2013-06-05 12:40:46', 0, NULL, NULL, NULL),
+(102, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-05 22:18:08', 0, NULL, NULL, NULL),
+(103, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-05 22:18:13', 0, NULL, NULL, NULL),
+(104, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-05 22:21:50', 0, NULL, NULL, NULL),
+(105, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-05 22:21:54', 0, NULL, NULL, NULL),
+(106, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-05 23:21:08', 0, NULL, NULL, NULL),
+(107, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-05 23:21:12', 0, NULL, NULL, NULL),
+(108, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-06 10:20:13', 0, NULL, NULL, NULL),
+(109, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-06 10:20:24', 0, NULL, NULL, NULL),
+(110, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-06 10:20:45', 0, NULL, NULL, NULL),
+(111, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-06 10:26:49', 0, NULL, NULL, NULL),
+(112, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-06 10:26:53', 0, NULL, NULL, NULL),
+(113, 'test1', 'all', '文字位置', '2013-06-06 10:59:03', 0, NULL, NULL, NULL),
+(114, 'test1', 'all', '哈哈哈', '2013-06-06 10:59:09', 0, NULL, NULL, NULL),
+(115, 'test1', 'all', '文字位置', '2013-06-06 15:55:21', 0, NULL, NULL, NULL),
+(116, 'test1', 'all', '哈哈', '2013-06-06 15:55:31', 0, NULL, NULL, NULL),
+(117, 'test1', 'all', '嘿嘿', '2013-06-06 15:55:46', 0, NULL, NULL, NULL),
+(118, 'test1', 'all', '哈哈', '2013-06-06 15:59:35', 0, NULL, NULL, NULL),
+(119, 'test1', 'all', '嘿嘿，你在干吗', '2013-06-06 15:59:43', 0, NULL, NULL, NULL),
+(120, 'test1', 'all', 'sdfsdf', '2013-06-06 15:59:54', 0, NULL, NULL, NULL),
+(121, 'test1', 'all', '文字位置', '2013-06-06 16:00:34', 0, NULL, NULL, NULL),
+(122, 'test1', 'all', '嘿嘿', '2013-06-06 16:00:36', 0, NULL, NULL, NULL),
+(123, 'test1', 'all', '哈哈哈', '2013-06-06 16:00:42', 0, NULL, NULL, NULL),
+(124, 'test1', 'all', '文字位置', '2013-06-06 16:01:18', 0, NULL, NULL, NULL),
+(125, 'test1', 'all', '嘿嘿', '2013-06-06 16:01:20', 0, NULL, NULL, NULL),
+(126, 'test1', 'all', '文字位置', '2013-06-06 16:01:40', 0, NULL, NULL, NULL),
+(127, 'test1', 'all', '水电费', '2013-06-06 16:01:42', 0, NULL, NULL, NULL),
+(128, 'test1', 'all', '多给点】gdfgdfg', '2013-06-06 16:01:46', 0, NULL, NULL, NULL),
+(129, 'test1', 'all', '水电费水电费', '2013-06-06 16:01:48', 0, NULL, NULL, NULL),
+(130, 'test1', 'all', '', '2013-06-06 16:01:49', 0, NULL, NULL, NULL),
+(131, 'test1', 'all', '', '2013-06-06 16:01:52', 0, NULL, NULL, NULL),
+(132, 'test1', 'all', '', '2013-06-06 16:01:54', 0, NULL, NULL, NULL),
+(133, 'test1', 'all', '', '2013-06-06 16:01:56', 0, NULL, NULL, NULL),
+(134, 'test1', 'all', '', '2013-06-06 16:01:58', 0, NULL, NULL, NULL),
+(135, 'test1', 'all', '吃饭', '2013-06-06 16:02:02', 0, NULL, NULL, NULL),
+(136, 'test1', 'all', '', '2013-06-06 16:02:22', 0, NULL, NULL, NULL),
+(137, 'test1', 'all', '', '2013-06-06 16:02:24', 0, NULL, NULL, NULL),
+(138, 'test1', 'all', '文字位置', '2013-06-06 16:03:24', 0, NULL, NULL, NULL),
+(139, 'test1', 'all', '文字位置', '2013-06-06 16:03:47', 0, NULL, NULL, NULL),
+(140, 'test1', 'all', '嘿嘿', '2013-06-06 16:04:03', 0, NULL, NULL, NULL),
+(141, 'test1', 'all', '文字位置', '2013-06-06 16:04:41', 0, NULL, NULL, NULL),
+(142, 'test1', 'all', '你想干吗', '2013-06-06 16:04:45', 0, NULL, NULL, NULL),
+(143, 'test1', 'all', '没有啊', '2013-06-06 16:04:52', 0, NULL, NULL, NULL),
+(144, 'test1', 'all', '文字位置', '2013-06-06 16:06:16', 0, NULL, NULL, NULL),
+(145, 'test1', 'all', '文字位置', '2013-06-06 16:10:46', 0, NULL, NULL, NULL),
+(146, 'test1', 'all', '哈哈', '2013-06-06 16:10:47', 0, NULL, NULL, NULL),
+(147, 'test1', 'all', '你想干吗', '2013-06-06 16:10:49', 0, NULL, NULL, NULL),
+(148, 'test1', 'all', '文字位置', '2013-06-06 16:11:10', 0, NULL, NULL, NULL),
+(149, 'test1', 'all', '怎么说，你想干吗', '2013-06-06 16:11:26', 0, NULL, NULL, NULL),
+(150, 'test1', 'all', '撒范德萨雷锋精神，水电费了水电费空手道f', '2013-06-06 16:12:06', 0, NULL, NULL, NULL),
+(151, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-06 16:26:02', 0, NULL, NULL, NULL),
+(152, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-06 16:26:06', 0, NULL, NULL, NULL),
+(153, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-06 16:31:57', 0, NULL, NULL, NULL),
+(154, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-06 16:32:01', 0, NULL, NULL, NULL),
+(155, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-06 16:38:07', 0, NULL, NULL, NULL),
+(156, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-06 16:38:11', 0, NULL, NULL, NULL),
+(157, 'test1', 'all', '文字位置', '2013-06-06 16:38:43', 0, NULL, NULL, NULL),
+(158, 'test1', 'all', '哈哈', '2013-06-06 16:38:47', 0, NULL, NULL, NULL),
+(159, 'test1', 'all', '文字位置', '2013-06-06 16:39:11', 0, NULL, NULL, NULL),
+(160, 'test1', 'all', '还是两次', '2013-06-06 16:39:20', 0, NULL, NULL, NULL),
+(161, 'test1', 'all', '这个是什么原因呢', '2013-06-06 16:41:31', 0, NULL, NULL, NULL),
+(162, 'test1', 'all', '文字位置', '2013-06-06 16:42:58', 0, NULL, NULL, NULL),
+(163, 'test1', 'all', '分割', '2013-06-06 16:43:07', 0, NULL, NULL, NULL),
+(164, 'test1', 'all', '真的事这样吗', '2013-06-06 16:57:07', 0, NULL, NULL, NULL),
+(165, 'test1', 'all', '哎哟哎哟', '2013-06-06 16:57:13', 0, NULL, NULL, NULL),
+(166, 'test1', 'all', '哈哈', '2013-06-06 16:57:54', 0, NULL, NULL, NULL),
+(167, 'test1', 'all', '怎么会这样呢', '2013-06-06 16:58:01', 0, NULL, NULL, NULL),
+(168, 'test1', 'all', '嘿嘿，，不知道啊', '2013-06-06 16:58:11', 0, NULL, NULL, NULL),
+(169, 'test1', 'all', '是啊，我也不知道为什么是这样的', '2013-06-06 16:58:18', 0, NULL, NULL, NULL),
+(170, 'test1', 'all', '是电饭锅', '2013-06-06 17:00:21', 0, NULL, NULL, NULL),
+(171, 'test1', 'all', '文字位置', '2013-06-06 17:00:30', 0, NULL, NULL, NULL),
+(172, 'test1', 'all', 'sdfsdf', '2013-06-06 17:01:02', 0, NULL, NULL, NULL),
+(173, 'test1', 'all', '的非官方', '2013-06-06 17:01:07', 0, NULL, NULL, NULL),
+(174, 'test1', 'all', '两个', '2013-06-06 17:01:19', 0, NULL, NULL, NULL),
+(175, 'test1', 'all', '哈哈', '2013-06-06 17:01:21', 0, NULL, NULL, NULL),
+(176, 'test1', 'all', '这又是怎么一回事二', '2013-06-06 17:01:54', 0, NULL, NULL, NULL),
+(177, 'test1', 'all', '文字位置', '2013-06-06 17:02:46', 0, NULL, NULL, NULL),
+(178, 'test1', 'all', '哈哈，这次就不会了吧，数据库还要加锁啊', '2013-06-06 17:03:07', 0, NULL, NULL, NULL),
+(179, 'test1', 'all', '2秒可以吗', '2013-06-06 17:04:01', 0, NULL, NULL, NULL),
+(180, 'test1', 'all', '3秒好像就没问题了', '2013-06-06 17:04:10', 0, NULL, NULL, NULL),
+(181, 'test1', 'all', '文字位置', '2013-06-06 17:05:30', 0, NULL, NULL, NULL),
+(182, 'test1', 'all', '这样就没有问题了吧', '2013-06-06 17:05:36', 0, NULL, NULL, NULL),
+(183, 'test1', 'all', '这样就算更新数据库成功了吧', '2013-06-06 17:05:47', 0, NULL, NULL, NULL),
+(184, 'test1', 'all', '这样就好了吧', '2013-06-06 17:07:36', 0, NULL, NULL, NULL),
+(185, 'test1', 'all', '水电费】', '2013-06-06 17:08:22', 0, NULL, NULL, NULL),
+(186, 'test1', 'all', '电饭锅', '2013-06-06 17:09:01', 0, NULL, NULL, NULL),
+(187, 'test1', 'all', '文字位置', '2013-06-06 17:10:12', 0, NULL, NULL, NULL),
+(188, 'test1', 'all', '文字位置', '2013-06-06 17:16:27', 0, NULL, NULL, NULL),
+(189, 'test1', 'all', '', '2013-06-06 17:16:28', 0, NULL, NULL, NULL),
+(190, 'test1', 'all', '水电费水电费', '2013-06-06 17:16:29', 0, NULL, NULL, NULL),
+(191, 'test1', 'all', 'sdf', '2013-06-06 17:16:31', 0, NULL, NULL, NULL),
+(192, 'test1', 'all', '文字位置', '2013-06-06 17:17:10', 0, NULL, NULL, NULL),
+(193, 'test1', 'all', 'sdfsdf', '2013-06-06 17:17:54', 0, NULL, NULL, NULL),
+(194, 'test1', 'all', '水电费水电费是', '2013-06-06 17:18:19', 0, NULL, NULL, NULL),
+(195, 'test1', 'all', 'sdfsdf ', '2013-06-06 17:18:59', 0, NULL, NULL, NULL),
+(196, 'test1', 'all', '水电费', '2013-06-06 17:19:46', 0, NULL, NULL, NULL),
+(197, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-06 17:20:24', 0, NULL, NULL, NULL),
+(198, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-06 17:20:28', 0, NULL, NULL, NULL),
+(199, 'test1', 'all', '文字位置', '2013-06-06 17:20:33', 0, NULL, NULL, NULL),
+(200, 'test1', 'all', '水电费', '2013-06-06 17:20:41', 0, NULL, NULL, NULL),
+(201, 'test1', 'all', 'sdfsdf', '2013-06-06 17:21:22', 0, NULL, NULL, NULL),
+(202, 'test1', 'all', '文字位置', '2013-06-06 17:23:08', 0, NULL, NULL, NULL),
+(203, 'test1', 'all', '草', '2013-06-06 17:23:14', 0, NULL, NULL, NULL),
+(204, 'test1', 'all', '你妹你妹你妹', '2013-06-06 17:23:31', 0, NULL, NULL, NULL),
+(205, 'test1', 'all', '你到底想干吗再说', '2013-06-06 17:23:40', 0, NULL, NULL, NULL),
+(206, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-06 17:38:15', 0, NULL, NULL, NULL),
+(207, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-06 17:38:44', 0, NULL, NULL, NULL),
+(208, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-06 17:38:49', 0, NULL, NULL, NULL),
+(209, 'test2', '【系统消息】', 'test2离开了聊天室!', '2013-06-06 17:39:14', 0, NULL, NULL, NULL),
+(210, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-06 17:39:29', 0, NULL, NULL, NULL),
+(211, 'test1', 'all', '哈哈', '2013-06-06 17:40:22', 0, NULL, NULL, NULL),
+(212, 'test1', 'all', 'sdfsdf', '2013-06-06 17:40:28', 0, NULL, NULL, NULL),
+(213, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-06 21:48:35', 0, NULL, NULL, NULL),
+(214, 'test1', 'all', '文字位置', '2013-06-06 21:50:04', 0, NULL, NULL, NULL),
+(215, 'test1', 'all', '哈哈哈', '2013-06-06 21:50:08', 0, NULL, NULL, NULL),
+(216, 'test1', 'all', '水电费了圣诞节分开连锁店疯了', '2013-06-06 21:50:10', 0, NULL, NULL, NULL),
+(217, 'test1', 'all', '水帘洞副教授的脸孔的感觉', '2013-06-06 21:50:16', 0, NULL, NULL, NULL),
+(218, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-06 21:53:15', 0, NULL, NULL, NULL),
+(219, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-06 21:53:19', 0, NULL, NULL, NULL),
+(220, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-06 21:53:43', 0, NULL, NULL, NULL),
+(221, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-06 21:56:19', 0, NULL, NULL, NULL),
+(222, 'test1', 'all', '文字位置', '2013-06-06 22:00:59', 0, NULL, NULL, NULL),
+(223, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-06 22:05:18', 0, NULL, NULL, NULL),
+(224, 'test1', 'all', '文字位置', '2013-06-06 22:05:46', 0, NULL, NULL, NULL),
+(225, 'test1', 'all', '文字位置', '2013-06-06 22:44:12', 0, NULL, NULL, NULL),
+(226, 'test1', 'all', '哈哈，这就是大地图呀', '2013-06-06 22:56:17', 0, NULL, NULL, NULL),
+(227, 'test1', 'all', '文字位置', '2013-06-06 22:59:52', 0, NULL, NULL, NULL),
+(228, 'test1', 'all', '哈哈，就是文字位置咯咯咯来咯咯咯咯', '2013-06-06 23:00:03', 0, NULL, NULL, NULL),
+(229, 'test1', 'all', '随便聊咯。', '2013-06-06 23:00:09', 0, NULL, NULL, NULL),
+(230, 'test1', 'all', '文字位置', '2013-06-06 23:03:59', 0, NULL, NULL, NULL),
+(231, 'test1', 'all', '聊天窗口哟哟哟', '2013-06-06 23:04:11', 0, NULL, NULL, NULL),
+(232, 'test3', '【系统消息】', 'test3进入了聊天室!', '2013-06-09 14:38:39', 0, NULL, NULL, NULL),
+(233, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-09 14:48:51', 0, NULL, NULL, NULL),
+(234, 'admin', '【系统消息】', 'admin进入了聊天室!', '2013-06-09 14:48:59', 0, NULL, NULL, NULL),
+(235, 'admin', '【系统消息】', 'admin离开了聊天室!', '2013-06-09 14:52:07', 0, NULL, NULL, NULL),
+(236, 't', '【系统消息】', 't进入了聊天室!', '2013-06-09 15:12:50', 0, NULL, NULL, NULL),
+(237, 't', '【系统消息】', 't离开了聊天室!', '2013-06-09 15:12:55', 0, NULL, NULL, NULL),
+(238, 'test1', '【系统消息】', 'test1进入了聊天室!', '0000-00-00 00:00:00', 0, NULL, NULL, NULL),
+(239, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-09 17:12:03', 0, NULL, NULL, NULL),
+(240, 'admin', '【系统消息】', 'admin进入了聊天室!', '2013-06-09 17:12:09', 0, NULL, NULL, NULL),
+(241, 'admin', '【系统消息】', 'admin离开了聊天室!', '2013-06-09 17:12:17', 0, NULL, NULL, NULL),
+(242, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-09 17:13:41', 0, NULL, NULL, NULL),
+(243, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-09 23:34:16', 0, NULL, NULL, NULL),
+(244, 'admin', '【系统消息】', 'admin进入了聊天室!', '2013-06-09 23:37:27', 0, NULL, NULL, NULL),
+(245, 'admin', '【系统消息】', 'admin进入了聊天室!', '2013-06-10 02:01:32', 0, NULL, NULL, NULL),
+(246, 'admin', '【系统消息】', 'admin离开了聊天室!', '2013-06-10 02:04:33', 0, NULL, NULL, NULL),
+(247, 'admin', '【系统消息】', 'admin进入了聊天室!', '2013-06-10 02:05:43', 0, NULL, NULL, NULL),
+(248, 'admin', '【系统消息】', 'admin离开了聊天室!', '2013-06-10 02:06:37', 0, NULL, NULL, NULL),
+(249, 'admin', '【系统消息】', 'admin进入了聊天室!', '2013-06-10 02:07:15', 0, NULL, NULL, NULL),
+(250, 'admin', '【系统消息】', 'admin离开了聊天室!', '2013-06-10 02:08:29', 0, NULL, NULL, NULL),
+(251, '45', '【系统消息】', '45进入了聊天室!', '2013-06-10 02:14:25', 0, NULL, NULL, NULL),
+(252, '45', '【系统消息】', '45离开了聊天室!', '2013-06-10 02:14:57', 0, NULL, NULL, NULL),
+(253, 'admin', '【系统消息】', 'admin进入了聊天室!', '2013-06-10 02:19:19', 0, NULL, NULL, NULL),
+(254, 'admin', 'all', '文字位置', '2013-06-10 10:47:15', 0, NULL, NULL, NULL),
+(255, 'admin', 'all', '文字位置', '2013-06-11 13:24:25', 0, NULL, NULL, NULL),
+(256, 'admin', 'all', '电饭锅', '2013-06-11 13:24:28', 0, NULL, NULL, NULL),
+(257, 'admin', 'all', '文字位置', '2013-06-11 13:24:35', 0, NULL, NULL, NULL),
+(258, 'admin', 'all', '文字位置', '2013-06-11 13:25:37', 0, NULL, NULL, NULL),
+(259, 'admin', 'all', '文字位置', '2013-06-11 13:27:34', 0, NULL, NULL, NULL),
+(260, 'admin', 'all', '哈哈', '2013-06-11 13:28:38', 0, NULL, NULL, NULL),
+(261, 'admin', 'all', '这个 ', '2013-06-11 13:28:44', 0, NULL, NULL, NULL),
+(262, 'admin', 'all', '文字位置', '2013-06-11 13:50:09', 0, NULL, NULL, NULL),
+(263, 'admin', 'all', '色调分离上岛咖啡', '2013-06-11 13:50:18', 0, NULL, NULL, NULL),
+(264, 'admin', 'all', '文字位置', '2013-06-11 13:51:49', 0, NULL, NULL, NULL),
+(265, 'admin', 'all', '水电费的说法', '2013-06-11 13:52:19', 0, NULL, NULL, NULL),
+(266, 'admin', 'all', '嘿嘿', '2013-06-11 13:52:30', 0, NULL, NULL, NULL),
+(267, 'admin', 'all', '文字位置', '2013-06-11 13:52:39', 0, NULL, NULL, NULL),
+(268, 'admin', 'all', '哈哈哈', '2013-06-11 13:52:54', 0, NULL, NULL, NULL),
+(269, 'admin', 'all', '文字位置', '2013-06-11 13:56:31', 0, NULL, NULL, NULL),
+(270, 'admin', 'all', '文字位置', '2013-06-11 13:57:26', 0, NULL, NULL, NULL),
+(271, 'admin', 'all', '哈哈哈', '2013-06-11 13:57:33', 0, NULL, NULL, NULL),
+(272, 'admin', 'all', '文字位置', '2013-06-11 14:06:18', 0, NULL, NULL, NULL),
+(273, 'admin', 'all', '水电费水电费', '2013-06-11 14:06:25', 0, NULL, NULL, NULL),
+(274, 'admin', 'all', '文字位置', '2013-06-11 14:07:45', 0, NULL, NULL, NULL),
+(275, 'admin', 'all', '哈哈', '2013-06-11 14:07:59', 0, NULL, NULL, NULL),
+(276, 'admin', 'all', '哈哈', '2013-06-11 14:08:02', 0, NULL, NULL, NULL),
+(277, 'admin', 'all', '啊哈哈啊', '2013-06-11 14:08:04', 0, NULL, NULL, NULL),
+(278, 'admin', 'all', '文字位置', '2013-06-11 14:08:17', 0, NULL, NULL, NULL),
+(279, 'admin', 'all', '这个又不行', '2013-06-11 14:08:27', 0, NULL, NULL, NULL),
+(280, 'admin', 'all', '锁了', '2013-06-11 14:11:05', 0, NULL, NULL, NULL),
+(281, 'admin', 'all', '文字位置', '2013-06-11 14:19:52', 0, NULL, NULL, NULL),
+(282, 'admin', 'all', '呵呵', '2013-06-11 14:20:25', 0, NULL, NULL, NULL),
+(283, 'admin', 'all', '哈哈', '2013-06-11 14:20:51', 0, NULL, NULL, NULL),
+(284, 'admin', 'all', '文字位置', '2013-06-11 14:21:53', 0, NULL, NULL, NULL),
+(285, 'admin', 'all', '哈哈', '2013-06-11 14:24:40', 0, NULL, NULL, NULL),
+(286, 'admin', 'all', '文字位置', '2013-06-11 14:25:27', 0, NULL, NULL, NULL),
+(287, 'admin', 'all', '在在', '2013-06-11 16:16:11', 0, NULL, NULL, NULL),
+(288, 'admin', 'all', '呵呵', '2013-06-11 16:16:48', 0, NULL, NULL, NULL),
+(289, 'admin', 'all', '别人咯，别人咯', '2013-06-11 16:18:20', 0, NULL, NULL, NULL),
+(290, 'admin', 'all', '呵呵', '2013-06-11 16:18:38', 0, NULL, NULL, NULL),
+(291, 'admin', 'all', '文字位置', '2013-06-11 16:19:19', 0, NULL, NULL, NULL),
+(292, 'admin', 'all', '文字位置', '2013-06-11 16:20:14', 0, NULL, NULL, NULL),
+(293, 'admin', 'all', '文字位置', '2013-06-11 16:44:12', 0, NULL, NULL, NULL),
+(294, 'admin', 'all', '你想干吗', '2013-06-11 16:44:23', 0, NULL, NULL, NULL),
+(295, 'admin', '【系统消息】', 'admin离开了聊天室!', '2013-06-11 16:44:28', 0, NULL, NULL, NULL),
+(296, 'admin', '【系统消息】', 'admin进入了聊天室!', '2013-06-11 16:44:40', 0, NULL, NULL, NULL),
+(297, 'admin', 'all', '文字位置', '2013-06-11 16:44:51', 0, NULL, NULL, NULL),
+(298, 'admin', '【系统消息】', 'admin离开了聊天室!', '2013-06-12 16:05:57', 0, NULL, NULL, NULL),
+(299, 'test1', '【系统消息】', 'test1进入了聊天室!', '2013-06-12 16:06:06', 0, NULL, NULL, NULL),
+(300, 'test1', '【系统消息】', 'test1离开了聊天室!', '2013-06-12 16:06:10', 0, NULL, NULL, NULL),
+(301, 'cchun', '【系统消息】', 'cchun进入了聊天室!', '2013-06-12 16:07:50', 0, NULL, NULL, NULL),
+(302, 'cchun', '【系统消息】', 'cchun离开了聊天室!', '2013-06-12 16:08:18', 0, NULL, NULL, NULL),
+(303, 'admin', '【系统消息】', 'admin进入了聊天室!', '2013-06-12 16:08:25', 0, NULL, NULL, NULL),
+(304, 'admin', '【系统消息】', 'admin进入了聊天室!', '2013-06-13 13:16:54', 0, NULL, NULL, NULL),
+(305, 'admin', 'all', '文字位置', '2013-06-13 13:19:50', 0, NULL, NULL, NULL),
+(306, 'admin', '【系统消息】', 'admin离开了聊天室!', '2013-06-13 18:17:13', 0, NULL, NULL, NULL),
+(307, 'admin', '【系统消息】', 'admin进入了聊天室!', '2013-06-13 18:17:21', 0, NULL, NULL, NULL),
+(308, 'test1', 'all', '那你轻松就加哪里', '2013-06-13 17:00:41', 0, NULL, NULL, NULL),
+(309, 'test1', 'all', '嘿嘿', '2013-06-13 17:05:58', 0, NULL, NULL, NULL),
+(310, 'test1', 'all', '换过来了吧', '2013-06-13 17:06:24', 0, NULL, NULL, NULL),
+(311, 'test1', 'all', '我也不是很懂啊', '2013-06-13 17:06:28', 0, NULL, NULL, NULL),
+(312, 'test1', 'all', '下次开会时间', '2013-06-13 17:06:36', 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -149,15 +353,13 @@ CREATE TABLE IF NOT EXISTS `sigma_npc` (
 --
 
 INSERT INTO `sigma_npc` (`npc_id`, `npc_name`, `npc_position_x`, `npc_position_y`, `npc_map_belong`) VALUES
-(0, '7', 0, 0, 0),
-(1, 'npc1', 0, 0, 0),
-(2, '2', 4, 4, 2),
-(3, '3', 3, 3, 3),
-(4, '4', 4, 4, 4),
-(6, '6', 6, 6, 6),
-(7, '7', 7, 7, 7),
-(12, '12', 12, 12, 12),
-(88, '88', 88, 88, 88);
+(2, 'npc2', 5, 6, 1),
+(3, 'npc3', 5, 8, 1),
+(4, 'npc4', 5, 10, 1),
+(321, 'testtest', 0, 0, 0),
+(3211, 'testtest', 0, 0, 0),
+(3212, 'testtest', 0, 0, 0),
+(3214, 'testtest', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -175,21 +377,119 @@ CREATE TABLE IF NOT EXISTS `sigma_task` (
   PRIMARY KEY (`task_id`),
   KEY `task_prerequisite_idx` (`task_pretask`),
   KEY `task_npc_idx` (`npc_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `sigma_task`
 --
 
 INSERT INTO `sigma_task` (`task_id`, `task_type`, `task_problem_id`, `task_name`, `task_pretask`, `npc_id`) VALUES
-(1, 0, 1, '10000', 1, 1),
-(2, 0, 2, '20000', 1, 1),
-(3, 0, 30000, '30000', 3, 1),
-(4, 0, 40000, '40000', 3, 1),
-(5, 0, 5, '50000', 1, 1),
-(6, 0, 60000, '60000', 2, 1),
-(7, 0, 70000, '70000', 4, 1),
-(8, 0, 80000, '80000', 5, 1);
+(1, 0, 1, '请熟练唱出山路十八弯', 1, 2),
+(2, 0, 2, '未接受任务测试', 1, 2),
+(3, 1, 1, '历史选择题', 3, 2),
+(4, 2, 1, '简单计算题', 4, 2),
+(5, 1, NULL, '选择题', 3, 3),
+(6, 1, NULL, '选择题', 4, 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sigma_taskpro_type0`
+--
+
+CREATE TABLE IF NOT EXISTS `sigma_taskpro_type0` (
+  `problem_id` int(11) NOT NULL AUTO_INCREMENT,
+  `task_id` int(11) NOT NULL,
+  `task_type` int(11) NOT NULL DEFAULT '0',
+  `problem_name` varchar(105) NOT NULL,
+  `problem_declare` text NOT NULL,
+  `problem_answer` text NOT NULL,
+  PRIMARY KEY (`problem_id`),
+  KEY `belong_task` (`task_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `sigma_taskpro_type0`
+--
+
+INSERT INTO `sigma_taskpro_type0` (`problem_id`, `task_id`, `task_type`, `problem_name`, `problem_declare`, `problem_answer`) VALUES
+(1, 1, 0, '请熟练唱出山路十八弯', '如果我 和你的猫咪一起掉进水里,没关系,脂肪有浮力,你们沉不下去', '答案自己慢慢想'),
+(2, 2, 0, '未接受任务测试', '如果我 和你的猫咪一起掉进水里,没关系,脂肪有浮力,你们沉不下去', '答案自己慢慢想');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sigma_taskpro_type1`
+--
+
+CREATE TABLE IF NOT EXISTS `sigma_taskpro_type1` (
+  `problem_id` int(11) NOT NULL AUTO_INCREMENT,
+  `problem_type` int(1) NOT NULL DEFAULT '0',
+  `problem_name` varchar(105) DEFAULT NULL,
+  `problem_declare` text NOT NULL,
+  `problem_answer` varchar(105) DEFAULT NULL,
+  `task_id` int(11) NOT NULL,
+  `task_type` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`problem_id`),
+  KEY `foreignKey_type1_belong_task` (`task_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `sigma_taskpro_type1`
+--
+
+INSERT INTO `sigma_taskpro_type1` (`problem_id`, `problem_type`, `problem_name`, `problem_declare`, `problem_answer`, `task_id`, `task_type`) VALUES
+(1, 1, '历史选择题', '请问朱元璋是谁!^唐太宗&唐高宗&明太祖&康熙', 'C', 3, 1),
+(2, 0, '网络选择题', '神兽“雅蔑蝶”原产于哪个国家（）^韩国&日本&越南&泰国', 'B', 5, 1),
+(3, 0, '漫画选择题', '我爱罗额头上刻的是什么（）？^爱.&我靠.&检疫合格，准许屠宰.&计划生育是一项基本国策.', 'A', 6, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sigma_taskpro_type2`
+--
+
+CREATE TABLE IF NOT EXISTS `sigma_taskpro_type2` (
+  `problem_id` int(11) NOT NULL AUTO_INCREMENT,
+  `problem_type` int(1) NOT NULL DEFAULT '0',
+  `problem_name` varchar(105) NOT NULL,
+  `problem_declare` text NOT NULL,
+  `problem_answer` varchar(105) DEFAULT NULL,
+  `task_id` int(11) NOT NULL,
+  `task_type` int(11) NOT NULL DEFAULT '2',
+  PRIMARY KEY (`problem_id`),
+  KEY `foreignKey_type2_belong_task` (`task_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `sigma_taskpro_type2`
+--
+
+INSERT INTO `sigma_taskpro_type2` (`problem_id`, `problem_type`, `problem_name`, `problem_declare`, `problem_answer`, `task_id`, `task_type`) VALUES
+(1, 2, '简单计算题', '请问(1+2+5+78+78-41+45-78+145-145 = ?)', '90', 4, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sigma_tmp_map`
+--
+
+CREATE TABLE IF NOT EXISTS `sigma_tmp_map` (
+  `row` int(11) NOT NULL,
+  `col` int(11) NOT NULL,
+  `strMap` varchar(1024) NOT NULL,
+  `pos_x` int(11) NOT NULL,
+  `pos_y` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sigma_tmp_map`
+--
+
+INSERT INTO `sigma_tmp_map` (`row`, `col`, `strMap`, `pos_x`, `pos_y`, `id`) VALUES
+(30, 30, '111110001111111111111111111111111110001111111111111111111111111110000000000000000000000011111110000000000000000000000011111110000111111111111111100011111110000111111111111111100011111110000111111111110001100011111110000111111111110001100011111110000111010001110001100011111110000111000000000001100011111110000111000000000001100011111110000111000000000001100011000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000111110000111111000011111100011111110000111111000011111100011111110000111100000011110000011111110000111111000011111100011111110000111111000011111100011111110000000000000000000000011111110000111111000011111100011111110000111111000011111100011111110000111100000011110000011111110000111111000011111100011111110000111111000011111100011000000000000000000000000000011000000000000000000000000000011111110000111111111111111111111', 2, 11, 1);
 
 -- --------------------------------------------------------
 
@@ -200,20 +500,26 @@ INSERT INTO `sigma_task` (`task_id`, `task_type`, `task_problem_id`, `task_name`
 CREATE TABLE IF NOT EXISTS `sigma_user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_password` varchar(45) NOT NULL,
+  `user_password_repeat` varchar(45) NOT NULL,
   `user_username` varchar(45) NOT NULL,
+  `user_email` varchar(105) NOT NULL,
+  `user_sign` text NOT NULL,
+  `user_declare` text NOT NULL,
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `user_username_UNIQUE` (`user_username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `sigma_user`
 --
 
-INSERT INTO `sigma_user` (`user_id`, `user_password`, `user_username`) VALUES
-(1, 'test1', 'test1'),
-(2, 'test2', 'test2'),
-(3, 'test3', 'test3'),
-(4, 'test4', 'test4');
+INSERT INTO `sigma_user` (`user_id`, `user_password`, `user_password_repeat`, `user_username`, `user_email`, `user_sign`, `user_declare`) VALUES
+(1, 'test1', '', 'test1', '', '', ''),
+(2, 'test2', '', 'test2', '', '', ''),
+(3, 'test3', '', 'test3', '', '', ''),
+(4, 'test4', '', 'test4', '', '', ''),
+(5, 'admin', 'admin', 'admin', 'guichyu@gmail.com', '我的第一个个性签名,我的第一个个性签名,我的第一个个性签名,我的第一个个性签名,我的第一个个性签名', '我的第一个个人说明'),
+(10, 'cchun', 'cchun', 'cchun', 'guichyu@163.com', '不留签名的路过！', '不留说明的路过！');
 
 -- --------------------------------------------------------
 
@@ -248,8 +554,8 @@ CREATE TABLE IF NOT EXISTS `sigma_user_online` (
 --
 
 INSERT INTO `sigma_user_online` (`online_name`, `online_time_now`, `online_from_time`) VALUES
-('test1', '2013-05-28 23:56:12', '2013-06-01 16:52:45'),
-('test3', '2013-06-01 15:44:09', '2013-06-01 15:44:09');
+('admin', '2013-06-13 18:17:20', '2013-06-13 18:17:20'),
+('test3', '2013-06-09 14:38:38', '2013-06-09 14:38:38');
 
 -- --------------------------------------------------------
 
@@ -258,22 +564,23 @@ INSERT INTO `sigma_user_online` (`online_name`, `online_time_now`, `online_from_
 --
 
 CREATE TABLE IF NOT EXISTS `sigma_user_task` (
-  `user_task_id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_task_task_id` int(11) NOT NULL,
-  `user_task_user_id` int(11) NOT NULL,
-  `user_task_status` int(1) NOT NULL,
-  PRIMARY KEY (`user_task_id`),
-  KEY `user_task_idx` (`user_task_user_id`),
-  KEY `task_id_idx` (`user_task_task_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `task_id` int(11) NOT NULL,
+  `user_name` varchar(45) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `task_id_idx` (`task_id`),
+  KEY `foreign_key_user_name` (`user_name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Dumping data for table `sigma_user_task`
 --
 
-INSERT INTO `sigma_user_task` (`user_task_id`, `user_task_task_id`, `user_task_user_id`, `user_task_status`) VALUES
-(1, 1, 1, 0),
-(2, 2, 1, 0);
+INSERT INTO `sigma_user_task` (`id`, `task_id`, `user_name`, `status`) VALUES
+(6, 4, 'admin', 1),
+(8, 6, 'admin', 1),
+(9, 3, 'test1', 1);
 
 --
 -- Constraints for dumped tables
@@ -305,6 +612,24 @@ ALTER TABLE `sigma_task`
   ADD CONSTRAINT `task_prerequisite` FOREIGN KEY (`task_pretask`) REFERENCES `sigma_task` (`task_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
+-- Constraints for table `sigma_taskpro_type0`
+--
+ALTER TABLE `sigma_taskpro_type0`
+  ADD CONSTRAINT `belong_task` FOREIGN KEY (`task_id`) REFERENCES `sigma_task` (`task_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `sigma_taskpro_type1`
+--
+ALTER TABLE `sigma_taskpro_type1`
+  ADD CONSTRAINT `foreignKey_type1_belong_task` FOREIGN KEY (`task_id`) REFERENCES `sigma_task` (`task_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `sigma_taskpro_type2`
+--
+ALTER TABLE `sigma_taskpro_type2`
+  ADD CONSTRAINT `foreignKey_type2_belong_task` FOREIGN KEY (`task_id`) REFERENCES `sigma_task` (`task_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
 -- Constraints for table `sigma_user_competition`
 --
 ALTER TABLE `sigma_user_competition`
@@ -314,8 +639,8 @@ ALTER TABLE `sigma_user_competition`
 -- Constraints for table `sigma_user_task`
 --
 ALTER TABLE `sigma_user_task`
-  ADD CONSTRAINT `task_id` FOREIGN KEY (`user_task_task_id`) REFERENCES `sigma_task` (`task_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `user_id` FOREIGN KEY (`user_task_user_id`) REFERENCES `sigma_user` (`user_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `foreign_key_task_id` FOREIGN KEY (`task_id`) REFERENCES `sigma_task` (`task_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `foreign_key_user_name` FOREIGN KEY (`user_name`) REFERENCES `sigma_user` (`user_username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
