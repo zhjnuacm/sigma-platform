@@ -28,6 +28,8 @@ function Mediator() {
 		this._tipsManage = TipsManage.create();
 		this._mainLayer.addChild(this._tipsManage, TIPS_MANAGE_TAG);
 
+
+
 		//游戏主场景
 		this._childScene = ChildScene.create();
 		this._mainLayer.addChild(this._childScene);
@@ -47,6 +49,7 @@ function Mediator() {
 	    //小地图
 		var smap = SMap.create(s_mapPath);
 		this._mainLayer.addChild(smap._content, 5);
+		smap.mapMoveByHeroPosition(this._childScene.getHeroWorldPosition());
 		
 		/*
 	    // npc add npclayer into maplayer
@@ -72,25 +75,23 @@ function Mediator() {
 
 	    //好友列表，给一个开关按钮
 
-		/*var crButton = cc.MenuItemImage.create(s_friend_menu, s_friend_menu, s_friend_menu, this.ShowFriend, this);
+		var crButton = cc.MenuItemImage.create(s_friend_menu, s_friend_menu, s_friend_menu, this.ShowFriend, this);
 		var menu = cc.Menu.create(crButton);
 		menu.setPosition(cc.p(this._size.width - 10, 520));
-		this._mainLayer.addChild(menu);*/
-		this._mainLayer.addChild(FriendListLayer.create());
-
+		this._mainLayer.addChild(menu);
 		return true;
 	},
 
 
     //Jopix tab键显示大地图
 	this.showBigMap = function () {
-	    var bmap = BMap.getinstance();
+	    var bmap = BMap.getInstance();
 	    if (bmap.isOnShow()) {
 	        bmap.closeDig();
 	    } else {
 	        this._mainLayer.addChild(bmap._dig, 6);
-	        bmap._dig.setTouchPriority(this._map.getTouchPriority() - 1);
-	        bmap.showPoint('map1', this._map.tilePositionToWorldLocation(this._map.locationToTilePosition(this._hero.getSprite().getPosition())));
+	        bmap._dig.setTouchPriority(this._childScene._map.getTouchPriority() - 1);
+	        bmap.showPoint('map1', this._childScene.getHeroWorldPosition());
 	    }
 	}
 
@@ -104,8 +105,6 @@ function Mediator() {
 ////////////////////////////循环刷新	
 	this.mainloop=function(dt) {
 	    this._childScene.loopTime();
-	    this.rushSMapPosition();
-		 	
 	},
 	
 ////////////////////////////按键响应
@@ -127,12 +126,6 @@ function Mediator() {
     },
     this.onTouchEnd =  function(event) {	
     };
-
-    //刷新小地图
-	this.rushSMapPosition = function () {
-	    var smap = SMap.getInstance();
-	    smap.mapMoveByHeroPosition(this._childScene.getHeroWorldPosition());
-	};
 
 	this.ShowFriend = function () {
 	    var friendList = FriendList.getInstance();

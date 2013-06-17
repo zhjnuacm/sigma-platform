@@ -127,7 +127,9 @@ var ChildScene = cc.Layer.extend({
 		if(enterMargin[2]) newWorldPos.x+=25;
 		if(enterMargin[3]) newWorldPos.x-=25;*/
 		var targetPos = isEnterMargin?newWorldPos:nowWorldPos;
-		this.setPosition(cc.pSub(screenCenter,nowWorldPos));
+		this.setPosition(cc.pSub(screenCenter, nowWorldPos));
+		var smap = SMap.getInstance();
+		smap.mapMoveByHeroPosition(this.getHeroWorldPosition());
 			/*if(isEnterMargin){
 				if(this._hero.checkIsStepDone()){
 					this.setPosition(cc.pSub(screenCenter,newWorldPos));
@@ -159,7 +161,7 @@ var ChildScene = cc.Layer.extend({
 			
 			if(this._map.checkConvey(nowTilePos)){
 				//this._conveyBg.setVisible(true);
-				cc.log("good?");
+			//	cc.log("good?");
 				var nowTilePos = this._map.locationToTilePosition(this._hero.getSprite().getPosition());
 			 	this._hero.getSprite().setPosition(this._map.tilePositionToWorldLocation(this._map.doConvey(nowTilePos)));
 				var winSize=cc.Director.getInstance().getWinSize();

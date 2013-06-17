@@ -164,7 +164,7 @@ var User = cc.Sprite.extend({
     },
 
     initUserData: function (userdata) {
-    	cc.log(userdata);
+    	//cc.log(userdata);
        this._uData.ID = userdata.ID;
        this._uData.name = userdata.name;
        this._uData.Photo = userdata.Photo;
