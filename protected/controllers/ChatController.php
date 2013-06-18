@@ -28,7 +28,7 @@ class ChatController extends Controller
 				/* else {
 				 $model->message_sender = "";
 				} */
-				$info .= "[".$model->message_sender."]: ".$model->message_content." --".$model->message_time."\n";
+				$info .= "[".$model->message_sender."]: ".$model->message_content."\n";
 			}
 			
 			if($info != "")
