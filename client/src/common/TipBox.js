@@ -28,6 +28,7 @@ var TipBox = cc.Layer.extend({
     }
 });
 
+
 TipBox.create = function(information , position)
 {
     var ret = new TipBox();

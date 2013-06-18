@@ -6,6 +6,7 @@
     _mesRoot: null,
     _kind: null,
 
+
     ctor: function () {
         this._super();
         cc.associateWithNative(this, cc.Layer);

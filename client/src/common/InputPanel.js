@@ -4,7 +4,6 @@
  * @ 2013年6月5日 22:41:23
  * 在过程中修改了extensions/CCControlEditBox.js 添加监控html标签方法
  */
-
 var InputPanel = cc.Layer
 		.extend({
 		    _FONT_NAME: null,

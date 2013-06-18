@@ -1,4 +1,4 @@
-﻿/**
+﻿﻿/**
  * @ Jopix  滚动列表单元格
  * @ 2013年6月15日 12:27:07
  * @ [action] 点击时时间响应在这个函数里面
@@ -23,7 +23,7 @@ var SeachFriendCell = cc.TableViewCell.extend({
 
 
     init: function (idata) {
-        alert(idata.name);
+       
         this._fData = idata;
         this._photo = cc.Sprite.create(this._fData.photo);
         this._photo.setPosition(cc.p(25, 25));

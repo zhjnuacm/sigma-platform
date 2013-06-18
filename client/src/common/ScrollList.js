@@ -78,7 +78,7 @@ var ScrollList  = cc.Layer.extend({
     },
 
     tableCellTouched: function (table, cell) {
-        cell.getDataFromIndex(cell.getIdx());
+        ///cell = this.getDataFromIndex(cell.getIdx());
         cell.action();
         return true;
     },

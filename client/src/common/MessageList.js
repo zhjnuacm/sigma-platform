@@ -216,6 +216,7 @@ var TextBox = cc.LayerColor.extend({
 });
 
 
+
 TextBox.create = function (mes, kind) {
     var ret = new TextBox();
     if (ret && ret.init(mes, kind)) return ret;
