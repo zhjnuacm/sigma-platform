@@ -133,8 +133,10 @@
 
     /**
      * [addMessage 上面显示消息 5秒自动消失，超过3条则消失]
+     * 需要this._mesRoot坐标
      * @param  {[string]} mes        [文本信息]
      */
+
 	addMessage: function (mes) {
 	    var tm = TextBox.create(mes, this._kind);
 

@@ -32,6 +32,7 @@ var ScrollList  = cc.Layer.extend({
     _height: null,
     _cellHeight: null,
     _cellClass: null,
+    _jsonData:null,
 
     /**
     * [初始化滚动列表控件]
@@ -53,6 +54,7 @@ var ScrollList  = cc.Layer.extend({
         this._height = height;
         this._cellHeight = cellheight;
         this._cellClass = cellClassName;
+        this._jsonData = jsonData;
 
         this.setItemNum(jsonData.length);
         //初始化列表
@@ -92,12 +94,18 @@ var ScrollList  = cc.Layer.extend({
         var label;
         if (!cell) {
             cell = new this._cellClass();
-            cell.init(idx);
+            cell.init(this.getDataFromIndex(idx));
         } else {
-            cell.updataFromIndex(idx);
+            cell.updata(this.getDataFromIndex(idx));
         }
         return cell;
     },
+
+    //从数据库读取第idx个好友的信息
+    getDataFromIndex: function (idx) {
+        return   this._jsonData[idx];
+    },
+
 
     numberOfCellsInTableView: function (table) {
         return this._itemNum;
@@ -106,6 +114,12 @@ var ScrollList  = cc.Layer.extend({
     setItemNum: function (num) {
         this._itemNum = num;
     },
+
+    rushList: function (newLength) {
+        this.setItemNum(newLength);
+        this._dataView.insertCellAtIndex(newLength);
+        this._dataView.reloadData();
+    }
 });
 
 ScrollList.create = function (width, height, rootPoint, cellClassName, cellheight, jsonData, priority) {

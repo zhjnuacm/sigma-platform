@@ -21,10 +21,10 @@ var SeachFriendCell = cc.TableViewCell.extend({
         cc.drawingUtil.drawLine(cc.p(10, 0), cc.p(170, 0));
     },
 
-    init: function (idx) {
-        this.getDataFromIndex(idx);
-        this.setIdx(idx);
 
+    init: function (idata) {
+        alert(idata.name);
+        this._fData = idata;
         this._photo = cc.Sprite.create(this._fData.photo);
         this._photo.setPosition(cc.p(25, 25));
         this.addChild(this._photo);
@@ -45,19 +45,10 @@ var SeachFriendCell = cc.TableViewCell.extend({
         return true;
     },
 
-    //从数据库读取第idx个好友的信息
-    getDataFromIndex: function (idx) {
-        this._fData.place = friendData[idx].place;
-        this._fData.name = friendData[idx].name;
-        this._fData.photo = friendData[idx].photo;
-        this._fData.mood = friendData[idx].mood;
-    },
-
-    updataFromIndex: function (idx) {
-        this.getDataFromIndex(idx);
-        this._name.setString(this._fData.name);
-        this._place.setString(this._fData.place);
-        this._photo.initWithFile(this._fData.photo);
+    updata: function (idata) {
+        this._name.setString(idata.name);
+        this._place.setString(idata.place);
+        this._photo.initWithFile(idata.photo);
     },
 
     send: function () {
@@ -68,8 +59,11 @@ var SeachFriendCell = cc.TableViewCell.extend({
         return this._fData;
     },
 
+    /**
+     * @ add the friend , link to the server
+     */
     action: function () {
-        alert(this._fData.name);
+        alert("呵呵" + this._fData.name);
     }
 });
 
@@ -124,40 +118,32 @@ var FriendAddView = function () {
     
     
     this.showResult = function () {
+        if (this._seachRueslt != null) {
+            this._seachRueslt.removeFromParent(true);
+            this._seachRueslt = null;
+        }
         var sname = this._box.getText();
         //=====
-        //去数据库抓取搜索到的用户信息给我，保存在jsonData数组里面
+        //得到搜索用户的信息
         this.getFriendOfSearch(sname);
-       /* var jsonData = [
-            {
-                'name': 'Jopix0',
-                'place': '教室吹水',
-                'photo': 'client/res/user/user_1.jpg',
-                'mood': '好不想学习，想打怪，其带菜',
-            },
-            {
-                'name': 'nanke1',
-                'place': '宿舍睡觉',
-                'photo': 'client/res/user/user_2.jpg',
-                'mood': '好不想学习，想打怪，其带菜',
-            }
-        ];*/
-
+       
         //===
-       // cc.log("嘿嘿" + this.jsonData.length);
+     /*   cc.log("函数外：" + this.jsonData.length);*/
         
         if (this.jsonData.length > 0) {
-            this._showResult = ScrollList.create(200, 320, cc.p(this._root.x + 10, this._root.y + 10), SeachFriendCell, 50, this.jsonData);
-            this._addDig.addChild(this._showResult);
-        } else {
-            this._showResult = cc.Layer.create();
+            this._seachRueslt = ScrollList.create(200, 320, cc.p(this._root.x + 10, this._root.y + 10), SeachFriendCell, 50, this.jsonData,-15);
+            this._addDig.addChild(this._seachRueslt);
+        }
+        else {
+            this._seachRueslt = cc.Layer.create();
             var mes = cc.LabelTTF.create("未找到该用户", "Microsoft YaHei", 12);
-            this._showResult.addChild(mes);
-            this._addDig.addChild(this._showResult);
+            this._seachRueslt.addChild(mes);
+            this._addDig.addChild(this._seachRueslt);
         }
     }
     
     this.getFriendOfSearch = function(name) {
+    	cc.log("名字为：" + name);
 		var self = this;
 		$.ajax({
 			type : "POST",
@@ -165,15 +151,15 @@ var FriendAddView = function () {
 			dataType : "json",
 			url : genGetFriendOfSearchUrl(name),
 			success : function(data, textStatus) {
-				this.jsonData = data;
-			//	cc.log("haha:" + this.jsonData);
-			//	cc.log("嘿嘿1111" + this.jsonData.length);
+				self.jsonData = data;
+				cc.log(self.jsonData);
+				cc.log("函数内：" + self.jsonData.length);
 			}
 		});
 	}
 
     this.setTouchPriority = function(num){
-        this._showResult.setTouchPriority(num);
+        this._seachRueslt.setTouchPriority(num);
     }
     this.getDig = function () {
         return this._addDig;

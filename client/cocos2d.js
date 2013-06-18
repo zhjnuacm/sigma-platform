@@ -31,7 +31,7 @@
 				prefix + 'src/common/TipBox.js',
 				prefix + 'src/common/TipsManage.js',
 				prefix + 'src/common/FriendList.js',
-				prefix + 'src/common/TextBox.js',
+				prefix + 'src/common/MessageList.js',
 				prefix + 'src/common/InputPanel.js',
 				prefix + 'src/common/ViewPanel.js',
 				prefix + 'src/common/Tools.js', 
