@@ -153,7 +153,7 @@ var FriendAddView = function () {
             this._showResult = cc.Layer.create();
             var mes = cc.LabelTTF.create("未找到该用户", "Microsoft YaHei", 12);
             this._showResult.addChild(mes);
-            this.addDig.addChild(this._showResult);
+            this._addDig.addChild(this._showResult);
         }
     }
     
@@ -201,6 +201,7 @@ var FriendMenu = cc.LayerColor.extend({
     _touchBegan: null,
     _width: null,
     _height: null,
+
 
     init: function (fData) {
         this._width = 260;
@@ -277,40 +278,37 @@ var FriendMenu = cc.LayerColor.extend({
         }
     },
 
-
     show: function () {
         //这里自定以函数体
 
-        this.destorySelf();
+        this.removeSelf();
     },
 
     chat: function () {
-        //这里自定以函数体
-
-        this.destorySelf();
+        GLOBAL.chatD = ChatPanel.create(this._fData.name, cc.p(this.getPosition().x + 60, this.getPosition().y + 20), cc.p(30, 50), 0);
+        this.removeSelf();
     },
 
     home: function () {
         //这里自定以函数体
 
 
-        this.destorySelf();
+        this.removeSelf();
     },
 
     mail: function () {
         //这里自定以函数体
 
-        this.destorySelf();
+        this.removeSelf();
     },
 
     pk: function () {
         //这里自定以函数体
 
-        this.destorySelf();
+        this.removeSelf();
     },
 
-
-    destorySelf: function () {
+    removeSelf: function () {
         this.removeFromParent(true);
     }
 });

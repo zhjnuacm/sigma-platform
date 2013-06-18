@@ -1,5 +1,3 @@
-var inputD;
-
 function Mediator() {
 	this._childScene;
 	this._heroPanel;
@@ -12,13 +10,14 @@ function Mediator() {
 	this._npc1;
 	this._npcFactory;
 
-
 	this.init = function(mainLayer) {
 		
 		//发送数据给后台
 		/*this._map.tranMaptoblackground();*/
 		//传送地图配置信息你 
-		/*this._map.transformMapConfToNpcController();*/
+	    /*this._map.transformMapConfToNpcController();*/
+
+	    GLOBAL.mainLayer = mainLayer;
 		
 		this._size = cc.Director.getInstance().getWinSize();
 		// get the main layer
@@ -62,16 +61,10 @@ function Mediator() {
 		
 		//alert(this._npcLayer.getTouchPriority());
 		
-		
-		
-		/*var mes = new Message();
-		mes.init2("", 26);
-		var tb = TextBox.create(mes, 1);
-		this._mainLayer.addChild(tb);
-		tb.setPosition(cc.p(400, 300));*/
+        */
 
-		inputD = InputPanel.create();
-		this._mainLayer.addChild(inputD, 2);
+		GLOBAL.inputD = InputPanel.create();
+		this._mainLayer.addChild(GLOBAL.inputD, 2);
 
 	    //好友列表，给一个开关按钮
 

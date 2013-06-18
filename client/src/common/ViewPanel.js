@@ -1,83 +1,4 @@
-﻿
-/**
- * @ Jopix  信息类
- * @ 2013年4月5日 22:41:27
- * @ 将字符串自动换行 长度为maxlenth
- */
-
-
-var Message = function () {
-    this._string;
-    this._height;
-    this._lk;
-
-    this.init = function (String, maxLenth) {
-        // alert(String);
-        // /<summary>获得字符串实际长度，中文2，英文1</summary>
-        // /<param name="str">要获得长度的字符串</param>
-        this._string = '';
-        this._lk = 1;
-        var realLength = 0, len = String.length, charCode = -1, b = 0, k = maxLenth;
-        for (var i = 0; i < len; i++) {
-            charCode = String.charCodeAt(i);
-            if (charCode < 299)
-                realLength += 1;
-            else
-                realLength += 2;
-
-            if (realLength > k) {
-                this._string += String.substring(b, i);
-                this._string += "\n    ";
-                //alert(newStr);
-                realLength += 4;
-                b = i;
-                k += maxLenth;
-                this._lk++;
-            }
-        }
-        this._string += String.substring(b, len);
-        this._string += "\n";
-        this._height = this._lk * 14.4;
-    };
-
-    this.init2 = function (String, maxLenth) {
-        // /<summary>获得字符串实际长度，中文2，英文1</summary>
-        // /<param name="str">要获得长度的字符串</param>
-        this._string = "";
-        this._lk = 1;
-        var realLength = 0, len = String.length, charCode = -1, b = 0, k = maxLenth;
-        for (var i = 0; i < len; i++) {
-            charCode = String.charCodeAt(i);
-
-            if (charCode < 299)
-                realLength += 1;
-            else
-                realLength += 2;
-
-            if (realLength > k) {
-                this._string += String.substring(b, i);
-                this._string += "\n";
-                b = i;
-                k += maxLenth;
-                this._lk++;
-            }
-        }
-        this._string += String.substring(b, len);
-        // alert(this.CCLable.getCharCount());
-        this._height = this._lk * 14;
-    }
-
-    this.getString = function () {
-        return this._string;
-    };
-    this.getHeight = function () {
-        return this._height;
-    }
-}
-
-
-
-/**
+﻿/**
  * @ Jopix  信息墙
  * @ 2013年4月6日 22:41:27
  * @ 显示信息的窗口
@@ -116,20 +37,9 @@ var ViewPanel = cc.LayerColor.extend({
 
     addWord: function (String) {
         //加入信息到page里面
-        var mes = new Message();
-      //  String = "[" + user + "]：" + String;
-       // String = String;
-        //String = user;
-
-        mes.init(String, 48);
+        var mes = Message.create(String, 48, 12, 2);
         this._page.addMessage(mes);
         this._sLine.setButtom();
-
-        //var mes = new Message();
-        //mes.init2(String, 23);
-        //var tb = TextBox.create(mes, 1);
-        //this.addChild(tb);
-        //tb.setPosition(cc.p(-400, 300));
     }
 
 
@@ -293,8 +203,6 @@ var ScrolBor = cc.Sprite.extend({
     setIsTouch: function (enable) {
         this._isTouch = enable;
     },
-
-
 });
 
 
