@@ -6,7 +6,10 @@
     _mesRoot: null,
     _kind: null,
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6960f90fe7dd3084a88c84511a8c435b0c797abd
     ctor: function () {
         this._super();
         cc.associateWithNative(this, cc.Layer);
@@ -134,10 +137,15 @@
 
     /**
      * [addMessage 上面显示消息 5秒自动消失，超过3条则消失]
+<<<<<<< HEAD
      * 需要this._mesRoot坐标
      * @param  {[string]} mes        [文本信息]
      */
 
+=======
+     * @param  {[string]} mes        [文本信息]
+     */
+>>>>>>> 6960f90fe7dd3084a88c84511a8c435b0c797abd
 	addMessage: function (mes) {
 	    var tm = TextBox.create(mes, this._kind);
 
