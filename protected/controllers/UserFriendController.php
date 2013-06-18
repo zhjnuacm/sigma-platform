@@ -18,11 +18,13 @@ class UserFriendController extends Controller {
 	}
 	
 	public function ActionGetFriendOfSearch($name) {
-		$userMod = User::model()->find("user_username='$name'");
 		$allFriend = array();
-		$oneFriend = array("name"=>"$userMod->user_username", "place"=>"$userMod->user_place",
-				"photo"=>"$userMod->user_photo", "mood"=>"$userMod->user_sign");
-		array_push($allFriend, $oneFriend);
+		$userMod = User::model()->find("user_username='$name'");
+		if(!empty($userMod)) {
+			$oneFriend = array("name"=>"$userMod->user_username", "place"=>"$userMod->user_place",
+					"photo"=>"$userMod->user_photo", "mood"=>"$userMod->user_sign");
+			array_push($allFriend, $oneFriend);
+		}
 		echo json_encode($allFriend);
 	}
 }

@@ -68,8 +68,11 @@ var SeachFriendCell = cc.TableViewCell.extend({
         return this._fData;
     },
 
+    /**
+     * @ add the friend , link to the server
+     */
     action: function () {
-        alert(this._fData.name);
+        alert("呵呵" + this._fData.name);
     }
 });
 
@@ -126,38 +129,27 @@ var FriendAddView = function () {
     this.showResult = function () {
         var sname = this._box.getText();
         //=====
-        //去数据库抓取搜索到的用户信息给我，保存在jsonData数组里面
+        //得到搜索用户的信息
         this.getFriendOfSearch(sname);
-       /* var jsonData = [
-            {
-                'name': 'Jopix0',
-                'place': '教室吹水',
-                'photo': 'client/res/user/user_1.jpg',
-                'mood': '好不想学习，想打怪，其带菜',
-            },
-            {
-                'name': 'nanke1',
-                'place': '宿舍睡觉',
-                'photo': 'client/res/user/user_2.jpg',
-                'mood': '好不想学习，想打怪，其带菜',
-            }
-        ];*/
-
+        
+        
         //===
-       // cc.log("嘿嘿" + this.jsonData.length);
+     /*   cc.log("函数外：" + this.jsonData.length);*/
         
         if (this.jsonData.length > 0) {
             this._showResult = ScrollList.create(200, 320, cc.p(this._root.x + 10, this._root.y + 10), SeachFriendCell, 50, this.jsonData);
             this._addDig.addChild(this._showResult);
-        } else {
+        }
+        else {
             this._showResult = cc.Layer.create();
             var mes = cc.LabelTTF.create("未找到该用户", "Microsoft YaHei", 12);
             this._showResult.addChild(mes);
-            this.addDig.addChild(this._showResult);
+            this._addDig.addChild(this._showResult);
         }
     }
     
     this.getFriendOfSearch = function(name) {
+    	cc.log("名字为：" + name);
 		var self = this;
 		$.ajax({
 			type : "POST",
@@ -165,9 +157,9 @@ var FriendAddView = function () {
 			dataType : "json",
 			url : genGetFriendOfSearchUrl(name),
 			success : function(data, textStatus) {
-				this.jsonData = data;
-			//	cc.log("haha:" + this.jsonData);
-			//	cc.log("嘿嘿1111" + this.jsonData.length);
+				self.jsonData = data;
+				cc.log(self.jsonData);
+				cc.log("函数内：" + self.jsonData.length);
 			}
 		});
 	}
