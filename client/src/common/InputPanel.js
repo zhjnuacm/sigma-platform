@@ -34,7 +34,6 @@ var InputPanel = cc.Layer
 
 		        // 定义输入框,对输入框加入键盘回车动作
 		        this._box = cc.EditBox.create(cc.size(252, 20));
-		        this._box.setText("文字位置");
 		        this._box.setPosition(72, 3);
 		        this._box.setBgClr(cc.c3(255, 255, 255));
 		        this._box.setFontColor(cc.c3(30, 30, 30));
@@ -42,15 +41,15 @@ var InputPanel = cc.Layer
 		        this._box.setFontSize(13);
 		        this._box.setFunction("keydown", function (event) {
 		            if (event.keyCode == 13) {
-		                if (inputD._canSend) {
-		                    inputD.sendMessage();
+		                if (GLOBAL.inputD._canSend) {
+		                    GLOBAL.inputD.sendMessage();
 		                    //inputD._canSend = false;
 		                    //setTimeout(function () {
 		                    //    inputD._canSend = true;
 		                    //}, 1000);
 		                }
 		                else {
-		                    inputD.sendMessage();
+		                    GLOBAL.inputD.sendMessage();
 		                }
 		            }
 		        });
@@ -153,6 +152,8 @@ var InputPanel = cc.Layer
 		    },
 
 		    sendMessage: function () {
+		        if (this._box.getText() == '')
+		            return;
 
 		        if (this._canSend) {
 		            var str = this._box.getText();

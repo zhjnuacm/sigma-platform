@@ -17,7 +17,7 @@
 		        prefix + 'src/myApp.js',
                 prefix + 'src/common/ScrollList.js',
 				prefix + 'src/core/Mediator.js',
-				prefix + 'src/core/ChatPanel.js',
+				prefix + 'src/common/ChatPanel.js',
 				prefix + 'src/core/Hero.js',
 				prefix + 'src/core/HeroPanel.js',
 				prefix + 'src/core/HeroPosition.js',
@@ -26,7 +26,7 @@
 				prefix + 'src/core/SystemFunction.js',
 				prefix + 'src/core/Map.js', 
 				prefix + 'src/config/config.js',
-
+                prefix + 'src/config/global.js',
 				prefix + 'src/config/mapConfig.js',
 				prefix + 'src/common/TipBox.js',
 				prefix + 'src/common/TipsManage.js',

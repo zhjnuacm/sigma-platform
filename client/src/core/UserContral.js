@@ -3,7 +3,6 @@
 //  2013年6月7日 09:12:45
 //===============================
 
-
 //==临时用户数据
 
 var userData = [];
@@ -134,6 +133,9 @@ var User = cc.Sprite.extend({
 
 
             return true;
+        } else {
+            if (this._menu != null &&  this._menu._isShow)
+                this._menu.removeSelf();
         }
         return false;
     },
@@ -142,7 +144,6 @@ var User = cc.Sprite.extend({
     onTouchMoved: function (touches, event) {
         if (this._touchDraw) {
         }
-
     },
 
     onTouchEnded: function (touch, event) {
@@ -175,7 +176,42 @@ var User = cc.Sprite.extend({
 
     setButtom: function () {
         // this.point.setPositionY(2);
-    }
+    },
+
+
+    /**
+     * [addMessage 在user上面显示消息 5秒自动消失，超过3条则消失
+     * @param  {[string]} mes        [文本信息]
+     */
+    addMessage: function (mes) {
+
+        //自动消失在textbox里面实现
+        var tm = TextBox.create(mes, this._kind);
+
+        for (var i = 0; i < this._mesList.length; i++) {
+            var actionBy = cc.MoveBy.create(0.5, cc.p(0, tm.getHeight() + 30));
+            this._mesList[i].runAction(actionBy);
+        }
+
+        this.addChild(tm);
+        tm.setPosition(this._mesRoot);
+        this._mesList.push(tm);
+        if (this._mesList.length > 3) {
+            this.shiftOne();
+        }
+    },
+
+    shiftOne: function () {
+        var tm = this._mesList.shift();
+        var fadeOut = cc.FadeOut.create(0.5);
+        var cellf = cc.CallFunc.create(function () {
+            tm.removeFromParent(true);
+        }, this);
+        var fadeS = cc.Sequence.create(fadeOut, cellf);
+        tm.runAction(fadeS);
+    },
+
+
 });
 
 User.create = function (ID) {
@@ -216,33 +252,33 @@ var UserMenu = function(){
     this.show = function () {
         //这里自定以函数体
         alert("yes");
-        this.destorySelf();
+        this.removeSelf();
     };
 
     this.chat = function () {
         //这里自定以函数体
-        alert("yes");
-        this.destorySelf();
+     //   GLOBAL.chatD = ChatPanel.create(this._fData.name, cc.p(this.getPosition().x, this.getPosition().y + 30));
+        this.removeSelf();
     };
 
     this.fav = function () {
         //这里自定以函数体
 
         alert("yes");
-        this.destorySelf();
+        this.removeSelf();
     };
 
     this.pk = function () {
         //这里自定以函数体
         alert("yes");
-        this.destorySelf();
+        this.removeSelf();
     };
 
     this.chagestate = function(){
         this._isShow ^= true;
     };
 
-    this.destorySelf = function () {
+    this.removeSelf = function () {
         this.chagestate();
         this._menu.removeFromParent(true);
     };
@@ -250,6 +286,9 @@ var UserMenu = function(){
     this.getMenu = function () {
         return this._menu;
     };
+
+
+
 }
 
 UserMenu.create = function (uData) {

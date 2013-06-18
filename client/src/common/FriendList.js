@@ -194,6 +194,7 @@ var FriendMenu = cc.LayerColor.extend({
     _width: null,
     _height: null,
 
+
     init: function (fData) {
         this._width = 260;
         this._height = 133;
@@ -269,40 +270,37 @@ var FriendMenu = cc.LayerColor.extend({
         }
     },
 
-
     show: function () {
         //这里自定以函数体
 
-        this.destorySelf();
+        this.removeSelf();
     },
 
     chat: function () {
-        //这里自定以函数体
-
-        this.destorySelf();
+        GLOBAL.chatD = ChatPanel.create(this._fData.name, cc.p(this.getPosition().x + 60, this.getPosition().y + 20), cc.p(30, 50), 0);
+        this.removeSelf();
     },
 
     home: function () {
         //这里自定以函数体
 
 
-        this.destorySelf();
+        this.removeSelf();
     },
 
     mail: function () {
         //这里自定以函数体
 
-        this.destorySelf();
+        this.removeSelf();
     },
 
     pk: function () {
         //这里自定以函数体
 
-        this.destorySelf();
+        this.removeSelf();
     },
 
-
-    destorySelf: function () {
+    removeSelf: function () {
         this.removeFromParent(true);
     }
 });

@@ -278,11 +278,26 @@ var Map = cc.Layer.extend({
             x=fx;
             y=fy;
         }
+
+        //dx = null;
+        //dy = null;
+        //q = null;
+        //vis = null;
+        //nMap = null;
+        //m = null;
+        //n = null;
+
+        //fa = null;
+        //dis = null;
+        //last_dir = null;
+
         this._routeSize = c;
         while(c--){
             this._route[c]=name[dir[c]];
             if(this._route[c]==undefined) return false;
         }
+        //name = null;
+        //        dir = null;
         if(this._routeSize>0) return true;
         else return false;
     },
