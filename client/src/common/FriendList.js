@@ -271,7 +271,7 @@ var FriendMenu = cc.LayerColor.extend({
     },
 
     chat: function () {
-        GLOBAL.chatD = ChatPanel.create(this._fData.name, cc.p(this.getPosition().x + 60, this.getPosition().y + 20));
+        GLOBAL.chatD = ChatPanel.create(this._fData.name, cc.p(this.getPosition().x + 60, this.getPosition().y + 20), cc.p(30, 50));
         this.removeSelf();
     },
 

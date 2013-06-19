@@ -215,6 +215,7 @@ var UserMenu = function(){
     {
         //初始化菜单
         this._isShow = false;
+        this._uData = uData;
         var showButton = cc.MenuItemImage.create(s_user_menu_show, s_user_menu_show, s_user_menu_show, this.show, this);
        showButton.setPosition(cc.p(0, 60));
         var chatButton = cc.MenuItemImage.create(s_user_menu_chat, s_user_menu_chat, s_user_menu_chat, this.chat, this);
@@ -237,14 +238,15 @@ var UserMenu = function(){
 
     this.chat = function () {
         //这里自定以函数体
-     //   GLOBAL.chatD = ChatPanel.create(this._fData.name, cc.p(this.getPosition().x, this.getPosition().y + 30));
+        var size = cc.Director.getInstance().getWinSize();
+        GLOBAL.chatD = ChatPanel.create(this._uData.name, cc.p(size.width / 2-120, size.height / 2 - 50), cc.p(0, 150));
         this.removeSelf();
     };
 
     this.fav = function () {
         //这里自定以函数体
 
-        alert("yes");
+        alert("桂淳。添加好有啊。。");
         this.removeSelf();
     };
 

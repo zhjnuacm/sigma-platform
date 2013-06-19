@@ -5,14 +5,8 @@
     _meslayer: null,
     _kind: null,
 
-
-    ctor: function () {
-        this._super();
-        cc.associateWithNative(this, cc.Layer);
-    },
-
-    init: function(toUerName, tpoint) {
-	    this._super();
+    init: function(toUerName, tpoint, mpoint) {
+	   // this._super();
 
 	    this._canSend = true;
 	    this._toUser = toUerName;
@@ -42,6 +36,10 @@
 	        GLOBAL.chatD._box.setBgClr(cc.c3(255, 255, 255));
 	    });
 
+	    this._box.setFunction("onload", function (event) {
+	        alert("asdasd");
+	    });
+
 	    this.addChild(this._box);
 
 
@@ -61,7 +59,7 @@
 
 	    GLOBAL.mainLayer.addChild(this);
 
-	    this._meslayer = MessageList.create(cc.p(30, 50));
+	    this._meslayer = MessageList.create(mpoint);
 	    this.addChild(this._meslayer);
 
 		return true;
@@ -143,8 +141,8 @@
 	},
 });
 
-ChatPanel.create = function(toUerName, tpoint) {
+ChatPanel.create = function(toUerName, tpoint, mpoint) {
 	var ret = new ChatPanel();
-	if (ret && ret.init(toUerName, tpoint)) return ret;
+	if (ret && ret.init(toUerName, tpoint, mpoint)) return ret;
 	return null;
 }

@@ -65,7 +65,8 @@ var Npc = cc.Sprite
 					var self = this;
 					$.ajax({
 						type : "GET",
-						url : getTasksFromNpcUrl(self._id),
+						url: getTasksFromNpcUrl(self._id),
+						async: false,
 						success : function(data) {
 							var tasks = data.split("@");
 							self._touchBegan = true;
