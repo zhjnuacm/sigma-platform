@@ -54,6 +54,8 @@ var User = cc.Sprite.extend({
     _priority: 0,
     _x: null,
     _y: null,
+    _mesLayer: null,
+
     _uData:{
         'ID': null,
         'name': null,
@@ -72,6 +74,9 @@ var User = cc.Sprite.extend({
         this.initUserData(userdata);
         this.initWithFile(this._uData.Photo);
         this.setPosition(cc.p(this._uData.PositionX, this._uData.PositionY));
+        //信息的位置。到时候修改。
+        this._mesLayer = MessageList.create(cc.p(-10, 30));
+        this.addChild(this._mesLayer);
         return true;
     },
 
@@ -184,33 +189,8 @@ var User = cc.Sprite.extend({
      * @param  {[string]} mes        [文本信息]
      */
     addMessage: function (mes) {
-
-        //自动消失在textbox里面实现
-        var tm = TextBox.create(mes, this._kind);
-
-        for (var i = 0; i < this._mesList.length; i++) {
-            var actionBy = cc.MoveBy.create(0.5, cc.p(0, tm.getHeight() + 30));
-            this._mesList[i].runAction(actionBy);
-        }
-
-        this.addChild(tm);
-        tm.setPosition(this._mesRoot);
-        this._mesList.push(tm);
-        if (this._mesList.length > 3) {
-            this.shiftOne();
-        }
+        this._mesLayer.addMessage(mes);
     },
-
-    shiftOne: function () {
-        var tm = this._mesList.shift();
-        var fadeOut = cc.FadeOut.create(0.5);
-        var cellf = cc.CallFunc.create(function () {
-            tm.removeFromParent(true);
-        }, this);
-        var fadeS = cc.Sequence.create(fadeOut, cellf);
-        tm.runAction(fadeS);
-    },
-
 
 });
 

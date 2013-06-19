@@ -232,16 +232,53 @@ TextBox.create = function (mes, kind) {
 */
 
 var MessageList = cc.Layer.extend({
+    _mesList: [],
+    _mesRoot: null,
+    _kind:0,
 
+    init: function (position) {
+        this._mesRoot = position;
+        this.setPosition(position);
+        return true;
 
+    },
 
+    /**
+    * [addMessage 上面显示消息 5秒自动消失，超过3条则消失]
+    * 需要this._mesRoot坐标
+    * @param  {[string]} mes        [文本信息]
+    */
+    addMessage: function (mes) {
+        var tm = TextBox.create(mes, this._kind);
 
+        for (var i = 0; i < this._mesList.length; i++) {
+            var actionBy = cc.MoveBy.create(0.5, cc.p(0, tm.getHeight() + 30));
+            this._mesList[i].runAction(actionBy);
+        }
 
+        this.addChild(tm);
+        this._mesList.push(tm);
+        if (this._mesList.length > 3) {
+            this.shiftOne();
+        }
+    },
 
-
-
+    shiftOne: function () {
+        var tm = this._mesList.shift();
+        var fadeOut = cc.FadeOut.create(0.5);
+        var cellf = cc.CallFunc.create(function () {
+            tm.removeFromParent(true);
+        }, this);
+        var fadeS = cc.Sequence.create(fadeOut, cellf);
+        tm.runAction(fadeS);
+    },
 });
 
 
 MessageList.create = function (position) {
+    var ret = new MessageList();
+    if (ret && ret.init(position)) {
+        return ret;
+    }
+    return null;
 };

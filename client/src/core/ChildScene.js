@@ -67,7 +67,7 @@ var ChildScene = cc.Layer.extend({
 		this._npcFactory = NpcFactory.create(this._map,'map1');
 		//hero
 		this._hero = Hero.create(this._map.tilePositionToWorldLocation(cc.p(6,1)));
-		this.addChild(this._hero.getSprite(),this._zOrder["_hero"]);
+		this.addChild(this._hero.getSprite(), this._zOrder["_hero"]);
 
 		//添加其他用户
 		this._users = new Array();
@@ -194,35 +194,36 @@ var ChildScene = cc.Layer.extend({
 		
 
 		var toTilePosition = this._map.locationToTilePosition(cc.pSub(event.getLocation(),this.getPosition()));
-		if(this._clickAble && this._map.checkTileInMap(toTilePosition)){//防止暴力点击
-			this._clickAble=false;
-			var targetPos = this._map.tilePositionToWorldLocation(toTilePosition);
-		
-			
-			//点击格子动画
-	      	var clickCellPos = this._map.tilePositionToWorldLocation(toTilePosition);
-	      	
-	        this._clickTile.setPosition(clickCellPos);
-	        this._clickTile.runAction(
+		if (this._clickAble && this._map.checkTileInMap(toTilePosition)) {//防止暴力点击
+		    this._clickAble = false;
+		    var targetPos = this._map.tilePositionToWorldLocation(toTilePosition);
+
+
+		    //点击格子动画
+		    var clickCellPos = this._map.tilePositionToWorldLocation(toTilePosition);
+
+		    this._clickTile.setPosition(clickCellPos);
+		    this._clickTile.runAction(
 	        	cc.Sequence.create(
 					this._clickAction,
-					cc.CallFunc.create(function(){this._clickAble=true;},this),
+					cc.CallFunc.create(function () { this._clickAble = true; }, this),
 					null
 				)
 			);
 
-			
-			//角色移动到点击地点
-			if(!this._hero.checkIsWalking()){
-				var start = this._map.locationToTilePosition(this._hero.getSprite().getPosition());
-				var terminal = toTilePosition;		
-				if(this._map.checkOrCalRoute(start,terminal)){
-					this._hero.moveByRoute(this._map.getRouteContent(),this._map.getRouteSize());
-				}	
-			}
-	
+
+		    //角色移动到点击地点
+		    if (!this._hero.checkIsWalking()) {
+		        var start = this._map.locationToTilePosition(this._hero.getSprite().getPosition());
+		        var terminal = toTilePosition;
+		        if (this._map.checkOrCalRoute(start, terminal)) {
+		            this._hero.moveByRoute(this._map.getRouteContent(), this._map.getRouteSize());
+		        }
+		    }
+
+		} else {
+		    this._hero.addMessage("不要一直点，我会走的。");
 		}
-		
 	},
 
     onTouchMoved : function(event) {

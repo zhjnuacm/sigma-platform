@@ -2,8 +2,7 @@
     _canSend: null,
     _toUser:null,
     _bg: null,
-    _mesList: [],
-    _mesRoot: null,
+    _meslayer: null,
     _kind: null,
 
 
@@ -12,13 +11,11 @@
         cc.associateWithNative(this, cc.Layer);
     },
 
-    init: function(toUerName, tpoint, mpoint, kind) {
+    init: function(toUerName, tpoint) {
 	    this._super();
 
 	    this._canSend = true;
 	    this._toUser = toUerName;
-	    this._mesRoot = mpoint;
-	    this._kind = kind;
 
 	    this._bg = cc.Sprite.create(s_char_rect);
 	    this._bg.setPosition(cc.p(134, 18));
@@ -63,6 +60,9 @@
 	    this.setPosition(tpoint);
 
 	    GLOBAL.mainLayer.addChild(this);
+
+	    this._meslayer = MessageList.create(cc.p(30, 50));
+	    this.addChild(this._meslayer);
 
 		return true;
 	},
@@ -139,34 +139,12 @@
      */
 
 	addMessage: function (mes) {
-	    var tm = TextBox.create(mes, this._kind);
-
-	    for (var i = 0; i < this._mesList.length; i++) {
-	        var actionBy = cc.MoveBy.create(0.5, cc.p(0, tm.getHeight() + 30));
-	        this._mesList[i].runAction(actionBy);
-	    }
-        
-	    this.addChild(tm);
-	    tm.setPosition(this._mesRoot);
-	    this._mesList.push(tm);
-	    if (this._mesList.length >3) {
-	        this.shiftOne();
-	    }
-	},
-
-	shiftOne:function(){
-	    var tm = this._mesList.shift();	
-	    var fadeOut = cc.FadeOut.create(0.5);
-	    var cellf = cc.CallFunc.create(function(){
-	        tm.removeFromParent(true);
-	    }, this);
-	    var fadeS = cc.Sequence.create(fadeOut, cellf);
-	    tm.runAction(fadeS);
+	    this._meslayer.addMessage(mes);
 	},
 });
 
-ChatPanel.create = function(toUerName, tpoint, mpoint, kind) {
+ChatPanel.create = function(toUerName, tpoint) {
 	var ret = new ChatPanel();
-	if (ret && ret.init(toUerName, tpoint, mpoint, kind)) return ret;
+	if (ret && ret.init(toUerName, tpoint)) return ret;
 	return null;
 }

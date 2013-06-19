@@ -34,6 +34,8 @@ function Hero() {
 	//主体精灵
 	_sprite:null;//英雄类的主体精灵
 
+
+    _mesLayer: null,
 	/*
 	 * 初始化函数
 	 */
@@ -80,6 +82,11 @@ function Hero() {
     	this._sprite.setScale(0.7);	
     	this._sprite.setAnchorPoint(cc.p(0.5,0.1));
     	
+
+	    //初始化消息
+    	this._mesLayer = MessageList.create(cc.p(-20, 130));
+    	this._sprite.addChild(this._mesLayer);
+
 		return true;
 	},
 	
@@ -161,7 +168,11 @@ function Hero() {
 	 */
 	this.getSprite = function(){
 		return this._sprite;
-	}
+	},
+
+    this.addMessage =  function (mes) {
+        this._mesLayer.addMessage(mes);
+    }
 
 }
 
