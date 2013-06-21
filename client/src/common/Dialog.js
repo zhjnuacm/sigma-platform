@@ -74,6 +74,7 @@ var DialogView = cc.Layer.extend({
     _width: 0,
     _height: 0,
     _menuTag: 0,
+    _isShake: false,
     
     actionShake : cc.Speed.create(cc.Repeat.create(
                 cc.Sequence.create(
@@ -204,7 +205,15 @@ var DialogView = cc.Layer.extend({
     onShake: function () {
 
         //this.removeFromParent(true);
-        this.runAction(this.actionShake);
+    	if(!this._isShake)
+    	{
+    		this._isShake = true;
+    		this.runAction(this.actionShake);
+    		return ;
+    	}
+    	if(this.actionShake.isDone()){
+    		this.runAction(this.actionShake);
+    	}
     },
     onKeyDown: function (key){
     	if(key == 27)

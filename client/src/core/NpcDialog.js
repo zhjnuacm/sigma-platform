@@ -83,10 +83,11 @@ function TaskDialog() {
 		var self = this;
 		$.ajax({
 			type : "GET",
+			async: false,
 			url : genGetTaskUrl(self._taskId),
 			success : function(data) {
 				cc.log(data);
-				self._dialogView.onCloseMyself();
+				self._dialogView.onCloseMyself(); 
 			}
 		});
 	},
