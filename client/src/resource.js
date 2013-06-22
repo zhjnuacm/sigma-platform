@@ -18,8 +18,8 @@ var s_ScrolLine         = "client/res/scroll_line.png";
 var s_ScrolPoint        = "client/res/scroll_point.png";
 var s_TBbottonleft      = "client/res/textbox_botton_left.png";
 var s_TBbuttonright     = "client/res/textbox_botton_right.png";
-var s_TBtopleft         = "client/res/textbox_top_left.png";
-var s_TBtopright        = "client/res/textbox_top_right.png";
+var s_TBtop             = "Client/res/textbox_top.png";
+var s_TBmid             = "Client/res/textbox_mid.png";
 var s_TBright           = "client/res/textbox_right.png";
 var s_Friend_t          = "client/res/friend_top.png";
 var s_Friend_b          = "client/res/friend_botton.png";
@@ -143,8 +143,8 @@ var g_ressources = [
     { type: "image", src: s_closeview },
     { type: "image", src: s_TBbottonleft },
     { type: "image", src: s_TBbuttonright },
-    { type: "image", src: s_TBtopleft },
-    { type: "image", src: s_TBtopright },
+    { type: "image", src: s_TBtop },
+    { type: "image", src: s_TBmid },
     { type: "image", src: s_TBright },
     { type: "image", src: s_Friend_t },
     { type: "image", src: s_Friend_b },

@@ -82,6 +82,24 @@ function TArray(nRow, nColumn, value) {
 	return tarray;
 }
 
+
+/**
+ * 非基本对象的赋值 传值而不是传地址
+ * @param  {[Object]} fromObj
+ * @return {[Object]} toObj
+ * 把a复制给b
+ */
+function cloneAll(fromObj, toObj) {
+    for (var i in fromObj) {
+        if (typeof fromObj == "object") {
+            toObj = {};
+            cloneAll(fromObj, toObj);
+            continue;
+        }
+        toObj = fromObj;
+    }
+}
+
 var head = "index.php?r=";
 
 function genPushMapMessageUrl(mapStr, row, col) {
