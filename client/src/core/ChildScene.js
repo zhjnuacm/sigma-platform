@@ -44,7 +44,6 @@ var ChildScene = cc.Layer.extend({
 	_map: null,
 	_clickTile:null,//点击tile的时显示的精灵	
 	_clickAction:null,//该精灵的动画
-	
 	_users: null,//其他用户
 	
 	//鼠标点击相关
@@ -72,7 +71,9 @@ var ChildScene = cc.Layer.extend({
 		//hero
 		this._hero = Hero.create(this._map.tilePositionToWorldLocation(cc.p(6,1)));
 		this.addChild(this._hero.getSprite(), this._zOrder["_hero"]);
-
+		
+		
+		
 		//添加其他用户
 		this._users = new Array();
 		

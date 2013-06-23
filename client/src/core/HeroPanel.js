@@ -1,117 +1,193 @@
 /**
  * [HeroPanel 英雄面板信息类]
+ * 
  * @type {[type]}
  */
 var HeroPanel = cc.Layer.extend({
-	_name: null,
-	_level: null,
-	_score: null,
-	_width: null,
-	_height: null,
-	_heroImage: null,
-	_expWhite: null,
-	_expRed: null,
-	_background: null,
-	_scalex: null,
-	_nameLabel: null,
-	_levelLabel: null,
-	_scoreLabel: null,
-	_totScore: null,
-	_action: null,
-	_actionLabel: null,
+	_name : null,
+	_level : null,
+	_score : null,
+	_width : null,
+	_height : null,
+	_heroImage : null,
+	_expWhite : null,
+	_expRed : null,
+	_background : null,
+	_scalex : null,
+	_nameLabel : null,
+	_levelLabel : null,
+	_scoreLabel : null,
+	_other : null,
+	_otherLabel : null,
+	_textSize : null,
+	_lvlEx : null,
+	_heroPosition : null , 
+	_expProcesser : null,
 	
-	init: function(name, level, score) {
-		
+	init : function() {
+
 		this._super();
-		
-		this._width = 277;
-		this._height = 92;
-		this._name = name;
-		this._score = score;
-		this._totScore = 1000000;
-		this._level = level;
-		this._scalex = this._score * 1.0 * 80 / this._totScore;
-		this._action = 99999;
-		
-		this._background = cc.LayerColor.create(cc.c4(60, 60, 60, 125), 277, 92);
-		this.addChild(this._background, 0);
-		
-		//头像
-		this._heroImage = cc.Sprite.create(s_photo);
-		this._heroImage.setPosition(cc.p(45, 48));
-		this.addChild(this._heroImage);
-		
-		//白色经验条
-		this._expWhite = cc.LayerColor.create(cc.c4(255, 255, 255, 255), 80, 4);
-		this._expWhite.setPosition(cc.p(5, 3));
-		this.addChild(this._expWhite, 1);
-		
-		//红色经验条
-		this._expRed = cc.LayerColor.create(cc.c4(115, 2, 2, 255), 1, 4);		
-		this._expRed.setScaleX(this._scalex);
-		this._expRed.setPosition(cc.p(5 + (this._scalex - 1) / 2.0, 3));	
-		this.addChild(this._expRed, 2);
-		
-		//显示姓名
-		this._nameLabel = cc.LabelTTF.create(this._name, s_yahei, 16, cc.size(32, 16), cc.TEXT_ALIGNMENT_LEFT);
-		this._nameLabel.setPosition(cc.p(110, 90));
-		this.addChild(this._nameLabel, 2);
-		
-		var lvLabel =  cc.LabelTTF.create("Lv.", s_yahei, 16, cc.size(32, 16), cc.TEXT_ALIGNMENT_LEFT);
-		lvLabel.setPosition(cc.p(110, 50));
-		this.addChild(lvLabel, 2);
-		
-		//显示等级
-		this._levelLabel = cc.LabelTTF.create(this._level, s_yahei, 14, cc.size(32, 14), cc.TEXT_ALIGNMENT_LEFT);
-		this._levelLabel.setPosition(cc.p(136, 50));
-		this.addChild(this._levelLabel, 2);
-		
-		//
-		this._scoreLabel = cc.LabelTTF.create(this._score + "/", s_yahei, 14, cc.size(32, 14), cc.TEXT_ALIGNMENT_LEFT);
-		this._scoreLabel.setPosition(cc.p(160, 67));
-		this.addChild(this._scoreLabel, 2);
-		
-		this._totScoreLabel = cc.LabelTTF.create(this._totScore, s_yahei, 14, cc.size(32, 14), cc.TEXT_ALIGNMENT_LEFT);
-		this._totScoreLabel.setPosition(cc.p(215, 67));
-		this.addChild(this._totScoreLabel, 2);
-		
-		
-		var actLabel = cc.LabelTTF.create("行动值", s_yahei, 16, cc.size(32, 16), cc.TEXT_ALIGNMENT_LEFT);
-		actLabel.setPosition(cc.p(110, 47));
-		this.addChild(actLabel, 2);
-		
-		this._actionLabel = cc.LabelTTF.create(this._action, s_yahei, 14, cc.size(32, 14), cc.TEXT_ALIGNMENT_LEFT);
-		this._actionLabel.setPosition(cc.p(162, 44));
-		this.addChild(this._actionLabel, 2);
-		//var screenSize = cc.Director.getInstance().getWinSize();
-//		var spriteSize = this._testSprite.getContentSize();
-//		var spritePosition = cc.p(position.x + spriteSize.width / 2, screenSize.height - position.y - spriteSize.height / 2);
-//
-//		this._testSprite.setPosition(spritePosition);
+
+		this._width = 200;
+		this._height = 85;
+		this._textSize = 14;
+
+		this.getHeroInformationFromServer();
+		this.initPanel();
 		return true;
 	},
 
-	getHeroPanelSize: function() {
+	initPanel : function() {
+		
+		this._background = cc.LayerColor.create(cc.c4(60, 60, 60, 125),
+				this._width, this._height);
+		this.addChild(this._background, 0);
+
+		// 头像
+		this._heroImage = cc.Sprite.create(s_photo);
+		this._heroImage.setPosition(cc.p(45, 48));
+		this.addChild(this._heroImage);
+		this._heroImage.setScale(0.7);
+
+		// 显示姓名
+		this._nameLabel = cc.LabelTTF.create(this._name, s_yahei,
+				this._textSize, cc.size(60, this._textSize),
+				cc.TEXT_ALIGNMENT_LEFT);
+
+		this._nameLabel.setPosition(cc.p(120, 90));
+		this.addChild(this._nameLabel, 2);
+
+		// 显示等级
+		this._levelLabel = cc.LabelTTF.create("Lv." + this._level, s_yahei,
+				this._textSize, cc.size(60, this._textSize), cc.TEXT_ALIGNMENT_LEFT);
+		this._levelLabel.setPosition(cc.p(120, 50));
+		this.addChild(this._levelLabel, 2);
+
+		//
+		this._scoreLabel = cc.LabelTTF.create(this._score + "/" + this._lvlEx[this._level], s_yahei,
+				this._textSize, cc.size(100, this._textSize),
+				cc.TEXT_ALIGNMENT_LEFT);
+		this._scoreLabel.setPosition(cc.p(180, 50));
+		this.addChild(this._scoreLabel, 2);
+
+		var actLabel = cc.LabelTTF.create("叛逆值", s_yahei, this._textSize, cc
+				.size(60, this._textSize), cc.TEXT_ALIGNMENT_LEFT);
+		actLabel.setPosition(cc.p(120, 30));
+		this.addChild(actLabel, 2);
+
+		this._otherLabel = cc.LabelTTF.create(this._other, s_yahei,
+				this._textSize, cc.size(100, this._textSize),
+				cc.TEXT_ALIGNMENT_LEFT);
+		this._otherLabel.setPosition(cc.p(200, 30));
+		this.addChild(this._otherLabel, 2);
+		
+		
+		// hero position
+		var size = cc.Director.getInstance().getWinSize();
+		
+		var positionBackGround = cc.LayerColor.create(cc.c4(60, 60, 60, 125),
+				this._width, 20);
+		this.addChild(positionBackGround);
+		positionBackGround.setPosition(cc.p(0,-30));
+		this._heroPosition = cc.LabelTTF.create("",s_yahei,this._textSize,cc.size(200, this._textSize),
+				cc.TEXT_ALIGNMENT_LEFT);
+		positionBackGround.addChild(this._heroPosition);
+		
+		this._heroPosition.setPosition(cc.p(120,15));
+		this.updateHeroPosition("map1",cc.p(6,1));
+		
+		
+		// exp
+		var expBackGround = cc.LayerColor.create(cc.c4(255, 255, 255, 125),this._width, 10);
+		
+		this._expProcesser = cc.ProgressTimer.create(cc.Sprite
+				.create("client/res/process_bg.png"));
+		this._expProcesser.setType(cc.PROGRESS_TIMER_TYPE_BAR);
+		
+		this._expProcesser.setPosition(cc.p(this._width*0.5,5));
+		this._expProcesser.setMidpoint(cc.p(0, 0));
+		this._expProcesser.setBarChangeRate(cc.p(1, 0));
+		this.addChild(this._expProcesser );
+		this.addChild(expBackGround);
+		
+		this.updateExpProcess(0);
+		
+		this.setPosition(cc.p(0,size.height  - this._height));
+	},
+	getHeroPanelSize : function() {
 		return this._testSprite.getContentSize();
-	}
-
+	},
+	
+	getHeroInformationFromServer : function() {
+		// ajax
+		var self = this;
+		self._name = "Compatibility";
+		self._score = 20;
+		self._level = 0;
+		self._other = 150;
+		self._lvlEx = [ 100, 200, 300, 400, 500, 600, 700, 800 ];
+	},
+	
+	updateHeroPosition:function(mapName , position)
+	{
+		var string = "当前位置 " + mapName + "-> (" + position.x + " , " + position.y + ")";
+		this._heroPosition.setString(string);
+		
+		//ajax 更新位置
+		var url = genUpdateHeroPositionAndMapUrl();
+	},
+	
+	updateLvl : function ()
+	{
+		var self = this;
+		
+		
+		
+		self._levelLabel.setString("Lv."+self._level);
+		self._scoreLabel.setString(self._score + "/" + self._lvlEx[self._level]);
+		
+		// ajax 升级请求
+		var url = genLvlUpActionUrl();
+	},
+	
+	
+	/**
+	 * exp增量
+	 */
+	updateExpProcess : function (addExp)
+	{
+		var self = this;
+		var actions = [];
+		
+		if(addExp + this._score >= this._lvlEx[this._level]) // lvl up
+		{
+			actions.push(cc.ProgressTo.create(2,100));
+			actions.push(cc.ProgressTo.create(0,0));
+			this._score = addExp + this._score - this._lvlEx[this._level];
+			this._level++;
+			self.updateLvl();
+		}
+		var radio = this._score / this._lvlEx[this._level] * 100.0;
+		actions.push(cc.ProgressTo.create(2,radio));
+		self._expProcesser.runAction(cc.Sequence.create(actions));
+		
+		//ajax 添加经验
+		var url = genAddExpUrl();
+	},
+	
 });
-
 
 /**
  * 英雄面板工厂方法
- * @param  {[cc.p]} position [面板的位置,x为离左边的间距，y为离上面的间距]
- * @return {[type]}          [英雄面板的实例]
+ * 
+ * @param {[cc.p]}
+ *            position [面板的位置,x为离左边的间距，y为离上面的间距]
+ * @return {[type]} [英雄面板的实例]
  */
-HeroPanel.create = function(name, level, score) {
+HeroPanel.create = function() {
 	var ret = new HeroPanel();
-	if (ret && ret.init(name, level, score)) {
+	if (ret && ret.init()) {
 		return ret;
 	}
 	return null;
 }
-
-
-
-
-

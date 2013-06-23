@@ -124,7 +124,10 @@ function Hero() {
 			if(this._routeCnt<0){
 				this._routeState=false;
 				return;
-			} 
+			}
+			GLOBAL.mediator._heroPanel.updateHeroPosition(
+					GLOBAL.mapName,GLOBAL.mediator._childScene.getHeroTilePosition()
+			);
 			this.moveByStep(this._route[this._routeCnt]);
 		}
 	},
@@ -159,6 +162,7 @@ function Hero() {
 		if(this._routeState==true || this._isHeroWalking==true) return true;
 		return false;
 	},
+	
 	
 	this.checkIsStepDone = function(){
 		return !this._isHeroWalking;

@@ -144,6 +144,28 @@ function genGetFriendOfSearchUrl(name) {
 	return head + "UserFriend/getFriendOfSearch&name=" + name;
 }
 
+
+// 升级请求
+function genLvlUpActionUrl ()
+{
+	return head + ""
+}
+
+//添加经验
+function genAddExpUrl(exp)
+{
+	return head + "";
+}
+
+//更新用户坐标和地图
+function genUpdateHeroPositionAndMapUrl(mapName,position)
+{
+	return head + "";
+}
+
+
+
+
 //根据userPosition 获取当前场景是否有新用户登录
 function getNewUserDataUrl(userPosition){
 	return ;

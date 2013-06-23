@@ -94,7 +94,7 @@ var Map = cc.Layer.extend({
         this._mapSize = this._tmxMap.getContentSize();
 
         this.initMapInfo(HeroMap);
-
+        GLOBAL.mapName = HeroMap;
         return true;
     },
 
@@ -438,6 +438,10 @@ var Map = cc.Layer.extend({
 	 */
     getMapConfig:function(){
         return this.getSingleMapConfigByName(this._mapName);
+    },
+    
+    getMapName : function (){
+    	return this._mapName;
     }
 });
 /**

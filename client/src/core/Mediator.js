@@ -1,24 +1,27 @@
 function Mediator() {
 	this._childScene;
-	this._heroPanel;
+	
 	this._systemFunction;
 	this._mainLayer;
 	this._size;
 	this._tipsManage;
 	this._input;
 	this._npcLayer;
+	this._heroPanel;
 	this._npc1;
 	this._npcFactory;
-
+	
+	
 	this.init = function(mainLayer) {
 		
 		//发送数据给后台
-		/*this._map.tranMaptoblackground();*/
+		/*this.map.tranMaptoblackground();*/
 		//传送地图配置信息你 
 	    /*this._map.transformMapConfToNpcController();*/
 
 	    GLOBAL.mainLayer = mainLayer;
-		
+		GLOBAL.mediator = this;
+	    
 		this._size = cc.Director.getInstance().getWinSize();
 		// get the main layer
 		this._mainLayer = mainLayer;
@@ -34,34 +37,20 @@ function Mediator() {
 		this._mainLayer.addChild(this._childScene);
 		
 		
-		this._heroPanel = HeroPanel.create("我是帅锅别逼我", 75, 30000);
-	//	cc.log(this._size);
-//		cc.log(this._heroPanel._width + " " + this._heroPanel._heigth);
-		this._heroPanel.setPosition(cc.p(3, this._size.height - this._heroPanel._height - 3));
-		this._mainLayer.addChild(this._heroPanel);
-		
-	   //其它用户
-	/*	var aaa = User.create(123456);
-		this._map.addChild(aaa);
-	*/
-		
+
+
 	    //小地图
 		var smap = SMap.create(s_mapPath);
 		this._mainLayer.addChild(smap._content, 5);
 		smap.mapMoveByHeroPosition(this._childScene.getHeroWorldPosition());
 		
-		/*
-	    // npc add npclayer into maplayer
-		//this._npcLayer = cc.Layer.create();
-		//this._npc1 = Npc.create();
-		//this._npc1.setPriority(this._map.getTouchPriority() - 1);
-		//this._npcLayer.addChild(this._npc1);
-		//this._map.addChild(this._npcLayer);
-		//alert(this._mainLayer.getTouchPriority() + "    " + (this._map.getTouchPriority() - 1));
+		// hero panel
+		this._heroPanel = HeroPanel.create();
+		this._mainLayer.addChild(this._heroPanel);
 		
-		//alert(this._npcLayer.getTouchPriority());
 		
-        */
+		
+		
 
 		GLOBAL.inputD = InputPanel.create();
 		this._mainLayer.addChild(GLOBAL.inputD, 2);
