@@ -20,7 +20,11 @@ actionList.push(
 		{
 			'x' : 700,
 			'y' : 700
-		}
+		},
+        {
+            'x': 1500,
+            'y':1400,
+        }
 		);
 /**
  * [ChildScene 子场景类]
@@ -101,7 +105,7 @@ var ChildScene = cc.Layer.extend({
 		var screenCenter = cc.p(winSize.width/2.0,winSize.height/2.0);
 		this.setPosition(cc.pSub(screenCenter,this._hero.getSprite().getPosition()));
 		
-		this.schedule(this.myUserMove, 2.0);//定时让其他用户移动
+		this.schedule(this.myUserMove, 10.0);//定时让其他用户移动
 		return true;
 	},
 
@@ -273,8 +277,9 @@ var ChildScene = cc.Layer.extend({
     	for(var i = 0; i < this._users.length; ++i)
     	{
     		var id = getRandomNum(0, tot);
-    		if(id != tot){
-    			this._users[i].setPosition(actionList[id]);
+    		if (id != tot) {
+    		    var actionto = cc.MoveTo.create(10, actionList[id]);
+    			this._users[i].runAction(actionto);
     		}
     	}
     },

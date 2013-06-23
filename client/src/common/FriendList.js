@@ -26,9 +26,10 @@ var SeachFriendCell = cc.TableViewCell.extend({
        
         this._fData = idata;
         this._photo = cc.Sprite.create(this._fData.photo);
+        this._photo.setScale(0.69 , 0.69);
         this._photo.setPosition(cc.p(25, 25));
         this.addChild(this._photo);
-
+        
         this._name = cc.LabelTTF.create(this._fData.name, s_yahei, 12);
         this._name.setAnchorPoint(cc.p(0, 0));
         this._name.setColor(cc.c3(30, 30, 30));
@@ -210,26 +211,26 @@ var FriendMenu = cc.LayerColor.extend({
         this.addChild(menu);
 
         var photo = cc.Sprite.create(this._fData.photo);
-        photo.setPosition(cc.p(30, 105));
+        photo.setPosition(cc.p(37, 95));
 
         this.addChild(photo);
 
         var n = cc.LabelTTF.create(this._fData.name, s_yahei, 12);
         n.setColor(cc.c3(30, 30, 30));
         n.setAnchorPoint(cc.p(0, 0));
-        n.setPosition(cc.p(60, 110));
+        n.setPosition(cc.p(70, 110));
         this.addChild(n);
 
         var p = cc.LabelTTF.create(this._fData.place, s_yahei, 12);
         p.setColor(cc.c3(30, 30, 30));
         p.setAnchorPoint(cc.p(0, 0));
-        p.setPosition(cc.p(60, 90));
+        p.setPosition(cc.p(70, 90));
         this.addChild(p);
 
         var m = cc.LabelTTF.create(this._fData.mood, s_yahei, 12);
         m.setColor(cc.c3(30, 30, 30));
         m.setAnchorPoint(cc.p(0, 0));
-        m.setPosition(cc.p(60, 70));
+        m.setPosition(cc.p(70, 70));
 
         this.addChild(m);
         return true;
@@ -343,6 +344,7 @@ var FriendViewCell = cc.TableViewCell.extend({
         this.setIdx(idx);
 
         this._photo = cc.Sprite.create(this._fData.photo);
+        this._photo.setScale(0.69, 0.69);
         this._photo.setPosition(cc.p(25, 25));
         this.addChild(this._photo);
 

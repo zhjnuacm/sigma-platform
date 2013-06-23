@@ -11,42 +11,47 @@ userData.push(
         'ID': 1,
         'name': 'Jopix',
         'PositionX': 1580,
+        'sex': 0,
         'PositionY': 900,
-        'Photo': 'client/res/user/user_4.jpg'
+        'Photo': 'client/res/user/1.png'
     },
     {
     	'ID': 2,
         'name': 'nanke',
         'PositionX': 1480,
         'PositionY': 900,
-        'Photo': 'client/res/user/user_4.jpg'
+        'sex': 0,
+        'Photo': 'client/res/user/2.png'
     },
     {
     	'ID': 3,
         'name': 'vainner',
         'PositionX': 1380,
         'PositionY': 900,
-        'Photo': 'client/res/user/user_4.jpg'
+        'sex': 0,
+        'Photo': 'client/res/user/3.png'
     },
     {
     	'ID': 4,
         'name': 'huangniang',
         'PositionX': 1180,
         'PositionY': 900,
-        'Photo': 'client/res/user/user_4.jpg'
+        'sex': 1,
+        'Photo': 'client/res/user/4.png'
     },
     {
     	'ID': 5,
         'name': 'cchun',
         'PositionX': 980,
         'PositionY': 900,
-        'Photo': 'client/res/user/user_4.jpg'
+        'sex': 0,
+        'Photo': 'client/res/user/5.png'
     }
     );
 //===可删
 
 
-var User = cc.Sprite.extend({
+var User= cc.Sprite.extend({
     _menu: null,
     _touchBegan: false,
     _touchEnabled: true,
@@ -61,7 +66,8 @@ var User = cc.Sprite.extend({
         'name': null,
         'PositionX': null,
         'PositionY': null,
-        'Photo': null
+        'Photo': null,
+        'sex':null
     },
 
     ctor: function () {
@@ -73,6 +79,30 @@ var User = cc.Sprite.extend({
         this._priority = -15;
         this.initUserData(userdata);
         this.initWithFile(this._uData.Photo);
+        this.setScale(0.6, 0.6);
+
+        var br = cc.Sprite.create(s_user_block);
+        br.setPosition(cc.p(41, 39));
+        br.setScale(5 / 3, 5 / 3);
+        this.addChild(br);
+        
+        var mark;
+        if (this._uData.sex == 0) {
+            mark = cc.Sprite.create(s_user_boy_mark);
+            mark.setPosition(cc.p(8, 70));
+        } else {
+            mark = cc.Sprite.create(s_user_girl_mark);
+            mark.setPosition(cc.p(4, 72));
+        }
+        mark.setScale(5 / 3, 5 / 3);
+        this.addChild(mark);
+
+        var name = cc.LabelTTF.create('['+ this._uData.name + ']', 'Microsoft YaHei', 14, cc.size(100, 16), cc.TEXT_ALIGNMENT_CENTER);
+        name.setPosition(cc.p(40, -16));
+        name.setColor(cc.c3(30, 30, 30));
+        name.setScale(5 / 3, 5 / 3);
+        this.addChild(name);
+
         this.setPosition(cc.p(this._uData.PositionX, this._uData.PositionY));
         //信息的位置。到时候修改。
         this._mesLayer = MessageList.create(cc.p(-10, 30));
@@ -117,13 +147,15 @@ var User = cc.Sprite.extend({
 
 
     onTouchBegan: function (touch, event) {
-       // alert("npc");  
+        // alert("npc");    
+        if (this._menu != null && this._menu._isShow)
+                this._menu.removeSelf();
         // 如果点击在npc上，则弹出对话框，并返回true，截断touch， 否则，返回false，响应下层touch
      //   alert(this.touchRect().origin.x + ' ' + this.touchRect().origin.y + ' ' + this.touchRect().size.width + ' ' + this.touchRect().size.height);
         if (cc.Rect.CCRectContainsPoint(this.touchRect(), touch.getLocation())) {
             this._touchBegan = true;
 
-
+            cc.log(this.touchRect());
             //var self = this;
             //$.ajax({
             //    type: "GET",
@@ -135,13 +167,9 @@ var User = cc.Sprite.extend({
             //        self.addChild(dialog._dialogView);
             //    }
             //  });
-
-
             return true;
-        } else {
-            if (this._menu != null &&  this._menu._isShow)
-                this._menu.removeSelf();
         }
+
         return false;
     },
 
@@ -176,6 +204,7 @@ var User = cc.Sprite.extend({
        this._uData.Photo = userdata.Photo;
        this._uData.PositionX = userdata.PositionX;
        this._uData.PositionY = userdata.PositionY;
+       this._uData.sex = userdata.sex;
        return true;
     },
 
@@ -202,6 +231,12 @@ User.create = function (ID) {
 };
 
 
+
+
+
+
+
+
 //================================
 //  Jopix  用户操作菜单
 //  2013年6月7日 09:12:45
@@ -217,14 +252,13 @@ var UserMenu = function(){
         this._isShow = false;
         this._uData = uData;
         var showButton = cc.MenuItemImage.create(s_user_menu_show, s_user_menu_show, s_user_menu_show, this.show, this);
-       showButton.setPosition(cc.p(0, 60));
+        showButton.setPosition(cc.p(5, 80));
         var chatButton = cc.MenuItemImage.create(s_user_menu_chat, s_user_menu_chat, s_user_menu_chat, this.chat, this);
-         chatButton.setPosition(cc.p(32, 60));
+        chatButton.setPosition(cc.p(42, 80));
         var pkButton = cc.MenuItemImage.create(s_user_menu_pk, s_user_menu_pk, s_user_menu_pk, this.pk, this);
-        pkButton.setPosition(cc.p(60, 40));
+        pkButton.setPosition(cc.p(80, 50));
         var favButton = cc.MenuItemImage.create(s_user_menu_fav, s_user_menu_fav, s_user_menu_fav, this.fav, this);
-        favButton.setPosition(cc.p(60, 10));
-
+        favButton.setPosition(cc.p(80, 15));
         // 将所有的按钮加到菜单容器里面
         this._menu = cc.Menu.create(showButton, chatButton, pkButton, favButton);
         return true;
@@ -239,7 +273,7 @@ var UserMenu = function(){
     this.chat = function () {
         //这里自定以函数体
         var size = cc.Director.getInstance().getWinSize();
-        GLOBAL.chatD = ChatPanel.create(this._uData.name, cc.p(size.width / 2-120, size.height / 2 - 50), cc.p(0, 150));
+        GLOBAL.chatD = ChatPanel.create(this._uData.name, cc.p(size.width / 2 - 120, size.height / 2 - 50), cc.p(0, 150));
         this.removeSelf();
     };
 
