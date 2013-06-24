@@ -26,6 +26,14 @@ function Hero() {
 	_loopCnt:null;//行走动画循环次数
 	_spriteActions:null;//精灵行走动画四个方向的数组
 	
+	//人物行走帧设定
+	_frameUp:null;
+	_frameDown:null;
+	_frameLeft:null;
+	_frameRight:null;
+	_frameWidth:null;
+	_frameHeight:null;
+
 	//精灵的状态
 	_isHeroWalking:null;//精灵是否在移动
 	_routeState:null;//精灵是否正在进行路线移动
@@ -55,17 +63,44 @@ function Hero() {
 		this._route= new Array();
 		this._routeCnt=0;
 		
+		//人物行走帧
+		//原始妹子
+//		this._frameUp = 3;
+//		this._frameDown = 0;
+//		this._frameLeft = 2;
+//		this._frameRight = 1;
+//		this._frameWidth = 120;
+//		this._frameHeight = 120;
+		
+		//僵尸
+//		this._frameUp = 2;
+//		this._frameDown = 1;
+//		this._frameLeft = 3;
+//		this._frameRight = 0;		
+//		this._frameWidth = 74;
+//		this._frameHeight = 98;
+		
+		//青蛙
+		this._frameUp = 2;
+		this._frameDown = 1;
+		this._frameLeft = 3;
+		this._frameRight = 0;
+		this._frameWidth = 52;
+		this._frameHeight = 84;
+	
+
+		
 		//动画模块相关变量
 		this._heroTexture = cc.TextureCache.getInstance().addImage(s_hero);
 		this._delayTime=0.2;
 		this._loopCnt=1;
 		this._spriteActions = new Array();
 		var frames = new Array();
-    	var box = new Array(6,5,7,4);
+    	var box = new Array(this._frameUp,this._frameDown,this._frameLeft,this._frameRight);
 		for(var k=0;k<4;k++){
 			var animation = new cc.Animation();
 	    	for(var i=0;i<4;i++){
-				frames[i] = cc.SpriteFrame.createWithTexture(this._heroTexture,cc.rect(120*i,120*box[k],120,120));
+				frames[i] = cc.SpriteFrame.createWithTexture(this._heroTexture,cc.rect(this._frameWidth*i,this._frameHeight*box[k],this._frameWidth,this._frameHeight));
 				animation.addSpriteFrame(frames[i]);
 			}
 			animation.setLoops(this._loopCnt);//设置循环次数
@@ -73,6 +108,8 @@ function Hero() {
 	    	this._spriteActions[k] = cc.Animate.create(animation);
 		}
     	
+		
+		
     	//精灵的状态
     	this._routeState=false;
 		this._isHeroWalking=false;
@@ -81,11 +118,12 @@ function Hero() {
 		this._routeRunTag=0;
 		this._nextPos=position;
 		
+		
+		
 		//hero真正初始化
 		this._sprite = cc.Sprite.create();	
 		this._sprite.setPosition(position);//坐标位置
-		this._sprite.initWithTexture(this._heroTexture, cc.rect(0, 120*4, 120, 120));
-    	this._sprite.setScale(0.7);	
+		this._sprite.initWithTexture(this._heroTexture, cc.rect(0, 0, this._frameWidth, this._frameHeight));	
     	this._sprite.setAnchorPoint(cc.p(0.5,0.1));
     	
 
@@ -115,12 +153,11 @@ function Hero() {
 		if(this._isHeroWalking) return;
 		this._isHeroWalking=true;
 		this._dir = dir;
-		var box = new Array(2,3,0,1);
 		this._nextPos = cc.pAdd(this._sprite.getPosition(),this._stepDelta[dir]);
 		var movementActions = cc.Sequence.create(
 			cc.Spawn.create(
 				cc.MoveBy.create(this._stepTime,this._stepDelta[dir]),
-				this._spriteActions[box[dir]],
+				this._spriteActions[dir],
 				null),
 			cc.CallFunc.create(this.setFaceDirection,this,dir),
 			null);
@@ -134,8 +171,8 @@ function Hero() {
 	 */
 	this.setFaceDirection=function(nodeExecutingAction, value){
 		this._isHeroWalking=false;
-		var box = new Array(7,4,6,5);
-		this._sprite.setTextureRect(cc.rect(0, 120*box[value], 120, 120),false);
+		var box = new Array(this._frameUp,this._frameDown,this._frameLeft,this._frameRight);
+		this._sprite.setTextureRect(cc.rect(0, this._frameHeight*box[value], this._frameWidth,this._frameHeight),false);
 		this._nextPos=this._sprite.getPosition();
 		if(this._routeRunTag!=this._routeOrderTag){
 			this.moveByRoute(this._route,this._routeCnt);
