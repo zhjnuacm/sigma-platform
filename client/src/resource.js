@@ -112,7 +112,8 @@ var s_dlg = [
 ];
 
 //tmx map 
-var s_smap 				= "client/res/map/map1.tmx";
+var s_smap01 				= "client/res/map/map1.tmx";
+var s_smap02 				= "client/res/map/map2.tmx";
 var s_smap03 				= "client/res/map/map3.tmx";
 var g_ressources = [
     //image
@@ -186,8 +187,8 @@ var g_ressources = [
 
     //fnt
     //tmx
-
-    {type:"tmx", src:s_smap},
+    {type:"tmx", src:s_smap01},
+    {type:"tmx", src:s_smap02},
     {type:"tmx", src:s_smap03},
     //bgm
 

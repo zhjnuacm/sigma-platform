@@ -30,6 +30,9 @@ function Hero() {
 	_isHeroWalking:null;//精灵是否在移动
 	_routeState:null;//精灵是否正在进行路线移动
 	_dir:null;//精灵正在移动的方向
+	_routeOrderTag:null;
+	_routeRunTag:null;
+	_nextPos:null;
 
 	//主体精灵
 	_sprite:null;//英雄类的主体精灵
@@ -74,6 +77,9 @@ function Hero() {
     	this._routeState=false;
 		this._isHeroWalking=false;
 		this._dir=-1;
+		this._routeOrderTag=0;
+		this._routeRunTag=0;
+		this._nextPos=position;
 		
 		//hero真正初始化
 		this._sprite = cc.Sprite.create();	
@@ -90,7 +96,17 @@ function Hero() {
 		return true;
 	},
 	
-
+	/*
+	 * 根据移动路线进行移动，可转向
+	 */
+	this.moveByRouteUpdately = function(route,routeSize){
+			this._route = route;
+			this._routeCnt = routeSize;
+			this._routeOrderTag++;
+			if(!this.checkIsWalking()){
+				this.moveByRoute(this._route,this._routeCnt);
+			}
+	}
 
 	/*
 	 * 单步移动
@@ -100,6 +116,7 @@ function Hero() {
 		this._isHeroWalking=true;
 		this._dir = dir;
 		var box = new Array(2,3,0,1);
+		this._nextPos = cc.pAdd(this._sprite.getPosition(),this._stepDelta[dir]);
 		var movementActions = cc.Sequence.create(
 			cc.Spawn.create(
 				cc.MoveBy.create(this._stepTime,this._stepDelta[dir]),
@@ -119,6 +136,11 @@ function Hero() {
 		this._isHeroWalking=false;
 		var box = new Array(7,4,6,5);
 		this._sprite.setTextureRect(cc.rect(0, 120*box[value], 120, 120),false);
+		this._nextPos=this._sprite.getPosition();
+		if(this._routeRunTag!=this._routeOrderTag){
+			this.moveByRoute(this._route,this._routeCnt);
+			return;
+		}
 		if(this._routeState==true ){
 			if(this._routeCnt>=0) this._routeCnt--;
 			if(this._routeCnt<0){
@@ -139,6 +161,7 @@ function Hero() {
 	this.moveByRoute = function(route,routeSize){
 			this._route = route;
 			this._routeCnt = routeSize;
+			this._routeRunTag = this._routeOrderTag;
 			this._routeState=true;
 			this._routeCnt--;
 			this.moveByStep(this._route[this._routeCnt]);
@@ -152,7 +175,9 @@ function Hero() {
 	 * 获得走完下一步后的世界坐标
 	 */
 	this.getNextWorldPosition=function(dir){
-		return cc.pAdd(this._sprite.getPosition(),this._stepDelta[dir]);
+		if(!this.checkIsWalking())
+			return this._sprite.getPosition();
+		return this._nextPos;
 	},
 	
 	/*

@@ -1,26 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="isometric" width="30" height="30" tilewidth="100" tileheight="50">
+<map version="1.0" orientation="isometric" width="20" height="20" tilewidth="100" tileheight="50">
  <tileset firstgid="1" name="smapRule" tilewidth="100" tileheight="50">
   <image source="smapRule.png" width="1000" height="1984"/>
  </tileset>
- <layer name="floor" width="30" height="30">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC4tjYGCIG8WjeBSP4lE8ikfxKB7FVMPRIwzHYsGE5GmF6WEv4yge1nikpWcAd3yWJRAOAAA=
+ <layer name="floor" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJyLY2BgiBvFo3iY4OgRhmOxYGLUkIIpMY9xFFOEB3v8AgAMY3St
   </data>
  </layer>
- <layer name="tree" width="30" height="30">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3SIQ4AIBADwfsemv//hWBrSMiBmjEralsFAAD3RvS0d3Wb0ZR7V3nPr/5YRwpOjxAOAAA=
-  </data>
- </layer>
- <layer name="块层 3" width="30" height="30">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3KsQqAMBAD0P7/D9SO6mgd1dH6Z1rIjVnsdSjkwRHIJQQRkXFMyPW75NyzbUQuyN2xZ1szIzPycuzZ1mzIE/k49mxrDmTp0LOtuTv2bFulnz8REZEWLxe7+eEQDgAA
-  </data>
- </layer>
- <layer name="块层 4" width="30" height="30">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+3DoQ0AAAgAIH8y+/9bVpvFmWAjAgAA7uT4rUZg1zbZAtcQDgAA
+ <layer name="tree" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzt0bEOQEAQhOF5PbWHQ4kSJUq8GRcjNtssSyE5X3L5k9nyACDHrt5egdPdPcjYiu2cu1SyLTs6d6lhB3Zx7lLPzg93aXppP+j/unr7fVOiat2tBqmqpu9WYxLbf6zE7ikv
   </data>
  </layer>
 </map>

@@ -69,7 +69,7 @@ var ChildScene = cc.Layer.extend({
 		this.addChild(this._map,this._zOrder["_map"]);
 		this._npcFactory = NpcFactory.create(this._map,'map1');
 		//hero
-		this._hero = Hero.create(this._map.tilePositionToWorldLocation(cc.p(6,1)));
+		this._hero = Hero.create(this._map.tilePositionToWorldLocation(cc.p(4,1)));
 		this.addChild(this._hero.getSprite(), this._zOrder["_hero"]);
 		
 		
@@ -102,10 +102,8 @@ var ChildScene = cc.Layer.extend({
 		this._keytodir[40]=1;
 		this._keytodir[37]=2;
 		this._keytodir[39]=3;
-		var winSize=cc.Director.getInstance().getWinSize();
-		var screenCenter = cc.p(winSize.width/2.0,winSize.height/2.0);
-		this.setPosition(cc.pSub(screenCenter,this._hero.getSprite().getPosition()));
 		
+		this.setSceneScrollPosition();
 		this.schedule(this.myUserMove, 10.0);//定时让其他用户移动
 		return true;
 	},
@@ -116,38 +114,9 @@ var ChildScene = cc.Layer.extend({
 	 * 镜头跟踪
 	 */
 	setSceneScrollPosition:function(){
-    	var winSize=cc.Director.getInstance().getWinSize();
-    	var screenCenter = cc.p(winSize.width/2.0,winSize.height/2.0);
-    	var nowWorldPos = this._hero.getSprite().getPosition();
-    	var nowTilePos = this._map.locationToTilePosition(nowWorldPos);
-  		var enterMargin = new Array(0,0,0,0,0);
-  		var isEnterMargin=false;
-		if(nowTilePos.y<5) {nowTilePos.y=5;enterMargin[0]=true;isEnterMargin=true;}
-		if(nowTilePos.y>25) {nowTilePos.y=25;enterMargin[1]=true;isEnterMargin=true;}
-		if(nowTilePos.x<5) {nowTilePos.x=5;enterMargin[2]=true;isEnterMargin=true;}
-		if(nowTilePos.x>25) {nowTilePos.x=25;enterMargin[3]=true;isEnterMargin=true;}
-		var newWorldPos = this._map.tilePositionToWorldLocation(nowTilePos);
-		/*if(enterMargin[0]) newWorldPos.y+=50;
-		if(enterMargin[1]) newWorldPos.y-=50;
-		if(enterMargin[2]) newWorldPos.x+=25;
-		if(enterMargin[3]) newWorldPos.x-=25;*/
-		var targetPos = isEnterMargin?newWorldPos:nowWorldPos;
-		this.setPosition(cc.pSub(screenCenter, nowWorldPos));
-		var smap = SMap.getInstance();
-		smap.mapMoveByHeroPosition(this.getHeroWorldPosition());
-			/*if(isEnterMargin){
-				if(this._hero.checkIsStepDone()){
-					this.setPosition(cc.pSub(screenCenter,newWorldPos));
-				}
-			//this.runAction(cc.MoveTo.create(1.0,newWorldPos));
-			}else{
-				this.setPosition(cc.pSub(screenCenter,nowWorldPos));
-			}
-	
-		*/
-		
-		//cc.log(newWorldPos);
-		//cc.log(nowWorldPos);
+		var winSize=cc.Director.getInstance().getWinSize();
+		var screenCenter = cc.p(winSize.width/2.0,winSize.height/2.0);
+		this.setPosition(cc.pSub(screenCenter,this._hero.getSprite().getPosition()));
     },
 
 	/*
@@ -156,8 +125,6 @@ var ChildScene = cc.Layer.extend({
 	loopTime:function(){
 		
 		var nowTilePos = this._map.locationToTilePosition(this._hero.getSprite().getPosition());
-		//镜头跟踪
-		//this.setSceneScrollPosition();
 		
 		//角色移动时判断是否踩到特殊格子
 		if(this._hero.checkIsWalking()){
@@ -165,8 +132,6 @@ var ChildScene = cc.Layer.extend({
 		}else{
 			
 			if(this._map.checkConvey(nowTilePos)){
-				//this._conveyBg.setVisible(true);
-			//	cc.log("good?");
 				var nowTilePos = this._map.locationToTilePosition(this._hero.getSprite().getPosition());
 			 	this._hero.getSprite().setPosition(this._map.tilePositionToWorldLocation(this._map.doConvey(nowTilePos)));
 				var winSize=cc.Director.getInstance().getWinSize();
@@ -216,16 +181,23 @@ var ChildScene = cc.Layer.extend({
 				)
 			);
 
-
-		    //角色移动到点击地点
-		    if (!this._hero.checkIsWalking()) {
-		        var start = this._map.locationToTilePosition(this._hero.getSprite().getPosition());
+		    //移动方式默认是第一种，要改就修改下面的bool值
+		    var moveUpdately = true;
+		    if(moveUpdately){//角色移动到点击地点，可转向
+		        var start = this._map.locationToTilePosition(this._hero.getNextWorldPosition());
 		        var terminal = toTilePosition;
 		        if (this._map.checkOrCalRoute(start, terminal)) {
-		            this._hero.moveByRoute(this._map.getRouteContent(), this._map.getRouteSize());
+		        	this._hero.moveByRouteUpdately(this._map.getRouteContent(), this._map.getRouteSize());
 		        }
+		    }else{//角色移动到点击地点，不可转向
+			    if (!this._hero.checkIsWalking()) {
+			        var start = this._map.locationToTilePosition(this._hero.getSprite().getPosition());
+			        var terminal = toTilePosition;
+			        if (this._map.checkOrCalRoute(start, terminal)) {
+			            this._hero.moveByRoute(this._map.getRouteContent(), this._map.getRouteSize());
+			        }
+			    }
 		    }
-
 		} else {
 		    this._hero.addMessage("不要一直点，我会走的。");
 		}

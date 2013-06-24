@@ -33,11 +33,39 @@ mapsConfig.push(
                         { 'buildingName': 'Canteen', 'objectName': 'Canteen' }
 		    ],
 		    'conveyGate': [
-                        {'startPos':cc.p(5,0), starEdge: 1,'targetMap':'map3','tagetPos':cc.p(5,28), tagetEdge: 3},
-        				{'startPos':cc.p(6,0), starEdge: 1,'targetMap':'map3','tagetPos':cc.p(6,28), tagetEdge: 3},
-        				{'startPos':cc.p(7,0), starEdge: 1,'targetMap':'map3','tagetPos':cc.p(7,28), tagetEdge: 3}
+                        {'startPos':cc.p(2,0), starEdge: 1,'targetMap':'map3','tagetPos':cc.p(5,18), tagetEdge: 3},
+        				{'startPos':cc.p(3,0), starEdge: 1,'targetMap':'map3','tagetPos':cc.p(6,18), tagetEdge: 3},
+        				{'startPos':cc.p(4,0), starEdge: 1,'targetMap':'map3','tagetPos':cc.p(7,18), tagetEdge: 3},
+        				{'startPos':cc.p(5,0), starEdge: 1,'targetMap':'map3','tagetPos':cc.p(8,18), tagetEdge: 3},
+        				
+        				{'startPos':cc.p(2,19), starEdge: 3,'targetMap':'map2','tagetPos':cc.p(2,1), tagetEdge: 1},
+        				{'startPos':cc.p(3,19), starEdge: 3,'targetMap':'map2','tagetPos':cc.p(3,1), tagetEdge: 1},
+        				{'startPos':cc.p(4,19), starEdge: 3,'targetMap':'map2','tagetPos':cc.p(4,1), tagetEdge: 1},
+        				{'startPos':cc.p(5,19), starEdge: 3,'targetMap':'map2','tagetPos':cc.p(5,1), tagetEdge: 1},
+        				
+        				{'startPos':cc.p(11,19), starEdge: 3,'targetMap':'map2','tagetPos':cc.p(11,1), tagetEdge: 1},
+        				{'startPos':cc.p(12,19), starEdge: 3,'targetMap':'map2','tagetPos':cc.p(12,1), tagetEdge: 1},
+        				{'startPos':cc.p(13,19), starEdge: 3,'targetMap':'map2','tagetPos':cc.p(13,1), tagetEdge: 1},
+        				{'startPos':cc.p(14,19), starEdge: 3,'targetMap':'map2','tagetPos':cc.p(14,1), tagetEdge: 1}
 
 		    ]
+		},
+		{
+			'name':'map2',
+			'ground':'floor',
+			'buildings':[
+						],
+			'conveyGate':[
+						{'startPos':cc.p(2,0),starEdge: 1, 'targetMap':'map1','tagetPos':cc.p(2,18), tagetEdge: 3},
+						{'startPos':cc.p(3,0),starEdge: 1, 'targetMap':'map1','tagetPos':cc.p(3,18), tagetEdge: 3},
+						{'startPos':cc.p(4,0),starEdge: 1, 'targetMap':'map1','tagetPos':cc.p(4,18), tagetEdge: 3},
+						{'startPos':cc.p(5,0),starEdge: 1, 'targetMap':'map1','tagetPos':cc.p(5,18), tagetEdge: 3},
+						
+						{'startPos':cc.p(11,0),starEdge: 1, 'targetMap':'map1','tagetPos':cc.p(11,18), tagetEdge: 3},
+						{'startPos':cc.p(12,0),starEdge: 1, 'targetMap':'map1','tagetPos':cc.p(12,18), tagetEdge: 3},
+						{'startPos':cc.p(13,0),starEdge: 1, 'targetMap':'map1','tagetPos':cc.p(13,18), tagetEdge: 3},
+						{'startPos':cc.p(14,0),starEdge: 1, 'targetMap':'map1','tagetPos':cc.p(14,18), tagetEdge: 3},
+						]
 		},
 		{
 			'name':'map3',
@@ -45,9 +73,11 @@ mapsConfig.push(
 			'buildings':[
 						],
 			'conveyGate':[
-						{'startPos':cc.p(5,29),starEdge: 3, 'targetMap':'map1','tagetPos':cc.p(5,1), tagetEdge: 1},
-						{'startPos':cc.p(6,29),starEdge: 3, 'targetMap':'map1','tagetPos':cc.p(6,1), tagetEdge: 1},
-						{'startPos':cc.p(7,29),starEdge: 3, 'targetMap':'map1','tagetPos':cc.p(7,1), tagetEdge: 1}
+						{'startPos':cc.p(5,19),starEdge: 3, 'targetMap':'map1','tagetPos':cc.p(2,1), tagetEdge: 1},
+						{'startPos':cc.p(6,19),starEdge: 3, 'targetMap':'map1','tagetPos':cc.p(3,1), tagetEdge: 1},
+						{'startPos':cc.p(7,19),starEdge: 3, 'targetMap':'map1','tagetPos':cc.p(4,1), tagetEdge: 1},
+						{'startPos':cc.p(8,19),starEdge: 3, 'targetMap':'map1','tagetPos':cc.p(5,1), tagetEdge: 1},
 						]
 		}
+		
 );
