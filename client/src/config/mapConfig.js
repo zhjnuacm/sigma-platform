@@ -2,10 +2,10 @@
 //====================
 Jopix 小地图，大地图相关参数
 */
-var mapWidthH = 1500;//地图尺寸的一半宽
-var mapHeightH = 750;//地图尺寸的一半高
-var sMapratio = 0.15;//小地图相对于大地图尺寸15%
-var bMapratio = 0.4;//大地图相当于小地图40%
+var mapWidthH = 1000;//地图尺寸的一半宽
+var mapHeightH = 500;//地图尺寸的一半高
+var sMapratio = 0.125;//小地图相对于大地图尺寸15%
+var bMapratio = 0.6;//大地图相当于小地图40%
 //=====================================
 
 var mapsConfig = [];

@@ -113,6 +113,7 @@ var DialogView = cc.Layer.extend({
 
         this.removeFromParent(true);
     },
+    
     boundaryDetect: function() {
     	var size = cc.Director.getInstance().getWinSize();
     	var starx = this._oPoint.x + this.getPositionX() - 22, stary = this._oPoint.y + this.getPositionY() - 32;
