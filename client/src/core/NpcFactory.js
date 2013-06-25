@@ -15,7 +15,8 @@ function NpcFactory() {
 		// cc.log(genNpcsConfigUrl(mapName));
 		$.ajax({
 			type : "GET",
-			url : genNpcsConfigUrl(mapName),
+			url: genNpcsConfigUrl(mapName),
+			async: false,
 			success : function(data) {
 				// cc.log(data);
 				var npcs = data.split("@");

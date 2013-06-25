@@ -14,12 +14,20 @@ var Npc = cc.Sprite
 			},
 
 			init : function(position, id, name) {
-				this._super();
-				this.initWithFile(s_npc_1);
+			    this._super();
+			    var x = Math.floor(id % 9);
+			    var y = Math.floor(id / 9);
+				this.initWithFile(s_npc, cc.rect(x*50, y* 80, 50, 80));
 				this.setAnchorPoint(cc.p(0.5, 0.5));
 				this.setPosition(position);
 				this._id = id;
 				this._title = name;
+
+				var tn = cc.LabelTTF.create( name, 'Microsoft YaHei', 14, cc.size(100, 16), cc.TEXT_ALIGNMENT_CENTER);
+				tn.setPosition(cc.p(25, -12));
+				tn.setColor(cc.c3(22, 50, 31));
+				this.addChild(tn);
+
 				return true;
 			},
 

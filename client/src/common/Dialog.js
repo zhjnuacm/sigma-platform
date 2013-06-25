@@ -122,7 +122,7 @@ var DialogView = cc.Layer.extend({
     },
     addClose: function () {
 
-        this.closeItem = cc.MenuItemImage.create(s_dlg[0]["res"], s_dlg[1]["res"], this.onCloseMyself, this);
+        this.closeItem = cc.MenuItemImage.create(s_dlg_close_normal, s_dlg_close_select, this.onCloseMyself, this);
     	this.closeButton = cc.Menu.create(this.closeItem);
         //var rect = this.closeItem.getBoundingBoxToWorld();
         //cc.log(rect.size.width + ' ' + rect.size.height + ' ' + rect.origin.x + ' '+rect.origin.y );
@@ -133,17 +133,17 @@ var DialogView = cc.Layer.extend({
     
     addButtons : function (title,select_callback,target)
     {
-    	var t1 = cc.LabelTTF.create(title,s_yahei, 18);
-    	t1.setColor(cc.c3b(0,255,0));
+    	var t1 = cc.LabelTTF.create(title,s_yahei, 12);
+    	t1.setColor(cc.c3b(80,80,80));
     	var p1 = cc.MenuItemLabel.create(t1,select_callback,target);
     	
-    	var t2 = cc.LabelTTF.create("取消",s_yahei, 18);
-    	t2.setColor(cc.c3b(255,0,0));
+    	var t2 = cc.LabelTTF.create("取消",s_yahei, 12);
+    	t2.setColor(cc.c3b(80,80,80));
     	var p2 = cc.MenuItemLabel.create(t2,this.onCloseMyself,this);
     	
     	var menu = cc.Menu.create(p1,p2);
     	menu.alignItemsHorizontallyWithPadding(this.layer._width*0.2);
-    	menu.setPosition(cc.p(this.layer._width*0.5,30));
+    	menu.setPosition(cc.p(this.layer._width*0.7,26));
     	this.addChild(menu, 2, this._menuTag);
     	this.addMenu();
     },

@@ -28,7 +28,7 @@ var s_Friend_r          = "client/res/friend_right.png";
 var s_FriendList_t      = "client/res/friend_list_top.png";
 var s_yahei             = "Microsoft YaHei";
 var s_Friendseach       = "client/res/friend_seach.png";
-var s_npc_1             = "client/res/npc_1.png";
+var s_npc             = "client/res/npc/npc.png";
 var s_map_res           = "client/res/map/smapRule.png";
 var s_extensions_buttonBackground = "client/res/buttonBackground.png";
 var s_extensions_button = "client/res/button.png";
@@ -67,6 +67,7 @@ var s_char_rect = "client/res/Char_Rect.png";
 var s_user_block = "client/res/user/userblock.png";
 var s_user_boy_mark = "client/res/user/boy_mark.png";
 var s_user_girl_mark = "client/res/user/girl_mark.png";
+
 var s_dlg = [
     {
         type: "close_normal",
@@ -155,7 +156,7 @@ var g_ressources = [
     { type: "image", src: s_Friend_l },
     { type: "image", src: s_FriendList_t },
     { type: "image", src: s_Friendseach },
-    { type: "image", src: s_npc_1 },
+    { type: "image", src: s_npc},
     { type: "image", src: s_shero },
     { type: "image", src: s_mapPath },
     { type: "image", src: s_map_res},

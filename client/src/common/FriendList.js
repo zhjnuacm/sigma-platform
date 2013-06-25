@@ -26,7 +26,7 @@ var SeachFriendCell = cc.TableViewCell.extend({
        
         this._fData = idata;
         this._photo = cc.Sprite.create(this._fData.photo);
-        this._photo.setScale(0.69 , 0.69);
+        this._photo.setScale(0.5 , 0.5);
         this._photo.setPosition(cc.p(25, 25));
         this.addChild(this._photo);
         
@@ -212,7 +212,7 @@ var FriendMenu = cc.LayerColor.extend({
 
         var photo = cc.Sprite.create(this._fData.photo);
         photo.setPosition(cc.p(37, 95));
-
+        photo.setScale(0.7, 0.7);
         this.addChild(photo);
 
         var n = cc.LabelTTF.create(this._fData.name, s_yahei, 12);
@@ -344,7 +344,7 @@ var FriendViewCell = cc.TableViewCell.extend({
         this.setIdx(idx);
 
         this._photo = cc.Sprite.create(this._fData.photo);
-        this._photo.setScale(0.69, 0.69);
+        this._photo.setScale(0.5, 0.5);
         this._photo.setPosition(cc.p(25, 25));
         this.addChild(this._photo);
 
