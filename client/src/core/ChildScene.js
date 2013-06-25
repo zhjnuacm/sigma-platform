@@ -109,14 +109,15 @@ var ChildScene = cc.Layer.extend({
 	},
 
 
-	
 	/*
 	 * 镜头跟踪
 	 */
 	setSceneScrollPosition:function(){
 		var winSize=cc.Director.getInstance().getWinSize();
 		var screenCenter = cc.p(winSize.width/2.0,winSize.height/2.0);
-		this.setPosition(cc.pSub(screenCenter,this._hero.getSprite().getPosition()));
+		this.setPosition(cc.pSub(screenCenter, this._hero.getSprite().getPosition()));
+		var sMap = SMap.getInstance();
+		sMap.mapMoveByHeroPosition(this._hero.getSprite().getPosition());
     },
 
 	/*

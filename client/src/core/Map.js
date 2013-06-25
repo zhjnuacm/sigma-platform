@@ -407,6 +407,12 @@ var Map = cc.Layer.extend({
             this.initMapInfo(targetMap);
             this._tileSize = this._tmxMap.getTileSize();
             this._mapSize = this._tmxMap.getContentSize();
+
+            //切小地图
+            var smapPath = 'client/res/map/' + targetMap + '.png';
+            var sMap = SMap.getInstance();
+            sMap.changeMap(smapPath);
+            smap.mapMoveByHeroPosition(GLOBAL.mediator._hero.getSprite().getPosition());
             return true;
         }
     },
@@ -505,7 +511,7 @@ function SMap() {
         var colorLayer = cc.LayerColor.create(cc.c4(30, 30, 30, 100), this._width, this._height);
         this._content.addChild(colorLayer);
 	        //放置hero
-	        this._midPoint = cc.p(this._width * 0.5, this._height * 0.5);
+        this._midPoint = cc.p(this._width * 0.5, this._height * 0.5);
         this._hero = cc.Sprite.create(s_shero);
         //this._hero.setPosition(cc.p(this._winSize.width * sMapratio * 0.5, this._winSize.height * sMapratio * 0.5));
         this._hero.setPosition(this._midPoint);
@@ -526,7 +532,7 @@ function SMap() {
         this._map.setPosition(sdiff);
 
     };
-	    this.heroMoveByHeroPosition = function (diff) {
+    this.heroMoveByHeroPosition = function (diff) {
         var sdiff = cc.p(0, 0);
         sdiff.x = diff.x * sMapratio;
         sdiff.y = diff.y * sMapratio;
@@ -534,7 +540,15 @@ function SMap() {
         //this._hero.runAction(cc.MoveTo.create(1.0, sdiff));
         this._hero.setPosition(sdiff);
     };
-	};
+
+    this.changeMap = function (mapPath) {
+        this._map.removeFromParent(true);
+        this._map = null;
+        this._map.cc.Sprite.create(mapPath);
+        this._content.addChild(this._map);
+
+    };
+};
 
 //小地图的单例
 
@@ -546,9 +560,9 @@ SMap.getInstance = function () {
         return SMap.instance;
 };
 
-SMap.create = function (HeroPosition, HeroMap) {
+SMap.create = function (mapPath) {
     var ret = SMap.getInstance();
-    if (ret && ret.init(HeroPosition, HeroMap)) {
+    if (ret && ret.init(mapPath)) {
         return ret;
     }
     return null;
@@ -589,6 +603,7 @@ function BMap() {
         //this._dig.addChild(this._content);
         return true;
     };
+
     //初始化各场景地图的相对坐标 保存在 _mapPointList里面。第一张地图默认（0，0）;
     this.dfs = function (x) {
         var p = this._mapPointList[x];
@@ -676,6 +691,8 @@ function BMap() {
         this._dig.onCloseMyself();
         this._map.removeChildByTag(41, true);
     };
+
+
 };
 
 

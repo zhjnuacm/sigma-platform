@@ -18,7 +18,7 @@ function Mediator() {
 		/*this.map.tranMaptoblackground();*/
 		//传送地图配置信息你 
 	    /*this._map.transformMapConfToNpcController();*/
-
+        
 	    GLOBAL.mainLayer = mainLayer;
 		GLOBAL.mediator = this;
 	    
@@ -30,28 +30,25 @@ function Mediator() {
 		this._tipsManage = TipsManage.create();
 		this._mainLayer.addChild(this._tipsManage, TIPS_MANAGE_TAG);
 
+	    //小地图
+		var smap = SMap.create(s_mapPath);
+		this._mainLayer.addChild(smap._content, 5);
 
 
 		//游戏主场景
 		this._childScene = ChildScene.create();
 		this._mainLayer.addChild(this._childScene);
-		
-		
 
-
-	    //小地图
-		var smap = SMap.create(s_mapPath);
-		this._mainLayer.addChild(smap._content, 5);
 		smap.mapMoveByHeroPosition(this._childScene.getHeroWorldPosition());
+
+
+
 		
 		// hero panel
 		this._heroPanel = HeroPanel.create();
 		this._mainLayer.addChild(this._heroPanel);
 		
-		
-		
-		
-
+	
 		GLOBAL.inputD = InputPanel.create();
 		this._mainLayer.addChild(GLOBAL.inputD, 2);
 

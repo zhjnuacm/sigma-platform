@@ -67,11 +67,8 @@ var s_char_rect = "client/res/Char_Rect.png";
 var s_user_block = "client/res/user/userblock.png";
 var s_user_boy_mark = "client/res/user/boy_mark.png";
 var s_user_girl_mark = "client/res/user/girl_mark.png";
-<<<<<<< HEAD
-
-=======
 var s_process_bg = "client/res/process_bg.png";
->>>>>>> 28b1d090ad91921f7e6e97f3fcd35345c3121973
+
 var s_dlg = [
     {
         type: "close_normal",

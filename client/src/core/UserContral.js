@@ -302,9 +302,6 @@ var UserMenu = function(){
     this.getMenu = function () {
         return this._menu;
     };
-
-
-
 }
 
 UserMenu.create = function (uData) {

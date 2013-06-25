@@ -185,7 +185,7 @@ function Hero() {
 				return;
 			}
 			GLOBAL.mediator._heroPanel.updateHeroPosition(
-					GLOBAL.mapName,GLOBAL.mediator._childScene.getHeroTilePosition()
+			GLOBAL.mapName,GLOBAL.mediator._childScene.getHeroTilePosition()
 			);
 			this.moveByStep(this._route[this._routeCnt]);
 		}
