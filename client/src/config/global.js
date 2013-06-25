@@ -7,6 +7,7 @@
     'inputD': null,
     'chatD': null,
     'mailLayer':null,
-
+    'mediator':null,
+    'mapName':null,
 };
 

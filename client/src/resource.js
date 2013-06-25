@@ -6,7 +6,7 @@ var s_user_menu_show    = "client/res/User_Menu_Show.png";
 var s_user_menu_pk      = "client/res/User_Menu_PK.png";
 var s_user_menu_chat    = "client/res/User_Menu_Chat.png";
 var s_user_menu_fav     = "client/res/User_Menu_Fav.png";
-var s_hero              = "client/res/huan.png";
+var s_hero              = "client/res/heroFrames.png";
 var s_face              = "client/res/face_normal.png";
 var s_face2             = "client/res/face_down.png";
 var s_inputR            = "client/res/InputPanel_Rect.png";
@@ -67,7 +67,11 @@ var s_char_rect = "client/res/Char_Rect.png";
 var s_user_block = "client/res/user/userblock.png";
 var s_user_boy_mark = "client/res/user/boy_mark.png";
 var s_user_girl_mark = "client/res/user/girl_mark.png";
+<<<<<<< HEAD
 
+=======
+var s_process_bg = "client/res/process_bg.png";
+>>>>>>> 28b1d090ad91921f7e6e97f3fcd35345c3121973
 var s_dlg = [
     {
         type: "close_normal",
@@ -112,7 +116,8 @@ var s_dlg = [
 ];
 
 //tmx map 
-var s_smap 				= "client/res/map/map1.tmx";
+var s_smap01 				= "client/res/map/map1.tmx";
+var s_smap02 				= "client/res/map/map2.tmx";
 var s_smap03 				= "client/res/map/map3.tmx";
 var g_ressources = [
     //image
@@ -120,6 +125,8 @@ var g_ressources = [
     {type:"image", src:s_CloseNormal},
     {type:"image", src:s_CloseSelected},
     {type:"image", src:s_HeroPanel},
+    
+    {type:"image", src:s_process_bg},
     
     { type: "image", src: s_dlg_close_normal },
     { type: "image", src: s_dlg_close_select },
@@ -184,8 +191,8 @@ var g_ressources = [
 
     //fnt
     //tmx
-
-    {type:"tmx", src:s_smap},
+    {type:"tmx", src:s_smap01},
+    {type:"tmx", src:s_smap02},
     {type:"tmx", src:s_smap03},
     //bgm
 

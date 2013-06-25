@@ -74,7 +74,7 @@ var Map = cc.Layer.extend({
     //地图信息
     _mapName:null,
     _walkMargin:7,//地图边缘
-    _squareSize:30,//TMX地图大小为 30*30=900个TILE
+    _squareSize:20,//TMX地图大小为 30*30=900个TILE
 	
 
     /**
@@ -94,7 +94,7 @@ var Map = cc.Layer.extend({
         this._mapSize = this._tmxMap.getContentSize();
 
         this.initMapInfo(HeroMap);
-
+        GLOBAL.mapName = HeroMap;
         return true;
     },
 
@@ -102,7 +102,8 @@ var Map = cc.Layer.extend({
 		
         ///////////////////解决地图边缘问题
         this._edgeBg = cc.Sprite.create(s_edgeBg);
-        this._edgeBg.setPosition(cc.p(1500,750));
+        this._edgeBg.setPosition(cc.p(1000,500));
+        //this._edgeBg.setPosition(cc.p(0,0));
         this._edgeBg.setScale(1.0);
         this.addChild(this._edgeBg,-5);
         this._mapName = HeroMap;
@@ -197,7 +198,7 @@ var Map = cc.Layer.extend({
             for(var j=0;j<this._matrixHeight;j++){
                 if(typeof(this._tileSets[i+j]) == "undefined") continue;
                 if(this._tileSets[c]>0) this._matrix[i][j] = this._tileSets[c++];
-                if(this._matrix[i][j]==91)this._matrix[i][j]=0;
+                if(this._matrix[i][j]==91 || this._matrix[i][j]==92)this._matrix[i][j]=0;
             }
         }
     },
@@ -418,6 +419,7 @@ var Map = cc.Layer.extend({
         if(this._matrix[start.y][start.x]==0 
 		&& this._matrix[terminal.y][terminal.x]==0
 		&& (start.x!=terminal.x || start.y!=terminal.y) ){
+        	cc.log("yes");
             if(this.calMoveRoute(start,terminal))return true;
         }
         return false;
@@ -438,6 +440,10 @@ var Map = cc.Layer.extend({
 	 */
     getMapConfig:function(){
         return this.getSingleMapConfigByName(this._mapName);
+    },
+    
+    getMapName : function (){
+    	return this._mapName;
     }
 });
 /**
