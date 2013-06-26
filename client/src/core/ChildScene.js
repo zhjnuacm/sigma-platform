@@ -74,7 +74,7 @@ var ChildScene = cc.Layer.extend({
 		
 		
 		
-		//添加其他用户
+//		//添加其他用户
 		this._users = new Array();
 		
 		for(var i = 0; i < userData.length; ++i)

@@ -177,7 +177,7 @@ function NpcTaskListDialog() {
 	this._height;
 	this._priority;
 	
-	this.init = function(position, priority, npcId, taskList, title) {
+	this.init = function(position, priority, npcId, title) {
 		var self = this;
 		self._width = 400;
 		self._height = 200;
@@ -193,6 +193,16 @@ function NpcTaskListDialog() {
 		titleLabel.setColor(cc.c3(80, 80, 80));
 		self._dialogView.addChild(titleLabel);
 
+
+		return true;
+	};
+	
+	this.setDialogMenuPriority = function(){
+		this._dialogView.getChildByTag(1).setHandlerPriority(this._priority - 1);
+	};
+	
+	this.initTaskList = function(taskList) {
+		var self = this;
 		var p = new Array();
 		for ( var i = 1; i < taskList.length; i++) {
 			var taskConfig = taskList[i].split("|");
@@ -206,7 +216,7 @@ function NpcTaskListDialog() {
 			t.setPositionX(0);
 
 			// cc.log(taskConfig);
-			p[i - 1] = cc.MenuItemLabel.create(t, self.createTaskDialog, self);
+			p[i - 1] = cc.MenuItemLabel.create(t, this.createTaskDialog, this);
 			p[i - 1].setAnchorPoint(cc.p(0, 0));
 			p[i - 1].taskId = parseInt(taskConfig[0]);
 			p[i - 1].title = taskConfig[1];
@@ -219,11 +229,6 @@ function NpcTaskListDialog() {
 		menu.setPosition(cc.p(100, 100));
 		self._dialogView.addChild(menu, 0, self._dialogView._menuTag);
 		self._dialogView.addMenu();
-		return true;
-	};
-	
-	this.setDialogMenuPriority = function(){
-		this._dialogView.getChildByTag(1).setHandlerPriority(this._priority - 1);
 	};
 	
 	this.createTaskDialog = function (sender) {
@@ -237,9 +242,10 @@ function NpcTaskListDialog() {
 	};
 }
 
-NpcTaskListDialog.create = function(position, priority, npcId, taskList, title) {
+NpcTaskListDialog.create = function(position, priority, npcId, title) {
+	cc.log("cale");
 	var ret = new NpcTaskListDialog();
-	if (ret && ret.init(position, priority, npcId, taskList, title))
+	if (ret && ret.init(position, priority, npcId, title))
 		return ret;
 	return null;
 }

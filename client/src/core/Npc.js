@@ -71,16 +71,24 @@ var Npc = cc.Sprite
 				if (cc.Rect.CCRectContainsPoint(this.touchRect(), touch.getLocation())) 
 				{
 					var self = this;
+					var dialog = NpcTaskListDialog.create(cc.p(0,0), self._priority, 0, self._title);
+					this.addChild(dialog._dialogView);
+					var t = cc.LabelTTF.create("正在获取数据...", s_yahei, 14);
+					t.setPosition(cc.p(dialog._dialogView._width / 2, dialog._dialogView._height / 2));
+					t.setColor(cc.c3(80, 80, 80));
+					dialog._dialogView.addChild(t, 2, 101);
+					
+					cc.log("dialog show");
 					$.ajax({
 						type : "GET",
 						url: getTasksFromNpcUrl(self._id),
-						async: false,
 						success : function(data) {
 							var tasks = data.split("@");
 							self._touchBegan = true;
 							//self._title为npc名字
-							var dialog = NpcTaskListDialog.create(cc.p(0,0), self._priority, 0, tasks, self._title);
-							self.addChild(dialog._dialogView);
+							dialog._dialogView.removeChildByTag(101, true);
+							dialog.initTaskList(tasks);
+							cc.log("initTaskList");
 						}
 					});
 					return true;
