@@ -132,7 +132,7 @@ function TaskDialog() {
 	    var self = this;
 	    $.ajax({
 	        type: "GET",
-	        async: false,
+	        //async: false,
 	        url: genGetTaskUrl(self._taskId),
 	        success: function (data) {
 	            cc.log(data);

@@ -83,7 +83,7 @@ var DialogView = cc.Layer.extend({
                 cc.MoveBy.create(0.1, cc.p(-1, 0)),
                 cc.MoveBy.create(0.1, cc.p(0, -1))),
                 2),
-                2
+                1
                 ),
     closeButton: null,
     closeItem: null,
@@ -116,10 +116,23 @@ var DialogView = cc.Layer.extend({
     
     boundaryDetect: function() {
     	var size = cc.Director.getInstance().getWinSize();
-    	var starx = this._oPoint.x + this.getPositionX() - 22, stary = this._oPoint.y + this.getPositionY() - 32;
-        var endx = this._oPoint.x + this.getPositionX() + this._width - 22, endy = this._oPoint.y + this.getPositionY() + this._height - 32;
-        
-        
+    	var point = this.getParent().convertToWorldSpace(this.getPosition());
+    	
+    	var screenRect = cc.RectMake(0, 0, size.width, size.height);
+    	var dialogRect = cc.RectMake(point.x, point.y, this._width, this._height);
+    	
+    	//cc.log(screenRect);
+    	//cc.log(dialogRect);
+    	if(cc.rectContainsRect(screenRect, dialogRect)){
+    		cc.log("contain");
+    	}
+    	else {
+    		var midPoint = cc.p(size.width / 2 - this._width / 2, size.height / 2 - this._height / 2);
+    		//cc.log(midPoint);
+    		var arPoint = this._parent.convertToNodeSpace(midPoint);
+    		//cc.log(arPoint);
+    		this.setPosition(arPoint);
+    	}
     },
     addClose: function () {
 
@@ -150,6 +163,13 @@ var DialogView = cc.Layer.extend({
     },
     
     setPosition: function (point) {
+//    	var size = cc.Director.getInstance().getWinSize();
+//		var midPoint = cc.p(size.width / 2 - this._width / 2 + point.x, size.height / 2 - this._height / 2 + point.y);
+//		//cc.log(midPoint);
+//		var arPoint = this._parent.convertToNodeSpace(midPoint);
+		//cc.log(arPoint);
+		//this.setPosition(arPoint);
+		
         this._super(point);
     },
     
@@ -184,7 +204,7 @@ var DialogView = cc.Layer.extend({
         this._super();
         cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, this.getTouchPriority(), true);
         this.scheduleOnce(this.setDialogMenuPriority, 1)
-
+        this.scheduleOnce(this.boundaryDetect);
         //cc.KeyboardDispatcher.getInstance().addDelegate(this);
         //alert(this.getTouchPriority());
     },
@@ -231,6 +251,7 @@ var DialogView = cc.Layer.extend({
  * @param  {[type]} pw 对话框的宽
  * @param  {[type]} ph 对话框的高
  * @param  {[type]} po 相对于父节点的位置
+ * @param  {[type]} parent 父节点
  * @return {[type]}
  */
 DialogView.create = function (pw, ph, po) {
