@@ -85,13 +85,13 @@ function Hero() {
 		this._frameDown = 1;
 		this._frameLeft = 3;
 		this._frameRight = 0;
-		this._frameWidth = 52;
-		this._frameHeight = 84;
+		this._frameWidth = 80;
+		this._frameHeight = 80;
 	
 
 		
 		//动画模块相关变量
-		this._heroTexture = cc.TextureCache.getInstance().addImage(s_hero);
+		this._heroTexture = cc.TextureCache.getInstance().addImage(s_photo);
 		this._delayTime=0.2;
 		this._loopCnt=1;
 		this._spriteActions = new Array();
@@ -100,7 +100,7 @@ function Hero() {
 		for(var k=0;k<4;k++){
 			var animation = new cc.Animation();
 	    	for(var i=0;i<4;i++){
-				frames[i] = cc.SpriteFrame.createWithTexture(this._heroTexture,cc.rect(this._frameWidth*i,this._frameHeight*box[k],this._frameWidth,this._frameHeight));
+				frames[i] = cc.SpriteFrame.createWithTexture(this._heroTexture,cc.rect(0,0,this._frameWidth,this._frameHeight));
 				animation.addSpriteFrame(frames[i]);
 			}
 			animation.setLoops(this._loopCnt);//设置循环次数
@@ -126,7 +126,26 @@ function Hero() {
 		this._sprite.initWithTexture(this._heroTexture, cc.rect(0, 0, this._frameWidth, this._frameHeight));	
     	this._sprite.setAnchorPoint(cc.p(0.5,0.1));
     	
+    	this._sprite.setScale(0.6,0.6);
 
+    	var br = cc.Sprite.create(s_user_block);
+        br.setPosition(cc.p(41, 39));
+        br.setScale(5 / 3, 5 / 3);
+        this._sprite.addChild(br);
+        
+        var mark;
+        
+            mark = cc.Sprite.create(s_user_boy_mark);
+            mark.setPosition(cc.p(8, 70));
+         
+        mark.setScale(5 / 3, 5 / 3);
+        this._sprite.addChild(mark);
+
+        var name = cc.LabelTTF.create('['+ 'admin' + ']', 'Microsoft YaHei', 14, cc.size(100, 16), cc.TEXT_ALIGNMENT_CENTER);
+        name.setPosition(cc.p(40, -16));
+        name.setColor(cc.c3(30, 30, 30));
+        name.setScale(5 / 3, 5 / 3);
+        this._sprite.addChild(name);
 	    //初始化消息
     	this._mesLayer = MessageList.create(cc.p(-20, 130));
     	this._sprite.addChild(this._mesLayer);
@@ -172,7 +191,7 @@ function Hero() {
 	this.setFaceDirection=function(nodeExecutingAction, value){
 		this._isHeroWalking=false;
 		var box = new Array(this._frameUp,this._frameDown,this._frameLeft,this._frameRight);
-		this._sprite.setTextureRect(cc.rect(0, this._frameHeight*box[value], this._frameWidth,this._frameHeight),false);
+		this._sprite.setTextureRect(cc.rect(0,0, this._frameWidth,this._frameHeight),false);
 		this._nextPos=this._sprite.getPosition();
 		if(this._routeRunTag!=this._routeOrderTag){
 			this.moveByRoute(this._route,this._routeCnt);
@@ -251,10 +270,3 @@ Hero.create = function(position) {
 	}
 	return ret;
 }
-
-
-
-
-
-
-

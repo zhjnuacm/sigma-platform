@@ -8,7 +8,7 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'sigma-platform',
-	'runtimePath'=>'C:\\runtime',
+	'runtimePath'=>'/home/conlan/runtime',
 	// preloading 'log' component
 	'preload'=>array('log'),
 
@@ -64,7 +64,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=sigma_local',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '',
+			'password' => '123456',
 			'charset' => 'utf8',
 			'enableProfiling' => true,
 			'enableParamLogging' => true

@@ -165,7 +165,7 @@ var InputPanel = cc.Layer
 		            });
 		            str = '[' + '我' + ']:' + str;
                     //这里整个字符串不需要加回车
-		            this.view.addWord(str);
+		            //this.view.addWord(str);
 		        }
 		        else {
 		            var str = "[系统]：草，别按那么快，老子不用休息啊";
@@ -193,7 +193,7 @@ var InputPanel = cc.Layer
 		        var i = 0, j;
 		        while (i < mes.length) {
 		            j = mes.indexOf("\n", i);
-		            var tmsa = mes.substring(i, j - 1);
+		            var tmsa = mes.substring(i, j);
 		            //alert(mes);
 		            //alert(i + ' ' + j + ' ' + tmsa + ' ' + mes.length);
 		            this.view.addWord(tmsa);

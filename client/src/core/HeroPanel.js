@@ -51,7 +51,7 @@ var HeroPanel = cc.Layer.extend({
 
 		// 显示姓名
 		this._nameLabel = cc.LabelTTF.create(this._name, s_yahei,
-				this._textSize, cc.size(60, this._textSize),
+				this._textSize, cc.size(20, this._textSize),
 				cc.TEXT_ALIGNMENT_LEFT);
 
 		this._nameLabel.setPosition(cc.p(120, 90));
@@ -121,7 +121,8 @@ var HeroPanel = cc.Layer.extend({
 	getHeroInformationFromServer : function() {
 		// ajax
 		var self = this;
-		self._name = "Compatibility";
+		//self._name = "Compatibility";
+		self._name = "admin"
 		self._score = 20;
 		self._level = 0;
 		self._other = 150;
