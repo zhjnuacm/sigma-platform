@@ -182,8 +182,8 @@ function NpcTaskListDialog() {
 		self._width = 400;
 		self._height = 200;
 		var title = title;
-		self._dialogView = DialogView.create(self._width, self._height, cc.p(0,
-				0));
+		self._dialogView = DialogView.create(self._width, self._height, cc.p(-self._width/2,
+				 -self._height/2));
 		self._dialogView.setTouchPriority(priority - 1);
 		var titleLabel = cc.LabelTTF.create("", s_yahei, 16);
 		titleLabel.setHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);

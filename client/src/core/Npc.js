@@ -24,7 +24,7 @@ var Npc = cc.Sprite
 				
 				this._sprite=cc.Sprite.create();
 				this._sprite.initWithFile(s_npc, cc.rect(x*50, y* 80, 50, 80));	
-				this.addChild(this._sprite);
+				this.addChild(this._sprite,-1);
 				this._sprite.setPosition(cc.p(0,40));
 				
 				
@@ -36,13 +36,13 @@ var Npc = cc.Sprite
 				this._title = name;
 
 				var tn = cc.LabelTTF.create( name, 'Microsoft YaHei', 14, cc.size(100, 16), cc.TEXT_ALIGNMENT_CENTER);
-				tn.setPosition(cc.p(25, -12));
-				tn.setColor(cc.c3(22, 50, 31));
+				tn.setPosition(cc.p(0, 0));
+				tn.setColor(cc.c3(0, 0, 10));
 				this.addChild(tn);
 				
 				var npcTile = cc.Sprite.create(s_npcTile);
 				npcTile.setPosition(cc.p(0,10));
-				this.addChild(npcTile,-1);
+				this.addChild(npcTile,-10);
 				
 		
 				return true;
@@ -88,7 +88,7 @@ var Npc = cc.Sprite
 				// 如果点击在npc上，则弹出对话框，并返回true，截断touch， 否则，返回false，响应下层touch
 				if (cc.Rect.CCRectContainsPoint(this.touchRect(), touch.getLocation())) 
 				{
-				/*
+				
 					var self = this;
 					var dialog = NpcTaskListDialog.create(cc.p(0,0), self._priority, 0, self._title);
 					this.addChild(dialog._dialogView);
@@ -110,7 +110,7 @@ var Npc = cc.Sprite
 							cc.log("initTaskList");
 						}
 					});
-					*/
+					
 					return true;
 				}
 				return false;

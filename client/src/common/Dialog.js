@@ -93,7 +93,7 @@ var DialogView = cc.Layer.extend({
         this._super();
         this._width = pw;
         this._height = ph;
-        this.setAnchorPoint(cc.p(0, 0));
+        this.setAnchorPoint(cc.p(0.5, 0.5));
         this.setPosition(oPoint);
         this.layer = DialogBackground.create(pw, ph);
         this.setTouchEnabled(true);
