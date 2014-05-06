@@ -36,6 +36,7 @@ function NpcFactory() {
 				.tilePositionToWorldLocation(position), id, name);
 		npc.setPriority(self._mapLayer.getTouchPriority() - 1);
 		self._npcLayer.addChild(npc, 10);
+		
 	}
 
 }

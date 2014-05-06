@@ -6,6 +6,7 @@ var Npc = cc.Sprite
 			_touchEnabled : true,
 			_touchDraw : false,
 			_priority : null,
+			_sprite:null,
 			_x : null,
 			_y : null,
 			_id : null,
@@ -17,8 +18,19 @@ var Npc = cc.Sprite
 			    this._super();
 			    var x = Math.floor(id % 9);
 			    var y = Math.floor(id / 9);
-				this.initWithFile(s_npc, cc.rect(x*50, y* 80, 50, 80));
+			    
+			    
+			  
+				
+				this._sprite=cc.Sprite.create();
+				this._sprite.initWithFile(s_npc, cc.rect(x*50, y* 80, 50, 80));	
+				this.addChild(this._sprite);
+				this._sprite.setPosition(cc.p(0,40));
+				
+				
+				this.setPosition(position);//坐标位置
 				this.setAnchorPoint(cc.p(0.5, 0.5));
+				position.y-=10;
 				this.setPosition(position);
 				this._id = id;
 				this._title = name;
@@ -27,7 +39,12 @@ var Npc = cc.Sprite
 				tn.setPosition(cc.p(25, -12));
 				tn.setColor(cc.c3(22, 50, 31));
 				this.addChild(tn);
-
+				
+				var npcTile = cc.Sprite.create(s_npcTile);
+				npcTile.setPosition(cc.p(0,10));
+				this.addChild(npcTile,-1);
+				
+		
 				return true;
 			},
 
@@ -50,7 +67,8 @@ var Npc = cc.Sprite
 			},
 
 			touchRect : function() {
-				return this.getBoundingBoxToWorld();
+				return this._sprite.getBoundingBoxToWorld();
+				
 			},
 
 			setTouchEnabled : function(enable) {
@@ -70,6 +88,7 @@ var Npc = cc.Sprite
 				// 如果点击在npc上，则弹出对话框，并返回true，截断touch， 否则，返回false，响应下层touch
 				if (cc.Rect.CCRectContainsPoint(this.touchRect(), touch.getLocation())) 
 				{
+				/*
 					var self = this;
 					var dialog = NpcTaskListDialog.create(cc.p(0,0), self._priority, 0, self._title);
 					this.addChild(dialog._dialogView);
@@ -91,6 +110,7 @@ var Npc = cc.Sprite
 							cc.log("initTaskList");
 						}
 					});
+					*/
 					return true;
 				}
 				return false;

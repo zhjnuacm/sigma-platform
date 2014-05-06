@@ -59,6 +59,7 @@ var s_dlg_corner_righttop = "client/res/dlg_corner_righttop.png";
 var s_dlg_corner_top = "client/res/dlg_corner_top.png";
 var s_edgeBg			= "client/res/map/edgeBg.png";
 var s_clickTile = "client/res/map/clickTile.png";
+var s_npcTile = "client/res/map/npcTile.png";
 var s_friend_add = "client/res/friend_add.png";
 var s_friend_add2 = "client/res/friend_add2.png";
 var s_main_font = "client/res/fnt/LiberationMono-Regular.ttf"
@@ -175,6 +176,7 @@ var g_ressources = [
     { type: "image", src: s_friend_menu_show2 },
     { type: "image", src: s_friend_menu_pk2 },
     { type: "image", src: s_clickTile},
+    { type: "image", src: s_npcTile},
     { type: "image", src: s_edgeBg },
         { type: "image", src: s_friend_add },
     { type: "image", src: s_friend_add2 },

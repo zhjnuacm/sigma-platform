@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 // uncomment the following to define a path alias
 // Yii::setPathOfAlias('local','path/to/local-folder');
@@ -8,7 +8,7 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'sigma-platform',
-	'runtimePath'=>'/home/conlan/runtime',
+	'runtimePath'=>'C:\\runtime',
 	// preloading 'log' component
 	'preload'=>array('log'),
 
@@ -64,7 +64,7 @@ return array(
 			'connectionString' => 'mysql:host=localhost;dbname=sigma_local',
 			'emulatePrepare' => true,
 			'username' => 'root',
-			'password' => '123456',
+			'password' => '',
 			'charset' => 'utf8',
 			'enableProfiling' => true,
 			'enableParamLogging' => true

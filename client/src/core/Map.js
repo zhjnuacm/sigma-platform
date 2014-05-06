@@ -171,7 +171,7 @@ var Map = cc.Layer.extend({
             //cc.log(buildObject.getAttribute('polyline'));
         };
 		 
-		
+		//this.logMatrix();
     },
 
 
@@ -198,7 +198,7 @@ var Map = cc.Layer.extend({
             for(var j=0;j<this._matrixHeight;j++){
                 if(typeof(this._tileSets[i+j]) == "undefined") continue;
                 if(this._tileSets[c]>0) this._matrix[i][j] = this._tileSets[c++];
-                if(this._matrix[i][j]==91 || this._matrix[i][j]==92)this._matrix[i][j]=0;
+                if(this._matrix[i][j]==91 || this._matrix[i][j]==92 || this._matrix[i][j]==1 )this._matrix[i][j]=0;
             }
         }
     },
@@ -210,7 +210,7 @@ var Map = cc.Layer.extend({
                 a+=this._matrix[i][j];
                 a+=" ";
             }
-          //  cc.log(a);
+            cc.log(a);
         }
     },
 
