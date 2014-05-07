@@ -57,6 +57,8 @@ var s_dlg_corner_right = "client/res/dlg_corner_right.png";
 var s_dlg_corner_rightbottom = "client/res/dlg_corner_rightbottom.png";
 var s_dlg_corner_righttop = "client/res/dlg_corner_righttop.png";
 var s_dlg_corner_top = "client/res/dlg_corner_top.png";
+var s_dlg_backarrow_normal = "client/res/dlg_backarrow_normal.png";
+var s_dlg_backarrow_down = "client/res/dlg_backarrow_down.png";
 var s_edgeBg			= "client/res/map/edgeBg.png";
 var s_clickTile = "client/res/map/clickTile.png";
 var s_npcTile = "client/res/map/npcTile.png";
@@ -69,7 +71,7 @@ var s_user_block = "client/res/user/userblock.png";
 var s_user_boy_mark = "client/res/user/boy_mark.png";
 var s_user_girl_mark = "client/res/user/girl_mark.png";
 var s_process_bg = "client/res/process_bg.png";
-
+var s_map_door = "client/res/map/door.png";
 var s_dlg = [
     {
         type: "close_normal",
@@ -111,6 +113,14 @@ var s_dlg = [
         type: "corner_top",
         res: "client/res/dlg_corner_top.png"
     },
+        {
+        type: "backarrow_normal",
+        res: "client/res/dlg_backarrow_normal.png"
+    },
+        {
+        type: "backarrow_down",
+        res: "client/res/dlg_backarrow_down.png"
+    },
 ];
 
 //tmx map 
@@ -125,7 +135,7 @@ var g_ressources = [
     {type:"image", src:s_HeroPanel},
     
     {type:"image", src:s_process_bg},
-    
+    {type:"image", src:s_map_door},
     { type: "image", src: s_dlg_close_normal },
     { type: "image", src: s_dlg_close_select },
     { type: "image", src: s_dlg_corner_bottom },

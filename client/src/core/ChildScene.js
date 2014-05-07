@@ -67,11 +67,20 @@ var ChildScene = cc.Layer.extend({
 		//map
 		this._map = Map.create('map1');
 		this.addChild(this._map,this._zOrder["_map"]);
+		
+		
 		this._npcFactory = NpcFactory.create(this._map,'map1');
 		//hero
 		this._hero = Hero.create(this._map.tilePositionToWorldLocation(cc.p(4,1)));
 		this.addChild(this._hero.getSprite(), this._zOrder["_hero"]);
 		
+		
+		
+        
+		 var door2 = cc.Sprite.create(s_map_door);
+        door2.setPosition(cc.p(380,380));
+        door2.setScale(1.0);
+        this.addChild(door2,155);
 		
 		
 //		//添加其他用户

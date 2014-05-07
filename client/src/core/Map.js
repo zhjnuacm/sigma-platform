@@ -120,6 +120,13 @@ var Map = cc.Layer.extend({
 		};
 
 		*/
+		
+		 var door1 = cc.Sprite.create(s_map_door);
+        door1.setPosition(cc.p(1210,958));
+        door1.setScale(1.0);
+        this.addChild(door1,5);
+    
+   		
 
         this._groundLayer = this._tmxMap.getLayer(this._mapConfig.ground);		//初始化地图floor层
 
