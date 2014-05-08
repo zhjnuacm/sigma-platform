@@ -136,6 +136,8 @@ var g_ressources = [
     
     {type:"image", src:s_process_bg},
     {type:"image", src:s_map_door},
+    {type:"image", src:s_dlg_backarrow_normal},
+    {type:"image", src:s_dlg_backarrow_down},
     { type: "image", src: s_dlg_close_normal },
     { type: "image", src: s_dlg_close_select },
     { type: "image", src: s_dlg_corner_bottom },
