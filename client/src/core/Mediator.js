@@ -86,11 +86,19 @@ function Mediator() {
 	    this._childScene.loopTime();
 	},
 	
+	this.showTaskCheck = function() {
+		var taskcheck = TaskCheck.create(cc.p(100, 100));
+	},
 ////////////////////////////按键响应
 	this.onKeyDown = function(key){
 	    if (key == 9) {
 	    		this.showBigMap();
 	        return;
+	    }
+	    if(key == 36)
+	    {
+	    	this.showTaskCheck();
+	    	return ;
 	    }
 	    this._childScene.onKeyDown(key);
 	},

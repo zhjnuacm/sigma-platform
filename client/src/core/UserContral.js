@@ -16,7 +16,7 @@ userData.push(
         'Photo': 'client/res/user/1.png'
     },
     {
-    	'ID': 2,
+        'ID': 2,
         'name': 'nanke',
         'PositionX': 1480,
         'PositionY': 900,
@@ -24,7 +24,7 @@ userData.push(
         'Photo': 'client/res/user/2.png'
     },
     {
-    	'ID': 3,
+        'ID': 3,
         'name': 'vainner',
         'PositionX': 1380,
         'PositionY': 900,
@@ -32,7 +32,7 @@ userData.push(
         'Photo': 'client/res/user/3.png'
     },
     {
-    	'ID': 4,
+        'ID': 4,
         'name': 'huangniang',
         'PositionX': 1180,
         'PositionY': 900,
@@ -40,7 +40,7 @@ userData.push(
         'Photo': 'client/res/user/4.png'
     },
     {
-    	'ID': 5,
+        'ID': 5,
         'name': 'cchun',
         'PositionX': 980,
         'PositionY': 900,
@@ -198,7 +198,7 @@ var User= cc.Sprite.extend({
     },
 
     initUserData: function (userdata) {
-    	//cc.log(userdata);
+        //cc.log(userdata);
        this._uData.ID = userdata.ID;
        this._uData.name = userdata.name;
        this._uData.Photo = userdata.Photo;
@@ -286,7 +286,46 @@ var UserMenu = function(){
 
     this.pk = function () {
         //这里自定以函数体
-        alert("yes");
+        var data = new Array();
+        var contenSize = cc.SizeMake(300, 300);
+        var cellSize = cc.SizeMake(300, 60);
+        cc.log(userData[0].name);
+        for (var i = 0; i < 10; i++) {
+
+            var node = cc.Node.create();
+            node.setContentSize(cellSize);
+
+            var label1 = cc.LabelTTF.create(userData[i >= 5 ? i - 5 : i].name, s_yahei, 12);
+            label1.setAnchorPoint(cc.p(0, 0));
+            label1.setColor(cc.c3(20 * i, 15 * i, 10 * i));
+            label1.setPosition(cc.p(20, 5));
+            node.addChild(label1);
+
+            var label2 = cc.LabelTTF.create("x"+i, s_yahei, 12);
+            label2.setAnchorPoint(cc.p(0, 0));
+            label2.setColor(cc.c3(20 * i, 15 * i, 10 * i));
+            label2.setPosition(cc.p(220, 5));
+            node.addChild(label2);
+
+            //var bg = cc.LayerColor.create(cc.c4(20 * i, 15 * i, 10 * i, 255), 30, 30);
+            //bg.setPosition(cc.p(260, 5));
+            cc.log(userData[i >= 5 ? i - 5 : i].Photo);
+            var photo = cc.Sprite.create(userData[i >= 5 ? i - 5 : i].Photo);
+            photo.setScale(0.5, 0.5);
+            photo.setPosition(cc.p(260, 20));
+
+            node.addChild(photo);
+         //   node.setTag(i);
+            data[i] = node;
+        }
+
+        var list = TileList.create(data, contenSize, cellSize, cc.p(200, 200));
+
+        //var dialog = DialogView.create(300, 300, cc.p(0, 0));
+        GLOBAL.mainLayer.addChild(list, 100);
+        //dialog.addChild(list);
+        //GLOBAL.mainLayer.addChild(dialog, 50);
+
         this.removeSelf();
     };
 

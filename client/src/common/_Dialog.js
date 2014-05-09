@@ -119,7 +119,7 @@ QuestionData.push(
         'task_id': 11,
         'title' : "才思敏捷",
         'question_type': ASK_ANSWER_QUESTION,
-        'description': "如何理解“图灵测试”与西尔勒的“中文小屋”？你更认可哪个？说明理由",
+        'description': "如何理解“图灵测试”与西尔勒的“中文小屋”？\n你更认可哪个？说明理由",
         'state': "未完成"          
     },
 
@@ -372,7 +372,7 @@ var TaskList = cc.Layer.extend({
                 var description = cc.LabelTTF.create(NpcData[i].description, s_yahei, 14);
                 description.setHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);
                 description.setColor(cc.c3(50, 50, 50));
-                description.setPosition(cc.p(200, 150));
+                description.setPosition(cc.p(200, 120));
                 this.addChild(description);
 
                 var t = cc.LabelTTF.create("确定", s_yahei, 14);
@@ -381,8 +381,8 @@ var TaskList = cc.Layer.extend({
                 t.setPositionX(0);
                 var btn_OK = null;
 
-                var t2 = cc.LabelTTF.create("取消",s_yahei, 12);
-                t2.setColor(cc.c3b(80,80,80));
+                var t2 = cc.LabelTTF.create("取消",s_yahei, 14);
+                t2.setColor(cc.c3b(50,50,50));
                 var btn_Cancel = cc.MenuItemLabel.create(t2,this.Close,this);
 
                 if(NpcData[i].npc_type == NPC_ADVISOR)
@@ -396,7 +396,7 @@ var TaskList = cc.Layer.extend({
                 }
                 var btn_menu = cc.Menu.create(btn_OK, btn_Cancel);
                 btn_menu.alignItemsHorizontallyWithPadding(100);
-                btn_menu.setPosition(cc.p(200, 100));
+                btn_menu.setPosition(cc.p(200, 60));
                 this.addChild(btn_menu);
                 return true;
             }
@@ -486,7 +486,7 @@ var TaskList = cc.Layer.extend({
         var description = cc.LabelTTF.create(title, s_yahei, 14);
         description.setHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);
         description.setColor(cc.c3(50, 50, 50));
-        description.setPosition(cc.p(200, 150));
+        description.setPosition(cc.p(200, 120));
         this.addChild(description);
 
         var t = cc.LabelTTF.create("确定", s_yahei, 14);
@@ -495,13 +495,10 @@ var TaskList = cc.Layer.extend({
         t.setPositionX(0);
         var btn_OK = cc.MenuItemLabel.create(t, this.Close, this);
         var btn_menu = cc.Menu.create(btn_OK);
-        btn_menu.setPosition(cc.p(200, 100));
+        btn_menu.setPosition(cc.p(200, 60));
         this.addChild(btn_menu);       
     },
 
-    finishAllTask: function(){
-
-    },
 
     finishTask: function() {
         this.removeAllChildren();
@@ -516,7 +513,7 @@ var TaskList = cc.Layer.extend({
         var description = cc.LabelTTF.create(title, s_yahei, 14);
         description.setHorizontalAlignment(cc.TEXT_ALIGNMENT_LEFT);
         description.setColor(cc.c3(50, 50, 50));
-        description.setPosition(cc.p(200, 150));
+        description.setPosition(cc.p(200, 120));
         this.addChild(description);
 
         var t = cc.LabelTTF.create("确定", s_yahei, 14);
@@ -525,7 +522,7 @@ var TaskList = cc.Layer.extend({
         t.setPositionX(0);
         var btn_OK = cc.MenuItemLabel.create(t, this.test, this);
         var btn_menu = cc.Menu.create(btn_OK);
-        btn_menu.setPosition(cc.p(200, 100));
+        btn_menu.setPosition(cc.p(200, 60));
         this.addChild(btn_menu);
         if(this._id == 19)
         {

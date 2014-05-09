@@ -24,7 +24,7 @@
 				prefix + 'src/core/Map.js', 
 				prefix + 'src/core/Npc.js',
 				prefix + 'src/core/SystemFunction.js',
-				prefix + 'src/core/Map.js', 
+				prefix + 'src/core/Map.js',
 				prefix + 'src/config/config.js',
                 prefix + 'src/config/global.js',
 				prefix + 'src/config/mapConfig.js',
@@ -43,11 +43,13 @@
 				prefix + 'src/common/ControlEditBox.js',
 				prefix + 'src/common/SelectButton.js',
 				prefix + 'src/core/_Task.js',
+				prefix + 'src/common/TileList.js',
 				prefix + 'src/core/NpcDialog.js',
 				prefix + 'src/core/LoaderScene.js',
 				prefix + 'src/core/NpcFactory.js',
 				prefix + 'src/core/ChildScene.js',
                 prefix + 'src/core/UserContral.js',
+                prefix + 'src/core/TaskCheck.js',
                
                 ],
 	};

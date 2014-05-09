@@ -189,13 +189,14 @@ var DialogView = cc.Layer.extend({
         
         //alert(starx + ' ' + endx + '\n' + stary + ' ' + endy + '\n' + x + ' '  + y + '\n'
         //		+ '\n' + this.getPositionX() + ' ' + this.getPositionY());
-
         if (x >= starx && x <= endx && y >= stary && y <= endy) {
             //对话框内容
             //alert("Yes!");
+            return false;
+
         }
         else {
-            this.onShake();
+            //this.onShake();
         }
         return true;
     },

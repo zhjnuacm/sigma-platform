@@ -525,7 +525,7 @@ var FriendListLayer = cc.Layer.extend({
     },
 
     scrollViewDidScroll: function (view) {
-
+        cc.log("scroll");
     },
     scrollViewDidZoom: function (view) {
 
