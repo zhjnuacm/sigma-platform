@@ -9,9 +9,8 @@ var UNCOMPLETED = 1; //未完成
 var UserTasksData = [];
 UserTasksData.push(
 {
-'name': "test_1",
+'name': "Jopix",
 'accepted_tasks': [
-{"id":"1","status":COMPLETED},
 {"id":"2","status":COMPLETED},
 {"id":"3","status":COMPLETED},
 {"id":"4","status":COMPLETED},
@@ -23,9 +22,8 @@ UserTasksData.push(
 {"id":"10","status":COMPLETED}]
 },
 {
-'name': "test_2",
+'name': "nanke",
 'accepted_tasks': [
-{"id":"1","status":COMPLETED},
 {"id":"2","status":COMPLETED},
 {"id":"3","status":COMPLETED},
 {"id":"4","status":COMPLETED},
@@ -34,27 +32,36 @@ UserTasksData.push(
 {"id":"7","status":COMPLETED}]
 },
 {
-'name': "test_3",
+'name': "vainner",
 'accepted_tasks': [
-{"id":"1","status":COMPLETED},
 {"id":"2","status":COMPLETED},
 {"id":"3","status":COMPLETED},
-{"id":"4","status":COMPLETED},
+{"id":"4","status":UNCOMPLETED},
 {"id":"5","status":COMPLETED},
 {"id":"6","status":COMPLETED},
 {"id":"7","status":COMPLETED},
 {"id":"8","status":COMPLETED},
-{"id":"9","status":COMPLETED}]
+{"id":"9","status":UNCOMPLETED}]
 },
 {
-'name': "test_4",
+'name': "cchun",
 'accepted_tasks': [
-{"id":"1","status":COMPLETED},
 {"id":"2","status":COMPLETED},
+{"id":"3","status":UNCOMPLETED},
+{"id":"4","status":COMPLETED},
+{"id":"5","status":UNCOMPLETED},
+{"id":"6","status":COMPLETED},
+{"id":"7","status":COMPLETED},
+{"id":"8 ","status":COMPLETED}]
+},
+{
+'name': "huanniang",
+'accepted_tasks': [
+{"id":"2","status":UNCOMPLETED},
 {"id":"3","status":COMPLETED},
 {"id":"4","status":COMPLETED},
 {"id":"5","status":COMPLETED},
-{"id":"6","status":COMPLETED},
+{"id":"6","status":UNCOMPLETED},
 {"id":"7","status":COMPLETED},
 {"id":"8 ","status":COMPLETED}]
 },
@@ -63,14 +70,14 @@ UserTasksData.push(
 'completed_tasks': [
 {"id":"1","status":COMPLETED},
 {"id":"2","status":COMPLETED},
-{"id":"3","status":COMPLETED},
+{"id":"3","status":UNCOMPLETED},
 {"id":"4","status":COMPLETED}]
 }
 );
 var udata = [];
 udata.push(
 	{
-		'name': 'jopix',
+		'name': 'Jopix',
 		'photo' : 'client/res/user/1.png'
 	},
 	{
@@ -82,26 +89,75 @@ udata.push(
 		'photo' : 'client/res/user/3.png'
 	},
 	{
-		'name': 'jopix',
-		'photo' : 'client/res/user/1.png'
+		'name': 'cchun',
+		'photo' : 'client/res/user/5.png'
 	},
 	{
-		'name': 'nanke',
-		'photo' : 'client/res/user/2.png'
-	},
-	{
-		'name': 'vainner',
-		'photo' : 'client/res/user/3.png'
-	},
-	{
-		'name': 'nanke',
-		'photo' : 'client/res/user/2.png'
-	},
-	{
-		'name': 'vainner',
-		'photo' : 'client/res/user/3.png'
+		'name': 'huanniang',
+		'photo' : 'client/res/user/4.png'
 	}
 );
+var _ItemCellView = cc.TableViewCell.extend({
+    /*
+    _fData: {
+        'name': null,
+        'place': null,
+        'photo': null,
+        'mood': null,
+    },
+    _name: null,
+    _place: null,
+    _photo: null,
+    */
+    _name: null,
+    _size: null,
+
+    draw: function (ctx) {
+        this._super(ctx);
+        cc.renderContext.strokeStyle = "rgba(220,220,220,1)";
+        cc.renderContext.lineWidth = "1";
+        cc.drawingUtil.drawLine(cc.p(10, 0), cc.p(this._size.width-20, 0));
+    },
+
+    init: function (node) {
+        /*
+        this.setIdx(idx);
+
+        this._photo = cc.Sprite.create(this._fData.photo);
+        this._photo.setScale(0.5, 0.5);
+        this._photo.setPosition(cc.p(25, 25));
+        this.addChild(this._photo);
+
+        this._name = cc.LabelTTF.create(this._fData.name, s_yahei, 12);
+        this._name.setAnchorPoint(cc.p(0, 0));
+        this._name.setColor(cc.c3(30, 30, 30));
+        this._name.setPosition(cc.p(60, 30));
+
+        this.addChild(this._name);
+
+        this._place = cc.LabelTTF.create(this._fData.place, s_yahei, 12);
+        this._place.setColor(cc.c3(140, 140, 140));
+        this._place.setPosition(cc.p(60, 8));
+        this._place.setAnchorPoint(cc.p(0, 0));
+        this.addChild(this._place);
+        */
+        var label = node.getChildByTag(1);
+        if(label != null)
+        {
+            this._name = label.getString();
+        }
+        this._size = node.getContentSize();
+        //this.addChild(node); 
+
+        return true;
+    },
+
+    updataFromIndex : function( node )
+    {
+      //  node.removeFromParentAndCleanup(false);
+      //  this.addChild(node);
+    }
+});
 
 var MenuList = cc.Layer.extend({
     friendView: null,
@@ -168,7 +224,7 @@ var MenuList = cc.Layer.extend({
         var cell = table.dequeueCell();
         var node = this._dataScoure[strValue];
         if (!cell) {
-            cell = new ItemCellView();
+            cell = new _ItemCellView();
             cell.init(node);
             cell.addChild(node);
         } else {
@@ -201,9 +257,53 @@ var MenuList = cc.Layer.extend({
     {
         this.removeFromParent(true);
     },
+
+    getTitle: function(id) {
+    	for(var i = 0; i < QuestionData.length; ++i) {
+    		if(id == QuestionData[i].task_id) {
+    			return QuestionData[i].title;
+    		}
+    	}
+    	return "undefined";
+
+    },
+
    	showCheck: function(name) {
 
-   		
+   		var data = new Array();
+   		var contentSize = cc.SizeMake(300, 300);
+   		var cellSize = cc.SizeMake(300, 40);
+   		var num = 0;
+   		for(var i = 0; i < UserTasksData.length; ++i) {
+   			if(UserTasksData[i].name == name) {
+   				cc.log("name " + name);
+   				for(var j = 0; j < UserTasksData[i].accepted_tasks.length; ++j) {
+   					var title = this.getTitle(UserTasksData[i].accepted_tasks[j].id);
+   					var status = UserTasksData[i].accepted_tasks[j].status;
+
+   					var node = cc.Node.create();
+            		node.setContentSize(cellSize);
+
+            		cc.log("title : " + title);
+            		var label1 = cc.LabelTTF.create(title, s_yahei, 12);
+            		label1.setAnchorPoint(cc.p(0, 0));
+            		label1.setColor(cc.c3(20 * i, 15 * i, 10 * i));
+            		label1.setPosition(cc.p(20, 5));
+            		node.addChild(label1);
+
+            		var label2 = cc.LabelTTF.create(status == 0 ? "COMPLETED" : "UNCOMPLETED", s_yahei, 12);
+            		label2.setAnchorPoint(cc.p(0, 0));
+            		label2.setColor(cc.c3(20 * i, 15 * i, 10 * i));
+            		label2.setPosition(cc.p(180, 5));
+            		node.addChild(label2);
+            		data[num++] = node;
+   				}
+   			}
+   		}
+   		cc.log(data);
+   		var list = TileList.create(data, contentSize, cellSize, cc.p(230, 100));
+   		GLOBAL.mainLayer.addChild(list, 100);
+
    	}
 });
 
@@ -238,7 +338,7 @@ TaskCheck = function() {
 			photo.setPosition(cc.p(20, 20));
 
 			node.addChild(photo);
-        	var label1 = cc.LabelTTF.create(userData[i >= 5 ? i - 5 : i].name, s_yahei, 12);
+        	var label1 = cc.LabelTTF.create(udata[i].name, s_yahei, 12);
         	label1.setAnchorPoint(cc.p(0, 0));
         	label1.setColor(cc.c3(20 * i, 15 * i, 10 * i));
         	label1.setPosition(cc.p(50, 5));

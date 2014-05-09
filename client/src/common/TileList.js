@@ -15,7 +15,6 @@ var ItemCellView = cc.TableViewCell.extend({
     _place: null,
     _photo: null,
     */
-    _name: null,
     _size: null,
 
     draw: function (ctx) {
@@ -47,14 +46,8 @@ var ItemCellView = cc.TableViewCell.extend({
         this._place.setAnchorPoint(cc.p(0, 0));
         this.addChild(this._place);
         */
-        var label = node.getChildByTag(1);
-        if(label != null)
-        {
-            this._name = label.getString();
-        }
-        this._size = node.getContentSize();
-        //this.addChild(node); 
 
+        this._size = node.getContentSize();
         return true;
     },
 

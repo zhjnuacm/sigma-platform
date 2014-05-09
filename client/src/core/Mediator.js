@@ -58,9 +58,18 @@ function Mediator() {
 		var menu = cc.Menu.create(crButton);
 		menu.setPosition(cc.p(this._size.width - 10, 520));
 		this._mainLayer.addChild(menu);
+
+		var tcButton = cc.MenuItemImage.create(s_friend_menu, s_friend_menu, s_friend_menu, this.showTaskCheck, this);
+		var tcmenu = cc.Menu.create(tcButton);
+		tcmenu.setPosition(cc.p(this._size.width - 10, 490));
+		this._mainLayer.addChild(tcmenu);
+
 		return true;
 	},
 
+	this.showTaskCheck = function() {
+		var taskcheck = TaskCheck.create(cc.p(100, 100));
+	},
 
     //Jopix tab键显示大地图
 	this.showBigMap = function () {
@@ -86,19 +95,11 @@ function Mediator() {
 	    this._childScene.loopTime();
 	},
 	
-	this.showTaskCheck = function() {
-		var taskcheck = TaskCheck.create(cc.p(100, 100));
-	},
 ////////////////////////////按键响应
 	this.onKeyDown = function(key){
 	    if (key == 9) {
 	    		this.showBigMap();
 	        return;
-	    }
-	    if(key == 36)
-	    {
-	    	this.showTaskCheck();
-	    	return ;
 	    }
 	    this._childScene.onKeyDown(key);
 	},
