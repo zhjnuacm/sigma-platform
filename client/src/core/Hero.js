@@ -147,7 +147,7 @@ function Hero() {
         name.setScale(5 / 3, 5 / 3);
         this._sprite.addChild(name);
 	    //初始化消息
-    	this._mesLayer = MessageList.create(cc.p(-20, 130));
+    	this._mesLayer = MessageList.create(cc.p(-50, 110));
     	this._sprite.addChild(this._mesLayer);
 
 		return true;
