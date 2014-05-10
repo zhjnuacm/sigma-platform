@@ -77,10 +77,7 @@ var ChildScene = cc.Layer.extend({
 		
 		
         
-		 var door2 = cc.Sprite.create(s_map_door);
-        door2.setPosition(cc.p(380,380));
-        door2.setScale(1.0);
-        this.addChild(door2,155);
+ 		this.addChild(this._map.door1,155);	
 		
 		
 //		//添加其他用户

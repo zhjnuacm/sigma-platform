@@ -76,7 +76,8 @@ var Map = cc.Layer.extend({
     _walkMargin:7,//地图边缘
     _squareSize:20,//TMX地图大小为 30*30=900个TILE
 	
-
+	door:null,//为了应付答辩临时加的	
+	door1:null,
     /**
 	 * [init 根据英雄的位置和英雄的地图 初始化地图]
 	 * @param  {[type]} HeroPosition [英雄的tile位置]
@@ -92,11 +93,22 @@ var Map = cc.Layer.extend({
         this.addChild(this._tmxMap,-1,MAP_TAG);
         this._tileSize = this._tmxMap.getTileSize();
         this._mapSize = this._tmxMap.getContentSize();
+	
+		this.door = cc.Sprite.create(s_map_door2);
+        this.door.setPosition(cc.p(1210,958));
+        this.door.setScale(1.0);
+        this.addChild(this.door,5);	
+		
+		this.door1 = cc.Sprite.create(s_map_door1);
+        this.door1.setPosition(cc.p(380,380));
+        this.door1.setScale(1.0);
+      		
 
         this.initMapInfo(HeroMap);
         GLOBAL.mapName = HeroMap;
         return true;
     },
+	
 
     initMapInfo:function(HeroMap){
 		
@@ -121,10 +133,20 @@ var Map = cc.Layer.extend({
 
 		*/
 		
-		 var door1 = cc.Sprite.create(s_map_door);
-        door1.setPosition(cc.p(1210,958));
-        door1.setScale(1.0);
-        this.addChild(door1,5);
+	
+		cc.log(HeroMap);
+		if(HeroMap=="map1"){
+			this.door.setVisible(true);
+		}else{
+			this.door.setVisible(false);
+		}
+		
+		if(HeroMap=="map3"){
+			this.door1.setVisible(true);
+		}else{
+			this.door1.setVisible(false);
+		}
+					
     
    		
 
@@ -381,6 +403,8 @@ var Map = cc.Layer.extend({
         this.addChild(this._tmxMap,-1,MAP_TAG);
         this.initMapInfo(targetMap);
 		
+		
+		
         this._tileSize = this._tmxMap.getTileSize();
         this._mapSize = this._tmxMap.getContentSize();
 		
@@ -414,7 +438,9 @@ var Map = cc.Layer.extend({
             this.initMapInfo(targetMap);
             this._tileSize = this._tmxMap.getTileSize();
             this._mapSize = this._tmxMap.getContentSize();
+			
 
+			this.door.setVisible(false);
             //切小地图
             var smapPath = 'client/res/map/' + targetMap + '.png';
             var sMap = SMap.getInstance();

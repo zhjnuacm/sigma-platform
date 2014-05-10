@@ -59,7 +59,7 @@ function Mediator() {
 		menu.setPosition(cc.p(this._size.width - 10, 520));
 		this._mainLayer.addChild(menu);
 
-		var tcButton = cc.MenuItemImage.create(s_friend_menu, s_friend_menu, s_friend_menu, this.showTaskCheck, this);
+		var tcButton = cc.MenuItemImage.create(s_tasks_menu, s_tasks_menu, s_tasks_menu, this.showTaskCheck, this);
 		var tcmenu = cc.Menu.create(tcButton);
 		tcmenu.setPosition(cc.p(this._size.width - 10, 490));
 		this._mainLayer.addChild(tcmenu);
